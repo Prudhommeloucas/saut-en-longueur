@@ -43,6 +43,8 @@ Les quatre se chargent bien en test dans Studio. À revérifier une fois le jeu 
 
 ## À faire
 
+Les listes complètes sont maintenant dans [[Modèles 3D]], [[Animations]] et [[Sons et musique]] ; les quatre sons ci-dessus sont repris dans [[Registre des sons]]. Rappel de ce qui manquait à l'origine :
+
 - Animations de squat et de mollets (il faut créer ou trouver des animations).
 - Un vrai son de réacteur pour le jetpack.
 - Musique d'ambiance.

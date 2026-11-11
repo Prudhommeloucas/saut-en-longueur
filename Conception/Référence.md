@@ -23,5 +23,10 @@ On reprend le genre et la structure de progression. On ne copie pas sa map, ses 
 | Skill gagné à l'entraînement | Force gagnée au squat et aux mollets ([[Entraînement]]) |
 | Lancer de pierre sur la rivière | Saut sur la piste ([[Map]]) |
 | Wins selon la distance | Pièces selon la distance du saut |
-| Pierres de plus en plus fortes | Chaussures propulsantes et jetpack ([[Objets]]) |
-| Rebirth, pets, mondes | Plus tard, une fois la base jouable |
+| Pierres de plus en plus fortes | Chaussures, propulseurs, ailes ([[Équipement]]) |
+| Pets, fusion en doré | [[Compagnons]], versions Argent et Or |
+| Rebirth | Changement de catégorie et arbre de talents ([[Rebirth et talents]]) |
+| Mondes à seuil de Skill | Six [[Mondes]] à physique différente, ouverts par le record |
+| Lancers rares | Sauts dorés et légendaires ([[Saut]]) |
+
+Ce que nous ajoutons et que la référence n'a pas est listé dans [[Vision]].

@@ -1,38 +1,61 @@
 # Projet : Saut en longueur
 
-Map Roblox où le but est de sauter de plus en plus loin.
+Jeu Roblox où le but est de sauter de plus en plus loin. Nom de travail « Saut en longueur » ; le nom public reste à choisir ([[Décisions]]).
 
 ## État
 
-Première version jouable construite dans Roblox Studio le 2026-11-11 (place « Place1 », pas encore enregistrée ni publiée). Testée en mode jeu : entraînement, saut, pièces, boutique et jetpack fonctionnent.
+- Première version jouable construite dans Roblox Studio le 2026-11-11 (place « Place1 », pas encore enregistrée ni publiée). Entraînement, saut, pièces, boutique et jetpack fonctionnent. L'existant est décrit dans [[Map]], [[Scripts]] et [[Décor et effets]].
+- Le 2026-11-11, la conception a été approfondie et le travail réparti entre trois postes. Rien de cette conception n'est encore codé. Le plan est dans [[Déroulé du développement]], l'avancement dans [[Tableau de bord]].
 
-## Boucle de jeu
+## Le jeu en trois phrases
 
-1. Au spawn, le joueur s'entraîne pour améliorer son personnage ([[Entraînement]]).
-2. Il va sur la piste, prend son élan et saute. La distance donne des pièces ([[Map]]).
-3. Avec les pièces, il achète des objets pour aller encore plus loin ([[Objets]]).
+1. Le joueur s'entraîne pour faire monter ses stats ([[Entraînement]]).
+2. Il prend son élan et saute ; le saut est un petit jeu d'adresse en trois temps : appel, vol, réception ([[Saut]]).
+3. La distance rapporte des pièces, qui paient l'équipement, les compagnons et l'accès aux mondes suivants ([[Boucles de gameplay]]).
 
-## Notes du projet
+## Notes de conception (ce qu'on veut faire)
 
-- [[Map]] : le spawn et la piste de saut, avec les coordonnées
-- [[Entraînement]] : squat, mollets, formules des stats
-- [[Objets]] : jetpack, chaussures propulsantes, prix
-- [[Scripts]] : où est le code dans Studio et comment il fonctionne
-- [[Décor et effets]] : tribunes, arbres, lumière, particules, sons
+- [[Vision]] : piliers, public, ce qui nous distingue
+- [[Boucles de gameplay]] : boucles courte, de session et longue
+- [[Saut]] : appel, vol, réception, sauts rares
+- [[Entraînement]] : stats, zones, entraînement actif
+- [[Équipement]] : chaussures, propulseurs, ailes, niveaux
+- [[Compagnons]] : œufs, raretés, fusion, index
+- [[Rebirth et talents]] : catégories, médailles, arbre de talents
+- [[Mondes]] : six mondes avec chacun sa physique
+- [[Quêtes et récompenses]] : quêtes, paliers, connexion, temps de jeu
+- [[Social et compétition]] : classements, concours de serveur, amis
+- [[Économie]] : monnaies, formules, rythme visé
+- [[Monétisation]] : passes, produits, règles Roblox
+- [[Premières minutes]] : tutoriel
 - [[Référence]] : le jeu qui sert d'inspiration
 
-## Décisions prises
+## Notes de réalisation (comment on le fait)
 
-- Map tout en longueur : une piste de saut, avec un spawn au départ.
-- Squat = puissance de saut, mollets = vitesse d'élan.
-- Les bonus de vitesse et de saut ne s'appliquent que sur la piste, pas au spawn.
-- 1 mètre sauté = 1 pièce. 1 mètre = 4 studs.
-- Les objets s'achètent avec des pièces.
+- [[Map]], [[Décor et effets]], [[Scripts]] : ce qui est déjà construit
+- [[Architecture du code]] : organisation cible du code
+- [[Contrats]] : noms, tags et attributs partagés entre les postes
+- [[HUD]] : tous les écrans
+- [[Direction artistique]], [[Modèles 3D]], [[Animations]]
+- [[Sons et musique]], [[Images]]
+- [[Claude Design]] : plans de mondes, planches de modèles et maquettes avant construction
+- [[Lancement]] : publication, mesures, suite après la sortie
+
+## Équipe et suivi
+
+- [[Équipe]] : les trois postes
+- [[Liberté de création]] : ce que chacun décide seul, et la boîte à idées (`Idées/`)
+- [[Outils]] : logiciels, connecteurs et skills, par type de tâche
+- `README.md` : les quatre gestes pour rejoindre le projet
+- [[Première session]] : la mise en place que Claude fait seul la première fois
+- [[Installation]] : détail de la mise en place d'un poste
+- [[Travailler à plusieurs]] : git, Team Create, demandes
+- [[Déroulé du développement]] : toutes les tâches, dans l'ordre
+- [[Tableau de bord]] : avancement des trois postes
+- [[Décisions]] : décisions prises et questions à trancher
+
+## Décisions de base (toujours valables)
+
+- Squat = Puissance de saut, mollets = Vitesse d'élan. Les bonus ne s'appliquent que sur la piste.
+- 1 mètre = 4 studs au monde 1. La distance est toujours calculée par le serveur.
 - On reprend le genre et les mécaniques de la [[Référence]], mais avec notre propre map, notre nom et nos visuels.
-
-## Pas encore fait
-
-- Rebirth, pets, plusieurs mondes (prévu après la base).
-- Animations d'entraînement, musique, vrais modèles 3D (voir [[Décor et effets]]).
-- Plusieurs niveaux par objet.
-- La sauvegarde est codée mais jamais testée : elle demande une place publiée avec l'accès API activé.

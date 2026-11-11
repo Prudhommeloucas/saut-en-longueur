@@ -1,0 +1,26 @@
+# Obsidian : réglages propres à chaque personne (sinon conflits à chaque session)
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/graph.json
+.obsidian/appearance.json
+.obsidian/cache
+.trash/
+
+# Claude Code : fichiers propres à chaque poste
+CLAUDE.local.md
+.claude/settings.local.json
+
+# Roblox / Rojo
+*.rbxl.lock
+*.rbxlx.lock
+sourcemap.json
+/Packages/
+/ServerPackages/
+
+# Blender : sauvegardes automatiques
+*.blend1
+*.blend2
+
+# Système
+Thumbs.db
+.DS_Store

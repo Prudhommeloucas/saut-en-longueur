@@ -26,5 +26,8 @@ Voir [[Projet]] pour la vue d'ensemble. Tout est dans `Workspace.Map`. La piste 
 
 ## À faire
 
+- Ranger la map dans `Workspace.Mondes.Monde1` et poser les tags et attributs de [[Contrats]] (tâche T-007 du [[Déroulé du développement]]). Mettre le tableau ci-dessus à jour à ce moment-là.
+- Les mondes suivants sont décrits dans [[Mondes]], les modèles à produire dans [[Modèles 3D]].
+
 - Le décor est en place, voir [[Décor et effets]]. Il reste à remplacer les formes simples par de vrais modèles.
 - Si les sauts dépassent 500 m, allonger le sable (une Part est limitée à 2048 studs, il faudra en ajouter une deuxième).

@@ -1,0 +1,15 @@
+* text=auto
+
+# Fichiers binaires : jamais de fusion, jamais de conversion de fins de ligne
+*.blend binary
+*.fbx binary
+*.glb binary
+*.obj binary
+*.rbxl binary
+*.rbxm binary
+*.png binary
+*.jpg binary
+*.ogg binary
+*.mp3 binary
+*.wav binary
+*.xlsx binary

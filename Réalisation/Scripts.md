@@ -1,6 +1,6 @@
 # Scripts
 
-Où se trouve le code dans Roblox Studio. Voir [[Projet]].
+Où se trouve le code dans Roblox Studio aujourd'hui. Voir [[Projet]]. Cette note décrit l'existant ; l'organisation visée, et la migration de ces trois scripts vers le dépôt, sont dans [[Architecture du code]].
 
 | Script | Emplacement | Rôle |
 | --- | --- | --- |
