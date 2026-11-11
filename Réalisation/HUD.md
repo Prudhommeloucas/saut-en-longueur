@@ -1,6 +1,6 @@
 # HUD
 
-Tous les écrans du jeu. Le Poste 3 les construit dans `StarterGui`, le Poste 1 les branche ([[Contrats]]). Le style est décrit dans [[Direction artistique]].
+Tous les écrans du jeu. Ils se construisent dans `StarterGui` et le code s'y branche par leurs noms ([[Contrats]]). Le style est décrit dans [[Direction artistique]].
 
 ## Règles communes
 
@@ -75,4 +75,4 @@ Distance, détail des pièces ligne par ligne, mention « Nouveau record », bou
 1. Maquette de chaque écran avec [[Claude Design]], aux tailles réelles, validée par l'équipe avant construction. La disposition et le style proposés dans cette note sont libres ; seuls les noms des éléments lus par le code sont fixés ([[Liberté de création]]).
 2. Construction dans Studio avec les noms de cette note.
 3. Capture d'écran sur trois tailles d'écran, jointe à la tâche.
-4. Le Poste 1 branche l'écran. Tout nom manquant passe par une demande.
+4. Le code branche l'écran, dans la même tâche ou dans la tâche de branchement. Un nom manquant s'ajoute ici et dans [[Contrats]].

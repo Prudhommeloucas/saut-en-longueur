@@ -16,15 +16,15 @@ Quatre gestes à faire soi-même, puis Claude s'occupe du reste.
 
    > Configure mon poste.
 
-Claude vérifie alors les logiciels, demande quel poste tu occupes, règle git, teste les connexions à Roblox Studio et à Blender, puis annonce ta première tâche. Il ne fait cette mise en place qu'une fois : ensuite, chaque session commence directement par la mise à jour du dépôt et la tâche en cours.
+Claude vérifie alors les logiciels, te demande ton prénom et ce que tu aimes faire, t'attribue un numéro de poste, règle git, teste les connexions à Roblox Studio et à Blender, puis te propose des tâches. Personne n'a de domaine réservé : tout le monde peut coder, construire, modéliser, faire des écrans ou des sons. Il ne fait cette mise en place qu'une fois : ensuite, chaque session commence directement par la mise à jour du dépôt et la tâche en cours.
 
 Si Claude ne propose pas la mise en place de lui-même à la première session, la phrase « Configure mon poste » la déclenche.
 
 ## Ensuite
 
 - Ouvrir le dossier dans Obsidian (« Ouvrir un dossier comme coffre ») et commencer par la note `Projet`.
-- Le plan complet est dans `Déroulé du développement`, l'avancement dans `Tableau de bord`.
-- Les règles pour travailler à trois sont dans `Équipe/Travailler à plusieurs`.
+- Le plan complet est dans `Déroulé du développement`, la liste à cocher dans `Suivi/Tâches`, l'avancement dans `Tableau de bord`.
+- Les règles pour travailler à trois (réserver sa tâche avant de commencer) sont dans `Équipe/Travailler à plusieurs`.
 
 ## En cas de problème
 

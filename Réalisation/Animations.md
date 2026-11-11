@@ -1,6 +1,6 @@
 # Animations
 
-Liste des animations et façon de les produire. Poste 2. Voir [[Modèles 3D]], [[Saut]] et [[Registre des animations]].
+Liste des animations et façon de les produire. Voir [[Modèles 3D]], [[Saut]] et [[Registre des animations]].
 
 ## Point important
 
@@ -45,4 +45,4 @@ Les compagnons n'ont pas de squelette. Leur mouvement (bonds derrière le joueur
 
 ## Objets animés par le code
 
-Œuf qui tremble puis se fend, anneaux qui tournent, drapeaux, roue, public en vague, portail. Le Poste 2 livre les modèles avec des parties séparées et nommées ; le Poste 1 les anime.
+Œuf qui tremble puis se fend, anneaux qui tournent, drapeaux, roue, public en vague, portail. Les modèles sont livrés avec des parties séparées et nommées ; le code les anime.

@@ -1,6 +1,6 @@
 # Registre des produits
 
-Un passe ou un produit par ligne, dès qu'il est créé sur le Creator Hub. Tenu par le Poste 3. Liste, effets et prix de départ dans [[Monétisation]]. Le Poste 1 reporte les identifiants dans `Config/Boutique`.
+Un passe ou un produit par ligne, dès qu'il est créé sur le Creator Hub. Celui qui crée le produit l'inscrit. Liste, effets et prix de départ dans [[Monétisation]]. Les identifiants se reportent dans `Config/Boutique`.
 
 ## Passes
 

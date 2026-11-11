@@ -1,8 +1,8 @@
 # Modèles 3D
 
-Liste et description des modèles à produire, et la façon de les produire. Poste 2. Voir [[Direction artistique]], [[Contrats]] et [[Registre des modèles]].
+Liste et description des modèles à produire, et la façon de les produire. Voir [[Direction artistique]], [[Contrats]] et [[Registre des modèles]].
 
-Les descriptions de cette note sont des suggestions de départ : le Poste 2 est libre de faire autrement et met la note à jour ([[Liberté de création]]).
+Les descriptions de cette note sont des suggestions de départ : celui qui fait le modèle est libre de faire autrement et met la note à jour ([[Liberté de création]]).
 
 ## Chaîne de production
 

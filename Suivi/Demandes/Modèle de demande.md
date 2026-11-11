@@ -8,11 +8,11 @@ tache: T-000
 
 # Modèle de demande
 
-Copier cette note, la nommer `AAAA-MM-JJ de P2 à P1 - sujet.md`, et passer `etat` à `ouverte`. États possibles : `ouverte`, `fait`, `refusee`. Voir [[Travailler à plusieurs]].
+Copier cette note, la nommer `AAAA-MM-JJ de P2 à P1 - sujet.md` (ou `à tous`, avec `pour: tous`), et passer `etat` à `ouverte`. États possibles : `ouverte`, `fait`, `refusee`. Voir [[Travailler à plusieurs]].
 
 ## Demande
 
-Ce qu'il faut, en une ou deux phrases. Exemple : « Ajouter un attribut `Couleur` au tag `Anneau` pour avoir des anneaux bonus dorés. »
+Ce qu'il faut, en une ou deux phrases. Exemple : « J'ai besoin de modifier `StarterGui.HudSaut`, que tu as réservé pour T-108 : peux-tu me dire quand tu as fini ? » Pour un manque qu'on peut combler soi-même (un tag, un son), pas de demande : on le fait dans sa tâche.
 
 ## Pourquoi
 
@@ -20,4 +20,4 @@ Ce qu'il faut, en une ou deux phrases. Exemple : « Ajouter un attribut `Couleur
 
 ## Réponse
 
-Rempli par le poste destinataire : ce qui a été fait, où, et la date.
+Rempli par le destinataire : ce qui a été fait, où, et la date.

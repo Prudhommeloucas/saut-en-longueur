@@ -1,11 +1,11 @@
 # Architecture du code
 
-Organisation cible du code. Seul le Poste 1 écrit du code ([[Équipe]]). L'existant, trois scripts dans Studio, est décrit dans [[Scripts]] ; il sera migré vers cette organisation ([[Déroulé du développement]], tâches T-004 et T-005).
+Organisation cible du code. Tout le monde peut écrire du code ([[Équipe]]) ; les règles pour coder à trois sont plus bas et dans [[Travailler à plusieurs]]. L'existant, trois scripts dans Studio, est décrit dans [[Scripts]] ; il sera migré vers cette organisation ([[Déroulé du développement]], tâches T-004 et T-005).
 
 ## Principe : le code vit dans le dépôt
 
 - Les scripts sont des fichiers `.luau` dans `src/`, versionnés par git.
-- **Rojo** les envoie dans Studio. Seul le Poste 1 lance Rojo ; les deux autres postes reçoivent les scripts par Team Create, comme n'importe quel objet de la place.
+- **Rojo** les envoie dans Studio. Chacun lance Rojo dans sa **copie personnelle** de la place pour coder et tester ; la place partagée n'est synchronisée que depuis un dépôt à jour et propre, juste après un envoi sur GitHub ([[Travailler à plusieurs]]). Elle contient ainsi toujours le code de `master`.
 - Rojo ne gère que les dossiers de code. La map, les interfaces et les sons restent construits dans Studio et ne sont jamais écrasés (projet Rojo partiel).
 - Outils de qualité : **Selene** (détection d'erreurs), **StyLua** (mise en forme), **Wally** (bibliothèques). Versions fixées par **Rokit** dans `rokit.toml` ([[Outils]]).
 
@@ -50,11 +50,20 @@ Côté client, les contrôleurs correspondants : Hud, Saut, Entrainement, Boutiq
 
 1. **Le serveur décide.** Distances, gains, achats, tirages : tout est calculé côté serveur. Le client envoie des intentions et affiche des résultats.
 2. **Tout nombre d'équilibrage est dans `Config/`.** Un système ne contient aucune valeur en dur.
-3. **La map se décrit par des tags et des attributs** ([[Contrats]]). Le code ne connaît pas le nom ni la position des zones : il lit les objets marqués. Le Poste 2 peut donc ajouter une zone, un anneau ou un portail sans code.
-4. **L'interface est construite dans Studio** par le Poste 3 et le code s'y branche par les noms fixés dans [[Contrats]]. Le code ne crée pas d'écran.
+3. **La map se décrit par des tags et des attributs** ([[Contrats]]). Le code ne connaît pas le nom ni la position des zones : il lit les objets marqués. On peut donc ajouter une zone, un anneau ou un portail sans toucher au code.
+4. **L'interface est construite dans Studio** et le code s'y branche par les noms fixés dans [[Contrats]]. Le code ne crée pas d'écran.
 5. **Un seul point d'entrée réseau** : `Remotes.luau`. Chaque événement venant du client est vérifié (types, bornes) et limité en fréquence.
 6. **Identifiants stables.** Objets, compagnons, talents et quêtes ont un identifiant texte qui ne change jamais, même si le nom affiché change. Les sauvegardes ne stockent que ces identifiants.
 7. **Textes centralisés** dans `Config/Textes`, en français, pour permettre la traduction ([[Lancement]]).
+
+## Coder à trois
+
+- **Un système, un module.** La réservation d'une tâche de code liste les modules qu'elle touche ; deux personnes ne modifient pas le même module en même temps.
+- **Fichiers communs** (`Remotes.luau`, `init.server.luau`, `init.client.luau`, `Config/Textes`) : on ne les réserve pas, on y fait des ajouts courts et on les envoie vite.
+- **Avant chaque envoi** : Selene et StyLua sans erreur, le jeu se lance sans erreur dans sa copie personnelle.
+- **Changer l'interface publique d'un module** (fonctions appelées par d'autres systèmes) : chercher tous les appels et les adapter dans la même tâche.
+- **Comprendre avant de modifier** le code d'un autre : lire le module et sa note, et garder ses choix sauf raison de faire autrement.
+- **Relecture** : à chaque fin de phase, relecture de tout le code de la phase (skills `code-review` et `simplify`), par quelqu'un qui ne l'a pas écrit si possible.
 
 ## Données d'un joueur
 

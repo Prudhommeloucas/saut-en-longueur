@@ -50,7 +50,7 @@ Règle de confort : en jeu actif, le joueur ne doit jamais rester plus de 5 minu
 
 ## Méthode d'équilibrage
 
-1. **Tableur** : un classeur `equilibrage.xlsx` dans `assets/` reprend les tables de configuration et calcule, pour un joueur type, le temps entre deux achats. Le Poste 1 le génère à partir des modules de configuration.
+1. **Tableur** : un classeur `equilibrage.xlsx` dans `assets/` reprend les tables de configuration et calcule, pour un joueur type, le temps entre deux achats. Il se génère à partir des modules de configuration.
 2. **Simulation** : un script de test fait jouer un joueur automatique (entraînement, saut, achat du meilleur objet abordable) et trace la courbe record en fonction du temps.
 3. **Test réel** : chaque équipier joue une heure avec un compte neuf et note où il s'ennuie ou bloque.
 4. **Mesures** : après publication, les entonnoirs et les événements d'économie de Roblox disent où les joueurs partent ([[Lancement]]).

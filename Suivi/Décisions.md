@@ -1,13 +1,12 @@
 # Décisions
 
-Les décisions prises et les questions à trancher. Seul le Poste 1 modifie cette note ; les autres proposent par une demande ([[Travailler à plusieurs]]).
+Les décisions prises et les questions à trancher. N'importe qui peut écrire une décision prise par l'équipe, ou ajouter une question à trancher ([[Travailler à plusieurs]]).
 
 ## À trancher par l'équipe
 
 | N° | Question | Proposition | Pour quand |
 | --- | --- | --- | --- |
 | D-01 | Nom public du jeu | En anglais pour être trouvé partout : « Long Jump Legends », « Leap Legends » ou « Mega Jump Simulator ». Vérifier qu'aucun jeu Roblox connu ne porte déjà le nom | Avant T-704 |
-| D-02 | Qui prend le Poste 2 et le Poste 3 | Selon les goûts : 3D et construction, ou interface, son et image | Avant T-003 |
 | D-03 | Répartition des revenus du groupe | Parts égales | Avant T-002 |
 | D-04 | Nom du groupe Roblox (le studio) | — | Avant T-002 |
 | D-05 | Contenu du lancement | Mondes 1 et 2 complets, monde 3 trois semaines après | Fin de phase 4 |
@@ -30,11 +29,12 @@ Les décisions prises et les questions à trancher. Seul le Poste 1 modifie cett
 | 2026-11-11 | Le rebirth s'appelle « monter de catégorie » ; il remet à zéro les stats et les pièces, et conserve l'équipement | [[Rebirth et talents]] |
 | 2026-11-11 | Six mondes à physique différente | [[Mondes]] |
 | 2026-11-11 | Les concours se classent en pourcentage du record personnel | [[Social et compétition]] |
-| 2026-11-11 | Trois postes à zones réservées ; seul le Poste 1 code ; une seule branche git | [[Équipe]], [[Travailler à plusieurs]] |
+| 2026-11-11 | ~~Trois postes à zones réservées ; seul le Poste 1 code~~ Remplacée le jour même : aucun domaine réservé, tout le monde code et construit ; chaque tâche se réserve dans `Suivi/En cours/` avant d'être commencée ; une seule branche git | [[Équipe]], [[Travailler à plusieurs]], [[Tâches]] |
+| 2026-11-11 | On code et on teste dans sa copie personnelle de la place ; la place partagée n'est synchronisée par Rojo que depuis `master` à jour | [[Travailler à plusieurs]], [[Architecture du code]] |
 | 2026-11-11 | Le code vit dans le dépôt et passe par Rojo ; la place vit sur Roblox en Team Create | [[Architecture du code]] |
 | 2026-11-11 | Le jeu est publié sous un groupe Roblox | [[Lancement]] |
 | 2026-11-11 | La map et l'interface se relient au code par des tags, des attributs et des noms fixés | [[Contrats]] |
-| 2026-11-11 | Les notes sont un cadre : chacun est libre dans sa zone, les idées qui touchent les autres passent par `Idées/` | [[Liberté de création]] |
+| 2026-11-11 | Les notes sont un cadre : chacun est libre dans sa tâche, les idées qui changent les règles du jeu passent par `Idées/` | [[Liberté de création]] |
 | 2026-11-11 | Mondes, modèles et écrans se dessinent avec Claude Design avant construction ; Claude reconstruit ensuite dans Studio ou Blender | [[Claude Design]] |
 
 Les décisions du 2026-11-11 sur la conception sont des propositions issues de la séance de conception. Elles s'appliquent tant que l'équipe ne les a pas changées à la revue de fin de phase 0 (T-014).

@@ -1,8 +1,8 @@
 # Sons et musique
 
-Liste des sons à trouver ou créer, et la façon de les choisir. Poste 3. Voir [[Contrats]] et [[Registre des sons]]. Les quatre sons déjà en place sont décrits dans [[Décor et effets]].
+Liste des sons à trouver ou créer, et la façon de les choisir. Voir [[Contrats]] et [[Registre des sons]]. Les quatre sons déjà en place sont décrits dans [[Décor et effets]].
 
-Les descriptions sont des suggestions : le Poste 3 choisit librement, tant que chaque identifiant de la liste a un son ([[Liberté de création]]).
+Les descriptions sont des suggestions : celui qui fait la tâche choisit librement, tant que chaque identifiant de la liste a un son ([[Liberté de création]]).
 
 ## Où trouver les sons
 

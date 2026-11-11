@@ -6,24 +6,26 @@ La première fois, Claude fait ces vérifications de lui-même en suivant [[Prem
 
 ## Pour tout le monde
 
-1. **Installer** : git, Obsidian, Roblox Studio, Blender, Claude Desktop (ou Claude Code en terminal pour le Poste 1).
+1. **Installer** : git, Obsidian, Roblox Studio, Blender, Claude Desktop (ou Claude Code en terminal).
 2. **Récupérer le dépôt** : demander à Claude « clone le dépôt `Prudhommeloucas/saut-en-longueur` dans mon dossier Documents ». Chaque équipier doit avoir le droit d'écriture sur le dépôt GitHub.
 3. **Ouvrir le coffre** : dans Obsidian, « Ouvrir un dossier comme coffre », choisir le dossier cloné.
 4. **Ouvrir le dossier dans Claude Code** (onglet Code de Claude Desktop, ou `claude` dans un terminal placé dans le dossier).
-5. **Déclarer son poste** : à la première session, Claude demande le poste et crée le fichier `CLAUDE.local.md`. Ce fichier reste sur la machine, il n'est pas partagé. Modèle :
+5. **Déclarer son poste** : à la première session, Claude demande le prénom, attribue un numéro de poste libre et crée le fichier `CLAUDE.local.md`. Ce fichier reste sur la machine, il n'est pas partagé. Le numéro ne donne aucun domaine : tout le monde peut coder et construire. Modèle :
 
    ```markdown
    # Poste de cette machine
 
-   Cette machine est le **Poste 2 — Monde et 3D** (Claude Code dans Claude Desktop).
+   Cette machine est le **Poste 2** (Claude Code dans Claude Desktop).
 
-   - Fichier de suivi : `Suivi/Poste 2 - Monde et 3D.md`
-   - Ne crée et ne modifie aucun script.
+   - Titulaire : Prénom
+   - Journal : `Suivi/Poste 2.md`
+   - Pas de domaine réservé : ce poste prend n'importe quelle tâche de [[Tâches]], après l'avoir réservée.
    ```
 
 6. **Rejoindre le groupe Roblox** du studio et accepter l'invitation Team Create (après la tâche T-002).
 7. **Vérifier les MCP** : demander à Claude « liste les objets de Workspace dans Studio » et « décris la scène Blender ». Les deux doivent répondre.
-8. Inscrire son prénom sur la ligne « Titulaire » de son fichier de suivi.
+8. Inscrire son prénom sur la ligne « Titulaire » de son journal, et ses envies sur la ligne « Envies ».
+9. **Outils de code** (tout le monde code) : voir la partie suivante.
 
 ## Mise à jour automatique au début de session
 
@@ -51,9 +53,9 @@ La première fois, Claude fait ces vérifications de lui-même en suivant [[Prem
 
 Une fois ce fichier créé et envoyé sur GitHub par le Poste 1, il s'applique aux trois postes (Claude Code demande une confirmation à la première ouverture).
 
-## Poste 1 en plus
+## Outils de code, pour tout le monde
 
-1. **Outils de code**, depuis le dossier du projet :
+1. **Fixer les outils dans le projet** (une seule fois, tâche T-001), depuis le dossier du projet :
 
    ```
    rokit init
@@ -64,8 +66,13 @@ Une fois ce fichier créé et envoyé sur GitHub par le Poste 1, il s'applique a
    ```
 
    Cela crée `rokit.toml`, à envoyer sur GitHub.
-2. **Extension Rojo dans Studio** : déjà présente sur cette machine. Sinon `rojo plugin install`.
-3. **Brancher les MCP sur Claude Code en terminal.** Ils ne sont configurés que pour Claude Desktop. Reprendre la commande de lancement de chaque serveur et l'ajouter avec `claude mcp add`. Forme habituelle, à vérifier dans la documentation de chaque serveur :
+2. **Sur chaque machine** : installer Rokit, puis `rokit install` dans le dossier du projet. `rojo --version` doit répondre.
+3. **Extension Rojo dans Studio** : `rojo plugin install`.
+4. **Copie personnelle de la place** : dans Studio, ouvrir la place partagée puis Fichier > Enregistrer dans un fichier sous, dans `copies/` à la racine du projet (exclu de git). C'est là qu'on branche Rojo pour coder et tester ([[Travailler à plusieurs]]).
+
+## Claude Code en terminal en plus
+
+**Brancher les MCP sur Claude Code en terminal.** Ils ne sont configurés que pour Claude Desktop. Reprendre la commande de lancement de chaque serveur et l'ajouter avec `claude mcp add`. Forme habituelle, à vérifier dans la documentation de chaque serveur :
 
    ```
    claude mcp add --transport stdio roblox-studio -- "<chemin>\rbx-studio-mcp.exe" --stdio
@@ -74,18 +81,14 @@ Une fois ce fichier créé et envoyé sur GitHub par le Poste 1, il s'applique a
 
    Puis `claude mcp list` : les deux doivent apparaître comme connectés.
 
-## Poste 2 en plus
+## Monde, 3D, son et image, pour tout le monde
 
 - Dans Blender, activer l'extension du MCP Blender et démarrer le serveur depuis son panneau avant chaque séance.
 - Régler l'unité de Blender sur « aucune » avec une échelle de 1, pour que 1 unité = 1 stud.
-- Vérifier le droit de publier des animations et des modèles au nom du groupe Roblox.
-
-## Poste 3 en plus
-
-- Vérifier le droit de publier des sons et des images au nom du groupe, et de gérer les passes et produits du jeu sur le Creator Hub.
-- Installer Audacity.
-- Pour piloter le Creator Hub avec Claude : extension Claude pour Chrome, ou le navigateur intégré de Claude Desktop.
+- Vérifier le droit de publier des animations, des modèles, des sons et des images au nom du groupe Roblox.
+- Pour les passes et produits : droit de les gérer sur le Creator Hub ; pour piloter le Creator Hub avec Claude, extension Claude pour Chrome ou navigateur intégré de Claude Desktop.
+- Facultatif : Audacity, pour retoucher des sons.
 
 ## Vérification finale
 
-Demander à Claude : « quelle est ma prochaine tâche ? ». Il doit mettre le dépôt à jour, lire le poste, puis citer la première tâche non cochée du fichier de suivi.
+Demander à Claude : « quelle est ma prochaine tâche ? ». Il doit mettre le dépôt à jour, lire le poste et les réservations en cours, puis proposer des tâches libres de [[Tâches]].

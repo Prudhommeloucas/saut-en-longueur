@@ -1,6 +1,6 @@
 # Registre des animations
 
-Une animation par ligne, dès qu'elle est publiée sous le groupe. Tenu par le Poste 2. Liste et descriptions dans [[Animations]].
+Une animation par ligne, dès qu'elle est publiée sous le groupe. Celui qui publie l'animation l'inscrit. Liste et descriptions dans [[Animations]].
 
 | Identifiant | Asset | Durée | Boucle | Fichier source | État |
 | --- | --- | --- | --- | --- | --- |

@@ -24,3 +24,8 @@ sourcemap.json
 # Système
 Thumbs.db
 .DS_Store
+
+# Copies personnelles de la place, pour coder et tester avec Rojo
+/copies/
+*.rbxl
+*.rbxlx

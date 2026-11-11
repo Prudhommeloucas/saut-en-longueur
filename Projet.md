@@ -5,7 +5,7 @@ Jeu Roblox où le but est de sauter de plus en plus loin. Nom de travail « Saut
 ## État
 
 - Première version jouable construite dans Roblox Studio le 2026-11-11 (place « Place1 », pas encore enregistrée ni publiée). Entraînement, saut, pièces, boutique et jetpack fonctionnent. L'existant est décrit dans [[Map]], [[Scripts]] et [[Décor et effets]].
-- Le 2026-11-11, la conception a été approfondie et le travail réparti entre trois postes. Rien de cette conception n'est encore codé. Le plan est dans [[Déroulé du développement]], l'avancement dans [[Tableau de bord]].
+- Le 2026-11-11, la conception a été approfondie et le plan découpé en tâches. Personne n'a de domaine réservé : chacun prend la tâche qu'il veut, code compris, après l'avoir réservée. Rien de cette conception n'est encore codé. Le plan est dans [[Déroulé du développement]], l'avancement dans [[Tableau de bord]].
 
 ## Le jeu en trois phrases
 
@@ -34,7 +34,7 @@ Jeu Roblox où le but est de sauter de plus en plus loin. Nom de travail « Saut
 
 - [[Map]], [[Décor et effets]], [[Scripts]] : ce qui est déjà construit
 - [[Architecture du code]] : organisation cible du code
-- [[Contrats]] : noms, tags et attributs partagés entre les postes
+- [[Contrats]] : noms, tags et attributs qui relient la map, les écrans et le code
 - [[HUD]] : tous les écrans
 - [[Direction artistique]], [[Modèles 3D]], [[Animations]]
 - [[Sons et musique]], [[Images]]
@@ -43,15 +43,16 @@ Jeu Roblox où le but est de sauter de plus en plus loin. Nom de travail « Saut
 
 ## Équipe et suivi
 
-- [[Équipe]] : les trois postes
+- [[Équipe]] : les trois postes, sans domaine réservé
 - [[Liberté de création]] : ce que chacun décide seul, et la boîte à idées (`Idées/`)
 - [[Outils]] : logiciels, connecteurs et skills, par type de tâche
 - `README.md` : les quatre gestes pour rejoindre le projet
 - [[Première session]] : la mise en place que Claude fait seul la première fois
 - [[Installation]] : détail de la mise en place d'un poste
-- [[Travailler à plusieurs]] : git, Team Create, demandes
+- [[Travailler à plusieurs]] : réservation des tâches, git, Rojo, Team Create, demandes
 - [[Déroulé du développement]] : toutes les tâches, dans l'ordre
-- [[Tableau de bord]] : avancement des trois postes
+- [[Tâches]] : la liste commune à cocher
+- [[Tableau de bord]] : tâches en cours, demandes, idées
 - [[Décisions]] : décisions prises et questions à trancher
 
 ## Décisions de base (toujours valables)

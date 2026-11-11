@@ -1,8 +1,8 @@
 # Contrats
 
-Les noms, tags et attributs sur lesquels les trois postes s'accordent. C'est ce qui permet de travailler en même temps : le Poste 2 construit la map, le Poste 3 construit les écrans, le Poste 1 code, et tout se branche sans retouche. Voir [[Travailler à plusieurs]].
+Les noms, tags et attributs sur lesquels toute l'équipe s'accorde. C'est ce qui permet de travailler en même temps : l'un construit la map, un autre les écrans, un troisième code, et tout se branche sans retouche. Voir [[Travailler à plusieurs]].
 
-**Seul le Poste 1 modifie cette note.** Pour ajouter un tag, un attribut ou un nom d'écran, déposer une demande. Les lignes marquées « prévu » ne sont pas encore lues par le code.
+**Tout le monde peut modifier cette note.** Ajouter un tag, un attribut ou un nom d'écran est libre : l'écrire ici pendant la tâche qui en a besoin. Renommer ou supprimer un nom déjà utilisé oblige à mettre à jour, dans la même tâche, le code, les objets de Studio et cette note. Les lignes marquées « prévu » ne sont pas encore lues par le code.
 
 ## Organisation de la place
 
@@ -12,23 +12,23 @@ Workspace
     Monde1            (un dossier par monde, tout ce qui est visible et solide)
       Spawn, Entrainement, Boutique, Piste, Bac, Decor, Anneaux, Portails
 ReplicatedStorage
-  Shared              (code, Poste 1)
-  Assets              (Poste 2)
+  Shared              (code, envoyé par Rojo)
+  Assets
     Equipement        un Model par objet, nommé par son identifiant
     Compagnons        un Model par espèce
     Oeufs
-    Effets            particules et effets prêts à cloner (Poste 3)
+    Effets            particules et effets prêts à cloner
     Animations        objets Animation avec leur identifiant
 ServerStorage
-  Modeles             modèles en cours ou non utilisés (Poste 2)
-StarterGui            un ScreenGui par écran (Poste 3)
+  Modeles             modèles en cours ou non utilisés
+StarterGui            un ScreenGui par écran
 SoundService
-  Musique, Ambiance, Effets, Interface   (SoundGroup, Poste 3)
+  Musique, Ambiance, Effets, Interface   (SoundGroup)
 ```
 
-La map actuelle (`Workspace.Map`, voir [[Map]]) sera déplacée dans `Workspace.Mondes.Monde1` par le Poste 2 (tâche T-007).
+La map actuelle (`Workspace.Map`, voir [[Map]]) sera déplacée dans `Workspace.Mondes.Monde1` (tâche T-007).
 
-## Tags de la map (Poste 2 pose, Poste 1 lit)
+## Tags de la map (posés dans Studio, lus par le code)
 
 | Tag | Sur quoi | Attributs | État |
 | --- | --- | --- | --- |
@@ -49,14 +49,14 @@ La map actuelle (`Workspace.Map`, voir [[Map]]) sera déplacée dans `Workspace.
 
 Règles : l'axe de la piste est X, le dessus des sols est à Y = 0, la planche d'appel du monde 1 reste à X = 120. Une Part interactive porte son tag sur elle-même, pas sur son dossier.
 
-## Modèles (Poste 2 livre, Poste 1 utilise)
+## Modèles (rangés dans Studio, utilisés par le code)
 
 - **Équipement** : un Model nommé par l'identifiant de l'objet, avec une Part `Poignee` qui indique où l'attacher et un attribut `Attache` (PiedGauche, PiedDroit, Dos, Torse).
 - **Compagnon** : un Model nommé par l'identifiant de l'espèce, `PrimaryPart` défini, moins de 3 studs de haut, face vers -Z.
 - **Œuf** : un Model nommé par l'identifiant de l'œuf.
-- Les identifiants sont ceux des modules de configuration. Le Poste 1 en publie la liste dans [[Registre des modèles]] avant que le Poste 2 commence.
+- Les identifiants sont ceux des modules de configuration. La tâche de contrats de la phase en publie la liste dans [[Registre des modèles]] avant les tâches de modélisation.
 
-## Interface (Poste 3 construit, Poste 1 branche)
+## Interface (construite dans Studio, branchée par le code)
 
 - Un `ScreenGui` par écran, nommé comme dans [[HUD]] (par exemple `HudPrincipal`, `EcranBoutique`).
 - Dans chaque écran, les éléments que le code doit lire ou modifier portent un nom fixé par la note [[HUD]] : `TextePieces`, `BoutonFermer`, `ListeObjets`, `ModeleLigne`.
@@ -64,12 +64,12 @@ Règles : l'axe de la piste est X, le dessus des sols est à Y = 0, la planche d
 - Une ligne de liste (un objet de boutique, un compagnon) est construite une fois, nommée `ModeleLigne`, et laissée invisible : le code la clone.
 - Aucun `LocalScript` dans `StarterGui`.
 
-## Sons (Poste 3 livre, Poste 1 utilise)
+## Sons (choisis et publiés, lus par le code)
 
-Chaque son a un identifiant texte (`saut_appel_parfait`) listé dans [[Sons et musique]]. Le Poste 3 inscrit l'identifiant d'asset correspondant dans [[Registre des sons]] ; le Poste 1 le reporte dans `Config/Sons`.
+Chaque son a un identifiant texte (`saut_appel_parfait`) listé dans [[Sons et musique]]. Celui qui publie le son inscrit l'identifiant d'asset dans [[Registre des sons]] et le reporte dans `Config/Sons` (ou laisse le report à la tâche de branchement).
 
 ## Comment avancer sans s'attendre
 
-1. Au début de chaque phase, le Poste 1 complète cette note et les listes d'identifiants.
-2. Les Postes 2 et 3 construisent à partir de la note. Le Poste 1 code avec des objets provisoires portant les mêmes noms.
+1. Au début de chaque phase, la tâche de contrats (T-100, T-200…) complète cette note et les listes d'identifiants.
+2. Les tâches de construction suivent la note. Les tâches de code utilisent des objets provisoires portant les mêmes noms.
 3. Quand un élément est livré, il remplace le provisoire sans changement de code.

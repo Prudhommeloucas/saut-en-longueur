@@ -1,10 +1,16 @@
 # Tableau de bord
 
-Vue d'ensemble de l'avancement. Cette note ne contient rien à modifier : elle affiche les fichiers de suivi des trois postes et les demandes ouvertes. Le plan est dans [[Déroulé du développement]].
+Vue d'ensemble de l'avancement. Cette note ne contient rien à modifier : elle affiche les tâches réservées, la liste des tâches et les demandes ouvertes. Le plan est dans [[Déroulé du développement]].
 
 ## Phase en cours
 
-Phase 0 — Fondations (depuis le 2026-11-11). Le Poste 1 met cette ligne à jour à chaque changement de phase.
+Phase 0 — Fondations (depuis le 2026-11-11). Celui qui coche la revue de fin de phase met cette ligne à jour.
+
+## Tâches en cours (réservées)
+
+```query
+path:"Suivi/En cours" "etat: en cours"
+```
 
 ## Demandes ouvertes
 
@@ -18,22 +24,18 @@ path:"Suivi/Demandes" "etat: ouverte"
 path:"Idées" "etat: proposee"
 ```
 
-## Tâches en attente, tous postes
+## Tâches en attente
 
 ```query
-path:"Suivi/Poste" task-todo:"T-0"
+path:"Suivi/Tâches" task-todo:"T-0"
 ```
 
 Changer `T-0` en `T-1`, `T-2`, etc. pour voir une autre phase.
 
-## Poste 1 — Code
+## Toutes les tâches
 
-![[Poste 1 - Code]]
+![[Tâches]]
 
-## Poste 2 — Monde et 3D
+## Journaux
 
-![[Poste 2 - Monde et 3D]]
-
-## Poste 3 — Interface, son et image
-
-![[Poste 3 - Interface, son, image]]
+[[Poste 1]] · [[Poste 2]] · [[Poste 3]]

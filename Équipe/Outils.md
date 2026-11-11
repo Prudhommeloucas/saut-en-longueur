@@ -1,6 +1,6 @@
 # Outils
 
-Logiciels, connecteurs et skills utiles au projet, classés par type de tâche. Voir [[Installation]] pour la mise en place et [[Équipe]] pour qui utilise quoi.
+Logiciels, connecteurs et skills utiles au projet, classés par type de tâche. Tout le monde peut faire tous les types de tâches, donc tout le monde peut avoir besoin de tous ces outils. Voir [[Installation]] pour la mise en place.
 
 ## État du Poste 1 (vérifié le 2026-11-11)
 
@@ -13,6 +13,8 @@ Logiciels, connecteurs et skills utiles au projet, classés par type de tâche. 
 | Blender 5.2 | Installé |
 | Obsidian | Installé, coffre ouvert |
 | MCP Roblox Studio et MCP Blender | **Non branchés sur Claude Code en terminal** (tâche T-001). Ils ne sont configurés que côté Claude Desktop |
+
+Les Postes 2 et 3 installent Rokit et l'extension Rojo à la tâche T-003, puisque tout le monde code.
 
 ## Communs aux trois postes
 
@@ -27,7 +29,7 @@ Logiciels, connecteurs et skills utiles au projet, classés par type de tâche. 
 
 ## Par type de tâche
 
-### Code (Poste 1)
+### Code
 
 | Outil | Rôle |
 | --- | --- |
@@ -41,7 +43,7 @@ Logiciels, connecteurs et skills utiles au projet, classés par type de tâche. 
 | Skill `dataviz` | Courbes de progression issues de la simulation |
 | Agents `Explore` et `Plan` | Recherche dans le code et préparation d'un système complexe |
 
-### Modélisation et animation (Poste 2)
+### Modélisation et animation
 
 | Outil | Rôle |
 | --- | --- |
@@ -53,7 +55,7 @@ Logiciels, connecteurs et skills utiles au projet, classés par type de tâche. 
 | Bibliothèques de modèles accessibles depuis le MCP Blender | Décor secondaire, selon la version installée et la licence |
 | Skill `computer-use` (Claude Desktop) | Gestes manuels dans Studio ou Blender quand aucun MCP ne les couvre |
 
-### Interface (Poste 3)
+### Interface
 
 | Outil | Rôle |
 | --- | --- |
@@ -62,7 +64,7 @@ Logiciels, connecteurs et skills utiles au projet, classés par type de tâche. 
 | MCP Roblox Studio | Construction des écrans dans `StarterGui`, captures |
 | Émulateur d'appareils de Studio | Vérification sur téléphone, tablette, ordinateur |
 
-### Sons (Poste 3)
+### Sons
 
 | Outil | Rôle |
 | --- | --- |
@@ -71,7 +73,7 @@ Logiciels, connecteurs et skills utiles au projet, classés par type de tâche. 
 | Audacity | Découpe, mélange, volume |
 | ElevenLabs (facultatif, compte requis, serveur MCP disponible) | Effets générés sur description |
 
-### Images (Poste 3)
+### Images
 
 | Outil | Rôle |
 | --- | --- |
@@ -80,13 +82,13 @@ Logiciels, connecteurs et skills utiles au projet, classés par type de tâche. 
 | Captures de Studio | Miniatures et icône du jeu |
 | Générateurs de textures et de matières de Studio | Matières du décor |
 
-### Page du jeu, passes et produits (Poste 3)
+### Page du jeu, passes et produits
 
 | Outil | Rôle |
 | --- | --- |
 | Skill `claude-in-chrome` ou navigateur intégré | Création des passes et produits sur le Creator Hub, réglages du jeu, lecture des statistiques. Les achats et les publications restent validés par l'équipier |
 
-### Pilotage (Poste 1, et tous)
+### Pilotage
 
 | Outil | Rôle |
 | --- | --- |
@@ -98,13 +100,15 @@ Logiciels, connecteurs et skills utiles au projet, classés par type de tâche. 
 
 ## Skills du projet à créer (tâche T-012)
 
-Rangés dans `.claude/skills/` et partagés par git, ils donnent les mêmes gestes aux trois postes.
+Rangés dans `.claude/skills/` et partagés par git, ils donnent les mêmes gestes aux trois postes, quel que soit le genre de la tâche.
 
 | Skill | Ce qu'il fait |
 | --- | --- |
-| `debut-session` | Met le dépôt à jour, lit le poste et le suivi, annonce la prochaine tâche |
-| `fin-tache` | Coche le suivi, met à jour notes et registres, valide et envoie sur GitHub |
-| `demande` | Crée une demande à un autre poste au bon format |
+| `debut-session` | Met le dépôt à jour, lit le poste, les réservations en cours et les demandes, propose des tâches libres |
+| `prendre-tache` | Vérifie qu'une tâche est libre et ses dépendances faites, crée la réservation et l'envoie aussitôt |
+| `fin-tache` | Coche [[Tâches]], met à jour journal, notes et registres, supprime la réservation, envoie sur GitHub, synchronise la place si du code a changé |
+| `sync-place` | Vérifie que le dépôt est à jour et propre, puis guide la synchronisation Rojo de la place partagée |
+| `demande` | Crée une demande à un autre poste ou à tous, au bon format |
 | `modele-3d` | Déroule la chaîne Blender → export → import → registre, avec ses vérifications |
 | `ecran-hud` | Construit un écran selon [[HUD]] et [[Contrats]], avec captures sur trois tailles |
 | `son` | Cherche trois candidats, teste, inscrit le son retenu |

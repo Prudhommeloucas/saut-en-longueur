@@ -1,12 +1,12 @@
 # Images
 
-Icônes, textures et images de la page du jeu. Poste 3. Voir [[Direction artistique]], [[HUD]] et [[Registre des images]].
+Icônes, textures et images de la page du jeu. Voir [[Direction artistique]], [[HUD]] et [[Registre des images]].
 
 ## Comment on les fabrique
 
 Claude ne dessine pas d'image directement. Quatre moyens, par ordre de préférence :
 
-1. **Rendu Blender** par le MCP Blender : pour toutes les icônes d'objets et de compagnons. On réutilise les modèles du Poste 2, avec un éclairage et un angle fixes, fond transparent. Résultat cohérent avec le jeu et sans dessin à la main.
+1. **Rendu Blender** par le MCP Blender : pour toutes les icônes d'objets et de compagnons. On réutilise les modèles du jeu, avec un éclairage et un angle fixes, fond transparent. Résultat cohérent avec le jeu et sans dessin à la main.
 2. **Dessin vectoriel écrit par Claude** (SVG, converti en PNG) : pour les icônes d'interface, les monnaies, les cadres, les boutons, le logo.
 3. **Capture mise en scène dans Studio** : pour les miniatures et l'icône du jeu. On pose des personnages, on règle la caméra, on capture, puis on ajoute le titre par-dessus.
 4. **Outils de génération** : le générateur de textures de Studio pour les matières ; un générateur d'images externe si un équipier en a un, pour des idées ou des fonds. Toute image importée passe par la modération de Roblox.

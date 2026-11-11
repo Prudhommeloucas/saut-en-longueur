@@ -25,7 +25,7 @@ Comme chaque stat a un rendement décroissant, le meilleur choix est de les mont
 
 ### Zones par paliers
 
-Chaque monde propose trois paliers de zones pour chaque stat. Une zone est une simple Part marquée par un tag et des attributs ([[Contrats]]), donc le Poste 2 peut en ajouter sans toucher au code.
+Chaque monde propose trois paliers de zones pour chaque stat. Une zone est une simple Part marquée par un tag et des attributs ([[Contrats]]), donc on peut en ajouter sans toucher au code.
 
 | Palier (monde 1) | Multiplicateur | Condition |
 | --- | --- | --- |

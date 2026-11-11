@@ -18,9 +18,9 @@ Pourquoi le jeu est meilleur avec.
 
 ## Ce que ça demande
 
-- Poste 1 :
-- Poste 2 :
-- Poste 3 :
+- Code :
+- Monde et 3D :
+- Interface, son, image :
 
 ## Décision de l'équipe
 

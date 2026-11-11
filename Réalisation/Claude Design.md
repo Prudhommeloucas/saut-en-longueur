@@ -31,7 +31,7 @@ Cette chaîne n'a pas encore été essayée de bout en bout : c'est l'objet de l
 2. Claude relit la planche (positions, tailles, légende) et écrit un relevé dans `assets/plans/monde1.md` : un tableau avec, pour chaque élément, sa position, sa taille, son tag et ses attributs. Ce relevé est la trace durable du plan.
 3. Claude construit le monde dans `Workspace.Mondes.MondeN` par le MCP Roblox Studio, en Parts simples d'abord (le « bloc à bloc »), tags et attributs compris.
 4. On joue dans le monde en blocs. C'est à ce moment qu'on corrige les distances et les proportions, sur la planche puis dans Studio.
-5. Le Poste 2 remplace ensuite les blocs par les vrais modèles.
+5. Les blocs sont ensuite remplacés par les vrais modèles.
 
 L'intérêt du passage par le plan : tout le monde voit le monde et peut donner son avis avant qu'une seule Part soit posée ([[Liberté de création]]).
 
@@ -63,7 +63,7 @@ C'est l'usage le plus direct de l'outil.
 ## Rangement
 
 - Le lien de chaque planche s'écrit dans la note concernée ([[Map]], [[Modèles 3D]], [[HUD]]) ou dans le registre de la pièce produite.
-- Les relevés de plans vont dans `assets/plans/` (Poste 2).
+- Les relevés de plans vont dans `assets/plans/`.
 - Une planche jointe à une idée s'indique dans la note d'idée ([[Liberté de création]]).
 
 ## Limites à garder en tête

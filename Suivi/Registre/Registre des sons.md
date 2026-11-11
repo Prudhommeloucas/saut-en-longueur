@@ -1,6 +1,6 @@
 # Registre des sons
 
-Un son par ligne, dès qu'il est choisi. Tenu par le Poste 3. Les identifiants texte viennent de [[Sons et musique]] ; le Poste 1 reporte les identifiants d'asset dans `Config/Sons` ([[Contrats]]).
+Un son par ligne, dès qu'il est choisi. Celui qui choisit le son l'inscrit. Les identifiants texte viennent de [[Sons et musique]] ; les identifiants d'asset se reportent dans `Config/Sons` ([[Contrats]]).
 
 | Identifiant | Asset | Volume | Source et licence | État |
 | --- | --- | --- | --- | --- |

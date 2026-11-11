@@ -1,56 +1,50 @@
 # Équipe
 
-Trois personnes, trois postes. Chaque poste a ses propres dossiers et ses propres zones dans Studio, ce qui permet de travailler en même temps sans se gêner. Voir [[Travailler à plusieurs]] et [[Déroulé du développement]].
+Trois personnes, trois postes, aucun domaine réservé. Chacun peut prendre n'importe quelle tâche : code, map, modèles, écrans, sons, images. On travaille en même temps sans se gêner grâce à la réservation des tâches ([[Travailler à plusieurs]]). Le plan est dans [[Déroulé du développement]], la liste à cocher dans [[Tâches]].
 
 ## Les postes
 
-| Poste | Qui | Outil | Fichier de suivi |
+Un poste, c'est une personne et sa machine. Son numéro sert à signer les commits, les réservations et les demandes.
+
+| Poste | Qui | Outil | Journal |
 | --- | --- | --- | --- |
-| Poste 1 — Code et systèmes | KHALDI (chef de projet) | Claude Code dans un terminal | [[Poste 1 - Code]] |
-| Poste 2 — Monde et 3D | Voir la ligne « Titulaire » du fichier de suivi | Claude Code dans Claude Desktop | [[Poste 2 - Monde et 3D]] |
-| Poste 3 — Interface, son et image | Voir la ligne « Titulaire » du fichier de suivi | Claude Code dans Claude Desktop | [[Poste 3 - Interface, son, image]] |
+| Poste 1 | KHALDI (chef de projet) | Claude Code dans un terminal | [[Poste 1]] |
+| Poste 2 | Voir la ligne « Titulaire » du journal | Claude Code dans Claude Desktop | [[Poste 2]] |
+| Poste 3 | Voir la ligne « Titulaire » du journal | Claude Code dans Claude Desktop | [[Poste 3]] |
 
-Les deux équipiers choisissent leur poste entre le 2 et le 3 ([[Décisions]]). Leur prénom s'inscrit dans leur fichier de suivi à la [[Première session]], pas ici : chacun n'écrit ainsi que dans son propre fichier.
+Le prénom de chacun s'inscrit dans son journal à la [[Première session]], pas ici : chacun n'écrit ainsi que dans son propre journal.
 
-## Poste 1 — Code et systèmes
+## Ce que chacun peut faire
 
-- Écrit tout le code du jeu. C'est Claude qui code ; l'équipier répond aux questions, teste et aide à déboguer.
-- Tient la conception à jour (dossier `Conception/`), les [[Contrats]] et [[Décisions]].
-- Fait l'équilibrage et lit les mesures.
-- Répond aux demandes des deux autres postes.
-- Outils principaux : Rojo, MCP Roblox Studio pour les tests.
+Tout. En particulier :
 
-## Poste 2 — Monde et 3D
+- **Code** : écrire et modifier les scripts dans `src/`, les tester par Rojo et le MCP Roblox Studio ([[Architecture du code]]).
+- **Monde et 3D** : construire les mondes, modéliser dans Blender, poser les tags, animer ([[Map]], [[Modèles 3D]], [[Animations]]).
+- **Interface, son et image** : construire les écrans, choisir et régler les sons, produire icônes et effets ([[HUD]], [[Sons et musique]], [[Images]]).
+- **Conception** : modifier les notes de `Conception/`, les [[Contrats]], les [[Décisions]] prises en équipe et le [[Déroulé du développement]].
 
-- Construit les mondes dans Studio : terrain, pistes, décor, lumière.
-- Modélise l'équipement, les compagnons et les bâtiments dans Blender, les importe et les range.
-- Pose les tags et les attributs qui relient la map au code.
-- Crée les animations des personnages.
-- Outils principaux : MCP Blender, MCP Roblox Studio.
+Une tâche peut mélanger les genres : celui qui construit un écran peut aussi écrire le code qui le branche.
 
-## Poste 3 — Interface, son et image
+## Envies et points forts
 
-- Construit tous les écrans dans Studio.
-- Choisit, crée et règle les sons et la musique.
-- Produit les icônes, les textures d'effets, les particules et les images de la page du jeu.
-- Crée les passes et les produits sur le Creator Hub et tient la page du jeu.
-- Outils principaux : MCP Roblox Studio, MCP Blender pour les rendus d'icônes, navigateur.
+Chacun peut écrire dans son journal, ligne « Envies », ce qu'il préfère faire (du code, de la 3D, du son…). Claude s'en sert pour proposer des tâches au début de la session, sans jamais limiter le choix.
 
 ## Ce que tout le monde fait
 
-- Jouer au jeu chaque semaine et noter ce qui ne va pas (une demande par problème).
+- Réserver sa tâche avant de commencer, la libérer à la fin.
+- Jouer au jeu chaque semaine et noter ce qui ne va pas (une demande `à tous` ou une tâche de correctif par problème).
 - Participer aux décisions de conception : une question ouverte dans [[Décisions]] se tranche à trois.
-- Tenir son fichier de suivi à jour à chaque fin de tâche.
+- Tenir son journal à jour à chaque fin de tâche.
 
 ## Qui décide
 
 Le détail est dans [[Liberté de création]].
 
-- Le contenu d'un poste : son titulaire, librement. Les descriptions des notes sont des suggestions.
-- Ce qui touche plusieurs postes ou les règles du jeu : chacun peut le proposer dans `Idées/`, les trois décident, et le Poste 1 l'écrit dans [[Décisions]].
+- Le contenu d'une tâche : celui qui la fait, librement. Les descriptions des notes sont des suggestions.
+- Les règles du jeu, l'économie, la monétisation : chacun peut le proposer dans `Idées/`, les trois décident, et n'importe lequel l'écrit dans [[Décisions]].
 - En cas de désaccord, on revient aux piliers de la [[Vision]].
 
 ## Rythme conseillé
 
-- Un point de dix minutes au début de chaque séance commune : ce que chacun a fini, ce qu'il attend d'un autre.
+- Un point de dix minutes au début de chaque séance commune : ce que chacun a fini, ce qu'il réserve ensuite, ce qu'il attend d'un autre.
 - Une séance de jeu à trois à la fin de chaque phase, avant de passer à la suivante.
