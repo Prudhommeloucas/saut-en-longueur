@@ -84,6 +84,8 @@ Une fois ce fichier créé et envoyé sur GitHub par le Poste 1, il s'applique a
 ## Monde, 3D, son et image, pour tout le monde
 
 - Dans Blender, activer l'extension du MCP Blender et démarrer le serveur depuis son panneau avant chaque séance.
+  - L'extension s'appelle « MCP » (Blender Lab). Elle ne vient pas du dépôt d'extensions par défaut : dans Préférences > Get Extensions > Repositories, ajouter le dépôt distant `https://lab.blender.org/`, puis chercher « MCP » et l'installer.
+  - Elle est à réinstaller après chaque changement de version de Blender (5.2 vers 5.3 par exemple) : le nouveau profil repart sans extension. Le connecteur attend Blender sur `localhost:9876`.
 - Régler l'unité de Blender sur « aucune » avec une échelle de 1, pour que 1 unité = 1 stud.
 - Vérifier le droit de publier des animations, des modèles, des sons et des images au nom du groupe Roblox.
 - Pour les passes et produits : droit de les gérer sur le Creator Hub ; pour piloter le Creator Hub avec Claude, extension Claude pour Chrome ou navigateur intégré de Claude Desktop.
