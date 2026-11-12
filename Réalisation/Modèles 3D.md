@@ -58,6 +58,24 @@ Rester sous 10 000 triangles par mesh. La limite d'import de Roblox est à véri
 | Coffre du groupe, roue | Coffre doré sur estrade ; grande roue verticale à cases colorées |
 | Anneau de vol | Anneau lumineux de 12 studs de diamètre, flèches qui tournent |
 
+## Monde 1 : éléments spectaculaires et paliers
+
+Ajoutés le 2026-11-12, voir [[Construction du monde 1]].
+
+| Modèle | Description |
+| --- | --- |
+| Mascotte géante | Personnage original d'environ 60 studs, à côté de l'arche. Seul modèle de décor à squelette ([[Animations]]). À découper en plusieurs meshes pour tenir le budget |
+| Dirigeable | Ballon aux couleurs du jeu, nacelle, hélices séparées, banderole |
+| Écran géant | Remplace le tableau d'affichage : au-dessus de l'arche, cadre épais, surface d'affichage |
+| Vasque | Grande coupe sur le toit du Panthéon, flamme en partie séparée |
+| Canon à confettis | Petit canon coloré, par paires le long de la piste |
+| Lanceur de feux d'artifice | Tube sur socle, discret |
+| Arche de palier | Une par 100 m, distance en grand, couleur du décor traversé |
+| Décor du parc | Arbres ronds, kiosque, montgolfière, cerf-volant |
+| Décor du lac | Jetée, bateau, canard, jet d'eau |
+| Décor de la ville | Immeubles colorés modulaires, voiture, pont, enseigne |
+| Décor des collines | Éolienne, statue dorée, monument final des 500 m |
+
 ## Équipement porté (monde 1)
 
 | Objet | Description |

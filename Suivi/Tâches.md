@@ -33,13 +33,18 @@ Pour cocher : `- [x] T-101 Appel — Code (2026-11-15, P3)`. On ne modifie que l
 - [ ] T-103 Réception, saut parfait, série — Code
 - [ ] T-104 Anneaux et sauts rares — Code
 - [ ] T-105 Stade : piste, planche, bac, panneaux, arche, tribunes — Monde
-- [ ] T-106 Anneaux, tableau d'affichage, projecteurs, public — Monde
+- [ ] T-106 Anneaux, écran géant, projecteurs, public — Monde
+- [ ] T-114 Place centrale ronde — Monde
+- [ ] T-115 Mascotte géante et ses animations — 3D, animation
+- [ ] T-116 Dirigeable, canons, lanceurs de feux d'artifice, drapeaux — 3D
+- [ ] T-117 Module d'animation du décor (`DecorAnime`) — Code
 - [ ] T-107 Animations du saut — Animation
 - [ ] T-108 `HudSaut` et `PanneauResultat` — Interface
 - [ ] T-109 `HudPrincipal` — Interface
 - [ ] T-110 Sons du saut, ambiance et musique du stade — Son
 - [ ] T-111 Effets visuels du saut — Effets
 - [ ] T-112 Branchement — Code
+- [ ] T-118 Branchement du décor sur le saut — Code
 - [ ] T-113 Séance de jeu — Tous
 
 ## Phase 2 — Progression
@@ -51,6 +56,8 @@ Pour cocher : `- [x] T-101 Appel — Code (2026-11-15, P3)`. On ne modifie que l
 - [ ] T-204 Paliers de record — Code
 - [ ] T-205 Quêtes et récompenses — Code
 - [ ] T-206 Salle d'entraînement — Monde
+- [ ] T-215 Paliers du parc et du lac — Monde, 3D
+- [ ] T-216 Paliers de la ville et des collines — Monde, 3D
 - [ ] T-207 Équipement du monde 1 et stands — 3D
 - [ ] T-208 Animations d'entraînement — Animation
 - [ ] T-209 `HudEntrainement`, `EcranBoutique`, `EcranPaliers` — Interface
@@ -78,7 +85,7 @@ Pour cocher : `- [x] T-101 Appel — Code (2026-11-15, P3)`. On ne modifie que l
 - [ ] T-402 Arbre de talents — Code
 - [ ] T-403 Système de mondes — Code
 - [ ] T-404 Monde 2 : rafales, Aéro, vol plané, ailes — Code
-- [ ] T-405 Panthéon et portail — 3D
+- [ ] T-405 Panthéon, vasque et portail — 3D
 - [ ] T-406 Plage des Alizés — Monde
 - [ ] T-407 Équipement, compagnons et animations du monde 2 — 3D, animation
 - [ ] T-408 `EcranCategorie`, `EcranTalents`, `EcranMondes` — Interface

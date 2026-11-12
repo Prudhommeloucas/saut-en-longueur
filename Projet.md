@@ -33,6 +33,7 @@ Jeu Roblox où le but est de sauter de plus en plus loin. Nom de travail « Saut
 ## Notes de réalisation (comment on le fait)
 
 - [[Map]], [[Décor et effets]], [[Scripts]] : ce qui est déjà construit
+- [[Construction du monde 1]] : la consigne complète pour construire la map du stade, étape par étape
 - [[Architecture du code]] : organisation cible du code
 - [[Contrats]] : noms, tags et attributs qui relient la map, les écrans et le code
 - [[HUD]] : tous les écrans

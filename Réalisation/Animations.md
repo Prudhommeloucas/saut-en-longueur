@@ -46,3 +46,16 @@ Les compagnons n'ont pas de squelette. Leur mouvement (bonds derrière le joueur
 ## Objets animés par le code
 
 Œuf qui tremble puis se fend, anneaux qui tournent, drapeaux, roue, public en vague, portail. Les modèles sont livrés avec des parties séparées et nommées ; le code les anime.
+
+Les mouvements simples et répétés du décor (rotation, flottement, balancement, pulsation) passent par le tag `DecorAnime` de [[Contrats]] : un seul module client anime tous les objets tagués proches du joueur ([[Construction du monde 1]]).
+
+## Décor à squelette
+
+Exception décidée le 2026-11-12 : la **mascotte géante** du stade, et tout personnage de décor au mouvement organique, a un squelette et des animations faites dans Blender. Elles suivent la même règle de publication sous le groupe et s'inscrivent au [[Registre des animations]]. La procédure d'import d'un modèle à squelette et de ses animations est à vérifier dans la documentation Roblox au premier essai.
+
+| Identifiant | Description | Boucle |
+| --- | --- | --- |
+| `mascotte_attente` | Respiration, regard qui balaie le stade | Oui |
+| `mascotte_applaudit` | Applaudissement après un saut parfait | Non |
+| `mascotte_record` | Saut de joie, bras levés | Non |
+| `mascotte_salut` | Signe de la main à l'arrivée d'un joueur | Non |

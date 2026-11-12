@@ -36,5 +36,10 @@ Les décisions prises et les questions à trancher. N'importe qui peut écrire u
 | 2026-11-11 | La map et l'interface se relient au code par des tags, des attributs et des noms fixés | [[Contrats]] |
 | 2026-11-11 | Les notes sont un cadre : chacun est libre dans sa tâche, les idées qui changent les règles du jeu passent par `Idées/` | [[Liberté de création]] |
 | 2026-11-11 | Mondes, modèles et écrans se dessinent avec Claude Design avant construction ; Claude reconstruit ensuite dans Studio ou Blender | [[Claude Design]] |
+| 2026-11-12 | Monde 1 : place centrale ronde, bac qui traverse cinq décors de 100 m, style dessin animé soigné | [[Construction du monde 1]] |
+| 2026-11-12 | Monde 1 : mascotte géante animée, dirigeable et écran géant, public et feux d'artifice, vasque et canons à confettis | [[Construction du monde 1]] |
+| 2026-11-12 | La mascotte géante a un squelette et des animations Blender ; le reste du décor reste animé par le code | [[Animations]] |
+
+Les décisions du 2026-11-12 ont été prises par un seul poste, dans la liberté laissée à celui qui construit le monde ([[Liberté de création]]). Les deux autres peuvent les rediscuter.
 
 Les décisions du 2026-11-11 sur la conception sont des propositions issues de la séance de conception. Elles s'appliquent tant que l'équipe ne les a pas changées à la revue de fin de phase 0 (T-014).

@@ -46,6 +46,18 @@ La map actuelle (`Workspace.Map`, voir [[Map]]) sera déplacée dans `Workspace.
 | `Courant` | Part sans collision (colonne d'air, monde 3) | `Force` | prévu |
 | `Rebond` | Part (toit, monde 5) | `Force` | prévu |
 | `PointApparition` | Part où réapparaît le joueur | `Monde` | prévu |
+| `DecorAnime` | Part ou Model de décor animé par le client | `Type` (Rotation, Flottement, Balancement, Pulsation), `Vitesse`, `Amplitude` | prévu |
+| `CanonConfettis` | Part d'où partent les confettis, le long de la piste | aucun | prévu |
+| `LanceurFeuArtifice` | Part d'où part une fusée | `Palier` (0 à 5) | prévu |
+| `Projecteur` | Model d'un projecteur de stade orientable | aucun | prévu |
+| `EcranGeant` | Part avec une surface d'affichage | aucun | prévu |
+| `Mascotte` | Model à squelette de la mascotte géante | aucun | prévu |
+| `Vasque` | Model de la vasque, avec une Part `Flamme` | aucun | prévu |
+| `DrapeauVent` | Model d'un drapeau qui se tend pendant le vent favorable | aucun | prévu |
+| `BandePiste` | Parts lumineuses de la piste (saut doré) | aucun | prévu |
+| `Public` | Model d'un bloc de spectateurs, pour la ola | `Rang` (ordre dans la vague) | prévu |
+
+Les dix derniers tags viennent de [[Construction du monde 1]] : ce sont les points d'accroche du décor, que le code déclenchera sur les événements du jeu (record, saut parfait, vent favorable, saut doré, concours).
 
 Règles : l'axe de la piste est X, le dessus des sols est à Y = 0, la planche d'appel du monde 1 reste à X = 120. Une Part interactive porte son tag sur elle-même, pas sur son dossier.
 

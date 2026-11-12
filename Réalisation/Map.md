@@ -24,6 +24,10 @@ Voir [[Projet]] pour la vue d'ensemble. Tout est dans `Workspace.Map`. La piste 
 - Le premier contact avec `Sable` compte comme l'atterrissage. Marcher sur le sable sans sauter donne environ 0 m.
 - Après l'atterrissage, le joueur est renvoyé au début de la piste au bout de 2 secondes.
 
+## Plan cible
+
+Décidé le 2026-11-12, pas encore construit : le spawn carré devient une place ronde (centre vers X = -90, rayon d'environ 85 studs) avec entraînement, stands, œufs, panthéon et portail en cercle, et le bac traverse cinq décors de 100 m. La piste, la planche (X = 120) et le bac ne bougent pas. Le plan complet et les étapes sont dans [[Construction du monde 1]]. Le tableau ci-dessus décrit l'existant ; il sera refait quand la place ronde sera construite.
+
 ## À faire
 
 - Ranger la map dans `Workspace.Mondes.Monde1` et poser les tags et attributs de [[Contrats]] (tâche T-007 du [[Déroulé du développement]]). Mettre le tableau ci-dessus à jour à ce moment-là.

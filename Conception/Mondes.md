@@ -30,6 +30,7 @@ Une fois ouvert, un monde est accessible à tout moment par l'écran de télépo
 
 ## Détail des mécaniques
 
+- **Stade des Débuts** : le bac sort du stade et traverse cinq décors de 100 m (stade, parc, lac, ville, collines). Aucune physique nouvelle, seulement le plaisir de découvrir plus loin. Plan dans [[Construction du monde 1]].
 - **Plage des Alizés** : une manche à air montre la force du vent. Sauter pendant une rafale ajoute de la vitesse. Le joueur apprend à attendre le bon moment. La soufflerie d'entraînement Aéro et les premières ailes (cerf-volant) s'achètent ici.
 - **Canyon du Vertige** : la planche est au bord du vide, le vol dure plus longtemps. Des colonnes d'air chaud, visibles par leurs particules, redonnent de la hauteur à qui les traverse en planant.
 - **Pic Givré** : la piste d'élan descend sur de la glace et se termine par un tremplin relevé. L'appel se fait en bout de tremplin. Des bourrasques de neige réduisent parfois la visibilité.

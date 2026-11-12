@@ -59,14 +59,19 @@ Référence : [[Saut]]. La phase commence par T-100, qui complète [[Contrats]] 
 | T-102 | Code | Vol : propulseur validé par le serveur, compteur en direct, caméra, atterrissage détecté par la position, borne de plausibilité | M | T-101 | Un saut truqué côté client est refusé |
 | T-103 | Code | Réception, saut parfait, série, résultat détaillé | M | T-102 | Le détail des pièces correspond à la formule |
 | T-104 | Code | Anneaux et sauts rares | P | T-103 | Un anneau donne poussée et pièces ; un saut doré forcé en test multiplie par 10 |
-| T-105 | Monde | Stade : plan définitif, puis piste, planche, bac, panneaux de distance, arche, tribunes | G | T-010, T-015 | Plus aucune forme provisoire sur le trajet du saut |
-| T-106 | Monde | Anneaux le long du bac, tableau d'affichage, projecteurs, public | M | T-105 | Anneaux tagués ; public prêt à être animé |
+| T-105 | Monde | Stade : plan définitif de tout le monde 1 selon [[Construction du monde 1]], version en blocs jouable, puis piste, planche, bac, panneaux de distance, arche, tribunes (palier 0 à 100 m) | G | T-010, T-015 | Plus aucune forme provisoire sur le trajet du saut |
+| T-106 | Monde | Anneaux le long du bac, écran géant au-dessus de l'arche, projecteurs, public | M | T-105 | Anneaux tagués ; public prêt à être animé |
+| T-114 | Monde | Place centrale ronde : sol, rosace, marquages au sol, emplacements tagués de toutes les activités, limites de la map cachées ([[Construction du monde 1]]) | M | T-105 | Depuis le point d'apparition on voit l'arche, une zone, un stand et un œuf ; [[Map]] à jour |
+| T-115 | 3D, animation | Mascotte géante : planche, modèle à squelette, quatre animations ([[Animations]]) | G | T-010 | Mascotte dans la place, taguée ; animations publiées sous le groupe et inscrites |
+| T-116 | 3D | Dirigeable, canons à confettis, lanceurs de feux d'artifice, drapeaux du vent ([[Modèles 3D]]) | M | T-105 | Modèles tagués selon [[Contrats]], parties mobiles séparées |
+| T-117 | Code | Module client d'animation du décor, piloté par le tag `DecorAnime` | P | T-008 | Un objet tagué dans Studio s'anime sans toucher au code ; rien ne s'anime loin du joueur |
 | T-107 | Animation | Animations du saut : course, appel, vol, propulseur, deux réceptions, célébration ([[Animations]]) | G | T-003 | Sept animations publiées sous le groupe et inscrites au registre |
 | T-108 | Interface | Construire `HudSaut` et `PanneauResultat` | M | T-011 | Noms conformes à [[HUD]] ; captures sur trois tailles |
 | T-109 | Interface | Construire `HudPrincipal` | M | T-011 | Idem |
 | T-110 | Son | Sons du saut, ambiance et musique du stade | M | T-013 | Tous les identifiants « Effets du saut » ont un son au registre |
 | T-111 | Effets | Effets visuels du saut : traînée, appel parfait, sable, confettis | M | T-003 | Effets rangés dans `Assets.Effets`, visibles en test |
 | T-112 | Code | Brancher écrans, sons, animations et effets sur le saut | M | T-103, T-107 à T-111 | Un saut complet se voit et s'entend |
+| T-118 | Code | Brancher le décor sur le saut : canons au saut parfait, feux d'artifice et mascotte au record, bande de piste au saut doré, écran géant | M | T-112, T-115, T-116 | Chaque événement du saut déclenche sa réaction du décor |
 | T-113 | Tous | Séance de jeu : le saut est-il amusant sans rien d'autre ? | P | T-112 | Liste de réglages écrite et traitée |
 
 ## Phase 2 — Progression
@@ -82,6 +87,8 @@ Références : [[Entraînement]], [[Équipement]], [[Quêtes et récompenses]], 
 | T-204 | Code | Paliers de record et ouverture progressive des fonctions | P | T-203 | Chaque fonction s'ouvre à son palier ([[Boucles de gameplay]]) |
 | T-205 | Code | Quêtes du jour et de la semaine, défis, connexion, cadeaux de temps de jeu, roue, boosts, codes | G | T-204 | Chaque récompense se gagne et se réclame une seule fois |
 | T-206 | Monde | Salle d'entraînement : machines des trois paliers, zone VIP | G | T-105 | Zones taguées avec leurs attributs |
+| T-215 | Monde, 3D | Voyage par paliers, première moitié : arches de palier, parc (100 à 200 m), lac (200 à 300 m) ([[Construction du monde 1]]) | G | T-105, T-117 | Deux paliers sans forme provisoire, décor animé, fluide sur téléphone |
+| T-216 | Monde, 3D | Voyage par paliers, seconde moitié : ville (300 à 400 m), collines des champions et monument des 500 m | G | T-215 | Idem ; le bord de la map ne se voit d'aucun point du bac |
 | T-207 | 3D | Équipement du monde 1 : chaussures, propulseurs, matériel, tenues ; stands | G | T-010 | Un modèle par identifiant dans `Assets.Equipement` |
 | T-208 | Animation | Animations d'entraînement : squat, mollets, tapis | M | T-107 | Une répétition par seconde, publiées et inscrites |
 | T-209 | Interface | `HudEntrainement`, `EcranBoutique`, `EcranPaliers` | M | T-109 | Noms conformes ; captures |
@@ -117,7 +124,7 @@ Références : [[Rebirth et talents]], [[Mondes]].
 | T-402 | Code | Arbre de talents, gains hors ligne | G | T-401 | Chaque talent a un effet mesurable |
 | T-403 | Code | Système de mondes : portails, téléportation, physique et échelle par monde, chargement à la demande | G | T-401 | Aller au monde 2 et en revenir sans rechargement visible |
 | T-404 | Code | Monde 2 : rafales, stat Aéro, vol plané, ailes | G | T-403 | Sauter pendant une rafale et planer allongent le saut |
-| T-405 | 3D | Panthéon et portail au monde 1 | M | T-105 | Modèles tagués |
+| T-405 | 3D | Panthéon avec sa vasque et sa flamme, portail au monde 1 | M | T-114 | Modèles tagués |
 | T-406 | Monde | Plage des Alizés : plan avec [[Claude Design]] validé à trois, version en blocs jouable, puis terrain, piste, bac, zones, soufflerie, stands, manche à air | G | T-405 | Monde 2 complet dans `Mondes.Monde2` |
 | T-407 | 3D, animation | Équipement et compagnons du monde 2 ; animations de vol plané et de soufflerie | G | T-406 | Modèles et animations inscrits |
 | T-408 | Interface | `EcranCategorie`, `EcranTalents`, `EcranMondes` | G | T-109 | Noms conformes ; captures |

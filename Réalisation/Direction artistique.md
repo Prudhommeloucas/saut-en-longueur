@@ -8,6 +8,7 @@ Le style commun aux modèles, aux écrans et aux images. Voir [[Modèles 3D]], [
 - Pas de textures réalistes. Des couleurs unies ou des dégradés simples, des matériaux Roblox lisses (`SmoothPlastic`), un peu de `Neon` pour ce qui brille.
 - Lisible de loin et sur petit écran : chaque objet se reconnaît à sa silhouette.
 - Tout est joyeux et sportif. Aucune violence, rien d'inquiétant.
+- Niveau visé (2026-11-12) : dessin animé soigné. Vrais modèles aux bords arrondis, dégradés peints, lumière travaillée, et du mouvement partout ([[Construction du monde 1]]).
 
 ## Palette
 
