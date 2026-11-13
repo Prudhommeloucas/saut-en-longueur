@@ -58,7 +58,7 @@ Pour cocher : `- [x] T-101 Appel — Code (2026-11-15, P3)`. On ne modifie que l
 - [ ] T-206 Salle d'entraînement — Monde
 - [ ] T-215 Paliers du parc et du lac — Monde, 3D
 - [ ] T-216 Paliers de la ville et des collines — Monde, 3D
-- [ ] T-207 Équipement du monde 1 et stands — 3D
+- [ ] T-207 Équipement du monde 1 et stands — 3D (propulseurs faits le 2026-11-14 par P2 ; restent chaussures, matériel, tenues, stands)
 - [ ] T-208 Animations d'entraînement — Animation
 - [ ] T-209 `HudEntrainement`, `EcranBoutique`, `EcranPaliers` — Interface
 - [ ] T-210 `EcranQuetes`, `EcranJour`, `EcranRoue`, `Notifications`, `EcranReglages` — Interface

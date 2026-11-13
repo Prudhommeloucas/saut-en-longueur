@@ -63,7 +63,7 @@ Règles : l'axe de la piste est X, le dessus des sols est à Y = 0, la planche d
 
 ## Modèles (rangés dans Studio, utilisés par le code)
 
-- **Équipement** : un Model nommé par l'identifiant de l'objet, avec une Part `Poignee` qui indique où l'attacher et un attribut `Attache` (PiedGauche, PiedDroit, Dos, Torse).
+- **Équipement** : un Model nommé par l'identifiant de l'objet, avec une Part `Poignee` qui indique où l'attacher et un attribut `Attache` (PiedGauche, PiedDroit, Dos, Torse). `Poignee` est la `PrimaryPart` ; les meshes y sont soudés (`WeldConstraint`), sans collision. Une pièce mobile (`Helice`, `Aiguille`) porte l'attribut `AxeRotation` (Vector3, axe dans le repère du modèle) : le code la fait tourner autour de son pivot pendant la poussée.
 - **Compagnon** : un Model nommé par l'identifiant de l'espèce, `PrimaryPart` défini, moins de 3 studs de haut, face vers -Z.
 - **Œuf** : un Model nommé par l'identifiant de l'œuf.
 - Les identifiants sont ceux des modules de configuration. La tâche de contrats de la phase en publie la liste dans [[Registre des modèles]] avant les tâches de modélisation.
