@@ -11,6 +11,7 @@ Les prompts réutilisables du projet, rangés par usage, avec l'IA à laquelle c
 | 3 | [[Prompt 3 - Planche d'un personnage]] | Image de référence d'un compagnon ou d'une mascotte, 6 vues | Gemini (image) | Rien, ou un compagnon déjà fait |
 | 4 | [[Prompt 4 - Construction et animations d'un personnage]] | Modèle 3D découpé en parties, animations de déplacement | Claude + Blender (MCP), ou Claude Design pour la planche | La planche du prompt 3 |
 | 5 | [[Prompt 5 - Actions et effets d'un personnage]] | Suite du prompt 4 : animations d'action et effets visuels | Même conversation que le prompt 4 | Rien de plus |
+| 6 | [[Prompt 6 - Planche d'un objet d'équipement]] | Image de référence d'un objet porté (propulseur, chaussures, ailes), 6 vues. Contient les trois propulseurs du monde 1 déjà remplis | Gemini (image) | Rien, ou un objet de la même famille |
 
 ## Les deux chaînes
 
