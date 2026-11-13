@@ -4,11 +4,11 @@ Journal du Poste 2. Seul ce poste modifie ce fichier. Les tâches se choisissent
 
 Titulaire : Loucas
 
-Envies : à compléter (ce que j'aime faire en priorité ; Claude s'en sert pour proposer des tâches, sans limiter le choix)
+Envies : monde et 3D, interface et images (Claude s'en sert pour proposer des tâches, sans limiter le choix)
 
 ## Journal
 
 Une ligne par session : date, tâche, ce qui a été fait, ce qui reste.
 
-- 2026-11-13 — Poste configuré (`CLAUDE.local.md`, réglages git, envoi vérifié). Reste pour T-003 : Rokit, Blender et Obsidian non trouvés aux emplacements habituels, MCP Studio et Blender présents mais pas encore essayés, envies à noter.
+- 2026-11-13 — Poste configuré (`CLAUDE.local.md`, réglages git, envoi vérifié). Suite le 2026-11-14 : git, Obsidian, Roblox Studio et Blender 5.3 (Microsoft Store) présents ; Rokit 1.2.0 installé ; MCP Blender essayé, 1 unité = 1 stud. Reste pour T-003 : essayer le MCP Roblox Studio (Studio était fermé), puis `rokit install` et l'extension Rojo de Studio dès que T-001 aura créé `rokit.toml` ; rejoindre le groupe et la place partagée après T-002. Audacity absent (facultatif).
 - 2026-11-13 — Hors plan : prompts IA rangés dans [[Prompts IA]] (cinq prompts adaptés au saut en longueur, originaux archivés).
