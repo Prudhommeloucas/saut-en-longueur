@@ -48,6 +48,7 @@ Les Postes 2 et 3 installent Rokit et l'extension Rojo à la tâche T-003, puisq
 | Outil | Rôle |
 | --- | --- |
 | Claude Design | Plan de chaque monde vu de dessus et planches de modèles (face, profil, trois quarts) avant construction. Ne produit pas de 3D : Claude relit la planche et la reconstruit dans Studio ou Blender ([[Claude Design]]) |
+| Gemini (image) et les [[Prompts IA]] | Planches de concept d'un monde ou d'un compagnon, puis prompts de construction pour Claude et Blender. Prompts prêts à copier |
 | Blender et MCP Blender | Modélisation par script, vérification du nombre de triangles, export |
 | Import 3D de Studio | Import des `.fbx` (geste manuel) |
 | MCP Roblox Studio | Construction du décor en Parts, rangement, tags et attributs, lumière |

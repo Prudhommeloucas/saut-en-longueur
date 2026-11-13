@@ -7,6 +7,7 @@ Les descriptions de cette note sont des suggestions de départ : celui qui fait 
 ## Chaîne de production
 
 0. **Planche du modèle dans Claude Design** : trois vues, dimensions, couleurs, de préférence une planche par famille d'objets. Elle sert de référence et permet à l'équipe de réagir avant la modélisation ([[Claude Design]]).
+   Autre voie pour la référence : une planche de concept générée par Gemini. Les prompts prêts à copier, pour la planche comme pour la construction, sont dans [[Prompts IA]].
 1. **Blender**, piloté par le MCP Blender : Claude construit le modèle par script en suivant la planche, prend une capture sous les mêmes angles, corrige.
 2. Vérifications : nombre de triangles, échelle (1 unité Blender = 1 stud), origine au pied du modèle, face vers -Y dans Blender, transformations appliquées, une ou deux matières au plus.
 3. Enregistrement du fichier source dans `assets/modeles/source/` (un `.blend` par modèle) et export `.fbx` dans `assets/modeles/export/`.
