@@ -87,6 +87,7 @@ Ajoutés le 2026-11-12, voir [[Construction du monde 1]].
 | Bouteille de soda | Deux bouteilles sanglées dans le dos, bouchon vers le bas |
 | Extincteur | Extincteur rouge en sac à dos, tuyau |
 | Réacteur de poche | Petit réacteur d'avion avec ailerons |
+| Propulseurs modélisés (2026-11-14) | Les trois propulseurs existent en `.fbx`, pas encore importés. Chacun : une plaque dorsale et deux sangles (mesh `Sangles`, à supprimer si elles traversent le personnage), puis un mesh par couleur. Origine au centre de la face de la plaque qui touche le dos ; l'objet dépasse vers +Y dans Blender. Soda : mesh `Bouteilles` à rendre transparent dans Studio pour voir le `Soda`. Réacteur : mesh `Lueur` à passer en `Neon`. Aperçu : `assets/modeles/planches/propulseurs_apercu.png` |
 | Matériel | Haltères, gilet lesté, chevilles lestées : visibles pendant l'entraînement |
 | Tenues | Maillot et short aux couleurs du club, puis régionale, puis dorée |
 

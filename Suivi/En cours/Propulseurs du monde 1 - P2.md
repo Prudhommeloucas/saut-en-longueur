@@ -23,4 +23,4 @@ Partie « propulseurs » de T-207 (Équipement du monde 1) : bouteille de soda, 
 
 Identifiants provisoires, repris de ceux des sons ([[Sons et musique]]) : `propulseur_soda`, `propulseur_extincteur`, `propulseur_reacteur`. À confirmer par la tâche de contrats de la phase 2.
 
-Où on en est : prompts écrits, planches à générer par Loucas dans Gemini.
+Où on en est (2026-11-14) : planches Gemini rangées dans `assets/modeles/planches/`, trois modèles construits par script dans `assets/modeles/source/propulseurs_monde1.blend` et exportés en `.fbx` (988, 862 et 760 triangles). Reste : avis de Loucas et retouches (la bouteille de soda est la moins fidèle à sa planche), import dans Studio à la main (vérifier l'échelle 1 unité = 1 stud et l'orientation), Part `Poignee` et attribut `Attache` = `Dos`, transparence des bouteilles, `Neon` sur la lueur, puis état `importé` au registre.
