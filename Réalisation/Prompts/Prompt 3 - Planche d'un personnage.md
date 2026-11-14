@@ -133,6 +133,26 @@ Small details: three small golden five-pointed stars (#FFD447) floating around i
 Sheet layout: 6 views of the SAME model, same size, evenly spaced on one image in 2 rows: front, back, left side, right side, 3/4 front, top. Neutral standing pose, limbs slightly away from the body, head straight. Keep every part clearly separated and readable (body, belly, head, eyes, antennae, top hat, hat band, cape, cape edge, back legs, front legs, feet, stars) so it can be rebuilt in 3D with few polygons.
 ```
 
+## Lièvre (`compagnon_lievre`, T-303)
+
+Prompt rempli le 2026-11-14. Premier compagnon de l'œuf du champion : « même style, plus stylisés » ([[Modèles 3D]]). Joindre les planches du lapin et du kangourou.
+
+```text
+Create a character turnaround sheet of an original cute animal companion for a Roblox long jump game: "Hare", a common pet from the "Champion Egg" of world 1 ("Beginner Stadium"). It follows the player by hopping and jumps with them. Same family and same style as the attached rabbit and kangaroo companions, but a little more athletic and stylish, like a young champion.
+
+Style: cartoon 3D game asset, chunky stylized proportions, simple rounded shapes, big head, big eyes, flat cartoon colors, soft studio lighting, pure white background. Same style as a cute stylized mobile game pet. Joyful, sporty and friendly, nothing scary. No text, no numbers, no logos, no ground, no base, no shadow, no aura ring.
+
+Design: a hare inspired by an athletics stadium and a sprint final. Slimmer body than the rabbit, big round head, very long legs and big long feet made for running and jumping, short fluffy tail. It stands upright in a confident sprinter pose, chest out, happy and full of energy.
+Body: golden sandy brown (#C8955A, lighter belly and muzzle #F3E2C4) with no markings.
+Head: two very big round eyes, amber brown with one white highlight, two very long ears with dark brown tips (#5A3A22), a small pink nose (#E88A9A), a determined happy smile.
+Special feature: a white sprinter's tank top (#FFFFFF) with one gold diagonal stripe (#F2B531), and a thin gold laurel wreath (#F2B531) around the base of the ears.
+Arms / legs: short arms with small paws, long strong legs, big long feet in light blue running shoes (#5BC0F8) with white soles.
+Back / tail: short round white fluffy tail.
+Small details: nothing else; keep it very simple.
+
+Sheet layout: 6 views of the SAME model, same size, evenly spaced on one image in 2 rows: front, back, left side, right side, 3/4 front, top. Neutral standing pose, limbs slightly away from the body, head straight. Keep every part clearly separated and readable (body, belly, head, muzzle, eyes, ears, ear tips, nose, tank top, stripe, laurel wreath, arms, legs, shoes, soles, tail) so it can be rebuilt in 3D with few polygons.
+```
+
 ## Remarques
 
 - Un compagnon tient en 500 à 1 500 triangles ([[Modèles 3D]]) : demander peu de petits détails, la silhouette doit suffire à le reconnaître.
