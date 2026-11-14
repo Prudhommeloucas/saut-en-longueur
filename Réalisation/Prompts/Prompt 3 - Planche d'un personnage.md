@@ -113,6 +113,26 @@ Small details: a thin purple ribbon (#8E44EC) tied around the neck with a small 
 Sheet layout: 6 views of the SAME model, same size, evenly spaced on one image in 2 rows: front, back, left side, right side, 3/4 front, top. Neutral standing pose, limbs slightly away from the body, head straight. Keep every part clearly separated and readable (body, belly, pouch, head, eyes, ears, nose, arms, gloves, cuffs, thighs, feet, tail, ribbon) so it can be rebuilt in 3D with few polygons.
 ```
 
+## Puce savante (`compagnon_puce`, T-303)
+
+Prompt rempli le 2026-11-14. Joindre les planches de la grenouille, du lapin, de la sauterelle et du kangourou.
+
+```text
+Create a character turnaround sheet of an original cute animal companion for a Roblox long jump game: "Clever Flea", a legendary pet from the "Stadium Egg" of world 1 ("Beginner Stadium"). It follows the player by hopping and jumps with them. Same family and same style as the attached frog, rabbit, grasshopper and kangaroo companions, but it clearly looks legendary and magical.
+
+Style: cartoon 3D game asset, chunky stylized proportions, simple rounded shapes, big head, big eyes, flat cartoon colors, soft studio lighting, pure white background. Same style as a cute stylized mobile game pet. Joyful, sporty and friendly, nothing scary, not a realistic insect, no hair, no mandibles. No text, no logos, no ground, no base, no shadow, no aura ring.
+
+Design: a tiny flea acrobat inspired by a circus show and an athletics stadium. Small round egg-shaped body, very big round head, two strong bent back legs made for jumping, four very short thin front legs. It is small (about half the height of the rabbit) but proud, standing upright like a little star performer, one tiny arm raised in a bow.
+Body: deep purple-plum (#6B3FA0, lighter belly #C9B3F0) with no markings.
+Head: two very big round eyes, white with big black pupils and one white highlight, two short antennae with small round tips, a cheeky smile.
+Special feature: a small golden top hat (#FFC531) with a purple band, tilted on the head, and a short flowing red cape (#D7263D) with a golden edge, tied at the neck.
+Arms / legs: two strong bent back legs with small round feet, four short thin front legs, one raised.
+Back / tail: the cape covers the back down to the middle of the body.
+Small details: three small golden five-pointed stars (#FFD447) floating around it at different heights, clearly separated from the body.
+
+Sheet layout: 6 views of the SAME model, same size, evenly spaced on one image in 2 rows: front, back, left side, right side, 3/4 front, top. Neutral standing pose, limbs slightly away from the body, head straight. Keep every part clearly separated and readable (body, belly, head, eyes, antennae, top hat, hat band, cape, cape edge, back legs, front legs, feet, stars) so it can be rebuilt in 3D with few polygons.
+```
+
 ## Remarques
 
 - Un compagnon tient en 500 à 1 500 triangles ([[Modèles 3D]]) : demander peu de petits détails, la silhouette doit suffire à le reconnaître.

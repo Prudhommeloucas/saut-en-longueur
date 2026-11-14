@@ -137,6 +137,9 @@ Même chaîne que la grenouille : un `.blend` par compagnon dans `assets/modeles
 
 - `compagnon_lapin` (2026-11-14, 1 494 triangles, 1,66 × 2,85 × 1,49 studs) : blanc rosé `#ECE4E6`, ventre, dents, queue et rond du dossard `#FAFAF8`, intérieur des oreilles et nez `#F4A6B6`, yeux et sourire `#3A2218`, dossard et sangles croisées dans le dos `#3D8BE0`. `PrimaryPart` = `Blanc`. Planche `compagnon_lapin.png`, aperçus `compagnon_lapin_apercu.png` (Blender) et `compagnon_lapin_studio.jpg` (à côté de la grenouille).
 - `compagnon_sauterelle` (2026-11-14, 1 498 triangles, 2,27 × 2,49 × 3,17 studs, plus longue que haute) : vert citron `#8BDB2E` (tête, corps, pattes, antennes ; `PrimaryPart`), ventre `#E6F7A0`, élytres `#74C928` et trois rayures `#4FA61E`, yeux blancs, pupilles et sourire `#111418`, bandeaux bleus `#1E90FF` aux grandes cuisses, boules orange `#FF7A1A` au bout des antennes. Les grandes pattes arrière sont dans le mesh `Vert` : à séparer si on veut les animer un jour. Planche `compagnon_sauterelle.webp`, aperçus `_apercu.png` et `_studio.jpg`.
+- `compagnon_kangourou` (2026-11-14, 1 482 triangles, 1,75 × 2,58 × 1,73 studs) : roux `#D9822B` (`PrimaryPart` = `Orange`), ventre, museau et intérieur des oreilles `#F6D9A8`, bord de la poche `#C26F20`, yeux, nez et sourire `#4A2A1A`, reflets et manchettes blancs, gants de boxe `#E8302E`, ruban violet au cou `#8E44EC` (couleur de la rareté Épique). Planche `compagnon_kangourou.webp`, aperçus `_apercu.png` et `_studio.jpg` (les quatre compagnons de l'œuf du stade côte à côte).
+
+Pour un compagnon Légendaire ou Épique, un détail à la couleur de la rareté ([[Direction artistique]]) le fait reconnaître de loin : ruban violet du kangourou, or pour la puce savante.
 
 Œuf du stade : blanc à bandes orange. Œuf du champion : doré avec lauriers. Œuf d'or : translucide, lueur violette.
 
