@@ -175,6 +175,28 @@ Small details: nothing else; keep it very simple.
 Sheet layout: 6 views of the SAME model, same size, evenly spaced on one image in 2 rows: front, back, left side, right side, 3/4 front, top. Neutral standing pose, limbs slightly away from the body, head straight. Keep every part clearly separated and readable (body, belly, head, muzzle, eyes, ears, nose, goggles, lenses, laurel wreath, arms, legs, membranes, tail, tail tip) so it can be rebuilt in 3D with few polygons.
 ```
 
+## Gazelle (`compagnon_gazelle`, T-303)
+
+Prompt rempli le 2026-11-14. Joindre les planches du kangourou et de l'écureuil volant.
+
+```text
+Create a character turnaround sheet of an original cute animal companion for a Roblox long jump game: "Gazelle", a rare pet from the "Champion Egg" of world 1 ("Beginner Stadium"). It follows the player by bounding and jumps with them. Same family and same style as the attached kangaroo and flying squirrel companions, a little more elegant, like a young champion.
+
+Proportions: chibi pet proportions like the attached companions. The head is as big as the whole body, the body is small and round, the legs are short but slender. Total height about 1.3 times its width, horns included. Not a slim or human-like character, not a realistic deer.
+
+Style: cartoon 3D game asset, chunky stylized proportions, simple rounded shapes, big head, big eyes, flat cartoon colors, soft studio lighting, pure white background. Same style as a cute stylized mobile game pet. Joyful, sporty and friendly, nothing scary. No text, no numbers, no logos, no ground, no base, no shadow, no aura ring.
+
+Design: a gazelle inspired by an athletics stadium and a long jump. Small round body standing on four short slender legs with small dark hooves, very big round head, short tail. It stands proud with its head up, ready to bound, happy and full of energy.
+Body: warm golden tan (#D9A15B, white belly, white muzzle and white inside of the ears #FFFFFF) with one dark brown stripe along each side (#6B4226).
+Head: two very big round eyes, dark brown with one white highlight and long eyelashes, two leaf-shaped ears pointing sideways, a small dark nose (#3A2A22), a gentle happy smile.
+Special feature: two short curved ringed horns (#8A6A4A) pointing up and slightly back, and a thin gold laurel wreath (#F2B531) between the horns like the champion egg.
+Arms / legs: four short slender legs with dark brown hooves (#4A3424) and a blue sweatband (#1E90FF) on each front leg (blue is the rare color).
+Back / tail: a short tail with a dark brown tuft.
+Small details: nothing else; keep it very simple.
+
+Sheet layout: 6 views of the SAME model, same size, evenly spaced on one image in 2 rows: front, back, left side, right side, 3/4 front, top. Neutral standing pose, legs slightly apart, head straight. Keep every part clearly separated and readable (body, belly, side stripes, head, muzzle, eyes, ears, nose, horns, laurel wreath, legs, hooves, sweatbands, tail, tail tuft) so it can be rebuilt in 3D with few polygons.
+```
+
 ## Remarques
 
 - Pour garder la famille, préciser les proportions dans chaque prompt (tête aussi grosse que le corps, pattes courtes) : sans cette phrase, Gemini peut sortir un personnage élancé, comme pour le lièvre.
