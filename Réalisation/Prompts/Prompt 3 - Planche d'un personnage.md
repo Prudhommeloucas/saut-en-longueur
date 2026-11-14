@@ -93,6 +93,26 @@ Small details: nothing else; keep it very simple.
 Sheet layout: 6 views of the SAME model, same size, evenly spaced on one image in 2 rows: front, back, left side, right side, 3/4 front, top. Neutral crouched pose, limbs slightly away from the body, head straight. Keep every part clearly separated and readable (body, belly, stripes, head, eyes, antennae, antenna balls, back thighs, back lower legs, sweatbands, front legs, feet, wing covers) so it can be rebuilt in 3D with few polygons.
 ```
 
+## Kangourou (`compagnon_kangourou`, T-303)
+
+Prompt rempli le 2026-11-14. Joindre les planches de la grenouille, du lapin et de la sauterelle.
+
+```text
+Create a character turnaround sheet of an original cute animal companion for a Roblox long jump game: "Kangaroo", an epic pet from the "Stadium Egg" of world 1 ("Beginner Stadium"). It follows the player by hopping and jumps with them. Same family and same style as the attached frog, rabbit and grasshopper companions, but it looks a bit more special because it is epic.
+
+Style: cartoon 3D game asset, chunky stylized proportions, simple rounded shapes, big head, big eyes, flat cartoon colors, soft studio lighting, pure white background. Same style as a cute stylized mobile game pet. Joyful, sporty and friendly, nothing scary. No text, no logos, no ground, no base, no shadow, no aura ring.
+
+Design: a kangaroo inspired by a sunny athletics stadium. Pear-shaped body, very big round head, huge long back feet made for jumping, short arms, a thick tail that touches the ground and helps it stand. It stands upright and proud on its big feet and tail, happy and full of energy, fists raised like a champion.
+Body: warm ginger orange (#D9822B, lighter belly #F6D9A8) with no markings; inside of the ears in the belly color.
+Head: two very big round eyes, dark brown with one white highlight, two big rounded upright ears, a small dark brown nose (#4A2A1A), a confident big smile.
+Special feature: a pair of big round red boxing gloves (#E8302E) with white cuffs (#FFFFFF).
+Arms / legs: short arms ending in the boxing gloves, strong thighs, very long flat back feet.
+Back / tail: a thick tapered tail, same orange; a visible pouch on the belly with a slightly darker edge (#C26F20).
+Small details: a thin purple ribbon (#8E44EC) tied around the neck with a small knot; nothing else.
+
+Sheet layout: 6 views of the SAME model, same size, evenly spaced on one image in 2 rows: front, back, left side, right side, 3/4 front, top. Neutral standing pose, limbs slightly away from the body, head straight. Keep every part clearly separated and readable (body, belly, pouch, head, eyes, ears, nose, arms, gloves, cuffs, thighs, feet, tail, ribbon) so it can be rebuilt in 3D with few polygons.
+```
+
 ## Remarques
 
 - Un compagnon tient en 500 à 1 500 triangles ([[Modèles 3D]]) : demander peu de petits détails, la silhouette doit suffire à le reconnaître.
