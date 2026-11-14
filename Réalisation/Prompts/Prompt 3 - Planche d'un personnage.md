@@ -53,6 +53,46 @@ Small details: nothing else; keep it very simple.
 Sheet layout: 6 views of the SAME model, same size, evenly spaced on one image in 2 rows: front, back, left side, right side, 3/4 front, top. Neutral crouched pose, limbs slightly away from the body, head straight. Keep every part clearly separated and readable (body, belly, head, eyes, back legs, back feet, front paws, headband, knot) so it can be rebuilt in 3D with few polygons.
 ```
 
+## Lapin (`compagnon_lapin`, T-303)
+
+Prompt rempli le 2026-11-14. Joindre la planche de la grenouille (`assets/modeles/planches/compagnon_grenouille.webp`) pour garder la même famille.
+
+```text
+Create a character turnaround sheet of an original cute animal companion for a Roblox long jump game: "Rabbit", a common pet from the "Stadium Egg" of world 1 ("Beginner Stadium"). It follows the player by hopping and jumps with them. Same family and same style as the attached frog companion.
+
+Style: cartoon 3D game asset, chunky stylized proportions, simple rounded shapes, big head, big eyes, flat cartoon colors, soft studio lighting, pure white background. Same style as a cute stylized mobile game pet. Joyful, sporty and friendly, nothing scary. No text, no logos, no ground, no base, no shadow, no aura ring.
+
+Design: a rabbit inspired by a sunny athletics stadium. Round chubby body, very big round head, strong back legs made for jumping, small front paws, short round fluffy tail. It sits upright and proud, happy and full of energy.
+Body: soft white (#F4F6FA, lighter belly #FFFFFF) with no markings; inside of the ears and the nose in light pink (#FFB3C1).
+Head: two very big round eyes, dark brown (#3A2A22) with one white highlight, two long upright ears slightly rounded at the tip, a tiny pink triangle nose, a small happy smile with two little front teeth.
+Special feature: a blue race bib (#1E90FF) worn on the chest like a small square apron tied around the body, with a big white circle in the middle (no number, no text).
+Arms / legs: big springy back legs with long flat feet, two small front paws held near the chest.
+Back / tail: smooth round back, the bib's two thin blue straps crossing on the back, a white pompom tail.
+Small details: nothing else; keep it very simple.
+
+Sheet layout: 6 views of the SAME model, same size, evenly spaced on one image in 2 rows: front, back, left side, right side, 3/4 front, top. Neutral sitting pose, limbs slightly away from the body, head straight. Keep every part clearly separated and readable (body, belly, head, eyes, ears, inner ears, nose, back legs, back feet, front paws, tail, bib, straps) so it can be rebuilt in 3D with few polygons.
+```
+
+## Sauterelle (`compagnon_sauterelle`, T-303)
+
+Prompt rempli le 2026-11-14. Joindre les planches de la grenouille et du lapin (`assets/modeles/planches/`).
+
+```text
+Create a character turnaround sheet of an original cute animal companion for a Roblox long jump game: "Grasshopper", a rare pet from the "Stadium Egg" of world 1 ("Beginner Stadium"). It follows the player by hopping and jumps with them. Same family and same style as the attached frog and rabbit companions.
+
+Style: cartoon 3D game asset, chunky stylized proportions, simple rounded shapes, big head, big eyes, flat cartoon colors, soft studio lighting, pure white background. Same style as a cute stylized mobile game pet. Joyful, sporty and friendly, nothing scary, not a realistic insect. No text, no logos, no ground, no base, no shadow, no aura ring.
+
+Design: a grasshopper inspired by a sunny athletics stadium. Short round bean-shaped body, very big round head, two huge folded back legs made for jumping (the most recognizable shape), four short stubby front legs, no stinger. It stands crouched and ready to spring, happy and full of energy.
+Body: bright lime green (#8BDB2E, lighter belly #E6F7A0) with three soft darker green stripes across the back (#4FA61E).
+Head: two very big round eyes, white with big black pupils and one white highlight, a small happy smile, no teeth, no mandibles. Two very long thin antennae curving backward, each ending in a small orange ball (#FF7A1A).
+Special feature: the two huge back legs, with a blue sweatband (#1E90FF) around each knee.
+Arms / legs: back legs bent in a big Z shape, thick thigh and thin lower leg, small round feet; four short front legs with little round feet.
+Back / tail: two small rounded wing covers folded on the back, same green as the stripes, no real wings.
+Small details: nothing else; keep it very simple.
+
+Sheet layout: 6 views of the SAME model, same size, evenly spaced on one image in 2 rows: front, back, left side, right side, 3/4 front, top. Neutral crouched pose, limbs slightly away from the body, head straight. Keep every part clearly separated and readable (body, belly, stripes, head, eyes, antennae, antenna balls, back thighs, back lower legs, sweatbands, front legs, feet, wing covers) so it can be rebuilt in 3D with few polygons.
+```
+
 ## Remarques
 
 - Un compagnon tient en 500 à 1 500 triangles ([[Modèles 3D]]) : demander peu de petits détails, la silhouette doit suffire à le reconnaître.

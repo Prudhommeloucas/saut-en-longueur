@@ -131,6 +131,12 @@ Grosse tête, grands yeux, corps rond, pattes arrière marquées. Chaque espèce
 | Puce savante | Légendaire | Minuscule, cape et chapeau, entourée d'étoiles |
 | Lièvre, écureuil volant, gazelle, dauphin, puma | Œuf du champion | Même style, plus stylisés |
 
+### Compagnons modélisés (T-303)
+
+Même chaîne que la grenouille : un `.blend` par compagnon dans `assets/modeles/source/`, un mesh par couleur nommé `identifiant_Couleur`, origine au sol entre les pattes, face vers -Y dans Blender (-Z dans Roblox). Dans la place : meshes renommés par leur couleur, soudés à la `PrimaryPart`, `CanCollide` et `CanTouch` coupés, pivot au sol. Import possible par Claude en pilotant Studio à l'écran (Fichier → Importer, chemin du `.fbx`, bouton Importer).
+
+- `compagnon_lapin` (2026-11-14, 1 494 triangles, 1,66 × 2,85 × 1,49 studs) : blanc rosé `#ECE4E6`, ventre, dents, queue et rond du dossard `#FAFAF8`, intérieur des oreilles et nez `#F4A6B6`, yeux et sourire `#3A2218`, dossard et sangles croisées dans le dos `#3D8BE0`. `PrimaryPart` = `Blanc`. Planche `compagnon_lapin.png`, aperçus `compagnon_lapin_apercu.png` (Blender) et `compagnon_lapin_studio.jpg` (à côté de la grenouille).
+
 Œuf du stade : blanc à bandes orange. Œuf du champion : doré avec lauriers. Œuf d'or : translucide, lueur violette.
 
 Versions Argent et Or : même modèle, matière métallique et médaille au cou. Aucun modèle supplémentaire.

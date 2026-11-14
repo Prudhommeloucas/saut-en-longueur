@@ -18,5 +18,6 @@ Rien pour l'instant : la liste de la phase 1 arrive avec la tâche T-101.
 | `chaussures_ressorts` (provisoire) | `ReplicatedStorage.Assets.Equipement.chaussures_ressorts` | `assets/modeles/source/planche_style_t010.blend`, export `assets/modeles/export/chaussures_ressorts.fbx` | 872 | Fait par nous (P2), planche Gemini dans `assets/modeles/planches/` | importé |
 | `compagnon_grenouille` (provisoire) | `ReplicatedStorage.Assets.Compagnons.compagnon_grenouille` | Même `.blend`, export `compagnon_grenouille.fbx` | 1 494 | Fait par nous (P2), planche Gemini | importé |
 | `tribune_module` (provisoire) | `ReplicatedStorage.Assets.Decor.tribune_module` | Même `.blend`, export `tribune_module.fbx` | 1 120 | Fait par nous (P2), planche Gemini | importé |
+| `compagnon_lapin` (provisoire) | `ReplicatedStorage.Assets.Compagnons.compagnon_lapin` | `assets/modeles/source/compagnon_lapin.blend`, export `assets/modeles/export/compagnon_lapin.fbx` | 1 494 | Fait par nous (P2), planche Gemini dans `assets/modeles/planches/` | importé |
 
 États : `en cours`, `importé`, `validé`.
