@@ -37,6 +37,8 @@ L'intérêt du passage par le plan : tout le monde voit le monde et peut donner 
 
 ## Usage 2 : la planche d'un modèle 3D
 
+**À ne pas confondre avec l'image de référence.** Pour un modèle, la référence visuelle est une planche Gemini : Claude fournit le prompt, l'équipier génère l'image ([[Modèles 3D]], étape 0, et [[Prompts IA]]). La planche Claude Design décrite ici est un complément facultatif, fait à la demande de l'équipier, pour fixer l'échelle et les couleurs.
+
 ### La planche
 
 - Trois vues du même objet : face, profil, trois quarts.

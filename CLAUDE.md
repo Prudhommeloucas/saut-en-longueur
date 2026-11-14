@@ -38,7 +38,8 @@ Les notes sont un cadre de départ, pas un cahier des charges. Chaque équipier 
 - L'utilisateur veut faire autrement que ce qui est écrit : le faire, puis mettre la note à jour. Ne pas opposer la note à son idée.
 - L'idée change les règles du jeu, l'économie ou la monétisation : l'aider à l'écrire dans `Idées/` (un fichier par idée, ouvert à tous) et, si possible, la prototyper.
 - Restent fixes : la réservation des tâches, le code dans `src/` envoyé par Rojo, les [[Contrats]] tenus à jour, les règles de Roblox.
-- Les plans de mondes, planches de modèles et maquettes d'écrans se dessinent avec Claude Design avant construction ([[Claude Design]]).
+- Les plans de mondes et les maquettes d'écrans se dessinent avec Claude Design avant construction ([[Claude Design]]).
+- Pour la planche d'un modèle 3D (objet, compagnon, décor), Claude ne dessine pas : il donne le prompt à copier dans Gemini, puis attend l'image de l'équipier avant de modéliser ([[Modèles 3D]], [[Prompts IA]]).
 
 ## Règles des notes
 

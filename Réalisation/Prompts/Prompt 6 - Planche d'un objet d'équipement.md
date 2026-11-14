@@ -83,6 +83,48 @@ Colors: at most four colors: #FFFFFF, #FF7A1A, #1E90FF, #3A404D.
 Sheet layout: 6 views of the SAME object, same size, evenly spaced on one image in 2 rows: front, back, left side, right side, 3/4 front, top. Object upright, exactly as worn on the back. Keep every part clearly separated and readable (turbine barrel, intake fan, nose cone, exhaust cone, glow ring, left fin, right fin, tail fin, back plate, shoulder straps) so it can be rebuilt in 3D with few polygons.
 ```
 
+## Planche de style (T-010)
+
+Prompts remplis le 2026-11-14. La grenouille est dans [[Prompt 3 - Planche d'un personnage]]. Dimensions et palette : [[Modèles 3D]], « Planche de style ».
+
+### Semelles à ressorts (`chaussures_ressorts`)
+
+```text
+Create a prop turnaround sheet of an original piece of equipment for a Roblox long jump game: "Spring Soles", a pair of shoes worn by the player. It is the cheap starter item of world 1 ("Beginner Stadium").
+
+Style: cartoon 3D game asset, chunky exaggerated proportions, simple rounded shapes with bevelled edges, flat cartoon colors, smooth plastic look, soft studio lighting, pure white background. Low detail, readable from far away and on a phone. Joyful and sporty, a bit silly. No text, no letters, no numbers, no logos, no brand, no character, no legs, no ground, no base, no shadow.
+
+Design: one big chunky sneaker standing on two fat metal springs, like a toy jumping shoe. Show ONE single shoe (the left one); the right one is a mirror copy.
+Main body: a fat rounded sneaker with a big bulbous toe, bright orange (#FF7A1A), with one wide blue diagonal stripe on each side (#1E90FF) and a thick white padded collar around the ankle opening (#FFFFFF).
+Sole and springs: a thick rounded white sole (#FFFFFF); under it two big chunky chrome coil springs (#AEB8C6), one under the toe and one under the heel, each with only three thick coils and a small flat dark grey foot pad underneath (#5A6270).
+How it is worn: on the foot of a blocky character; the shoe is about as wide as the foot and twice as long, the springs lift the character off the ground.
+Special feature: the two oversized springs, as tall as the sole is thick times two.
+Small details: three thick white laces across the top, a small white pull tab at the heel.
+Colors: at most four colors: #FF7A1A, #FFFFFF, #1E90FF, #AEB8C6.
+
+Sheet layout: 6 views of the SAME object, same size, evenly spaced on one image in 2 rows: front, back, left side, right side, 3/4 front, top. Shoe upright, standing on its springs. Keep every part clearly separated and readable (shoe upper, toe, collar, stripe, laces, sole, front spring, back spring, foot pads) so it can be rebuilt in 3D with few polygons.
+```
+
+### Module de tribune (`tribune_module`)
+
+Le modèle à trous sert aussi pour un élément de décor : on remplace la famille par « stadium prop » et on retire la partie portée.
+
+```text
+Create a prop turnaround sheet of an original stadium building block for a Roblox long jump game: "Grandstand Module", one modular section of bleachers placed along the running track of world 1 ("Beginner Stadium"). Identical modules are placed end to end to make a long grandstand.
+
+Style: cartoon 3D game asset, chunky exaggerated proportions, simple shapes with bevelled edges, flat cartoon colors, smooth plastic look, soft studio lighting, pure white background. Low detail, readable from far away and on a phone. Joyful and sporty. No text, no letters, no numbers, no logos, no brand, no people, no crowd, no ground, no shadow, no flags, no lights.
+
+Design: a small stepped grandstand, wider than deep: about 20 units long, 14 deep and 16 high.
+Main body: six big concrete steps rising toward the back, light grey (#E8ECF1), with a plain low wall at the back.
+Seats: one row of ten chunky rounded plastic seats on each step, alternating orange (#FF7A1A) and blue (#1E90FF) in a checkerboard pattern from row to row.
+Roof: one flat sloped orange roof (#FF7A1A) with a thick white front edge, higher at the front than at the back, covering all the rows. It is held only from the back by three thick dark grey posts (#5A6270) with diagonal braces, so nothing stands in front of the seats.
+Special feature: the orange and blue checkerboard of seats.
+Small details: both ends of the module are flat and open so that two modules join without a gap; no stairs, no railings.
+Colors: at most four colors: #E8ECF1, #FF7A1A, #1E90FF, #5A6270.
+
+Sheet layout: 6 views of the SAME object, same size, evenly spaced on one image in 2 rows: front, back, left side, right side, 3/4 front, top. Keep every part clearly separated and readable (steps, back wall, seats, posts, braces, roof, roof edge) so it can be rebuilt in 3D with few polygons.
+```
+
 ## Remarques
 
 - Budget : 300 à 1 000 triangles par objet porté, sans collision ([[Modèles 3D]]). D'où le peu de détails demandés.

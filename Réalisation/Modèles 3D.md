@@ -6,8 +6,8 @@ Les descriptions de cette note sont des suggestions de départ : celui qui fait 
 
 ## Chaîne de production
 
-0. **Planche du modèle dans Claude Design** : trois vues, dimensions, couleurs, de préférence une planche par famille d'objets. Elle sert de référence et permet à l'équipe de réagir avant la modélisation ([[Claude Design]]).
-   Autre voie pour la référence : une planche de concept générée par Gemini. Les prompts prêts à copier, pour la planche comme pour la construction, sont dans [[Prompts IA]].
+0. **Planche du modèle par Gemini** : c'est l'image de référence. Claude ne dessine pas la planche lui-même : il **donne le prompt à copier dans Gemini** (modèles à trous dans [[Prompts IA]], prompt 3 pour un personnage, prompt 6 pour un objet ou un décor), l'équipier génère l'image, choisit la meilleure et la range dans `assets/modeles/planches/`. Le prompt rempli se garde dans la note du prompt.
+   En complément, et seulement si l'équipier le demande : une planche [[Claude Design]] qui redessine l'objet à l'échelle, avec les dimensions en studs et la palette, de préférence une par famille d'objets.
 1. **Blender**, piloté par le MCP Blender : Claude construit le modèle par script en suivant la planche, prend une capture sous les mêmes angles, corrige.
 2. Vérifications : nombre de triangles, échelle (1 unité Blender = 1 stud), origine au pied du modèle, face vers -Y dans Blender, transformations appliquées, une ou deux matières au plus.
 3. Enregistrement du fichier source dans `assets/modeles/source/` (un `.blend` par modèle) et export `.fbx` dans `assets/modeles/export/`.
@@ -16,6 +16,18 @@ Les descriptions de cette note sont des suggestions de départ : celui qui fait 
 6. Inscription dans [[Registre des modèles]].
 
 Pour les éléments simples de décor (murs, sols, gradins), construire directement en Parts dans Studio par le MCP Roblox Studio est plus rapide que de passer par Blender.
+
+## Planche de style (T-010)
+
+Planche Claude Design du 2026-11-14 (P2), privée tant qu'elle n'est pas partagée depuis son menu Partager : https://claude.ai/artifact/9ukTh4nfmykJBq9LZP4sfG. Trois objets, chacun en face, profil et trois quarts, avec dimensions et palette :
+
+| Identifiant | Dimensions (studs) | Couleurs |
+| --- | --- | --- |
+| `chaussures_ressorts` | Une chaussure : 1,3 de large, 2,4 de long, 2,2 de haut | Orange `#FF7A1A`, blanc, bleu `#1E90FF`, chrome `#AEB8C6` |
+| `compagnon_grenouille` | 2,8 de large, 2,6 de long, 2,6 de haut | Vert `#4CC96B`, vert foncé `#2E9E4F`, ventre `#D8F5B0`, bandeau orange |
+| `tribune_module` | 20 de long, 14 de profond, 16 de haut ; six rangs de 2 de profond et 1,4 de haut | Béton `#E8ECF1`, sièges orange et bleus en damier, toit orange, poteaux `#5A6270` |
+
+Cette planche donne l'échelle et les couleurs. La référence visuelle vient des planches Gemini, dont les prompts remplis sont dans [[Prompt 6 - Planche d'un objet d'équipement]] (chaussures, tribune) et [[Prompt 3 - Planche d'un personnage]] (grenouille). La modélisation attend ces planches.
 
 ## Budgets
 
