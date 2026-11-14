@@ -191,3 +191,23 @@ Each egg has a thin zigzag crack line drawn around its middle, at the same heigh
 
 Sheet layout: the three eggs side by side in one row, each shown twice: front view and 3/4 view from slightly above (6 egg images in total, 2 rows: row 1 = front views, row 2 = 3/4 views, same order). Keep every part clearly separated and readable (shell, stripes, wreath, star, band, crack line) so they can be rebuilt in 3D with few polygons.
 ```
+
+## Incubateur du monde 1 (T-303)
+
+Prompt rempli le 2026-11-14. Un seul modèle d'incubateur, posé trois fois au stade (un par œuf) ; l'attribut `Oeuf` dit lequel ([[Contrats]]). L'œuf de 2,5 studs doit tenir sous la cloche.
+
+```text
+Create a prop turnaround sheet of an original pet egg incubator for a Roblox long jump game, world 1 ("Beginner Stadium"). The player walks up to it to buy and hatch an egg. It stands in a sunny athletics stadium. Same cartoon style as the attached eggs.
+
+Style: cartoon 3D game asset, chunky exaggerated proportions, simple rounded shapes with bevelled edges, flat cartoon colors, smooth plastic look, soft studio lighting, pure white background. Low detail, readable from far away and on a phone. Joyful and sporty. No text, no letters, no numbers, no logos, no character, no egg inside, no ground, no shadow.
+
+Design: a round machine about three times as tall as an egg: a wide round base, a big clear glass dome on top where one egg sits on a small cushion, and glowing tubes around it.
+Base: thick round pedestal, white (#FFFFFF) with an orange band (#FF7A1A) like an athletics track, two small steps in front.
+Dome: big transparent glass bell (#CFEFFF, very light blue) with a white rim at the bottom and a small orange knob on top.
+Glowing parts: three curved tubes coming out of the base and hugging the dome, glowing light blue (#5BC0F8), and a soft ring of light around the base.
+Inside: a small round red cushion (#E8302E) where the egg will be placed (empty for now).
+Special feature: a small round button panel on the front of the base with one big green button (#4CC96B).
+Colors: at most five colors: #FFFFFF, #FF7A1A, #CFEFFF, #5BC0F8, #E8302E.
+
+Sheet layout: 6 views of the SAME object, same size, evenly spaced on one image in 2 rows: front, back, left side, right side, 3/4 front, top. Keep every part clearly separated and readable (base, orange band, steps, button panel, button, dome, dome rim, knob, tubes, light ring, cushion) so it can be rebuilt in 3D with few polygons.
+```

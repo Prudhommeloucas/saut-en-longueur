@@ -149,6 +149,16 @@ Même chaîne que la grenouille : un `.blend` par compagnon dans `assets/modeles
 
 Les dix compagnons du monde 1 côte à côte dans Studio : `assets/modeles/planches/compagnons_monde1_studio.jpg`.
 
+### Œufs modélisés (T-303)
+
+Les trois dans `assets/modeles/source/oeufs_monde1.blend`, d'après une planche Gemini commune (`oeufs_monde1.webp`, prompt dans [[Prompt 6 - Planche d'un objet d'équipement]]). Même forme pour les trois : 2,5 studs de haut, 1,85 de large, plus large en bas, coquille déjà coupée en `Bas` et `Haut` le long d'une fêlure en zigzag (dix dents, à 1,2 stud), voir [[Contrats]]. Rangés dans `ReplicatedStorage.Assets.Oeufs` (dossier créé le 2026-11-14). Aperçus `oeufs_monde1_apercu.png` (Blender) et `oeufs_monde1_studio.jpg`.
+
+- `oeuf_stade` (1 120 triangles) : coquille blanche, deux larges bandes orange `#FF7A1A` bordées d'un filet bleu `#1E90FF`, fêlure grise `#C9CED6`.
+- `oeuf_champion` (1 496 triangles) : coquille dorée `#F2B531` en `Metal`, deux branches de lauriers `#E0A21F` qui montent sur l'avant des flancs, étoile blanche sur le devant, fêlure `#B8861A`.
+- `oeuf_or` (900 triangles) : coquille violette `#C9A2FF` en `Glass` à 35 % de transparence, bande dorée en zigzag `#FFD447` en relief sur la fêlure, neuf étincelles en `Neon` à l'intérieur, `PointLight` violet dans `Bas`.
+
+Pour T-304 : les décors (bandes, lauriers, bande dorée) sont encore d'un seul tenant, soudés à `Bas` ; il faut les couper entre `Bas` et `Haut` avant d'animer l'éclosion.
+
 Pour un compagnon Légendaire ou Épique, un détail à la couleur de la rareté ([[Direction artistique]]) le fait reconnaître de loin : ruban violet du kangourou, or pour la puce savante.
 
 Œuf du stade : blanc à bandes orange. Œuf du champion : doré avec lauriers. Œuf d'or : translucide, lueur violette.
