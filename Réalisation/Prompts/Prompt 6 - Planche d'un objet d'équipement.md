@@ -173,3 +173,21 @@ Sheet layout: 6 views of the SAME object, same size, evenly spaced on one image 
 - Les flammes et la fumée ne font pas partie du modèle : ce sont des effets ajoutés par le code ([[Décor et effets]]).
 - Les images retenues se rangent dans `assets/modeles/planches/`, nommées par l'identifiant de l'objet.
 - Dans Studio, chaque modèle porte une Part `Poignee` et l'attribut `Attache` = `Dos` ([[Contrats]]).
+
+## Les trois œufs du monde 1 (T-303)
+
+Prompt rempli le 2026-11-14. Une seule planche pour les trois œufs, pour qu'ils aillent bien ensemble. Couleurs de [[Modèles 3D]] (« Compagnons et œufs »). La coquille est dessinée avec une ligne de fêlure pour pouvoir la séparer plus tard en deux parties (T-304).
+
+```text
+Create a prop sheet of three original pet eggs for a Roblox long jump game, world 1 ("Beginner Stadium"). The player buys them at an incubator and a cute companion hatches from them. Same cartoon style as the attached pet companions.
+
+Style: cartoon 3D game asset, chunky rounded shapes, flat cartoon colors, smooth glossy plastic look, soft studio lighting, pure white background. Low detail, readable from far away and on a phone. Joyful and sporty. No text, no letters, no numbers, no logos, no character, no ground, no base, no shadow.
+
+The three eggs, same egg shape and same size, a little wider at the bottom, standing upright:
+1. "Stadium Egg" (cheap, 500 coins): white egg (#FFFFFF) with two wide orange horizontal stripes (#FF7A1A) like an athletics track, and a thin blue line (#1E90FF) between them.
+2. "Champion Egg" (expensive): shiny golden egg (#F2B531) with a laurel wreath (#E0A21F) wrapped around its middle and a small white star (#FFFFFF) on the front.
+3. "Golden Egg" (premium, bought with gems): translucent glassy egg with a soft purple glow (#B266FF), small floating sparkles inside, a golden zigzag band (#FFD447) around its middle.
+Each egg has a thin zigzag crack line drawn around its middle, at the same height, where the top part will lift off when it hatches (the crack is only a line, the egg is still closed).
+
+Sheet layout: the three eggs side by side in one row, each shown twice: front view and 3/4 view from slightly above (6 egg images in total, 2 rows: row 1 = front views, row 2 = 3/4 views, same order). Keep every part clearly separated and readable (shell, stripes, wreath, star, band, crack line) so they can be rebuilt in 3D with few polygons.
+```
