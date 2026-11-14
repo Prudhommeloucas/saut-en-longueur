@@ -16,6 +16,7 @@ ReplicatedStorage
   Assets
     Equipement        un Model par objet, nommé par son identifiant
     Compagnons        un Model par espèce
+    Decor             modèles de décor prêts à cloner dans un monde (tribune_module)
     Oeufs
     Effets            particules et effets prêts à cloner
     Animations        objets Animation avec leur identifiant
@@ -63,8 +64,9 @@ Règles : l'axe de la piste est X, le dessus des sols est à Y = 0, la planche d
 
 ## Modèles (rangés dans Studio, utilisés par le code)
 
-- **Équipement** : un Model nommé par l'identifiant de l'objet, avec une Part `Poignee` qui indique où l'attacher et un attribut `Attache` (PiedGauche, PiedDroit, Dos, Torse). `Poignee` est la `PrimaryPart` ; les meshes y sont soudés (`WeldConstraint`), sans collision. Une pièce mobile (`Helice`, `Aiguille`) porte l'attribut `AxeRotation` (Vector3, axe dans le repère du modèle) : le code la fait tourner autour de son pivot pendant la poussée.
-- **Compagnon** : un Model nommé par l'identifiant de l'espèce, `PrimaryPart` défini, moins de 3 studs de haut, face vers -Z.
+- **Équipement** : un Model nommé par l'identifiant de l'objet, avec une Part `Poignee` qui indique où l'attacher et un attribut `Attache` (PiedGauche, PiedDroit, Pieds, Dos, Torse). `Pieds` : le même modèle est cloné sur chaque pied, `Poignee` sous le pied, au centre du dessus de la semelle (`chaussures_ressorts`). `Poignee` est la `PrimaryPart` ; les meshes y sont soudés (`WeldConstraint`), sans collision. Une pièce mobile (`Helice`, `Aiguille`) porte l'attribut `AxeRotation` (Vector3, axe dans le repère du modèle) : le code la fait tourner autour de son pivot pendant la poussée.
+- **Compagnon** : un Model nommé par l'identifiant de l'espèce, `PrimaryPart` défini, moins de 3 studs de haut, face vers -Z. Le pivot du modèle est au sol, entre les pattes ; les meshes sont soudés à la `PrimaryPart`, sans collision ni ancrage.
+- **Décor** (`Assets.Decor`) : un Model nommé par son identifiant, ancré, pivot au sol. Les meshes n'ont pas de collision ; des Parts invisibles nommées `Collision` la portent.
 - **Œuf** : un Model nommé par l'identifiant de l'œuf.
 - Les identifiants sont ceux des modules de configuration. La tâche de contrats de la phase en publie la liste dans [[Registre des modèles]] avant les tâches de modélisation.
 

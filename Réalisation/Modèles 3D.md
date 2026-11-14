@@ -27,7 +27,21 @@ Planche Claude Design du 2026-11-14 (P2), privée tant qu'elle n'est pas partag�
 | `compagnon_grenouille` | 2,8 de large, 2,6 de long, 2,6 de haut | Vert `#4CC96B`, vert foncé `#2E9E4F`, ventre `#D8F5B0`, bandeau orange |
 | `tribune_module` | 20 de long, 14 de profond, 16 de haut ; six rangs de 2 de profond et 1,4 de haut | Béton `#E8ECF1`, sièges orange et bleus en damier, toit orange, poteaux `#5A6270` |
 
-Cette planche donne l'échelle et les couleurs. La référence visuelle vient des planches Gemini, dont les prompts remplis sont dans [[Prompt 6 - Planche d'un objet d'équipement]] (chaussures, tribune) et [[Prompt 3 - Planche d'un personnage]] (grenouille). La modélisation attend ces planches.
+Cette planche donne l'échelle et les couleurs. La référence visuelle vient des planches Gemini, dont les prompts remplis sont dans [[Prompt 6 - Planche d'un objet d'équipement]] (chaussures, tribune) et [[Prompt 3 - Planche d'un personnage]] (grenouille). Planches Gemini reçues et rangées dans `assets/modeles/planches/` (`.webp`).
+
+Modélisés le 2026-11-14 dans `assets/modeles/source/planche_style_t010.blend`, exportés en `.fbx` (mêmes réglages que les propulseurs : échelle « FBX Units Scale »). Aperçu : `assets/modeles/planches/planche_style_apercu.png`. Un mesh par couleur, nommé `identifiant_Couleur`.
+
+- `chaussures_ressorts` (872 triangles) : une seule chaussure, symétrique, qui sert aux deux pieds. Origine sous le pied, au centre du dessus de la semelle ; pointe vers -Y. Le mesh `_Ressorts` est séparé pour pouvoir l'écraser à l'appel.
+- `compagnon_grenouille` (1 494 triangles) : origine au sol, face vers -Y. Pattes du même vert que le corps, comme sur la planche Gemini. Bandeau en ruban plaqué sur la tête, nœud et deux pans derrière ; bouche en grand sourire, coins relevés (vert foncé `#14602B`).
+- `tribune_module` (1 120 triangles) : 20 de long, 15,7 de profond avec le débord du toit, 16 de haut. Six rangs de huit sièges. Origine au sol, au milieu du bord avant ; les gradins montent vers +Y. Deux poteaux à 5 studs du centre, pour un poteau tous les 10 studs quand les modules se suivent.
+
+Importés dans la place le 2026-11-14 (échelle 1 unité = 1 stud vérifiée : la tribune mesure 20 × 16 × 15,7). Capture dans Studio : `assets/modeles/planches/planche_style_studio.jpg`. Dans la file d'import, le bouton « Importer » traite les trois lignes d'un coup. Studio pose chaque modèle dans le `Workspace`, sous la forme d'un Model qui en contient un second ; un script aplatit, renomme les meshes (`Orange`, `Blanc`…), remet les couleurs et range.
+
+- Chaussure : `Poignee` et `Attache` = `Pieds` ([[Contrats]]), ressorts avec un peu de reflet.
+- Grenouille : `PrimaryPart` = `Vert`, pivot au sol.
+- Tribune : dans `Assets.Decor`, ancrée, six Parts invisibles `Collision` (une par rang).
+
+Reste : le style est validé par P2 seulement ; l'avis des deux autres est demandé dans `Suivi/Demandes/`.
 
 ## Budgets
 

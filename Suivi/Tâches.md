@@ -18,7 +18,7 @@ Pour cocher : `- [x] T-101 Appel — Code (2026-11-15, P3)`. On ne modifie que l
 - [ ] T-007 Rangement de la map et pose des tags — Monde
 - [ ] T-008 Lecture de la map par les tags — Code
 - [ ] T-009 Maquettes des quatre premiers écrans — Interface
-- [ ] T-010 Planche de style : chaussures, compagnon, module de tribune — 3D
+- [x] T-010 Planche de style : chaussures, compagnon, module de tribune — 3D (2026-11-14, P2 ; style à valider par les deux autres, voir `Suivi/Demandes/`)
 - [ ] T-015 Essai de la chaîne plan Claude Design → Studio — Monde
 - [ ] T-011 Thème d'interface dans Studio — Interface
 - [ ] T-012 Skills du projet — Outils
