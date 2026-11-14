@@ -105,6 +105,48 @@ Colors: at most four colors: #FF7A1A, #FFFFFF, #1E90FF, #AEB8C6.
 Sheet layout: 6 views of the SAME object, same size, evenly spaced on one image in 2 rows: front, back, left side, right side, 3/4 front, top. Shoe upright, standing on its springs. Keep every part clearly separated and readable (shoe upper, toe, collar, stripe, laces, sole, front spring, back spring, foot pads) so it can be rebuilt in 3D with few polygons.
 ```
 
+## Les deux autres chaussures du monde 1 (T-207)
+
+Prompts remplis le 2026-11-14. Même famille que les semelles à ressorts : joindre `assets/modeles/planches/chaussures_ressorts.webp` à Gemini aide à garder l'échelle et le style. La progression doit se lire : jouet, puis sport, puis haute technologie.
+
+### Baskets turbo (`chaussures_turbo`, 2 500 pièces)
+
+```text
+Create a prop turnaround sheet of an original piece of equipment for a Roblox long jump game: "Turbo Sneakers", a pair of shoes worn by the player. It is the mid-range item of world 1 ("Beginner Stadium"): sporty, fast and more serious than toy spring shoes.
+
+Style: cartoon 3D game asset, chunky exaggerated proportions, simple rounded shapes with bevelled edges, flat cartoon colors, smooth plastic look, soft studio lighting, pure white background. Low detail, readable from far away and on a phone. Joyful and sporty, a bit silly. No text, no letters, no numbers, no logos, no brand, no character, no legs, no ground, no base, no shadow, no flames, no smoke.
+
+Design: one big chunky running sneaker with small wings and a little jet nozzle at the heel. Show ONE single shoe (the left one); the right one is a mirror copy.
+Main body: a fat rounded running sneaker, bright blue (#1E90FF), with a thick white padded collar (#FFFFFF) and a big rounded toe cap in white.
+Sole: a thick chunky white sole (#FFFFFF) with a bright yellow stripe running all along its side (#FFC83D), slightly raised at the toe like a racing shoe.
+Thrust part: one short round nozzle at the back of the heel, dark grey (#3A404D), pointing backwards and slightly down, with a yellow ring around its opening (#FFC83D).
+How it is worn: on the foot of a blocky character; the shoe is about as wide as the foot and twice as long.
+Special feature: two small rounded yellow fins (#FFC83D), one on each side of the ankle, swept backwards like little wings.
+Small details: three thick white laces across the top, two yellow speed stripes on each side of the shoe.
+Colors: at most four colors: #1E90FF, #FFFFFF, #FFC83D, #3A404D.
+
+Sheet layout: 6 views of the SAME object, same size, evenly spaced on one image in 2 rows: front, back, left side, right side, 3/4 front, top. Shoe upright, standing flat. Keep every part clearly separated and readable (shoe upper, toe cap, collar, laces, sole, sole stripe, side fins, heel nozzle, nozzle ring) so it can be rebuilt in 3D with few polygons.
+```
+
+### Bottes à réaction (`chaussures_reaction`, 40 000 pièces)
+
+```text
+Create a prop turnaround sheet of an original piece of equipment for a Roblox long jump game: "Rocket Boots", a pair of boots worn by the player. It is the best and most expensive item of world 1 ("Beginner Stadium"): high-tech and shiny like a cartoon astronaut boot, but still cute and toy-like.
+
+Style: cartoon 3D game asset, chunky exaggerated proportions, simple rounded shapes with bevelled edges, flat cartoon colors, smooth plastic look, soft studio lighting, pure white background. Low detail, readable from far away and on a phone. Joyful and sporty, a bit silly. No text, no letters, no numbers, no logos, no brand, no character, no legs, no ground, no base, no shadow, no flames, no smoke, no weapons.
+
+Design: one big chunky space boot that rises above the ankle, with two small round jet engines under the sole. Show ONE single boot (the left one); the right one is a mirror copy.
+Main body: a fat rounded boot, white (#FFFFFF), with a thick orange cuff at the top (#FF7A1A) and a wide orange band around the ankle.
+Sole: a thick dark grey sole (#3A404D), flat underneath.
+Thrust part: two short fat round jet nozzles under the sole, one under the toe and one under the heel, dark grey (#3A404D), pointing straight down, each with a glowing blue ring just inside the rim (#1E90FF).
+How it is worn: on the foot and lower leg of a blocky character; the boot is about as wide as the foot, twice as long, and as tall as it is long.
+Special feature: a small round glowing blue light on each side of the ankle (#1E90FF), like a power indicator.
+Small details: two big round buckles on the front, orange; one thin blue stripe along the side of the sole.
+Colors: at most four colors: #FFFFFF, #FF7A1A, #3A404D, #1E90FF.
+
+Sheet layout: 6 views of the SAME object, same size, evenly spaced on one image in 2 rows: front, back, left side, right side, 3/4 front, top. Boot upright, standing on its nozzles. Keep every part clearly separated and readable (boot body, cuff, ankle band, buckles, sole, front nozzle, back nozzle, glow rings, side lights) so it can be rebuilt in 3D with few polygons.
+```
+
 ### Module de tribune (`tribune_module`)
 
 Le modèle à trous sert aussi pour un élément de décor : on remplace la famille par « stadium prop » et on retire la partie portée.
