@@ -153,7 +153,31 @@ Small details: nothing else; keep it very simple.
 Sheet layout: 6 views of the SAME model, same size, evenly spaced on one image in 2 rows: front, back, left side, right side, 3/4 front, top. Neutral standing pose, limbs slightly away from the body, head straight. Keep every part clearly separated and readable (body, belly, head, muzzle, eyes, ears, ear tips, nose, tank top, stripe, laurel wreath, arms, legs, shoes, soles, tail) so it can be rebuilt in 3D with few polygons.
 ```
 
+## Écureuil volant (`compagnon_ecureuil`, T-303)
+
+Prompt rempli le 2026-11-14. La planche du lièvre est sortie avec des proportions presque humaines : ce prompt impose donc les proportions de la famille (phrase « Proportions »). Joindre les planches du lapin et du kangourou, pas celle du lièvre.
+
+```text
+Create a character turnaround sheet of an original cute animal companion for a Roblox long jump game: "Flying Squirrel", a common pet from the "Champion Egg" of world 1 ("Beginner Stadium"). It follows the player by hopping and gliding and jumps with them. Same family and same style as the attached rabbit and kangaroo companions, a little more stylish, like a young champion.
+
+Proportions: chibi pet proportions like the attached companions. The head is as big as the whole body, the body is small and round, the legs are short and stubby. Total height about 1.2 times its width. Not a slim or human-like character.
+
+Style: cartoon 3D game asset, chunky stylized proportions, simple rounded shapes, big head, big eyes, flat cartoon colors, soft studio lighting, pure white background. Same style as a cute stylized mobile game pet. Joyful, sporty and friendly, nothing scary. No text, no numbers, no logos, no ground, no base, no shadow, no aura ring.
+
+Design: a flying squirrel inspired by an athletics stadium and a glider. Round little body, very big round head, short stubby legs, small arms with a stretchy gliding membrane between each arm and leg (like a small cape on each side), a huge fluffy tail curling up behind it. It stands upright with arms slightly open to show the membranes, happy and full of energy.
+Body: soft grey-brown (#9A8678, lighter belly and muzzle #F2E6D8), membranes a slightly darker grey-brown (#7C6A5E) with a cream edge.
+Head: two very big round eyes, dark brown with one white highlight, two small rounded ears, a small dark nose (#3A2A22), a happy smile with two tiny front teeth.
+Special feature: orange aviator goggles (#FF7A1A frame, light blue #8FD3FF lenses) pushed up on the forehead, and a thin gold laurel wreath (#F2B531) behind the goggles like the champion egg.
+Arms / legs: small arms and short legs with small round paws.
+Back / tail: a very big fluffy tail in the body color, curling up over its back, with a cream tip.
+Small details: nothing else; keep it very simple.
+
+Sheet layout: 6 views of the SAME model, same size, evenly spaced on one image in 2 rows: front, back, left side, right side, 3/4 front, top. Neutral standing pose, limbs slightly away from the body, head straight. Keep every part clearly separated and readable (body, belly, head, muzzle, eyes, ears, nose, goggles, lenses, laurel wreath, arms, legs, membranes, tail, tail tip) so it can be rebuilt in 3D with few polygons.
+```
+
 ## Remarques
+
+- Pour garder la famille, préciser les proportions dans chaque prompt (tête aussi grosse que le corps, pattes courtes) : sans cette phrase, Gemini peut sortir un personnage élancé, comme pour le lièvre.
 
 - Un compagnon tient en 500 à 1 500 triangles ([[Modèles 3D]]) : demander peu de petits détails, la silhouette doit suffire à le reconnaître.
 - Les versions Argent et Or ne demandent pas de planche : même modèle, matière métallique et médaille au cou ([[Compagnons]]).
