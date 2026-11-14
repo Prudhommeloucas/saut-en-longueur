@@ -219,6 +219,28 @@ Small details: nothing else; keep it very simple.
 Sheet layout: 6 views of the SAME model, same size, evenly spaced on one image in 2 rows: front, back, left side, right side, 3/4 front, top. Neutral standing pose, flippers slightly away from the body, head straight. Keep every part clearly separated and readable (body, belly, head, beak, eyes, blowhole, flippers, dorsal fin, tail fluke, medal, ribbon, laurel wreath) so it can be rebuilt in 3D with few polygons.
 ```
 
+## Puma (`compagnon_puma`, T-303)
+
+Prompt rempli le 2026-11-14. Dernier compagnon de l'œuf du champion, Légendaire : l'or domine. Joindre les planches de la gazelle et du dauphin.
+
+```text
+Create a character turnaround sheet of an original cute animal companion for a Roblox long jump game: "Puma", a legendary pet from the "Champion Egg" of world 1 ("Beginner Stadium"). It follows the player by leaping and jumps with them. Same family and same style as the attached gazelle and dolphin companions, but it clearly looks legendary: a proud little champion.
+
+Proportions: chibi pet proportions like the attached companions. The head is as big as the whole body, the body is small and round, the legs are short and strong. Total height about 1.2 times its width. Not a slim or human-like character, not a realistic big cat.
+
+Style: cartoon 3D game asset, chunky stylized proportions, simple rounded shapes, big head, big eyes, flat cartoon colors, soft studio lighting, pure white background. Same style as a cute stylized mobile game pet. Joyful, sporty and friendly, nothing scary, no fangs, no claws. No text, no numbers, no logos, no ground, no base, no shadow, no aura ring.
+
+Design: a puma cub inspired by an athletics stadium and an Olympic champion. Small round body on four short strong legs, very big round head, a long tail curling up with a dark tip. It sits upright on its back legs with its chest out, like a champion on a podium, happy and confident.
+Body: warm tawny gold (#D69A4A, cream belly, muzzle and inside of the ears #F7E6C8) with no spots; tail tip and ear tips dark brown (#5A3A22).
+Head: two very big round eyes, bright green (#4CC96B) with a dark pupil and one white highlight, two small rounded ears, a small pink nose (#E88A9A), a proud happy smile.
+Special feature: a golden champion's crown made of laurel leaves (#F2B531) on its head, and a short golden cape (#F2B531) with a white edge tied at the neck (gold is the legendary color).
+Arms / legs: four short strong legs with big round paws, cream paw tips.
+Back / tail: a long tail curling up behind it, same tawny color, dark brown tip.
+Small details: a small golden star-shaped medal (#FFD447) on the cape knot; nothing else.
+
+Sheet layout: 6 views of the SAME model, same size, evenly spaced on one image in 2 rows: front, back, left side, right side, 3/4 front, top. Neutral sitting pose, legs slightly apart, head straight. Keep every part clearly separated and readable (body, belly, head, muzzle, eyes, ears, ear tips, nose, laurel crown, cape, cape edge, star medal, legs, paws, tail, tail tip) so it can be rebuilt in 3D with few polygons.
+```
+
 ## Remarques
 
 - Pour garder la famille, préciser les proportions dans chaque prompt (tête aussi grosse que le corps, pattes courtes) : sans cette phrase, Gemini peut sortir un personnage élancé, comme pour le lièvre.
