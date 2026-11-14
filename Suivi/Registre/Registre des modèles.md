@@ -24,5 +24,6 @@ Rien pour l'instant : la liste de la phase 1 arrive avec la tâche T-101.
 | `compagnon_puce` (provisoire) | `ReplicatedStorage.Assets.Compagnons.compagnon_puce` | `assets/modeles/source/compagnon_puce.blend`, export `assets/modeles/export/compagnon_puce.fbx` | 1 538 (dont 120 pour les étoiles) | Fait par nous (P2), planche Gemini | importé |
 | `compagnon_lievre` (provisoire) | `ReplicatedStorage.Assets.Compagnons.compagnon_lievre` | `assets/modeles/source/compagnon_lievre.blend`, export `assets/modeles/export/compagnon_lievre.fbx` | 1 468 | Fait par nous (P2), planche Gemini | importé |
 | `compagnon_ecureuil` (provisoire) | `ReplicatedStorage.Assets.Compagnons.compagnon_ecureuil` | `assets/modeles/source/compagnon_ecureuil.blend`, export `assets/modeles/export/compagnon_ecureuil.fbx` | 1 476 | Fait par nous (P2), planche Gemini | importé |
+| `compagnon_gazelle` (provisoire) | `ReplicatedStorage.Assets.Compagnons.compagnon_gazelle` | `assets/modeles/source/compagnon_gazelle.blend`, export `assets/modeles/export/compagnon_gazelle.fbx` | 1 456 | Fait par nous (P2), planche Gemini | importé |
 
 États : `en cours`, `importé`, `validé`.

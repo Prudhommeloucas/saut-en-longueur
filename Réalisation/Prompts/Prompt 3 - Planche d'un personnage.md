@@ -197,6 +197,28 @@ Small details: nothing else; keep it very simple.
 Sheet layout: 6 views of the SAME model, same size, evenly spaced on one image in 2 rows: front, back, left side, right side, 3/4 front, top. Neutral standing pose, legs slightly apart, head straight. Keep every part clearly separated and readable (body, belly, side stripes, head, muzzle, eyes, ears, nose, horns, laurel wreath, legs, hooves, sweatbands, tail, tail tuft) so it can be rebuilt in 3D with few polygons.
 ```
 
+## Dauphin (`compagnon_dauphin`, T-303)
+
+Prompt rempli le 2026-11-14. Joindre les planches de l'écureuil volant et de la gazelle.
+
+```text
+Create a character turnaround sheet of an original cute animal companion for a Roblox long jump game: "Dolphin", an epic pet from the "Champion Egg" of world 1 ("Beginner Stadium"). It follows the player by bouncing on its tail and jumps with them. Same family and same style as the attached flying squirrel and gazelle companions, a little more special because it is epic.
+
+Proportions: chibi pet proportions like the attached companions. The head and body form one round bean shape, the head part is very big, the tail is short and thick. It stands upright on its tail fluke like a little person. Total height about 1.3 times its width. Not a realistic dolphin.
+
+Style: cartoon 3D game asset, chunky stylized proportions, simple rounded shapes, big head, big eyes, flat cartoon colors, soft studio lighting, pure white background. Same style as a cute stylized mobile game pet. Joyful, sporty and friendly, nothing scary. No text, no numbers, no logos, no water, no ground, no base, no shadow, no aura ring.
+
+Design: a dolphin inspired by an athletics stadium and a diving champion. Round bean-shaped body, very big rounded head with a short smiling beak, a small dorsal fin, two small flippers used like arms, a wide tail fluke on the ground used like feet. It stands upright on its tail, one flipper raised to wave, happy and full of energy.
+Body: bright sky blue (#4FA8E8, lighter belly and lower beak #EAF6FF) with no markings.
+Head: two very big round eyes, dark navy (#14213D) with one white highlight, a short rounded beak with a big friendly smile, a small blowhole on top.
+Special feature: a gold medal (#F2B531) on a purple ribbon (#8E44EC) around the neck (purple is the epic color), and a thin gold laurel wreath (#F2B531) on the head like the champion egg.
+Arms / legs: two small rounded flippers as arms, the tail fluke as feet.
+Back / tail: a small rounded dorsal fin, same blue.
+Small details: nothing else; keep it very simple.
+
+Sheet layout: 6 views of the SAME model, same size, evenly spaced on one image in 2 rows: front, back, left side, right side, 3/4 front, top. Neutral standing pose, flippers slightly away from the body, head straight. Keep every part clearly separated and readable (body, belly, head, beak, eyes, blowhole, flippers, dorsal fin, tail fluke, medal, ribbon, laurel wreath) so it can be rebuilt in 3D with few polygons.
+```
+
 ## Remarques
 
 - Pour garder la famille, préciser les proportions dans chaque prompt (tête aussi grosse que le corps, pattes courtes) : sans cette phrase, Gemini peut sortir un personnage élancé, comme pour le lièvre.
