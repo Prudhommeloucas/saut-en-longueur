@@ -1,0 +1,23 @@
+{
+  "name": "saut-en-longueur",
+  "tree": {
+    "$className": "DataModel",
+    "ReplicatedStorage": {
+      "Config": {
+        "$path": "src/shared/Config.luau"
+      }
+    },
+    "ServerScriptService": {
+      "JeuSaut": {
+        "$path": "src/server/JeuSaut.server.luau"
+      }
+    },
+    "StarterPlayer": {
+      "StarterPlayerScripts": {
+        "ClientSaut": {
+          "$path": "src/client/ClientSaut.client.luau"
+        }
+      }
+    }
+  }
+}

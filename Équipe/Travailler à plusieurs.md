@@ -53,7 +53,7 @@ Tout le monde code. Les règles techniques sont dans [[Architecture du code]] ; 
 
 Rojo remplace les scripts de la place par ceux du dossier `src/` de la machine. Si deux personnes branchaient Rojo en même temps sur la place partagée, chacune effacerait le code non envoyé de l'autre. Donc :
 
-1. Dans Studio, ouvrir la place partagée, puis **Fichier > Enregistrer dans un fichier sous** : `copies/ma-copie.rbxl` dans le dossier du projet (exclu de git). Refaire la copie quand la map ou les écrans ont beaucoup changé.
+1. Dans Studio, ouvrir la place partagée, puis **Fichier > Télécharger une copie** : `copies/copie-pN.rbxl` dans le dossier du projet (exclu de git), et l'ouvrir par **Fichier > Ouvrir depuis un fichier**. Refaire la copie quand la map ou les écrans ont beaucoup changé.
 2. Coder dans `src/`, lancer `rojo serve`, connecter Rojo **dans la copie**, tester par le MCP Roblox Studio.
 3. Selene et StyLua sans erreur, le jeu se lance sans erreur : envoyer sur GitHub.
 

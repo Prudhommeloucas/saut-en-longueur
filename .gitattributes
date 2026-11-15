@@ -13,3 +13,9 @@
 *.mp3 binary
 *.wav binary
 *.xlsx binary
+
+# Code : fins de ligne LF partout (Rojo, StyLua)
+*.luau text eol=lf
+*.lua text eol=lf
+*.json text eol=lf
+*.toml text eol=lf

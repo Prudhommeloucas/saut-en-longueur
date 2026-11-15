@@ -12,7 +12,7 @@ Pour cocher : `- [x] T-101 Appel — Code (2026-11-15, P3)`. On ne modifie que l
 - [x] T-002 Groupe Roblox, publication, Team Create, place Test — Humain (2026-11-15, P2 ; groupe OGC Studio, ouverture à trois à confirmer, voir `Suivi/Demandes/`)
 - [ ] T-003 Installation du Poste 2 — Outils
 - [ ] T-003 Installation du Poste 3 — Outils
-- [ ] T-004 Migration des scripts vers Rojo — Code
+- [x] T-004 Migration des scripts vers Rojo — Code (2026-11-15, P2)
 - [ ] T-005 Découpage en configuration, services, contrôleurs — Code
 - [ ] T-006 Sauvegarde ProfileStore — Code
 - [ ] T-007 Rangement de la map et pose des tags — Monde
