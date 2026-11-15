@@ -181,20 +181,45 @@ function Hud.demarrer()
 	suivreGain("Puissance", Color3.fromRGB(255, 120, 120))
 	suivreGain("Vitesse", Color3.fromRGB(130, 180, 255))
 
-	Remotes.SautResultat.OnClientEvent:Connect(function(metres, gain, estRecord)
+	Remotes.SautResultat.OnClientEvent:Connect(function(metres, gain, estRecord, rare)
 		finResultat = os.clock() + SautConfig.DELAI_RETOUR + 0.5
 		lblDistance.Text = string.format(Textes.DISTANCE, metres)
 		lblDistance.TextColor3 = estRecord and Color3.fromRGB(255, 220, 80) or Color3.new(1, 1, 1)
-		lblDetail.Text = (estRecord and Textes.NOUVEAU_RECORD or "")
+		local texteRare = ""
+		for _, r in SautConfig.SAUTS_RARES do
+			if r.id == rare then
+				texteRare =
+					string.format(Textes.RESULTAT_RARE, Textes["SAUT_RARE_" .. r.id], tostring(r.multiplicateur))
+			end
+		end
+		lblDetail.Text = texteRare
+			.. (estRecord and Textes.NOUVEAU_RECORD or "")
 			.. string.format(Textes.GAIN_PIECES, tostring(gain))
 		if gain > 0 then
 			Audio.pieces()
 		end
 	end)
 
+	-- Saut rare annoncé dès le passage de la planche (le sable et la caméra viendront avec T-111)
+	player:GetAttributeChangedSignal("SautRare"):Connect(function()
+		local id = player:GetAttribute("SautRare")
+		if type(id) == "string" and id ~= "" then
+			finNotif = os.clock() + 2.5
+			lblNotif.Text = Textes["SAUT_RARE_" .. id] or ""
+			lblNotif.TextColor3 = Color3.fromRGB(255, 200, 40)
+		end
+	end)
+
+	-- Anneau traversé : « +5 » au-dessus de la tête
+	Remotes.AnneauTraverse.OnClientEvent:Connect(function(pieces)
+		popup(string.format(Textes.ANNEAU_GAIN, tostring(pieces)), Color3.fromRGB(255, 220, 80))
+		Audio.pieces()
+	end)
+
 	Remotes.Notif.OnClientEvent:Connect(function(message)
 		finNotif = os.clock() + 3
 		lblNotif.Text = message
+		lblNotif.TextColor3 = Color3.new(1, 1, 1)
 	end)
 
 	RunService.Heartbeat:Connect(function()

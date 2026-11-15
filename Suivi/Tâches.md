@@ -31,7 +31,7 @@ Pour cocher : `- [x] T-101 Appel — Code (2026-11-15, P3)`. On ne modifie que l
 - [ ] T-101 Appel — Code
 - [ ] T-102 Vol — Code
 - [ ] T-103 Réception, saut parfait, série — Code
-- [ ] T-104 Anneaux et sauts rares — Code
+- [x] T-104 Anneaux et sauts rares — Code (2026-11-15, P2 ; avant T-101 à T-103, tirage au passage de la planche)
 - [ ] T-105 Stade : piste, planche, bac, panneaux, arche, tribunes — Monde
 - [ ] T-106 Anneaux, écran géant, projecteurs, public — Monde
 - [ ] T-114 Place centrale ronde — Monde

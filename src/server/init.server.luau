@@ -9,7 +9,8 @@ local ORDRE = {
 	"Oeufs", -- achat et éclosion des œufs
 	"Stats", -- vitesse et saut selon la zone
 	"Entrainement", -- gains dans les zones d'entraînement
-	"Saut", -- mesure du saut, effets, jetpack
+	"Anneaux", -- pièces des anneaux traversés
+	"Saut", -- mesure du saut, sauts rares, effets, jetpack
 	"Boutique", -- stands d'achat
 }
 

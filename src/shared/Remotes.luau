@@ -4,8 +4,10 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local RunService = game:GetService("RunService")
 
 local EVENEMENTS = {
-	-- serveur → joueur : (metres: number, gain: number, estRecord: boolean)
+	-- serveur → joueur : (metres: number, gain: number, estRecord: boolean, rare: string?) rare = "Dore", "Legendaire" ou nil
 	"SautResultat",
+	-- serveur → joueur : (pieces: number, serie: number) un anneau vient d'être traversé
+	"AnneauTraverse",
 	-- serveur → joueur : (message: string)
 	"Notif",
 	-- joueur → serveur : (actif: boolean), vrai quand la poussée du jetpack démarre

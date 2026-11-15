@@ -4,7 +4,7 @@ Le cœur du jeu : un saut en trois temps. Voir [[Boucles de gameplay]], [[Map]] 
 
 ## État actuel
 
-Le joueur court, saute, et la distance est mesurée au premier contact avec le sable. Le jetpack donne 1,5 seconde de poussée. Il n'y a ni jauge d'appel, ni réception, ni saut rare. Détails dans [[Scripts]].
+Le joueur court, saute, et la distance est mesurée au premier contact avec le sable. Le jetpack donne 1,5 seconde de poussée. Il n'y a encore ni jauge d'appel ni réception. Depuis T-104 (2026-11-15) : sauts rares tirés au passage de la planche (doré 1 sur 100, × 10 ; légendaire 1 sur 1 000, × 100 et annonce au serveur ; chance × (1 + bonus des Porte-bonheur)), annoncés par un message à l'écran ; anneaux tagués `Anneau` (5 pièces, poussée de 30 donnée par le client, +25 pièces pour 3 anneaux dans un même saut). La piste dorée et la musique du saut rare viendront avec les effets (T-110, T-111). Détails dans [[Scripts]].
 
 ## Cible : les trois temps
 

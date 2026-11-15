@@ -12,7 +12,7 @@ Tout le code vit dans `src/` et Rojo l'envoie dans Studio (`default.project.json
 | `src/shared/Remotes.luau` | `ReplicatedStorage.Shared.Remotes` | Liste unique des événements réseau ; le serveur les crée dans `ReplicatedStorage.Remotes`, le client les attend |
 | `src/server/init.server.luau` | `ServerScriptService.Server` | Démarre les services dans l'ordre |
 | `src/shared/Util/Apparence.luau` | `Shared.Util.Apparence` | `appliquerVersion(modele, version)` : couleurs, matière et médaille des versions Argent et Or |
-| `src/server/Services/` | `Server.Services` | `Donnees` (chargement, leaderstats, attributs, sauvegarde), `Personnage` (réglage à l'apparition, objets portés, flammes, traînées), `Index` (album, pages, gemmes et chance), `Compagnons` (inventaire, équipe, bonus, expérience, fusion), `Oeufs` (achat, tirage, éclosion, prompt « Ouvrir » sur chaque `Incubateur` tagué du Workspace, `PolicyService`), `Stats` (vitesse et saut sur la piste), `Entrainement` (zones, × Coachs), `Saut` (mesure, × Trésoriers, expérience, effets d'atterrissage, flammes du jetpack), `Boutique` (stands) |
+| `src/server/Services/` | `Server.Services` | `Donnees` (chargement, leaderstats, attributs, sauvegarde), `Personnage` (réglage à l'apparition, objets portés, flammes, traînées), `Index` (album, pages, gemmes et chance), `Compagnons` (inventaire, équipe, bonus, expérience, fusion), `Oeufs` (achat, tirage, éclosion, prompt « Ouvrir » sur chaque `Incubateur` tagué du Workspace, `PolicyService`), `Stats` (vitesse et saut sur la piste), `Entrainement` (zones, × Coachs), `Anneaux` (pièces des anneaux tagués, série), `Saut` (mesure, sauts rares tirés au passage de la planche, × Trésoriers, × saut rare, expérience, effets d'atterrissage, flammes du jetpack ; `Saut.forcerProchain(player, "Dore")` pour les tests), `Boutique` (stands) |
 | `src/client/init.client.luau` | `StarterPlayerScripts.Client` | Démarre les contrôleurs |
 | `src/client/Controleurs/` | `Client.Controleurs` | `Audio` (son des pièces), `Hud` (écran provisoire créé par le code, à remplacer par T-108/T-109), `Saut` (jetpack, champ de vision, distance en direct), `Compagnons` (affiche les compagnons équipés de chaque joueur, qui suivent en bondissant et sautent avec lui ; dossier local `Workspace.CompagnonsVisibles`) |
 
@@ -22,7 +22,9 @@ Les valeurs de rebirth et de pets (cubes de couleur) de l'ancien `Config` n'éta
 
 ## Événements réseau (`Remotes.luau`)
 
-- `SautResultat`, serveur vers joueur : distance, pièces gagnées, record.
+- `SautResultat`, serveur vers joueur : distance, pièces gagnées, record, saut rare (`Dore`, `Legendaire` ou rien).
+- `AnneauTraverse`, serveur vers joueur : pièces de l'anneau, nombre d'anneaux de la série. La poussée est appliquée par le contrôleur `Saut` du joueur.
+- Attribut `SautRare` sur le Player : le saut rare tiré pour le saut en cours (vide sinon).
 - `Notif`, serveur vers joueur : message de la boutique.
 - `JetpackEtat`, joueur vers serveur : vrai quand la poussée démarre, faux quand elle s'arrête. Le serveur allume alors les flammes pour que tout le monde les voie.
 - `CompagnonsEtat`, serveur vers joueur : inventaire complet (`liste`, `equipes`, `emplacements`, `inventaireMax`), à chaque changement.

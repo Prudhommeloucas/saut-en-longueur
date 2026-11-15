@@ -38,7 +38,7 @@ La map actuelle (`Workspace.Map`, voir [[Map]]) sera déplacée dans `Workspace.
 | `Piste` | Part de la piste d'élan | `Monde` (nombre) | prévu |
 | `PlancheAppel` | Part de la planche | `Monde` | prévu |
 | `Bac` | Parts de la zone d'atterrissage | `Monde` | prévu |
-| `Anneau` | Part en forme d'anneau, sans collision | `Pieces` (nombre), `Poussee` (nombre) | prévu |
+| `Anneau` | Part en forme d'anneau, sans collision | `Pieces` (nombre), `Poussee` (nombre) | code prêt (T-104) : pièces une fois par anneau et par saut, en vol seulement ; défauts 5 pièces et poussée 30 (`Config/Saut`) ; aucun anneau posé (T-106) |
 | `Stand` | Model d'un stand de boutique | `Famille` (Chaussures, Propulseur, Materiel, Ailes, Tenue) | prévu |
 | `Incubateur` | Model | `Oeuf` (identifiant) | modèle prêt (`Assets.Decor.incubateur`, tag et `Oeuf` = `oeuf_stade` déjà posés ; changer l'attribut pour chaque copie). Attachment `PoseOeuf` dans `Blanc` : là où poser l'œuf |
 | `Portail` | Model | `VersMonde` (nombre) | prévu |

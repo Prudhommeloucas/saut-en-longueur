@@ -3,6 +3,7 @@ local Players = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local RunService = game:GetService("RunService")
 local UserInputService = game:GetService("UserInputService")
+local CollectionService = game:GetService("CollectionService")
 
 local Shared = ReplicatedStorage:WaitForChild("Shared")
 local Config = Shared:WaitForChild("Config")
@@ -67,11 +68,50 @@ local function chaqueImage(dt: number)
 	end
 end
 
+-- Anneaux : poussée vers le haut et l'avant, une fois par anneau et par saut (le serveur donne les pièces)
+local anneauxPris = {} -- [anneau] = true pendant le saut en cours
+
+local function surAnneau(anneau: BasePart, hit: BasePart)
+	local char = player.Character
+	local hum = char and char:FindFirstChildOfClass("Humanoid")
+	local hrp = char and char:FindFirstChild("HumanoidRootPart") :: BasePart?
+	if not (hrp and hum and hit:IsDescendantOf(char)) or hum.FloorMaterial ~= Enum.Material.Air then
+		return
+	end
+	if anneauxPris[anneau] then
+		return
+	end
+	anneauxPris[anneau] = true
+	local poussee = anneau:GetAttribute("Poussee") or SautConfig.ANNEAU_POUSSEE
+	local v = hrp.AssemblyLinearVelocity
+	hrp.AssemblyLinearVelocity = Vector3.new(v.X + poussee / 2, math.max(v.Y, 0) + poussee, v.Z)
+end
+
+local function brancherAnneau(anneau: Instance)
+	if anneau:IsA("BasePart") and anneau:IsDescendantOf(workspace) then
+		anneau.Touched:Connect(function(hit)
+			surAnneau(anneau, hit)
+		end)
+	end
+end
+
 function Saut.demarrer()
 	UserInputService.JumpRequest:Connect(function()
 		dernierSaut = os.clock()
 	end)
 	RunService.Heartbeat:Connect(chaqueImage)
+
+	CollectionService:GetInstanceAddedSignal("Anneau"):Connect(brancherAnneau)
+	for _, a in CollectionService:GetTagged("Anneau") do
+		brancherAnneau(a)
+	end
+	-- De retour au sol : les anneaux redeviennent disponibles
+	RunService.Heartbeat:Connect(function()
+		local hum = player.Character and player.Character:FindFirstChildOfClass("Humanoid")
+		if hum and hum.FloorMaterial ~= Enum.Material.Air and next(anneauxPris) then
+			table.clear(anneauxPris)
+		end
+	end)
 end
 
 return Saut

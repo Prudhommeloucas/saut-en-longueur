@@ -2,6 +2,7 @@
 local Players = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local Debris = game:GetService("Debris")
+local RunService = game:GetService("RunService")
 
 local Shared = ReplicatedStorage:WaitForChild("Shared")
 local Config = Shared:WaitForChild("Config")
@@ -11,6 +12,8 @@ local Remotes = require(Shared:WaitForChild("Remotes"))
 local Donnees = require(script.Parent.Donnees)
 local Personnage = require(script.Parent.Personnage)
 local Compagnons = require(script.Parent.Compagnons)
+local Anneaux = require(script.Parent.Anneaux)
+local Textes = require(Config:WaitForChild("Textes"))
 
 local Saut = {}
 
@@ -82,6 +85,63 @@ local function effetAtterrissage(position: Vector3, estRecord: boolean)
 	Debris:AddItem(p, 6)
 end
 
+-- Sauts rares ---------------------------------------------------------
+local rare = {} -- [player] = identifiant du saut rare tiré pour le saut en cours
+local forces = {} -- [player] = saut rare imposé au prochain passage de planche (tests)
+local dernierX = {} -- [player] = position X à l'image précédente
+local aleatoire = Random.new()
+
+local function infoRare(id: string)
+	for _, r in SautConfig.SAUTS_RARES do
+		if r.id == id then
+			return r
+		end
+	end
+	return nil
+end
+
+-- Impose le saut rare du prochain passage de planche (tests : « un saut doré forcé »)
+function Saut.forcerProchain(player: Player, id: string)
+	forces[player] = id
+end
+
+local function tirerRare(player: Player): string?
+	if forces[player] then
+		local id = forces[player]
+		forces[player] = nil
+		return id
+	end
+	local chance = Compagnons.multiplicateur(player, "PorteBonheur")
+	for _, r in SautConfig.SAUTS_RARES do
+		if aleatoire:NextNumber() < r.chance * chance then
+			return r.id
+		end
+	end
+	return nil
+end
+
+-- Tire le saut rare au passage de la planche d'appel ; l'annule si le joueur revient sur la piste
+local function surveillerPlanche()
+	for _, player in Players:GetPlayers() do
+		local char = player.Character
+		local hrp = char and char:FindFirstChild("HumanoidRootPart")
+		if hrp and Donnees.estCharge(player) and not enAtterrissage[player] then
+			local x = hrp.Position.X
+			local avant = dernierX[player]
+			if avant and avant < SautConfig.LIGNE_X and x >= SautConfig.LIGNE_X then
+				rare[player] = tirerRare(player)
+				player:SetAttribute("SautRare", rare[player] or "")
+			elseif x < SautConfig.LIGNE_X - 2 and rare[player] then
+				rare[player] = nil
+				player:SetAttribute("SautRare", "")
+			end
+			dernierX[player] = x
+		else
+			dernierX[player] = nil
+		end
+	end
+end
+
 local function surContactSable(hit: BasePart)
 	local char = hit:FindFirstAncestorOfClass("Model")
 	local player = char and Players:GetPlayerFromCharacter(char)
@@ -97,8 +157,21 @@ local function surContactSable(hit: BasePart)
 
 	local metres = math.max(0, hrp.Position.X - SautConfig.LIGNE_X) / SautConfig.STUDS_PAR_METRE
 	metres = math.floor(metres * 10 + 0.5) / 10
-	-- Les Trésoriers équipés multiplient les pièces
-	local gain = math.floor(metres * SautConfig.PIECES_PAR_METRE * Compagnons.multiplicateur(player, "Tresorier"))
+	-- Les Trésoriers équipés et le saut rare multiplient les pièces
+	local idRare = rare[player]
+	local infoR = idRare and infoRare(idRare)
+	local gain = math.floor(
+		metres
+			* SautConfig.PIECES_PAR_METRE
+			* Compagnons.multiplicateur(player, "Tresorier")
+			* (infoR and infoR.multiplicateur or 1)
+	)
+	rare[player] = nil
+	player:SetAttribute("SautRare", "")
+	Anneaux.finDuSaut(player)
+	if infoR and infoR.annonce then
+		Remotes.Notif:FireAllClients(string.format(Textes.ANNONCE_LEGENDAIRE, player.DisplayName))
+	end
 	local ls = player.leaderstats
 	ls["Pièces"].Value += gain
 
@@ -107,7 +180,7 @@ local function surContactSable(hit: BasePart)
 		player:SetAttribute("Record", metres)
 		ls["Record (m)"].Value = math.floor(metres)
 	end
-	Remotes.SautResultat:FireClient(player, metres, gain, estRecord)
+	Remotes.SautResultat:FireClient(player, metres, gain, estRecord, idRare)
 	effetAtterrissage(hrp.Position, estRecord)
 	Personnage.activerJetpack(char, false)
 	Compagnons.gagnerExperience(player)
@@ -136,8 +209,13 @@ function Saut.demarrer()
 		end
 	end)
 
+	RunService.Heartbeat:Connect(surveillerPlanche)
+
 	Players.PlayerRemoving:Connect(function(player)
 		enAtterrissage[player] = nil
+		rare[player] = nil
+		forces[player] = nil
+		dernierX[player] = nil
 	end)
 end
 
