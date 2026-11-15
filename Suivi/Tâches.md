@@ -72,7 +72,7 @@ Pour cocher : `- [x] T-101 Appel — Code (2026-11-15, P3)`. On ne modifie que l
 - [ ] T-300 Contrats et identifiants de la phase — Code
 - [ ] T-301 Compagnons — Code
 - [ ] T-302 Œufs, fusion, index — Code
-- [ ] T-303 Dix compagnons, trois œufs, incubateur — 3D
+- [x] T-303 Dix compagnons, trois œufs, incubateur — 3D (2026-11-15, P2)
 - [ ] T-304 Œufs en parties, matières Argent et Or — 3D
 - [ ] T-305 `EcranCompagnons`, `EcranOeuf`, `EcranEclosion` — Interface
 - [ ] T-306 Rendus des compagnons, cadres de rareté, sons d'éclosion — Image, son

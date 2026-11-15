@@ -39,7 +39,7 @@ La map actuelle (`Workspace.Map`, voir [[Map]]) sera déplacée dans `Workspace.
 | `Bac` | Parts de la zone d'atterrissage | `Monde` | prévu |
 | `Anneau` | Part en forme d'anneau, sans collision | `Pieces` (nombre), `Poussee` (nombre) | prévu |
 | `Stand` | Model d'un stand de boutique | `Famille` (Chaussures, Propulseur, Materiel, Ailes, Tenue) | prévu |
-| `Incubateur` | Model | `Oeuf` (identifiant) | prévu |
+| `Incubateur` | Model | `Oeuf` (identifiant) | modèle prêt (`Assets.Decor.incubateur`, tag et `Oeuf` = `oeuf_stade` déjà posés ; changer l'attribut pour chaque copie). Attachment `PoseOeuf` dans `Blanc` : là où poser l'œuf |
 | `Portail` | Model | `VersMonde` (nombre) | prévu |
 | `Pantheon` | Model du lieu de changement de catégorie | aucun | prévu |
 | `Podium` | Model avec trois Parts `Place1`, `Place2`, `Place3` | aucun | prévu |

@@ -159,6 +159,12 @@ Les trois dans `assets/modeles/source/oeufs_monde1.blend`, d'après une planche 
 
 Pour T-304 : les décors (bandes, lauriers, bande dorée) sont encore d'un seul tenant, soudés à `Bas` ; il faut les couper entre `Bas` et `Haut` avant d'animer l'éclosion.
 
+### Incubateur (T-303)
+
+`incubateur` (2026-11-15, 2 024 triangles, 6,8 × 5,75 × 8,0 studs avec les marches) dans `ReplicatedStorage.Assets.Decor`, source `assets/modeles/source/incubateur.blend`, planche `incubateur.webp` (prompt dans [[Prompt 6 - Planche d'un objet d'équipement]]). Socle évasé blanc (`Blanc`, `PrimaryPart`) à deux bandes orange, collier, couvercle, boîtier et marches gris `#C9CED6`, cloche `Verre` `#CFEFFF` en `Glass` (transparence 0,6), quatre tubes `#5BC0F8` en `Neon` avec un `PointLight`, coussin rouge `#E8302E`, bouton vert `#4CC96B` en `Neon` sur le boîtier, côté -Z (face avant). Ancré ; meshes sans collision, trois Parts invisibles `Collision` (socle, cloche, marches). Attachment `PoseOeuf` dans `Blanc`, sur le coussin : un œuf de 2,5 studs posé là tient sous la cloche. Tag `Incubateur` et attribut `Oeuf` posés ([[Contrats]]). Capture avec l'œuf du stade et le lapin : `incubateur_studio.jpg`.
+
+Le premier import dans Studio a échoué sans message (« Échec de l'importation ») ; le second, avec le même modèle nettoyé (sommets doubles, faces dégénérées, triangulé), a réussi. En cas d'échec, refaire l'export après ce nettoyage.
+
 Pour un compagnon Légendaire ou Épique, un détail à la couleur de la rareté ([[Direction artistique]]) le fait reconnaître de loin : ruban violet du kangourou, or pour la puce savante.
 
 Œuf du stade : blanc à bandes orange. Œuf du champion : doré avec lauriers. Œuf d'or : translucide, lueur violette.
