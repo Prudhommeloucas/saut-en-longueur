@@ -32,7 +32,7 @@ Cette consigne ne couvre pas le gameplay (saut, boutique, concours). Elle livre 
 
 ## Les neuf principes d'une map qui marche
 
-1. **Tout se voit en trois secondes.** Depuis le point d'apparition, sans tourner la caméra de plus d'un quart de tour, le joueur voit l'arche de la piste, une zone d'entraînement, un stand et un œuf.
+1. **Peu de choses à la fois au spawn.** Depuis le point d'apparition, tourné vers l'arche, le joueur voit l'arche de la piste et les zones Débutant, rien de plus : on ne le surcharge pas d'informations. Les stands, les œufs et le portail se découvrent en se retournant, guidés par les marquages au sol (décidé le 2026-11-15, remplace « tout se voit en trois secondes »).
 2. **Un repère géant par activité.** Chaque lieu a une silhouette unique visible de toute la place, et une enseigne flottante avec icône et nom.
 3. **Le trajet le plus fréquent est le plus court.** L'entraînement débutant et la piste sont à moins de 10 secondes de marche l'un de l'autre.
 4. **Ce qui est verrouillé se voit et donne envie.** Zones Confirmé et Élite, portail et paliers lointains sont visibles dès le début, avec un cadenas et la condition affichée.

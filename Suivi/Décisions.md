@@ -18,6 +18,7 @@ Les décisions prises et les questions à trancher. N'importe qui peut écrire u
 
 | Date | Décision | Détail |
 | --- | --- | --- |
+| 2026-11-15 | Au spawn, le joueur ne voit que l'arche et les zones Débutant ; stands, œufs et portail se découvrent en se retournant, guidés par les marquages au sol (on ne le surcharge pas d'informations) | [[Construction du monde 1]] |
 | 2026-11-11 | Map en longueur, piste et spawn au départ | [[Map]] |
 | 2026-11-11 | Squat = Puissance, mollets = Vitesse ; bonus actifs seulement sur la piste | [[Entraînement]] |
 | 2026-11-11 | 1 mètre = 4 studs au monde 1 ; distance calculée par le serveur | [[Saut]] |

@@ -39,6 +39,6 @@ La piste (X de 0 à 120), la planche (X = 120) et le bac ne changent pas.
 Construit dans la place `Test` (n° 132609339302090), `Workspace.Mondes.Monde1`, en Parts simples avec tags et attributs : 136 objets. Captures : `monde1_place_blocs_dessus.jpg`, `monde1_place_blocs_spawn.jpg`.
 
 Ce qui reste imparfait :
-- **Principe « tout se voit en trois secondes » non tenu** : depuis le spawn, tourné vers l'arche, on voit l'arche et les deux zones Débutant, mais les stands et les incubateurs sont dans le dos (ouest). Pistes : rapprocher un stand et un incubateur de l'est, ou tourner les points d'apparition vers le centre de la place.
+- Depuis le spawn, on voit l'arche et les zones Débutant ; stands et incubateurs sont dans le dos. **Gardé ainsi** (décision du 2026-11-15) : ne pas surcharger le joueur au spawn.
 - Les collines qui recouvraient l'estrade VIP et le panthéon ont été retirées : l'anneau a donc des trous au nord et à l'ouest, où le bord de la map se voit.
 - Les incubateurs, le coffre et la roue sont des blocs (pas les vrais modèles), sans prompt testé.
