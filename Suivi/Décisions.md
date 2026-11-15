@@ -7,8 +7,6 @@ Les décisions prises et les questions à trancher. N'importe qui peut écrire u
 | N° | Question | Proposition | Pour quand |
 | --- | --- | --- | --- |
 | D-01 | Nom public du jeu | En anglais pour être trouvé partout : « Long Jump Legends », « Leap Legends » ou « Mega Jump Simulator ». Vérifier qu'aucun jeu Roblox connu ne porte déjà le nom | Avant T-704 |
-| D-03 | Répartition des revenus du groupe | Parts égales | Avant T-002 |
-| D-04 | Nom du groupe Roblox (le studio) | — | Avant T-002 |
 | D-05 | Contenu du lancement | Mondes 1 et 2 complets, monde 3 trois semaines après | Fin de phase 4 |
 | D-06 | Ordre des phases 5 et 6 | Social avant monétisation, comme écrit. Inverser si l'on veut un revenu plus tôt | Fin de phase 4 |
 | D-07 | Échelle réduite des mondes 3 à 6 | Oui, après prototype | T-801 |
@@ -38,6 +36,8 @@ Les décisions prises et les questions à trancher. N'importe qui peut écrire u
 | 2026-11-11 | Mondes, modèles et écrans se dessinent avec Claude Design avant construction ; Claude reconstruit ensuite dans Studio ou Blender | [[Claude Design]] |
 | 2026-11-12 | Monde 1 : place centrale ronde, bac qui traverse cinq décors de 100 m, style dessin animé soigné | [[Construction du monde 1]] |
 | 2026-11-12 | Monde 1 : mascotte géante animée, dirigeable et écran géant, public et feux d'artifice, vasque et canons à confettis | [[Construction du monde 1]] |
+| 2026-11-15 | Le jeu est publié sous le groupe existant **OGC Studio** (D-04) | [[Lancement]] |
+| 2026-11-15 | Revenus du groupe répartis en parts égales entre les trois (D-03) | [[Monétisation]] |
 | 2026-11-12 | La mascotte géante a un squelette et des animations Blender ; le reste du décor reste animé par le code | [[Animations]] |
 
 Les décisions du 2026-11-12 ont été prises par un seul poste, dans la liberté laissée à celui qui construit le monde ([[Liberté de création]]). Les deux autres peuvent les rediscuter.

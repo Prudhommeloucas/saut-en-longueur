@@ -4,6 +4,15 @@ Publication, mesures et vie du jeu après la sortie. Voir [[Déroulé du dévelo
 
 ## Mise en place du jeu sur Roblox (une fois, tâche T-002)
 
+**Fait le 2026-11-15 (P2).** Groupe : **OGC Studio** (n° 763605593, propriétaire Is_back02, Loucas2103 admin). Expérience « saut en longueur » (nom provisoire, voir D-01), privée, n° d'univers 10776959601 :
+
+| Lieu | N° de place | Rôle |
+| --- | --- | --- |
+| `saut en longueur` | 72697603408670 | **Place partagée** (Team Create activé, accès de Studio aux services d'API activé) |
+| `Test` | 132609339302090 | Place vide pour essayer les changements risqués |
+
+L'ancienne place (n° 81561208601889, sur le compte de Loucas2103) n'est plus utilisée : elle reste comme archive. Pour ouvrir la bonne place dans Studio : page d'accueil → sélecteur de compte en haut à gauche → OGC Studio → Expériences → saut en longueur. Les meshes importés avant le 2026-11-15 appartiennent au compte de Loucas2103 ; ils ont été recopiés dans la place du groupe ; à revérifier en partie publiée. Les futurs imports et publications se font avec « OGC Studio » comme créateur.
+
 1. Créer un **groupe Roblox** pour le studio et y inviter les trois membres.
 2. Publier la place sous ce groupe. Tous les assets (animations, sons, images, meshes) seront publiés sous le groupe.
 3. Activer **Team Create** et donner le droit d'édition aux trois membres.
