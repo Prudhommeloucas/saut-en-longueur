@@ -12,4 +12,6 @@ return {
 	BOUTIQUE_DEJA = "Tu as déjà : %s",
 	BOUTIQUE_MANQUE = "Il te manque %s pièces",
 	BOUTIQUE_ACHETE = "Acheté : %s !",
+	DONNEES_INDISPONIBLES = "Impossible de charger tes données pour l'instant. Reviens dans une minute.",
+	DONNEES_AILLEURS = "Ta partie a été ouverte sur un autre serveur.",
 }
