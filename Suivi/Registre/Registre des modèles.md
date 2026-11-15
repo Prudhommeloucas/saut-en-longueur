@@ -27,11 +27,12 @@ Rien pour l'instant : la liste de la phase 1 arrive avec la tâche T-101.
 | `compagnon_gazelle` (provisoire) | `ReplicatedStorage.Assets.Compagnons.compagnon_gazelle` | `assets/modeles/source/compagnon_gazelle.blend`, export `assets/modeles/export/compagnon_gazelle.fbx` | 1 456 | Fait par nous (P2), planche Gemini | importé |
 | `compagnon_dauphin` (provisoire) | `ReplicatedStorage.Assets.Compagnons.compagnon_dauphin` | `assets/modeles/source/compagnon_dauphin.blend`, export `assets/modeles/export/compagnon_dauphin.fbx` | 1 392 | Fait par nous (P2), planche Gemini | importé |
 | `compagnon_puma` (provisoire) | `ReplicatedStorage.Assets.Compagnons.compagnon_puma` | `assets/modeles/source/compagnon_puma.blend`, export `assets/modeles/export/compagnon_puma.fbx` | 1 536 (dont 40 pour l'étoile) | Fait par nous (P2), planche Gemini | importé |
-| `oeuf_stade` (provisoire) | `ReplicatedStorage.Assets.Oeufs.oeuf_stade` | `assets/modeles/source/oeufs_monde1.blend`, export `assets/modeles/export/oeuf_stade.fbx` | 1 120 | Fait par nous (P2), planche Gemini | importé |
-| `oeuf_champion` (provisoire) | `ReplicatedStorage.Assets.Oeufs.oeuf_champion` | Même `.blend`, export `oeuf_champion.fbx` | 1 496 | Fait par nous (P2), planche Gemini | importé |
-| `oeuf_or` (provisoire) | `ReplicatedStorage.Assets.Oeufs.oeuf_or` | Même `.blend`, export `oeuf_or.fbx` | 900 | Fait par nous (P2), planche Gemini | importé |
+| `oeuf_stade` (provisoire) | `ReplicatedStorage.Assets.Oeufs.oeuf_stade` | `assets/modeles/source/oeufs_monde1.blend`, export `assets/modeles/export/oeuf_stade.fbx` | 1 240 | Fait par nous (P2), planche Gemini | importé, décors coupés (T-304) |
+| `oeuf_champion` (provisoire) | `ReplicatedStorage.Assets.Oeufs.oeuf_champion` | Même `.blend`, export `oeuf_champion.fbx` | 1 698 | Fait par nous (P2), planche Gemini | importé, décors coupés (T-304) |
+| `oeuf_or` (provisoire) | `ReplicatedStorage.Assets.Oeufs.oeuf_or` | Même `.blend`, export `oeuf_or.fbx` | 940 | Fait par nous (P2), planche Gemini | importé, décors coupés (T-304) |
 | `chaussures_turbo` (provisoire) | `ReplicatedStorage.Assets.Equipement.chaussures_turbo` | `assets/modeles/source/chaussures_monde1.blend`, export `assets/modeles/export/chaussures_turbo.fbx` | 916 | Fait par nous (P2), planche Gemini | importé |
 | `chaussures_reaction` (provisoire) | `ReplicatedStorage.Assets.Equipement.chaussures_reaction` | Même `.blend`, export `chaussures_reaction.fbx` | 992 | Fait par nous (P2), planche Gemini | importé |
 | `incubateur` (provisoire) | `ReplicatedStorage.Assets.Decor.incubateur` | `assets/modeles/source/incubateur.blend`, export `assets/modeles/export/incubateur.fbx` | 2 024 | Fait par nous (P2), planche Gemini | importé |
+| `medaille_argent`, `medaille_or` | `ReplicatedStorage.Assets.Versions` | Construites dans Studio (Parts, pas de mesh) | — | Fait par nous (P2) | dans la place |
 
 États : `en cours`, `importé`, `validé`.

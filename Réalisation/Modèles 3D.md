@@ -157,7 +157,7 @@ Les trois dans `assets/modeles/source/oeufs_monde1.blend`, d'après une planche 
 - `oeuf_champion` (1 496 triangles) : coquille dorée `#F2B531` en `Metal`, deux branches de lauriers `#E0A21F` qui montent sur l'avant des flancs, étoile blanche sur le devant, fêlure `#B8861A`.
 - `oeuf_or` (900 triangles) : coquille violette `#C9A2FF` en `Glass` à 35 % de transparence, bande dorée en zigzag `#FFD447` en relief sur la fêlure, neuf étincelles en `Neon` à l'intérieur, `PointLight` violet dans `Bas`.
 
-Pour T-304 : les décors (bandes, lauriers, bande dorée) sont encore d'un seul tenant, soudés à `Bas` ; il faut les couper entre `Bas` et `Haut` avant d'animer l'éclosion.
+Décors coupés pour l'éclosion (T-304, 2026-11-15) : dans le `.blend`, chaque décor est coupé le long du zigzag (vingt plans, un par segment de la fêlure) en `<identifiant>_<Décor>_Bas` et `_Haut` ; les pièces détachées (bandes, filets, feuilles, étincelles) sont rangées entières du côté de leur centre. Triangles : `oeuf_stade` 1 240, `oeuf_champion` 1 698, `oeuf_or` 940. Les coquilles n'ont pas changé : seuls les décors ont été importés (`oeufs_decors_t304.fbx`), placés et soudés par script. Aperçus `oeufs_ouverts_apercu.png` (Blender) et `oeufs_ouverts_studio.jpg`.
 
 ### Incubateur (T-303)
 
@@ -169,7 +169,7 @@ Pour un compagnon Légendaire ou Épique, un détail à la couleur de la rareté
 
 Œuf du stade : blanc à bandes orange. Œuf du champion : doré avec lauriers. Œuf d'or : translucide, lueur violette.
 
-Versions Argent et Or : même modèle, matière métallique et médaille au cou. Aucun modèle supplémentaire.
+Versions Argent et Or : même modèle, matière métallique et médaille au cou. Aucun modèle supplémentaire. Fait le 2026-11-15 (T-304) : recettes et médailles dans `ReplicatedStorage.Assets.Versions` ([[Contrats]]), couleurs mêlées à 60 % à l'argent `#D5DCE4` ou à l'or `#FFC83D`, matière `Metal` ; attachment `Cou` posé sur les dix compagnons (placé par lancer de rayons sur le poitrail). Aperçu des trois rangées (normale, Argent, Or) : `versions_argent_or_studio.jpg`.
 
 ## Mondes suivants
 
