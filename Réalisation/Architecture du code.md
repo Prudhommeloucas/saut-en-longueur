@@ -1,6 +1,6 @@
 # Architecture du code
 
-Organisation cible du code. Tout le monde peut écrire du code ([[Équipe]]) ; les règles pour coder à trois sont plus bas et dans [[Travailler à plusieurs]]. L'existant, trois scripts dans Studio, est décrit dans [[Scripts]] ; il sera migré vers cette organisation ([[Déroulé du développement]], tâches T-004 et T-005).
+Organisation cible du code. Tout le monde peut écrire du code ([[Équipe]]) ; les règles pour coder à trois sont plus bas et dans [[Travailler à plusieurs]]. Depuis T-005 (2026-11-15), le code suit cette arborescence ; l'état présent, module par module, est dans [[Scripts]]. Chaque service ou contrôleur est un ModuleScript qui expose `demarrer()`, appelé par `init` dans l'ordre de sa liste.
 
 ## Principe : le code vit dans le dépôt
 
@@ -31,6 +31,7 @@ src/
 | Service | Rôle |
 | --- | --- |
 | Donnees | Chargement, sauvegarde, verrou de session, migrations de schéma |
+| Personnage | Réglage du personnage à l'apparition, objets portés et leurs effets (ajouté à T-005) |
 | Stats | Calcul des capacités à partir des stats, de l'équipement et des bonus |
 | Entrainement | Zones, rythme, matériel, gains hors ligne |
 | Saut | Appel, vol, réception, distance, sauts rares, borne de plausibilité |

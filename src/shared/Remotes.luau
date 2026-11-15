@@ -1,0 +1,40 @@
+-- Liste unique des événements réseau. Le serveur les crée dans ReplicatedStorage.Remotes,
+-- le client les attend. Tout nouvel événement s'ajoute ici, avec son sens et ses arguments.
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local RunService = game:GetService("RunService")
+
+local EVENEMENTS = {
+	-- serveur → joueur : (metres: number, gain: number, estRecord: boolean)
+	"SautResultat",
+	-- serveur → joueur : (message: string)
+	"Notif",
+	-- joueur → serveur : (actif: boolean), vrai quand la poussée du jetpack démarre
+	"JetpackEtat",
+}
+
+local Remotes = {} :: { [string]: RemoteEvent }
+
+if RunService:IsServer() then
+	local dossier = ReplicatedStorage:FindFirstChild("Remotes")
+	if not dossier then
+		dossier = Instance.new("Folder")
+		dossier.Name = "Remotes"
+		dossier.Parent = ReplicatedStorage
+	end
+	for _, nom in EVENEMENTS do
+		local ev = dossier:FindFirstChild(nom)
+		if not ev then
+			ev = Instance.new("RemoteEvent")
+			ev.Name = nom
+			ev.Parent = dossier
+		end
+		Remotes[nom] = ev
+	end
+else
+	local dossier = ReplicatedStorage:WaitForChild("Remotes")
+	for _, nom in EVENEMENTS do
+		Remotes[nom] = dossier:WaitForChild(nom)
+	end
+end
+
+return Remotes

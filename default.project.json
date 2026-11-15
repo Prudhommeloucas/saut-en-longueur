@@ -3,19 +3,19 @@
   "tree": {
     "$className": "DataModel",
     "ReplicatedStorage": {
-      "Config": {
-        "$path": "src/shared/Config.luau"
+      "Shared": {
+        "$path": "src/shared"
       }
     },
     "ServerScriptService": {
-      "JeuSaut": {
-        "$path": "src/server/JeuSaut.server.luau"
+      "Server": {
+        "$path": "src/server"
       }
     },
     "StarterPlayer": {
       "StarterPlayerScripts": {
-        "ClientSaut": {
-          "$path": "src/client/ClientSaut.client.luau"
+        "Client": {
+          "$path": "src/client"
         }
       }
     }
