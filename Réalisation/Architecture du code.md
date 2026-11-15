@@ -68,7 +68,7 @@ Côté client, les contrôleurs correspondants : Hud, Saut, Entrainement, Boutiq
 
 ## Données d'un joueur
 
-Sauvegarde par la bibliothèque **ProfileStore** (verrou de session, sauvegarde automatique, reprise après erreur), dans un magasin versionné.
+Sauvegarde par la bibliothèque **ProfileStore** (verrou de session, sauvegarde automatique, reprise après erreur), dans un magasin versionné. En place depuis T-006 (2026-11-15) avec une partie de cette forme (pièces, record, stats, équipement possédé) ; le reste s'ajoute dans `Config/Donnees` au fil des tâches. Détail dans [[Scripts]].
 
 ```
 version, stats {Puissance, Vitesse, Aero}, pieces, gemmes, medailles,

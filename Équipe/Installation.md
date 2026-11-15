@@ -66,6 +66,7 @@ Une fois ce fichier créé et envoyé sur GitHub par le Poste 1, il s'applique a
    ```
 
 2. **Sur chaque machine** : installer Rokit, puis `rokit install` dans le dossier du projet. `rojo --version` doit répondre. Si la commande est introuvable, relancer le terminal ou ajouter `%USERPROFILE%\.rokit\bin` au PATH.
+   Puis `wally install` dans le dossier du projet : il télécharge les bibliothèques (ProfileStore) dans `ServerPackages/`, hors git. **À faire avant chaque `rojo serve`** si `wally.toml` a changé ; sans ce dossier, Rojo refuse de démarrer.
 3. **Extension Rojo dans Studio** : `rojo plugin install`.
 4. **Copie personnelle de la place** : dans Studio, ouvrir la place partagée puis Fichier > Enregistrer dans un fichier sous, dans `copies/` à la racine du projet (exclu de git). C'est là qu'on branche Rojo pour coder et tester ([[Travailler à plusieurs]]).
 

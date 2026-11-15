@@ -14,7 +14,7 @@ Pour cocher : `- [x] T-101 Appel — Code (2026-11-15, P3)`. On ne modifie que l
 - [ ] T-003 Installation du Poste 3 — Outils
 - [x] T-004 Migration des scripts vers Rojo — Code (2026-11-15, P2)
 - [x] T-005 Découpage en configuration, services, contrôleurs — Code (2026-11-15, P2)
-- [ ] T-006 Sauvegarde ProfileStore — Code
+- [x] T-006 Sauvegarde ProfileStore — Code (2026-11-15, P2)
 - [ ] T-007 Rangement de la map et pose des tags — Monde
 - [ ] T-008 Lecture de la map par les tags — Code
 - [ ] T-009 Maquettes des quatre premiers écrans — Interface

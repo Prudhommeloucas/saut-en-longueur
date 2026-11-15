@@ -31,6 +31,11 @@ Les effets visuels et les sons sont décrits dans [[Décor et effets]].
 
 - `leaderstats` : `Pièces` et `Record (m)`.
 - Attributs sur le Player : `Puissance`, `Vitesse`, `Record`, `Chaussures`, `Jetpack`.
+- **Sauvegarde (T-006)** : bibliothèque **ProfileStore** (Wally, `lm-loleris/profilestore@1.0.3`, dans `ServerStorage.ServerPackages`). Magasin `SautEnLongueur_Profils`, clé `joueur_<UserId>`, verrou de session et sauvegarde automatique. Forme des données et numéro de version dans `Config/Donnees` : `version`, `repriseV1`, `pieces`, `record`, `stats {Puissance, Vitesse}`, `equipement.possede {id = niveau}`. Les autres services ne touchent pas au profil : ils changent les leaderstats et les attributs, et `Donnees` les recopie dans le profil à chaque changement.
+- Changer la forme des données : ajouter la clé dans `Config/Donnees.MODELE` (remplie seule chez les anciens joueurs) ; si une donnée change de sens, monter `VERSION` et écrire la migration dans `MIGRATIONS` du service.
+- Si le profil ne se charge pas (autre serveur, Roblox injoignable), le joueur est renvoyé avec un message plutôt que de jouer sans sauvegarde.
+- Reprise de l'ancien magasin `SautEnLongueur_v1` à la première connexion. Les sauvegardes Roblox sont propres à chaque expérience : l'ancienne place (compte de Loucas2103) avait ses données à part, la reprise ne trouvera donc rien dans l'expérience du groupe ; elle reste sans risque.
+- Testé le 2026-11-15 sur la place du groupe (Studio, accès API activé) : pièces, record, Puissance et chaussures retrouvés après avoir quitté puis relancé. Le profil de Loucas2103 garde ces valeurs de test.
 
 ## Points à connaître
 
