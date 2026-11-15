@@ -76,3 +76,7 @@ Distance, détail des pièces ligne par ligne, mention « Nouveau record », bou
 2. Construction dans Studio avec les noms de cette note.
 3. Capture d'écran sur trois tailles d'écran, jointe à la tâche.
 4. Le code branche l'écran, dans la même tâche ou dans la tâche de branchement. Un nom manquant s'ajoute ici et dans [[Contrats]].
+
+## Maquettes faites
+
+- T-305 (2026-11-15) : `EcranCompagnons`, `EcranOeuf`, `EcranEclosion`, téléphone en paysage 844 × 390, sur la toile Claude Design « Écrans compagnons et œufs » : https://claude.ai/artifact/CFbWGuXQHbfNhZMj2WS4JH (privée tant que Loucas ne l'a pas partagée). Noms des éléments lus par le code notés sur la toile. En attente de validation.

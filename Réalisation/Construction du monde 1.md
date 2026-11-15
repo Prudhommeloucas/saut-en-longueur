@@ -156,3 +156,7 @@ Les réactions du décor au vent favorable et au concours se branchent avec T-50
 - Le jeu se joue de bout en bout en test, sans erreur dans la sortie.
 - Les notes concernées sont à jour.
 - Ce qui n'est pas vérifié ou pas fini est dit clairement.
+
+## Plan dessiné
+
+- T-114 (2026-11-15) : plan de la place centrale, vue de dessus à 1 px = 1 stud avec légende (tags, positions, tailles), toile Claude Design « Plan de la place centrale » : https://claude.ai/artifact/RJpCk7VXA19GqHzLb2erWh (privée tant que Loucas ne l'a pas partagée). En attente de validation ; ensuite relevé dans `assets/plans/monde1.md` et construction en blocs dans la place Test.
