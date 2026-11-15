@@ -19,8 +19,25 @@ local profils = {} -- [player] = profil actif
 -- Migrations numérotées : MIGRATIONS[n] fait passer les données de la version n à n + 1.
 local MIGRATIONS: { [number]: (data: any) -> () } = {}
 
+local auChargement = {} -- fonctions appelées quand un joueur est chargé
+
 function Donnees.estCharge(player: Player): boolean
 	return profils[player] ~= nil
+end
+
+-- Données sauvegardées du joueur (à modifier directement), ou nil s'il n'est pas chargé.
+-- Pour ce qui a un attribut ou une leaderstat (pièces, stats…), passer par l'attribut : il est recopié ici.
+function Donnees.donnees(player: Player)
+	local profil = profils[player]
+	return profil and profil.Data
+end
+
+-- Appelle fn(player) pour chaque joueur chargé, déjà présent ou à venir
+function Donnees.auChargement(fn: (Player) -> ())
+	table.insert(auChargement, fn)
+	for player in profils do
+		task.spawn(fn, player)
+	end
 end
 
 local function migrer(data)
@@ -135,6 +152,9 @@ local function chargerDonnees(player: Player)
 	end
 	afficher(player, profil.Data)
 	profils[player] = profil
+	for _, fn in auChargement do
+		task.spawn(fn, player)
+	end
 end
 
 function Donnees.demarrer()

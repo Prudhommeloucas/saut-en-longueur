@@ -104,8 +104,9 @@ local function construire()
 end
 
 local function majStats()
-	lblPuissance.Text = string.format(Textes.STAT_PUISSANCE, tostring(player:GetAttribute("Puissance") or 0))
-	lblVitesse.Text = string.format(Textes.STAT_VITESSE, tostring(player:GetAttribute("Vitesse") or 0))
+	lblPuissance.Text =
+		string.format(Textes.STAT_PUISSANCE, tostring(math.floor(player:GetAttribute("Puissance") or 0)))
+	lblVitesse.Text = string.format(Textes.STAT_VITESSE, tostring(math.floor(player:GetAttribute("Vitesse") or 0)))
 	jauge.Visible = player:GetAttribute("Jetpack") == true
 end
 
@@ -143,8 +144,10 @@ local function suivreGain(attr: string, couleur: Color3)
 	local ancien = player:GetAttribute(attr)
 	player:GetAttributeChangedSignal(attr):Connect(function()
 		local nouveau = player:GetAttribute(attr)
-		if ancien and nouveau and nouveau > ancien and nouveau - ancien <= 10 then
-			popup(string.format(Textes.GAIN_STAT, tostring(nouveau - ancien)), couleur)
+		-- Pas de « + » pour un saut de valeur (chargement des données)
+		if ancien and nouveau and nouveau > ancien and nouveau - ancien <= 1000 then
+			local gain = math.floor((nouveau - ancien) * 10 + 0.5) / 10
+			popup(string.format(Textes.GAIN_STAT, string.format("%g", gain)), couleur)
 		end
 		ancien = nouveau
 	end)

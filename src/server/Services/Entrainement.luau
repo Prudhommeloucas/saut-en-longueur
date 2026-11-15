@@ -5,6 +5,7 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local Config = ReplicatedStorage:WaitForChild("Shared"):WaitForChild("Config")
 local StatsConfig = require(Config:WaitForChild("Stats"))
 local Donnees = require(script.Parent.Donnees)
+local Compagnons = require(script.Parent.Compagnons)
 
 local Entrainement = {}
 
@@ -30,16 +31,12 @@ function Entrainement.demarrer()
 					local hrp = char and char:FindFirstChild("HumanoidRootPart")
 					if Donnees.estCharge(player) and hum and hrp and hum.Health > 0 then
 						local pos = hrp.Position
+						-- Les Coachs équipés multiplient le gain
+						local gain = StatsConfig.ENTRAINEMENT_GAIN * Compagnons.multiplicateur(player, "Coach")
 						if dansZone(zoneSquat, pos) then
-							player:SetAttribute(
-								"Puissance",
-								player:GetAttribute("Puissance") + StatsConfig.ENTRAINEMENT_GAIN
-							)
+							player:SetAttribute("Puissance", player:GetAttribute("Puissance") + gain)
 						elseif dansZone(zoneMollets, pos) then
-							player:SetAttribute(
-								"Vitesse",
-								player:GetAttribute("Vitesse") + StatsConfig.ENTRAINEMENT_GAIN
-							)
+							player:SetAttribute("Vitesse", player:GetAttribute("Vitesse") + gain)
 						end
 					end
 				end

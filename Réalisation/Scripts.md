@@ -11,11 +11,12 @@ Tout le code vit dans `src/` et Rojo l'envoie dans Studio (`default.project.json
 | `src/shared/Config/` | `ReplicatedStorage.Shared.Config` | Une table par sujet : `Saut` (distances, retour, pièces par mètre), `Stats` (vitesses, entraînement, formules), `Equipement` (objets de la boutique), `Sons`, `Camera`, `Textes` (tous les textes affichés) |
 | `src/shared/Remotes.luau` | `ReplicatedStorage.Shared.Remotes` | Liste unique des événements réseau ; le serveur les crée dans `ReplicatedStorage.Remotes`, le client les attend |
 | `src/server/init.server.luau` | `ServerScriptService.Server` | Démarre les services dans l'ordre |
-| `src/server/Services/` | `Server.Services` | `Donnees` (chargement, leaderstats, attributs, sauvegarde), `Personnage` (réglage à l'apparition, objets portés, flammes, traînées), `Stats` (vitesse et saut sur la piste), `Entrainement` (zones), `Saut` (mesure, effets d'atterrissage, flammes du jetpack), `Boutique` (stands) |
+| `src/shared/Util/Apparence.luau` | `Shared.Util.Apparence` | `appliquerVersion(modele, version)` : couleurs, matière et médaille des versions Argent et Or |
+| `src/server/Services/` | `Server.Services` | `Donnees` (chargement, leaderstats, attributs, sauvegarde), `Personnage` (réglage à l'apparition, objets portés, flammes, traînées), `Compagnons` (inventaire, équipe, bonus, expérience), `Stats` (vitesse et saut sur la piste), `Entrainement` (zones, × Coachs), `Saut` (mesure, × Trésoriers, expérience, effets d'atterrissage, flammes du jetpack), `Boutique` (stands) |
 | `src/client/init.client.luau` | `StarterPlayerScripts.Client` | Démarre les contrôleurs |
-| `src/client/Controleurs/` | `Client.Controleurs` | `Audio` (son des pièces), `Hud` (écran provisoire créé par le code, à remplacer par T-108/T-109), `Saut` (jetpack, champ de vision, distance en direct) |
+| `src/client/Controleurs/` | `Client.Controleurs` | `Audio` (son des pièces), `Hud` (écran provisoire créé par le code, à remplacer par T-108/T-109), `Saut` (jetpack, champ de vision, distance en direct), `Compagnons` (affiche les compagnons équipés de chaque joueur, qui suivent en bondissant et sautent avec lui ; dossier local `Workspace.CompagnonsVisibles`) |
 
-Chaque module expose `demarrer()` ; les autres fonctions publiques : `Donnees.estCharge(player)`, `Personnage.equiperVisuels(player)`, `Personnage.activerJetpack(char, actif)`, `Personnage.majTrainees(player, char, surPiste)`, `Hud.majCarburant(fraction)`, `Hud.distanceEnDirect(x)`, `Audio.pieces()`.
+Chaque module expose `demarrer()` ; les autres fonctions publiques : `Donnees.estCharge(player)`, `Donnees.donnees(player)` (profil à modifier directement), `Donnees.auChargement(fn)`, `Compagnons.ajouter(player, espece, version?)`, `.retirer`, `.equiper(player, uid, oui)`, `.equiperMeilleurs`, `.multiplicateur(player, role)`, `.gagnerExperience`, `.inventairePlein`, côté joueur `Compagnons.etat()`, `Personnage.equiperVisuels(player)`, `Personnage.activerJetpack(char, actif)`, `Personnage.majTrainees(player, char, surPiste)`, `Hud.majCarburant(fraction)`, `Hud.distanceEnDirect(x)`, `Audio.pieces()`.
 
 Les valeurs de rebirth et de pets (cubes de couleur) de l'ancien `Config` n'étaient branchées nulle part : supprimées à T-005 (historique git). Les vraies viendront avec [[Compagnons]] et [[Rebirth et talents]].
 
@@ -24,6 +25,10 @@ Les valeurs de rebirth et de pets (cubes de couleur) de l'ancien `Config` n'éta
 - `SautResultat`, serveur vers joueur : distance, pièces gagnées, record.
 - `Notif`, serveur vers joueur : message de la boutique.
 - `JetpackEtat`, joueur vers serveur : vrai quand la poussée démarre, faux quand elle s'arrête. Le serveur allume alors les flammes pour que tout le monde les voie.
+- `CompagnonsEtat`, serveur vers joueur : inventaire complet (`liste`, `equipes`, `emplacements`, `inventaireMax`), à chaque changement.
+- `EquiperCompagnon` (uid, oui/non) et `EquiperMeilleurs`, joueur vers serveur : vérifiés et limités à une demande toutes les 0,2 s.
+
+Attribut `Equipe` sur chaque Player (« espece:version,… ») : les compagnons équipés, lus par tous les clients pour les afficher.
 
 Les effets visuels et les sons sont décrits dans [[Décor et effets]].
 

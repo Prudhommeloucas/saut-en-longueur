@@ -70,7 +70,7 @@ Pour cocher : `- [x] T-101 Appel — Code (2026-11-15, P3)`. On ne modifie que l
 ## Phase 3 — Compagnons
 
 - [ ] T-300 Contrats et identifiants de la phase — Code
-- [ ] T-301 Compagnons — Code
+- [x] T-301 Compagnons — Code (2026-11-15, P2)
 - [ ] T-302 Œufs, fusion, index — Code
 - [x] T-303 Dix compagnons, trois œufs, incubateur — 3D (2026-11-15, P2)
 - [x] T-304 Œufs en parties, matières Argent et Or — 3D (2026-11-15, P2)

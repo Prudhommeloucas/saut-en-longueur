@@ -10,6 +10,7 @@ local Sons = require(Config:WaitForChild("Sons"))
 local Remotes = require(Shared:WaitForChild("Remotes"))
 local Donnees = require(script.Parent.Donnees)
 local Personnage = require(script.Parent.Personnage)
+local Compagnons = require(script.Parent.Compagnons)
 
 local Saut = {}
 
@@ -96,7 +97,8 @@ local function surContactSable(hit: BasePart)
 
 	local metres = math.max(0, hrp.Position.X - SautConfig.LIGNE_X) / SautConfig.STUDS_PAR_METRE
 	metres = math.floor(metres * 10 + 0.5) / 10
-	local gain = math.floor(metres * SautConfig.PIECES_PAR_METRE)
+	-- Les Trésoriers équipés multiplient les pièces
+	local gain = math.floor(metres * SautConfig.PIECES_PAR_METRE * Compagnons.multiplicateur(player, "Tresorier"))
 	local ls = player.leaderstats
 	ls["Pièces"].Value += gain
 
@@ -108,6 +110,7 @@ local function surContactSable(hit: BasePart)
 	Remotes.SautResultat:FireClient(player, metres, gain, estRecord)
 	effetAtterrissage(hrp.Position, estRecord)
 	Personnage.activerJetpack(char, false)
+	Compagnons.gagnerExperience(player)
 
 	task.delay(SautConfig.DELAI_RETOUR, function()
 		if player.Parent and player.Character == char and char.Parent then

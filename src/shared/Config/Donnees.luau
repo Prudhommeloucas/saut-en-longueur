@@ -18,6 +18,11 @@ Donnees.MODELE = {
 	record = 0, -- en mètres
 	stats = { Puissance = 0, Vitesse = 0 },
 	equipement = { possede = {} }, -- [identifiant] = niveau
+	compagnons = {
+		liste = {}, -- [uid] = { espece, version, niveau, xp }
+		equipes = {}, -- liste d'uid, dans l'ordre d'affichage
+		prochainId = 1,
+	},
 }
 
 return Donnees

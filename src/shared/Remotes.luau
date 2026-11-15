@@ -10,6 +10,12 @@ local EVENEMENTS = {
 	"Notif",
 	-- joueur → serveur : (actif: boolean), vrai quand la poussée du jetpack démarre
 	"JetpackEtat",
+	-- serveur → joueur : (etat: { liste = { [uid] = {espece, version, niveau, xp} }, equipes = {uid}, emplacements, inventaireMax })
+	"CompagnonsEtat",
+	-- joueur → serveur : (uid: string, equipe: boolean)
+	"EquiperCompagnon",
+	-- joueur → serveur : () équipe les meilleurs compagnons
+	"EquiperMeilleurs",
 }
 
 local Remotes = {} :: { [string]: RemoteEvent }

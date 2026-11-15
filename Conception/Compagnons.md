@@ -31,6 +31,25 @@ Chaque espèce a un rôle. Composer son équipe est un vrai choix.
 
 Les bonus des compagnons équipés s'additionnent. Les valeurs des Trésoriers et des Porte-bonheur sont plus faibles et se règlent à l'équilibrage.
 
+## Espèces du monde 1 (T-301, 2026-11-15)
+
+Rôles et raretés proposés à T-301, à revoir librement ; valeurs dans `src/shared/Config/Compagnons.luau`.
+
+| Espèce | Œuf | Rareté | Rôle |
+| --- | --- | --- | --- |
+| Grenouille | stade | Commun | Coach |
+| Lapin | stade | Commun | Porte-bonheur |
+| Sauterelle | stade | Rare | Coach |
+| Kangourou | stade | Épique | Trésorier |
+| Puce savante | stade | Légendaire | Porte-bonheur |
+| Lièvre | champion | Commun | Coach |
+| Écureuil volant | champion | Rare | Trésorier |
+| Gazelle | champion | Rare | Coach |
+| Dauphin | champion | Épique | Trésorier |
+| Puma | champion | Légendaire | Coach |
+
+Bonus de départ : Coach 15 / 50 / 150 / 500 %, Trésorier 8 / 25 / 75 / 250 %, Porte-bonheur 5 / 15 / 40 / 100 % (Commun / Rare / Épique / Légendaire). Les Porte-bonheur n'ont pas encore d'effet : il viendra avec les sauts dorés (T-104). Expérience : 1 par saut, `3 + 2 × niveau` pour passer au niveau suivant.
+
 ## Œufs du monde 1
 
 | Œuf | Prix | Contenu et chances |
