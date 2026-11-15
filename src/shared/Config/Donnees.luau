@@ -23,6 +23,13 @@ Donnees.MODELE = {
 		equipes = {}, -- liste d'uid, dans l'ordre d'affichage
 		prochainId = 1,
 	},
+	gemmes = 0,
+	index = {
+		trouves = {}, -- [espece] = { Normal = true, Argent = true, Or = true }
+		pages = {}, -- ["oeuf_stade:Normal"] = true quand la page est complète
+		chance = 0, -- bonus permanent de chance aux œufs (0,05 = +5 %)
+	},
+	oeufsOuverts = 0,
 }
 
 return Donnees

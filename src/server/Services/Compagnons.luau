@@ -6,8 +6,11 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 local Shared = ReplicatedStorage:WaitForChild("Shared")
 local Config = require(Shared:WaitForChild("Config"):WaitForChild("Compagnons"))
+local OeufsConfig = require(Shared.Config:WaitForChild("Oeufs"))
+local Textes = require(Shared.Config:WaitForChild("Textes"))
 local Remotes = require(Shared:WaitForChild("Remotes"))
 local Donnees = require(script.Parent.Donnees)
+local Index = require(script.Parent.Index)
 
 local Compagnons = {}
 
@@ -183,7 +186,61 @@ function Compagnons.gagnerExperience(player: Player)
 	end
 end
 
+-- Fusionne FUSION_NOMBRE compagnons identiques (espèce et version) en un seul de la version suivante.
+-- Garde le plus haut niveau des trois ; si l'un d'eux était équipé, le nouveau prend sa place.
+function Compagnons.fusionner(player: Player, espece: string, version: string): string?
+	local c = etat(player)
+	local rang = table.find(Config.ORDRE_VERSIONS, version)
+	local suivante = rang and Config.ORDRE_VERSIONS[rang + 1]
+	if not (c and suivante and Config.ESPECES[espece]) then
+		return nil
+	end
+	local candidats = {}
+	for uid, comp in c.liste do
+		if comp.espece == espece and comp.version == version then
+			table.insert(candidats, uid)
+		end
+	end
+	if #candidats < OeufsConfig.FUSION_NOMBRE then
+		Remotes.Notif:FireClient(player, string.format(Textes.FUSION_MANQUE, tostring(OeufsConfig.FUSION_NOMBRE)))
+		return nil
+	end
+	-- Prend d'abord ceux qui ne sont pas équipés, puis les plus hauts niveaux
+	table.sort(candidats, function(a, b)
+		local ea, eb = table.find(c.equipes, a) ~= nil, table.find(c.equipes, b) ~= nil
+		if ea ~= eb then
+			return not ea
+		end
+		return c.liste[a].niveau > c.liste[b].niveau
+	end)
+	local niveau = 1
+	local placeEquipe = nil
+	for i = 1, OeufsConfig.FUSION_NOMBRE do
+		local uid = candidats[i]
+		niveau = math.max(niveau, c.liste[uid].niveau)
+		placeEquipe = placeEquipe or table.find(c.equipes, uid)
+		Compagnons.retirer(player, uid, true)
+	end
+	local nouveau = tostring(c.prochainId)
+	c.prochainId += 1
+	c.liste[nouveau] = { espece = espece, version = suivante, niveau = niveau, xp = 0 }
+	if placeEquipe then
+		table.insert(c.equipes, math.min(placeEquipe, #c.equipes + 1), nouveau)
+	end
+	Index.enregistrer(player, espece, suivante)
+	publier(player)
+	Remotes.Notif:FireClient(player, string.format(Textes.FUSION_FAITE, Config.ESPECES[espece].nom, suivante))
+	return nouveau
+end
+
 function Compagnons.demarrer()
+	Remotes.Fusionner.OnServerEvent:Connect(function(player, espece, version)
+		if type(espece) ~= "string" or type(version) ~= "string" or trop(player) then
+			return
+		end
+		Compagnons.fusionner(player, espece, version)
+	end)
+
 	Donnees.auChargement(function(player)
 		local c = etat(player)
 		if not c then

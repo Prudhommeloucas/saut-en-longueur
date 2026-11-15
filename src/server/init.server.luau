@@ -4,7 +4,9 @@ local Services = script:WaitForChild("Services")
 local ORDRE = {
 	"Donnees", -- chargement et sauvegarde des joueurs
 	"Personnage", -- objets portés sur le personnage
-	"Compagnons", -- inventaire, équipe, bonus, niveaux
+	"Index", -- album des espèces trouvées
+	"Compagnons", -- inventaire, équipe, bonus, niveaux, fusion
+	"Oeufs", -- achat et éclosion des œufs
 	"Stats", -- vitesse et saut selon la zone
 	"Entrainement", -- gains dans les zones d'entraînement
 	"Saut", -- mesure du saut, effets, jetpack

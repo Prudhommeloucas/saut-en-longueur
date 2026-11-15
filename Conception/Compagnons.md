@@ -56,7 +56,7 @@ Bonus de départ : Coach 15 / 50 / 150 / 500 %, Trésorier 8 / 25 / 75 / 250 %, 
 | --- | --- | --- |
 | Œuf du stade | 500 pièces | Grenouille 50 %, Lapin 30 %, Sauterelle 14 %, Kangourou 5 %, Puce savante 1 % |
 | Œuf du champion | 25 000 pièces | Lièvre 45 %, Écureuil volant 30 %, Gazelle 18 %, Dauphin 6 %, Puma 1 % |
-| Œuf d'or | 150 gemmes | Meilleures chances d'Épique et de Légendaire, une espèce exclusive |
+| Œuf d'or | 150 gemmes | Meilleures chances d'Épique et de Légendaire, une espèce exclusive. **Provisoire (T-302)** : Kangourou 35 %, Dauphin 35 %, Puce savante 15 %, Puma 15 %, sans espèce exclusive tant qu'elle n'est ni choisie ni modélisée |
 
 Les chances sont toujours affichées avant l'achat : c'est une obligation de Roblox pour tout tirage payant ([[Monétisation]]).
 
@@ -73,6 +73,8 @@ Un compagnon équipé gagne de l'expérience à chaque saut du joueur. Niveau ma
 ## Index
 
 Un album liste toutes les espèces et leurs versions. Compléter une page (un œuf, puis ses versions Argent, puis Or) donne des gemmes et un bonus permanent de chance aux œufs.
+
+Valeurs de départ (T-302, `Config/Oeufs`) : page Normal +50 gemmes et +2 % de chance, Argent +150 et +3 %, Or +500 et +5 %. La chance multiplie les poids des espèces Épiques et Légendaires de tous les œufs. Fusion : trois compagnons identiques ; le nouveau garde le plus haut niveau des trois et reprend la place d'un équipé. L'œuf d'or, payé en gemmes (qui s'achètent en Robux), est refusé là où `PolicyService` interdit les tirages payants (attribut `TiragesPayantsInterdits` sur le joueur, pour que les écrans le masquent). Simulation : 100 000 tirages par œuf, chaque espèce à moins de 2,1 écarts-types de sa chance (2026-11-15).
 
 ## Confort
 

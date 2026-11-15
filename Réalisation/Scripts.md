@@ -12,7 +12,7 @@ Tout le code vit dans `src/` et Rojo l'envoie dans Studio (`default.project.json
 | `src/shared/Remotes.luau` | `ReplicatedStorage.Shared.Remotes` | Liste unique des événements réseau ; le serveur les crée dans `ReplicatedStorage.Remotes`, le client les attend |
 | `src/server/init.server.luau` | `ServerScriptService.Server` | Démarre les services dans l'ordre |
 | `src/shared/Util/Apparence.luau` | `Shared.Util.Apparence` | `appliquerVersion(modele, version)` : couleurs, matière et médaille des versions Argent et Or |
-| `src/server/Services/` | `Server.Services` | `Donnees` (chargement, leaderstats, attributs, sauvegarde), `Personnage` (réglage à l'apparition, objets portés, flammes, traînées), `Compagnons` (inventaire, équipe, bonus, expérience), `Stats` (vitesse et saut sur la piste), `Entrainement` (zones, × Coachs), `Saut` (mesure, × Trésoriers, expérience, effets d'atterrissage, flammes du jetpack), `Boutique` (stands) |
+| `src/server/Services/` | `Server.Services` | `Donnees` (chargement, leaderstats, attributs, sauvegarde), `Personnage` (réglage à l'apparition, objets portés, flammes, traînées), `Index` (album, pages, gemmes et chance), `Compagnons` (inventaire, équipe, bonus, expérience, fusion), `Oeufs` (achat, tirage, éclosion, prompt « Ouvrir » sur chaque `Incubateur` tagué du Workspace, `PolicyService`), `Stats` (vitesse et saut sur la piste), `Entrainement` (zones, × Coachs), `Saut` (mesure, × Trésoriers, expérience, effets d'atterrissage, flammes du jetpack), `Boutique` (stands) |
 | `src/client/init.client.luau` | `StarterPlayerScripts.Client` | Démarre les contrôleurs |
 | `src/client/Controleurs/` | `Client.Controleurs` | `Audio` (son des pièces), `Hud` (écran provisoire créé par le code, à remplacer par T-108/T-109), `Saut` (jetpack, champ de vision, distance en direct), `Compagnons` (affiche les compagnons équipés de chaque joueur, qui suivent en bondissant et sautent avec lui ; dossier local `Workspace.CompagnonsVisibles`) |
 
@@ -27,6 +27,10 @@ Les valeurs de rebirth et de pets (cubes de couleur) de l'ancien `Config` n'éta
 - `JetpackEtat`, joueur vers serveur : vrai quand la poussée démarre, faux quand elle s'arrête. Le serveur allume alors les flammes pour que tout le monde les voie.
 - `CompagnonsEtat`, serveur vers joueur : inventaire complet (`liste`, `equipes`, `emplacements`, `inventaireMax`), à chaque changement.
 - `EquiperCompagnon` (uid, oui/non) et `EquiperMeilleurs`, joueur vers serveur : vérifiés et limités à une demande toutes les 0,2 s.
+- `OuvrirOeuf` (oeufId), joueur vers serveur, une demande toutes les 0,5 s ; `ResultatOeuf` ({oeuf, espece, version, uid, nouveau}), serveur vers joueur, pour l'animation d'éclosion (T-305).
+- `Fusionner` (espece, version), joueur vers serveur ; `IndexEtat` ({trouves, pages, chance}), serveur vers joueur.
+
+Attributs du Player ajoutés : `Gemmes` (recopié dans la sauvegarde), `TiragesPayantsInterdits`. Sauvegarde : `gemmes`, `index`, `oeufsOuverts`, `compagnons`.
 
 Attribut `Equipe` sur chaque Player (« espece:version,… ») : les compagnons équipés, lus par tous les clients pour les afficher.
 

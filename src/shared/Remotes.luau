@@ -16,6 +16,14 @@ local EVENEMENTS = {
 	"EquiperCompagnon",
 	-- joueur → serveur : () équipe les meilleurs compagnons
 	"EquiperMeilleurs",
+	-- joueur → serveur : (oeufId: string) ouvrir un œuf
+	"OuvrirOeuf",
+	-- serveur → joueur : (resultat: { oeuf, espece, version, uid, nouveau: boolean })
+	"ResultatOeuf",
+	-- joueur → serveur : (espece: string, version: string) fusionner trois compagnons identiques
+	"Fusionner",
+	-- serveur → joueur : (index: { trouves, pages, chance })
+	"IndexEtat",
 }
 
 local Remotes = {} :: { [string]: RemoteEvent }
