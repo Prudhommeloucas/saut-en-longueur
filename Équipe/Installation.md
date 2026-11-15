@@ -55,7 +55,7 @@ Une fois ce fichier créé et envoyé sur GitHub par le Poste 1, il s'applique a
 
 ## Outils de code, pour tout le monde
 
-1. **Fixer les outils dans le projet** (une seule fois, tâche T-001), depuis le dossier du projet :
+1. **Outils fixés dans le projet** (fait le 2026-11-15, tâche T-001). Versions dans `rokit.toml` : Rojo 7.7.1, Selene 0.32.0, StyLua 2.6.0, Wally 0.3.2. Réglages : `selene.toml` (`std = "roblox"`) et `stylua.toml` (Luau, tabulations, 120 colonnes). Sans terminal interactif (cas de Claude), `rokit add` refuse un outil non approuvé : lancer d'abord `rokit trust <outil>`. Commandes utilisées, pour mémoire :
 
    ```
    rokit init
@@ -65,8 +65,7 @@ Une fois ce fichier créé et envoyé sur GitHub par le Poste 1, il s'applique a
    rokit add UpliftGames/wally
    ```
 
-   Cela crée `rokit.toml`, à envoyer sur GitHub.
-2. **Sur chaque machine** : installer Rokit, puis `rokit install` dans le dossier du projet. `rojo --version` doit répondre.
+2. **Sur chaque machine** : installer Rokit, puis `rokit install` dans le dossier du projet. `rojo --version` doit répondre. Si la commande est introuvable, relancer le terminal ou ajouter `%USERPROFILE%\.rokit\bin` au PATH.
 3. **Extension Rojo dans Studio** : `rojo plugin install`.
 4. **Copie personnelle de la place** : dans Studio, ouvrir la place partagée puis Fichier > Enregistrer dans un fichier sous, dans `copies/` à la racine du projet (exclu de git). C'est là qu'on branche Rojo pour coder et tester ([[Travailler à plusieurs]]).
 

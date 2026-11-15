@@ -8,7 +8,7 @@ Logiciels, connecteurs et skills utiles au projet, classés par type de tâche. 
 | --- | --- |
 | git, GitHub CLI (connecté), Node, Python | Installés |
 | Rokit 1.2.0 | Installé |
-| Rojo, Selene, StyLua, Wally | **À installer** dans le projet (tâche T-001) |
+| Rojo, Selene, StyLua, Wally | Fixés dans `rokit.toml` (T-001, 2026-11-15) : lancer `rokit install` dans le projet |
 | Roblox Studio, extension Rojo de Studio | Installés |
 | Blender 5.2 | Installé |
 | Obsidian | Installé, coffre ouvert |

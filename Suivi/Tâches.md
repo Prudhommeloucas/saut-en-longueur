@@ -8,7 +8,7 @@ Pour cocher : `- [x] T-101 Appel — Code (2026-11-15, P3)`. On ne modifie que l
 
 ## Phase 0 — Fondations
 
-- [ ] T-001 Outils de code dans le projet (`rokit.toml`) et MCP sur le terminal du Poste 1 — Outils
+- [x] T-001 Outils de code dans le projet (`rokit.toml`) et MCP sur le terminal du Poste 1 — Outils (2026-11-15, P2 ; `rokit.toml`, `selene.toml`, `stylua.toml` faits ; MCP du terminal à brancher par P1, voir `Suivi/Demandes/`)
 - [ ] T-002 Groupe Roblox, publication, Team Create, place Test — Humain
 - [ ] T-003 Installation du Poste 2 — Outils
 - [ ] T-003 Installation du Poste 3 — Outils
