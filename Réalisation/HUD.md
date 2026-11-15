@@ -79,4 +79,15 @@ Distance, détail des pièces ligne par ligne, mention « Nouveau record », bou
 
 ## Maquettes faites
 
-- T-305 (2026-11-15) : `EcranCompagnons`, `EcranOeuf`, `EcranEclosion`, téléphone en paysage 844 × 390, sur la toile Claude Design « Écrans compagnons et œufs » : https://claude.ai/artifact/CFbWGuXQHbfNhZMj2WS4JH (privée tant que Loucas ne l'a pas partagée). Noms des éléments lus par le code notés sur la toile. En attente de validation.
+- T-305 (2026-11-15) : `EcranCompagnons`, `EcranOeuf`, `EcranEclosion`, téléphone en paysage 844 × 390, sur la toile Claude Design « Écrans compagnons et œufs » : https://claude.ai/artifact/CFbWGuXQHbfNhZMj2WS4JH (privée tant que Loucas ne l'a pas partagée). Noms des éléments lus par le code notés sur la toile. Validées par Loucas le 2026-11-15.
+
+## Écrans construits
+
+- **T-305 (2026-11-15)** : `EcranCompagnons`, `EcranOeuf`, `EcranEclosion` dans `StarterGui`, construits d'après les maquettes, branchés par `src/client/Controleurs/EcranCompagnons|EcranOeuf|EcranEclosion.luau` et `src/client/Interface.luau`.
+  - Chaque menu a une `Fenetre` de 724 × 354 (œuf : 544 × 354) avec un `UIScale` nommé `Echelle`, réglé par le code selon la taille de l'écran (base 844 × 390, de 0,5 à 1,5). Un seul menu ouvert à la fois ; à la manette, le bouton principal est sélectionné à l'ouverture.
+  - `EcranCompagnons` : `OngletCompagnons`, `OngletIndex`, `TexteInventaire`, `BoutonFermer`, `PageCompagnons` (`TexteEquipe`, `ListeEquipe.ModeleLigne`, `TexteBonus`, `ListeCompagnons.ModeleLigne` avec `Pastille.Lettre`, `TexteNiveau`, `Badge`, `BoutonFusionner` qui fusionne tous les trios, `BoutonMeilleurs`), `PageIndex` (`TexteIndex`, `ListeIndex.ModeleLigne` avec `PointNormal`, `PointArgent`, `PointOr`). Toucher une carte équipe ou retire.
+  - `EcranOeuf` : `VueOeuf` (le modèle de l'œuf), `TexteNomOeuf`, `ListeChances.ModeleLigne` (`Pastille`, `TexteNom`, `TexteRarete`, `Barre.Remplissage`, `TextePourcent`), `TextePrix`, `TexteInterdit`, `BoutonOuvrir1`, `BoutonOuvrir3` et `BoutonAuto` (inactifs : passes à venir). S'ouvre par le prompt « Ouvrir » d'un incubateur : les chances sont toujours vues avant l'achat.
+  - `EcranEclosion` : `Fond.Degrade` (lueur de la couleur de la rareté), `Contenu` (`Echelle`, `TexteNouveau`, `Vue`, `TexteEspece`, `TexteRarete`, `BoutonContinuer`). L'œuf tremble, sa moitié `Haut` s'envole avec ses décors, le compagnon apparaît ; Continuer revient à l'œuf.
+  - `BoutonsProvisoires.BoutonCompagnons` (bas droite) ouvre l'écran des compagnons, **à retirer quand `HudPrincipal` existera (T-109)**.
+  - Pastilles de couleur à la place des icônes, en attendant les rendus de T-306 (`Config/Compagnons.ESPECES[...].couleur`).
+  - Testé dans la copie sur un écran d'ordinateur (achat par le prompt et le bouton, éclosion, équipe, bonus, fusion, index) : captures `assets/captures/ecran_oeuf.jpg`, `ecran_eclosion.jpg`, `ecran_compagnons.jpg`, `ecran_index.jpg`. Pas encore vérifié avec l'émulateur téléphone et tablette.

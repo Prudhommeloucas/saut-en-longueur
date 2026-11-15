@@ -156,12 +156,8 @@ local function brancherIncubateur(incubateur: Instance)
 	prompt.HoldDuration = 0.3
 	prompt.MaxActivationDistance = 12
 	prompt.RequiresLineOfSight = false
+	-- Le prompt ouvre EcranOeuf côté joueur (chances affichées avant l'achat) ; l'achat passe par OuvrirOeuf
 	prompt.Parent = support
-	prompt.Triggered:Connect(function(player)
-		if not trop(player) then
-			Oeufs.ouvrir(player, oeufId)
-		end
-	end)
 end
 
 function Oeufs.demarrer()

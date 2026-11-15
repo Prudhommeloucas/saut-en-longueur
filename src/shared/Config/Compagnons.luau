@@ -25,18 +25,29 @@ function Compagnons.xpPourNiveauSuivant(niveau: number): number
 end
 
 -- Espèces : identifiant = nom du modèle dans ReplicatedStorage.Assets.Compagnons.
+-- couleur : teinte principale du modèle, pour les pastilles des écrans en attendant les icônes (T-306)
 Compagnons.ESPECES = {
-	compagnon_grenouille = { nom = "Grenouille", rarete = "Commun", role = "Coach" },
-	compagnon_lapin = { nom = "Lapin", rarete = "Commun", role = "PorteBonheur" },
-	compagnon_sauterelle = { nom = "Sauterelle", rarete = "Rare", role = "Coach" },
-	compagnon_kangourou = { nom = "Kangourou", rarete = "Épique", role = "Tresorier" },
-	compagnon_puce = { nom = "Puce savante", rarete = "Légendaire", role = "PorteBonheur" },
-	compagnon_lievre = { nom = "Lièvre", rarete = "Commun", role = "Coach" },
-	compagnon_ecureuil = { nom = "Écureuil volant", rarete = "Rare", role = "Tresorier" },
-	compagnon_gazelle = { nom = "Gazelle", rarete = "Rare", role = "Coach" },
-	compagnon_dauphin = { nom = "Dauphin", rarete = "Épique", role = "Tresorier" },
-	compagnon_puma = { nom = "Puma", rarete = "Légendaire", role = "Coach" },
+	compagnon_grenouille = { nom = "Grenouille", rarete = "Commun", role = "Coach", couleur = "5BD06A" },
+	compagnon_lapin = { nom = "Lapin", rarete = "Commun", role = "PorteBonheur", couleur = "FFFFFF" },
+	compagnon_sauterelle = { nom = "Sauterelle", rarete = "Rare", role = "Coach", couleur = "8EE04E" },
+	compagnon_kangourou = { nom = "Kangourou", rarete = "Épique", role = "Tresorier", couleur = "D9822B" },
+	compagnon_puce = { nom = "Puce savante", rarete = "Légendaire", role = "PorteBonheur", couleur = "6E3A70" },
+	compagnon_lievre = { nom = "Lièvre", rarete = "Commun", role = "Coach", couleur = "C8955A" },
+	compagnon_ecureuil = { nom = "Écureuil volant", rarete = "Rare", role = "Tresorier", couleur = "9A8678" },
+	compagnon_gazelle = { nom = "Gazelle", rarete = "Rare", role = "Coach", couleur = "D9A15B" },
+	compagnon_dauphin = { nom = "Dauphin", rarete = "Épique", role = "Tresorier", couleur = "4FA8E8" },
+	compagnon_puma = { nom = "Puma", rarete = "Légendaire", role = "Coach", couleur = "D69A4A" },
 }
+
+-- Couleurs des raretés (Direction artistique) et noms affichés des rôles
+Compagnons.COULEURS_RARETE = {
+	Commun = "9AA4B2",
+	Rare = "1E90FF",
+	["Épique"] = "9B5CFF",
+	["Légendaire"] = "FFC83D",
+	Mythique = "FF4F8B",
+}
+Compagnons.NOMS_ROLES = { Coach = "Coach", Tresorier = "Trésorier", PorteBonheur = "Porte-bonheur" }
 
 -- Bonus d'un compagnon précis (espèce, version, niveau), pour son rôle
 function Compagnons.bonus(espece: string, version: string, niveau: number): number

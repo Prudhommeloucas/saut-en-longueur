@@ -74,7 +74,7 @@ Pour cocher : `- [x] T-101 Appel — Code (2026-11-15, P3)`. On ne modifie que l
 - [x] T-302 Œufs, fusion, index — Code (2026-11-15, P2 ; œuf d'or provisoire sans espèce exclusive)
 - [x] T-303 Dix compagnons, trois œufs, incubateur — 3D (2026-11-15, P2)
 - [x] T-304 Œufs en parties, matières Argent et Or — 3D (2026-11-15, P2)
-- [ ] T-305 `EcranCompagnons`, `EcranOeuf`, `EcranEclosion` — Interface
+- [x] T-305 `EcranCompagnons`, `EcranOeuf`, `EcranEclosion` — Interface (2026-11-15, P2 ; captures à refaire en téléphone et tablette)
 - [ ] T-306 Rendus des compagnons, cadres de rareté, sons d'éclosion — Image, son
 - [ ] T-307 Branchement — Code
 

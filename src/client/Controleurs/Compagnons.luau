@@ -17,9 +17,19 @@ local dossier: Folder
 local suivis = {} -- [player] = { modeles = {Model}, positions = {CFrame} }
 local etat = nil -- dernier état de l'inventaire du joueur local (pour les futurs écrans, T-305)
 
+local abonnes = {} -- fonctions appelées à chaque nouvel état
+
 -- Inventaire du joueur local, tel qu'envoyé par le serveur
 function Compagnons.etat()
 	return etat
+end
+
+-- Appelle fn(etat) à chaque changement de l'inventaire (et tout de suite s'il est déjà connu)
+function Compagnons.surEtat(fn: (any) -> ())
+	table.insert(abonnes, fn)
+	if etat then
+		task.spawn(fn, etat)
+	end
 end
 
 local function preparer(modele: Model)
@@ -122,6 +132,9 @@ function Compagnons.demarrer()
 
 	Remotes.CompagnonsEtat.OnClientEvent:Connect(function(nouveau)
 		etat = nouveau
+		for _, fn in abonnes do
+			task.spawn(fn, nouveau)
+		end
 	end)
 
 	RunService.Heartbeat:Connect(chaqueImage)
