@@ -211,3 +211,48 @@ Colors: at most five colors: #FFFFFF, #FF7A1A, #CFEFFF, #5BC0F8, #E8302E.
 
 Sheet layout: 6 views of the SAME object, same size, evenly spaced on one image in 2 rows: front, back, left side, right side, 3/4 front, top. Keep every part clearly separated and readable (base, orange band, steps, button panel, button, dome, dome rim, knob, tubes, light ring, cushion) so it can be rebuilt in 3D with few polygons.
 ```
+
+## Panthéon et portail du monde 1 (T-405)
+
+Prompts remplis le 2026-11-17. Ils remplacent les blocs posés par T-114 sur la place centrale ([[Map]]) : le panthéon à (-212, 0), le portail à (-172, 0), tous deux tournés vers le centre de la place (vers +X). Tailles reprises du relevé `assets/plans/monde1.md`. La flamme, le tourbillon et le cadenas sont des parties séparées, pour que le code puisse les animer ou les retirer ([[Animations]], [[Contrats]] : tags `Pantheon`, `Vasque`, `Portail`).
+
+### Panthéon (`pantheon`)
+
+C'est là que l'athlète monte de catégorie ([[Rebirth et talents]]). Le joueur entre par l'avant, ouvert.
+
+```text
+Create a prop turnaround sheet of an original building for a Roblox long jump game: "Hall of Champions", a small cartoon temple on the main plaza of world 1 ("Beginner Stadium"). Players walk inside to be promoted to the next athlete category. It must be the most prestigious-looking building of the plaza, but friendly, not solemn.
+
+Style: cartoon 3D game asset, chunky exaggerated proportions, simple shapes with bevelled edges, flat cartoon colors, smooth plastic look, soft studio lighting, pure white background. Low detail, readable from far away and on a phone. Joyful and sporty. No text, no letters, no numbers, no logos, no brand, no olympic rings, no flags, no people except the statue, no ground, no shadow, no smoke.
+
+Design: a small rectangular temple, deeper than wide: about 30 units wide, 40 deep and 24 high without the bowl, standing on a low base with three wide steps at the front.
+Main body: a raised white marble floor (#F4F1EA), five thick round columns on each long side and four at the back (#F4F1EA), the front fully open between two corner columns so that players can walk in. A flat roof with a triangular pediment at the front, white with a thick golden band along its edge (#FFC83D).
+Statue: in the middle of the floor, on a round golden pedestal with a glowing orange ring at its base (#FF7A1A), a cartoon statue of a long jumper in mid-flight, arms forward and legs stretched, all in gold (#FFC83D). Original character, no face details.
+Bowl on the roof: a big wide golden bowl (#FFC83D) on a short stem in the middle of the roof, holding a chunky stylized cartoon flame (three stacked rounded flame tongues, orange #FF7A1A and yellow #FFC83D), clearly separate from the bowl.
+Special feature: the golden jumper statue in the middle, visible from the open front.
+Small details: two orange banners hanging between the front columns, with only a simple blue (#1E90FF) laurel shape on them; a row of small blue tiles along the base.
+Colors: at most four colors: #F4F1EA, #FFC83D, #FF7A1A, #1E90FF.
+
+Sheet layout: 6 views of the SAME object, same size, evenly spaced on one image in 2 rows: front, back, left side, right side, 3/4 front, top. Keep every part clearly separated and readable (base, steps, floor, columns, roof, pediment, golden band, pedestal, statue, banners, bowl, flame) so it can be rebuilt in 3D with few polygons.
+```
+
+### Portail vers le monde 2 (`portail_monde2`)
+
+Arche calme, aux couleurs de la Plage des Alizés (turquoise, sable, corail, [[Direction artistique]]). Le cadenas se voit tant que le monde 2 est fermé (principe 4 de [[Construction du monde 1]]).
+
+```text
+Create a prop turnaround sheet of an original travel portal for a Roblox long jump game: "Portal to the Breezy Beach", standing on the main plaza of world 1 ("Beginner Stadium"). Players walk through it to travel to world 2, a sunny beach with wind. Until the player has unlocked world 2, the portal is closed by a big padlock.
+
+Style: cartoon 3D game asset, chunky exaggerated proportions, simple rounded shapes with bevelled edges, flat cartoon colors, smooth plastic look, soft studio lighting, pure white background. Low detail, readable from far away and on a phone. Joyful, calm and inviting, nothing scary or dark. No text, no letters, no numbers, no logos, no brand, no character, no ground, no shadow, no smoke.
+
+Design: a big round-topped stone arch on a platform of three wide steps: about 24 units wide, 20 high above the steps, 16 deep with the steps.
+Main body: the arch is made of big rounded sand-colored stone blocks (#F2D9A0), with a turquoise keystone at the top (#2EC4B6) and a few coral seashells set into the stones (#FF7F6B).
+Portal surface: inside the arch, a smooth calm swirl of turquoise and white (#2EC4B6, #FFFFFF), like gentle sea water turning slowly, flat and clearly separate from the arch.
+Steps: three wide white steps (#FFFFFF) with a thin turquoise edge, the highest one right under the arch.
+Lock: a big chunky golden padlock (#FFC83D) hanging in front of the swirl from the top of the arch, clearly separate so it can be removed.
+Special feature: two small palm-leaf shapes (#2EC4B6) growing out of the top corners of the arch, hinting at the beach.
+Small details: two round lanterns of soft turquoise light at the foot of the arch; a small sign plate under the keystone, left blank.
+Colors: at most five colors: #F2D9A0, #2EC4B6, #FF7F6B, #FFFFFF, #FFC83D.
+
+Sheet layout: 6 views of the SAME object, same size, evenly spaced on one image in 2 rows: front, back, left side, right side, 3/4 front, top. Keep every part clearly separated and readable (steps, arch stones, keystone, seashells, palm leaves, swirl surface, padlock, lanterns, blank sign plate) so it can be rebuilt in 3D with few polygons.
+```
