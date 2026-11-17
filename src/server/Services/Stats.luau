@@ -4,7 +4,7 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 local Config = ReplicatedStorage:WaitForChild("Shared"):WaitForChild("Config")
 local StatsConfig = require(Config:WaitForChild("Stats"))
-local SautConfig = require(Config:WaitForChild("Saut"))
+local Map = require(ReplicatedStorage:WaitForChild("Shared"):WaitForChild("Util"):WaitForChild("Map"))
 local Donnees = require(script.Parent.Donnees)
 local Personnage = require(script.Parent.Personnage)
 
@@ -17,7 +17,8 @@ local function majJoueur(player: Player)
 	if not (Donnees.estCharge(player) and hum and hrp and hum.Health > 0) then
 		return
 	end
-	local sp = hrp.Position.X > SautConfig.DEBUT_PISTE_X
+	local debut = Map.debutPisteX(Map.mondeDe(player))
+	local sp = debut ~= nil and hrp.Position.X > debut
 	if sp then
 		hum.WalkSpeed = StatsConfig.vitesseCourse(player:GetAttribute("Vitesse"))
 		hum.JumpPower = StatsConfig.puissanceSaut(player:GetAttribute("Puissance"), player:GetAttribute("Chaussures"))

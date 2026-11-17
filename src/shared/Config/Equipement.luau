@@ -1,4 +1,4 @@
--- Objets de la boutique, par identifiant (le nom de l'attribut sur le joueur et du stand « Stand<identifiant> »).
+-- Objets de la boutique, par identifiant (le nom de l'attribut sur le joueur, et l'attribut Objet du stand tagué « Stand »).
 local Equipement = {}
 
 Equipement.OBJETS = {

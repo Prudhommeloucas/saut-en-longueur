@@ -9,6 +9,7 @@ local Config = Shared:WaitForChild("Config")
 local SautConfig = require(Config:WaitForChild("Saut"))
 local Sons = require(Config:WaitForChild("Sons"))
 local Remotes = require(Shared:WaitForChild("Remotes"))
+local Map = require(Shared:WaitForChild("Util"):WaitForChild("Map"))
 local Donnees = require(script.Parent.Donnees)
 local Personnage = require(script.Parent.Personnage)
 local Compagnons = require(script.Parent.Compagnons)
@@ -125,13 +126,14 @@ local function surveillerPlanche()
 	for _, player in Players:GetPlayers() do
 		local char = player.Character
 		local hrp = char and char:FindFirstChild("HumanoidRootPart")
-		if hrp and Donnees.estCharge(player) and not enAtterrissage[player] then
+		local ligne = Map.ligneX(Map.mondeDe(player))
+		if hrp and ligne and Donnees.estCharge(player) and not enAtterrissage[player] then
 			local x = hrp.Position.X
 			local avant = dernierX[player]
-			if avant and avant < SautConfig.LIGNE_X and x >= SautConfig.LIGNE_X then
+			if avant and avant < ligne and x >= ligne then
 				rare[player] = tirerRare(player)
 				player:SetAttribute("SautRare", rare[player] or "")
-			elseif x < SautConfig.LIGNE_X - 2 and rare[player] then
+			elseif x < ligne - 2 and rare[player] then
 				rare[player] = nil
 				player:SetAttribute("SautRare", "")
 			end
@@ -153,9 +155,14 @@ local function surContactSable(hit: BasePart)
 	if not hum or not hrp or hum.Health <= 0 then
 		return
 	end
+	local monde = Map.mondeDe(player)
+	local ligne = Map.ligneX(monde)
+	if not ligne then
+		return
+	end
 	enAtterrissage[player] = true
 
-	local metres = math.max(0, hrp.Position.X - SautConfig.LIGNE_X) / SautConfig.STUDS_PAR_METRE
+	local metres = math.max(0, hrp.Position.X - ligne) / SautConfig.STUDS_PAR_METRE
 	metres = math.floor(metres * 10 + 0.5) / 10
 	-- Les Trésoriers équipés et le saut rare multiplient les pièces
 	local idRare = rare[player]
@@ -186,8 +193,8 @@ local function surContactSable(hit: BasePart)
 	Compagnons.gagnerExperience(player)
 
 	task.delay(SautConfig.DELAI_RETOUR, function()
-		if player.Parent and player.Character == char and char.Parent then
-			local p = SautConfig.RETOUR_PISTE
+		local p = Map.retourPiste(monde, SautConfig.RETOUR_AVANCE, SautConfig.RETOUR_HAUTEUR)
+		if p and player.Parent and player.Character == char and char.Parent then
 			char:PivotTo(CFrame.lookAt(p, p + Vector3.xAxis))
 		end
 		enAtterrissage[player] = nil
@@ -195,8 +202,12 @@ local function surContactSable(hit: BasePart)
 end
 
 function Saut.demarrer()
-	local sable = workspace:WaitForChild("Mondes"):WaitForChild("Monde1"):WaitForChild("Bac"):WaitForChild("Sable")
-	sable.Touched:Connect(surContactSable)
+	-- Chaque Part taguée « Bac » est une zone d'atterrissage
+	Map.surChaque("Bac", function(bac)
+		if bac:IsA("BasePart") then
+			bac.Touched:Connect(surContactSable)
+		end
+	end)
 
 	-- Jetpack : le client signale quand il pousse, le serveur montre les flammes à tous
 	Remotes.JetpackEtat.OnServerEvent:Connect(function(player, actif)

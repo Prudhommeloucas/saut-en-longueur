@@ -1,9 +1,11 @@
--- Entraînement : gain de Puissance (zone de squat) ou de Vitesse (zone de mollets) à intervalle régulier.
+-- Entraînement : chaque Part taguée « ZoneEntrainement » fait gagner sa stat (attribut Stat) à intervalle régulier.
+-- Attributs lus sur la zone : Stat (Puissance, Vitesse…), Multiplicateur (1 par défaut), RecordRequis (m, 0 par défaut).
 local Players = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local Config = ReplicatedStorage:WaitForChild("Shared"):WaitForChild("Config")
-local StatsConfig = require(Config:WaitForChild("Stats"))
+local Shared = ReplicatedStorage:WaitForChild("Shared")
+local StatsConfig = require(Shared:WaitForChild("Config"):WaitForChild("Stats"))
+local Map = require(Shared:WaitForChild("Util"):WaitForChild("Map"))
 local Donnees = require(script.Parent.Donnees)
 local Compagnons = require(script.Parent.Compagnons)
 
@@ -14,11 +16,40 @@ local function dansZone(zone: BasePart, pos: Vector3): boolean
 	return math.abs(l.X) <= zone.Size.X / 2 and math.abs(l.Z) <= zone.Size.Z / 2 and l.Y > -1 and l.Y < 12
 end
 
-function Entrainement.demarrer()
-	local map = workspace:WaitForChild("Mondes"):WaitForChild("Monde1")
-	local zoneSquat = map:WaitForChild("Entrainement"):WaitForChild("ZoneSquat")
-	local zoneMollets = map.Entrainement:WaitForChild("ZoneMollets")
+-- Zone où se trouve le joueur, si elle lui est ouverte (record suffisant)
+local function zoneDe(player: Player, pos: Vector3): BasePart?
+	for _, zone in Map.tous("ZoneEntrainement", Map.mondeDe(player)) do
+		if zone:IsA("BasePart") and dansZone(zone, pos) then
+			local requis = zone:GetAttribute("RecordRequis") or 0
+			if (player:GetAttribute("Record") or 0) >= requis then
+				return zone
+			end
+		end
+	end
+	return nil
+end
 
+local function entrainer(player: Player)
+	local char = player.Character
+	local hum = char and char:FindFirstChildOfClass("Humanoid")
+	local hrp = char and char:FindFirstChild("HumanoidRootPart")
+	if not (Donnees.estCharge(player) and hum and hrp and hum.Health > 0) then
+		return
+	end
+	local zone = zoneDe(player, hrp.Position)
+	local stat = zone and zone:GetAttribute("Stat")
+	local actuelle = stat and player:GetAttribute(stat)
+	if type(actuelle) ~= "number" then
+		return -- pas de zone, ou stat que le joueur n'a pas encore (Aero)
+	end
+	-- Le multiplicateur de la zone et les Coachs équipés multiplient le gain
+	local gain = StatsConfig.ENTRAINEMENT_GAIN
+		* (zone:GetAttribute("Multiplicateur") or 1)
+		* Compagnons.multiplicateur(player, "Coach")
+	player:SetAttribute(stat, actuelle + gain)
+end
+
+function Entrainement.demarrer()
 	task.spawn(function()
 		local accum = 0
 		while true do
@@ -26,19 +57,7 @@ function Entrainement.demarrer()
 			if accum >= StatsConfig.ENTRAINEMENT_INTERVALLE then
 				accum -= StatsConfig.ENTRAINEMENT_INTERVALLE
 				for _, player in Players:GetPlayers() do
-					local char = player.Character
-					local hum = char and char:FindFirstChildOfClass("Humanoid")
-					local hrp = char and char:FindFirstChild("HumanoidRootPart")
-					if Donnees.estCharge(player) and hum and hrp and hum.Health > 0 then
-						local pos = hrp.Position
-						-- Les Coachs équipés multiplient le gain
-						local gain = StatsConfig.ENTRAINEMENT_GAIN * Compagnons.multiplicateur(player, "Coach")
-						if dansZone(zoneSquat, pos) then
-							player:SetAttribute("Puissance", player:GetAttribute("Puissance") + gain)
-						elseif dansZone(zoneMollets, pos) then
-							player:SetAttribute("Vitesse", player:GetAttribute("Vitesse") + gain)
-						end
-					end
+					entrainer(player)
 				end
 			end
 		end

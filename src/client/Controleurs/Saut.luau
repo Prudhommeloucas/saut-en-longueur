@@ -12,6 +12,7 @@ local StatsConfig = require(Config:WaitForChild("Stats"))
 local CameraConfig = require(Config:WaitForChild("Camera"))
 local Equipement = require(Config:WaitForChild("Equipement"))
 local Remotes = require(Shared:WaitForChild("Remotes"))
+local Map = require(Shared:WaitForChild("Util"):WaitForChild("Map"))
 local Hud = require(script.Parent.Hud)
 
 local player = Players.LocalPlayer
@@ -31,10 +32,12 @@ local function chaqueImage(dt: number)
 
 	local pousse = false
 	if hum and hrp and hum.Health > 0 then
+		local monde = Map.mondeDe(player)
+		local debut = Map.debutPisteX(monde)
 		local enLAir = hum.FloorMaterial == Enum.Material.Air
 		if not enLAir then
 			carburant = infoJetpack.carburant
-		elseif player:GetAttribute("Jetpack") and carburant > 0 and hrp.Position.X > SautConfig.DEBUT_PISTE_X then
+		elseif player:GetAttribute("Jetpack") and carburant > 0 and hrp.Position.X > (debut or math.huge) then
 			local maintenu = (maintenant - dernierSaut) < 0.15 or UserInputService:IsKeyDown(Enum.KeyCode.Space)
 			if maintenu then
 				pousse = true
@@ -58,7 +61,10 @@ local function chaqueImage(dt: number)
 			cam.FieldOfView += (cible - cam.FieldOfView) * math.min(1, dt * 5)
 		end
 
-		Hud.distanceEnDirect(hrp.Position.X - SautConfig.LIGNE_X)
+		local ligne = Map.ligneX(monde)
+		if ligne then
+			Hud.distanceEnDirect(hrp.Position.X - ligne)
+		end
 	end
 
 	-- Prévient le serveur quand la poussée démarre ou s'arrête (flammes visibles par tous)

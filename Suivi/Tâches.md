@@ -16,7 +16,7 @@ Pour cocher : `- [x] T-101 Appel — Code (2026-11-15, P3)`. On ne modifie que l
 - [x] T-005 Découpage en configuration, services, contrôleurs — Code (2026-11-15, P2)
 - [x] T-006 Sauvegarde ProfileStore — Code (2026-11-15, P2)
 - [x] T-007 Rangement de la map et pose des tags — Monde (2026-11-17, P2)
-- [ ] T-008 Lecture de la map par les tags — Code
+- [x] T-008 Lecture de la map par les tags — Code (2026-11-17, P2)
 - [ ] T-009 Maquettes des quatre premiers écrans — Interface
 - [x] T-010 Planche de style : chaussures, compagnon, module de tribune — 3D (2026-11-14, P2 ; style à valider par les deux autres, voir `Suivi/Demandes/`)
 - [ ] T-015 Essai de la chaîne plan Claude Design → Studio — Monde

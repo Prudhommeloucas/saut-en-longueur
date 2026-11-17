@@ -16,7 +16,7 @@ src/
   shared/            -> ReplicatedStorage.Shared
     Config/          une table par sujet : Stats, Mondes, Equipement, Compagnons,
                      Oeufs, Talents, Quetes, Paliers, Boutique, Sons, Textes
-    Util/            Format (grands nombres), Signal, Table, Tags
+    Util/            Map (objets de la map par leurs tags), Apparence ; prévus : Format, Signal, Table
     Remotes.luau     liste unique de tous les événements réseau
   server/            -> ServerScriptService.Server
     Services/        un module par système
@@ -51,7 +51,7 @@ Côté client, les contrôleurs correspondants : Hud, Saut, Entrainement, Boutiq
 
 1. **Le serveur décide.** Distances, gains, achats, tirages : tout est calculé côté serveur. Le client envoie des intentions et affiche des résultats.
 2. **Tout nombre d'équilibrage est dans `Config/`.** Un système ne contient aucune valeur en dur.
-3. **La map se décrit par des tags et des attributs** ([[Contrats]]). Le code ne connaît pas le nom ni la position des zones : il lit les objets marqués. On peut donc ajouter une zone, un anneau ou un portail sans toucher au code.
+3. **La map se décrit par des tags et des attributs** ([[Contrats]]). Le code ne connaît pas le nom ni la position des zones : il lit les objets marqués. On peut donc ajouter une zone, un anneau ou un portail sans toucher au code. Depuis T-008, tout passe par `Shared/Util/Map` : `Map.tous(tag, monde)`, `Map.surChaque(tag, fn)` (objets présents et ajoutés plus tard), `Map.ligneX`, `Map.debutPisteX`, `Map.retourPiste`. Les positions sont relues à chaque appel ; côté joueur, la dernière valeur connue sert quand le streaming a déchargé la Part.
 4. **L'interface est construite dans Studio** et le code s'y branche par les noms fixés dans [[Contrats]]. Le code ne crée pas d'écran.
 5. **Un seul point d'entrée réseau** : `Remotes.luau`. Chaque événement venant du client est vérifié (types, bornes) et limité en fréquence.
 6. **Identifiants stables.** Objets, compagnons, talents et quêtes ont un identifiant texte qui ne change jamais, même si le nom affiché change. Les sauvegardes ne stockent que ces identifiants.

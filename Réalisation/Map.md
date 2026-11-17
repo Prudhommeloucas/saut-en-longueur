@@ -22,7 +22,7 @@ Chemins depuis `Workspace.Mondes.Monde1`.
 | Décor | `Decor` (`Sol` avec la grande `Herbe`, `Tribunes`, `Drapeaux`, `Lampadaires`, `Gym`, `Arbres`, `ArbresPiste`) | | voir [[Décor et effets]] |
 | Anneaux, portails | `Anneaux`, `Portails` | | dossiers vides (T-106, monde 2) |
 
-Le code lit encore la map par ses chemins (`Boutique`, `Entrainement`, `Bac.Sable`) ; la lecture par les tags est la tâche T-008. Script du rangement, relançable : `assets/plans/rangement_t007.luau`.
+Le code lit la map par les tags (T-008, module `Shared/Util/Map`) : noms et dossiers sont libres. On peut déplacer ou ajouter une zone, une planche, un bac ou un stand sans toucher au code, tant que le tag et les attributs sont posés. Script du rangement, relançable : `assets/plans/rangement_t007.luau`.
 
 ## Règles
 
@@ -36,7 +36,7 @@ Décidé le 2026-11-12, pas encore construit : le spawn carré devient une place
 
 ## À faire
 
-- Lire la map par les tags (T-008), puis construire la place centrale (T-114).
+- Construire la place centrale (T-114).
 - Les mondes suivants sont décrits dans [[Mondes]], les modèles à produire dans [[Modèles 3D]].
 - Le décor est en place, voir [[Décor et effets]]. Il reste à remplacer les formes simples par de vrais modèles.
 - Si les sauts dépassent 500 m, allonger le sable (une Part est limitée à 2048 studs, il faudra en ajouter une deuxième).

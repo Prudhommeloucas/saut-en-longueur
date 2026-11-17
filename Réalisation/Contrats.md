@@ -34,12 +34,12 @@ La map est rangée dans `Workspace.Mondes.Monde1` depuis T-007 (2026-11-17), voi
 
 | Tag | Sur quoi | Attributs | État |
 | --- | --- | --- | --- |
-| `ZoneEntrainement` | Part au sol | `Stat` (Puissance, Vitesse, Aero), `Multiplicateur` (nombre), `RecordRequis` (m), `PasseRequis` (texte, facultatif) | posé (T-007), pas encore lu par le code (T-008) |
-| `Piste` | Part de la piste d'élan | `Monde` (nombre) | posé (T-007), pas encore lu par le code (T-008) |
-| `PlancheAppel` | Part de la planche | `Monde` | posé (T-007), pas encore lu par le code (T-008) |
-| `Bac` | Parts de la zone d'atterrissage | `Monde` | posé (T-007), pas encore lu par le code (T-008) |
+| `ZoneEntrainement` | Part au sol | `Stat` (Puissance, Vitesse, Aero), `Multiplicateur` (nombre), `RecordRequis` (m), `PasseRequis` (texte, facultatif) | posé (T-007), lu (T-008) : une Part par zone, la stat doit exister sur le joueur (Aero pas encore) |
+| `Piste` | Part de la piste d'élan | `Monde` (nombre) | posé (T-007), lu (T-008) : son début (bord -X) déclenche les bonus et fixe le point de retour après un saut |
+| `PlancheAppel` | Part de la planche | `Monde` | posé (T-007), lu (T-008) : la distance se mesure depuis son bord +X |
+| `Bac` | Parts de la zone d'atterrissage | `Monde` | posé (T-007), lu (T-008) : le premier contact avec une de ces Parts compte comme atterrissage |
 | `Anneau` | Part en forme d'anneau, sans collision | `Pieces` (nombre), `Poussee` (nombre) | code prêt (T-104) : pièces une fois par anneau et par saut, en vol seulement ; défauts 5 pièces et poussée 30 (`Config/Saut`) ; aucun anneau posé (T-106) |
-| `Stand` | Model d'un stand de boutique | `Famille` (Chaussures, Propulseur, Materiel, Ailes, Tenue) | posé (T-007) sur les deux stands actuels, qui sont encore des Parts (`Famille` = Chaussures, Propulseur) ; un Model quand les vrais stands seront construits (T-207) |
+| `Stand` | Model d'un stand de boutique | `Famille` (Chaussures, Propulseur, Materiel, Ailes, Tenue), `Objet` (identifiant de `Config/Equipement`, lu par la boutique) ; un `ProximityPrompt` quelque part dans le stand | posé (T-007), lu (T-008), sur les deux stands actuels, qui sont encore des Parts (`Famille` = Chaussures, Propulseur) ; un Model quand les vrais stands seront construits (T-207) |
 | `Incubateur` | Model | `Oeuf` (identifiant) | modèle prêt (`Assets.Decor.incubateur`, tag et `Oeuf` = `oeuf_stade` déjà posés ; changer l'attribut pour chaque copie). Attachment `PoseOeuf` dans `Blanc` : là où poser l'œuf |
 | `Portail` | Model | `VersMonde` (nombre) | prévu |
 | `Pantheon` | Model du lieu de changement de catégorie | aucun | prévu |
@@ -47,7 +47,7 @@ La map est rangée dans `Workspace.Mondes.Monde1` depuis T-007 (2026-11-17), voi
 | `PanneauClassement` | Part avec une surface d'affichage | `Classement` (identifiant) | prévu |
 | `Courant` | Part sans collision (colonne d'air, monde 3) | `Force` | prévu |
 | `Rebond` | Part (toit, monde 5) | `Force` | prévu |
-| `PointApparition` | Part où réapparaît le joueur | `Monde` | posé (T-007), pas encore lu par le code (T-008) |
+| `PointApparition` | Part où réapparaît le joueur | `Monde` | posé (T-007) ; pas encore lu (le `SpawnLocation` suffit tant qu'il n'y a qu'un monde) |
 | `DecorAnime` | Part ou Model de décor animé par le client | `Type` (Rotation, Flottement, Balancement, Pulsation), `Vitesse`, `Amplitude` | prévu |
 | `CanonConfettis` | Part d'où partent les confettis, le long de la piste | aucun | prévu |
 | `LanceurFeuArtifice` | Part d'où part une fusée | `Palier` (0 à 5) | prévu |

@@ -1,4 +1,4 @@
--- Boutique : un stand par objet (Map.Boutique.Stand<identifiant>, avec un ProximityPrompt « Prompt »).
+-- Boutique : chaque Model ou Part tagué « Stand » (attribut Objet, avec un ProximityPrompt) vend un objet.
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 local Shared = ReplicatedStorage:WaitForChild("Shared")
@@ -6,6 +6,7 @@ local Config = Shared:WaitForChild("Config")
 local Equipement = require(Config:WaitForChild("Equipement"))
 local Textes = require(Config:WaitForChild("Textes"))
 local Remotes = require(Shared:WaitForChild("Remotes"))
+local Map = require(Shared:WaitForChild("Util"):WaitForChild("Map"))
 local Donnees = require(script.Parent.Donnees)
 local Personnage = require(script.Parent.Personnage)
 
@@ -31,15 +32,20 @@ local function acheter(player: Player, cle: string, info)
 end
 
 function Boutique.demarrer()
-	local boutique = workspace:WaitForChild("Mondes"):WaitForChild("Monde1"):WaitForChild("Boutique")
-	for cle, info in Equipement.OBJETS do
-		local stand = boutique:WaitForChild("Stand" .. cle)
-		local prompt = stand:WaitForChild("Prompt")
+	-- Chaque stand tagué « Stand » vend l'objet nommé par son attribut Objet (identifiant de Config/Equipement)
+	Map.surChaque("Stand", function(stand)
+		local cle = stand:GetAttribute("Objet")
+		local info = cle and Equipement.OBJETS[cle]
+		local prompt = stand:FindFirstChildWhichIsA("ProximityPrompt", true)
+		if not (info and prompt) then
+			warn("Stand sans objet connu ou sans ProximityPrompt :", stand:GetFullName())
+			return
+		end
 		prompt.ObjectText = string.format(Textes.STAND_PRIX, info.nom, tostring(info.prix))
 		prompt.Triggered:Connect(function(player)
 			acheter(player, cle, info)
 		end)
-	end
+	end)
 end
 
 return Boutique

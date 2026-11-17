@@ -2,9 +2,9 @@
 local Saut = {}
 
 Saut.STUDS_PAR_METRE = 4 -- 1 mètre affiché = 4 studs
-Saut.LIGNE_X = 120 -- position X de la planche d'appel (début du sable)
-Saut.DEBUT_PISTE_X = 0 -- au-delà de ce X, les bonus de vitesse et de saut s'appliquent
-Saut.RETOUR_PISTE = Vector3.new(8, 4, 0) -- où le joueur est renvoyé après un saut
+-- La planche (tag PlancheAppel) et la piste (tag Piste) sont lues dans la map par Util/Map.
+Saut.RETOUR_AVANCE = 8 -- après un saut, renvoyé à 8 studs du début de la piste…
+Saut.RETOUR_HAUTEUR = 4 -- … et 4 studs au-dessus de son sol
 Saut.DELAI_RETOUR = 2 -- secondes entre l'atterrissage et le retour
 
 -- Récompense : pièces gagnées par mètre sauté
