@@ -37,7 +37,7 @@ Pour cocher : `- [x] T-101 Appel — Code (2026-11-15, P3)`. On ne modifie que l
 - [x] T-114 Place centrale ronde — Monde (2026-11-17, P2)
 - [ ] T-115 Mascotte géante et ses animations — 3D, animation
 - [ ] T-116 Dirigeable, canons, lanceurs de feux d'artifice, drapeaux — 3D
-- [ ] T-117 Module d'animation du décor (`DecorAnime`) — Code
+- [x] T-117 Module d'animation du décor (`DecorAnime`) — Code (2026-11-17, P2)
 - [ ] T-107 Animations du saut — Animation
 - [ ] T-108 `HudSaut` et `PanneauResultat` — Interface
 - [ ] T-109 `HudPrincipal` — Interface

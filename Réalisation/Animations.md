@@ -47,7 +47,7 @@ Les compagnons n'ont pas de squelette. Leur mouvement (bonds derrière le joueur
 
 Œuf qui tremble puis se fend, anneaux qui tournent, drapeaux, roue, public en vague, portail. Les modèles sont livrés avec des parties séparées et nommées ; le code les anime.
 
-Les mouvements simples et répétés du décor (rotation, flottement, balancement, pulsation) passent par le tag `DecorAnime` de [[Contrats]] : un seul module client anime tous les objets tagués proches du joueur ([[Construction du monde 1]]).
+Les mouvements simples et répétés du décor (rotation, flottement, balancement, pulsation) passent par le tag `DecorAnime` de [[Contrats]] : un seul module client anime tous les objets tagués proches du joueur ([[Construction du monde 1]]). Fait par T-117 (2026-11-17) : contrôleur `src/client/Controleurs/DecorAnime.luau`, réglages dans `Config/Decor` (distance 300 studs, valeurs par défaut de chaque type). L'objet tourne, flotte, se balance ou pulse autour de son pivot : régler le pivot dans Studio avant de poser le tag (exemple : centre de la spirale du portail, base de la flamme du panthéon). Mouvements en sinus, objets voisins décalés dans le temps.
 
 ## Décor à squelette
 

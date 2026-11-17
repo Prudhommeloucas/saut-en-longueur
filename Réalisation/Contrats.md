@@ -48,7 +48,7 @@ La map est rangée dans `Workspace.Mondes.Monde1` depuis T-007 (2026-11-17), voi
 | `Courant` | Part sans collision (colonne d'air, monde 3) | `Force` | prévu |
 | `Rebond` | Part (toit, monde 5) | `Force` | prévu |
 | `PointApparition` | Part où réapparaît le joueur | `Monde` | six `SpawnLocation` en cercle sur la place (T-114) ; pas lu par le code tant qu'il n'y a qu'un monde |
-| `DecorAnime` | Part ou Model de décor animé par le client | `Type` (Rotation, Flottement, Balancement, Pulsation), `Vitesse` (degrés par seconde pour Rotation), `Amplitude`, `AxeRotation` (Vector3, axe local, pour Rotation) | posé sur la spirale du portail et la vasque (T-405) ; lu par T-117 |
+| `DecorAnime` | Part ou Model de décor animé par le client | `Type` (Rotation, Flottement, Balancement, Pulsation), `Vitesse` (degrés par seconde pour Rotation), `Amplitude`, `AxeRotation` (Vector3, axe local, pour Rotation) | lu par le contrôleur client `DecorAnime` (T-117) : l'objet bouge autour de son pivot, côté joueur seulement, à moins de 300 studs de la caméra (`Config/Decor`) ; Vitesse = allers-retours par seconde hors Rotation ; Amplitude en studs (Flottement), degrés (Balancement) ou part de la taille (Pulsation). Posé sur la spirale du portail et la vasque |
 | `CanonConfettis` | Part d'où partent les confettis, le long de la piste | aucun | prévu |
 | `LanceurFeuArtifice` | Part d'où part une fusée | `Palier` (0 à 5) | prévu |
 | `Projecteur` | Model d'un projecteur de stade orientable | aucun | prévu |

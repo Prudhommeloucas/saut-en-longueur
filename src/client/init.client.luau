@@ -10,6 +10,7 @@ local ORDRE = {
 	"EcranCompagnons", -- inventaire, équipe, index
 	"EcranOeuf", -- chances et achat d'un œuf
 	"EcranEclosion", -- animation d'éclosion
+	"DecorAnime", -- décor qui tourne, flotte, se balance ou pulse
 }
 
 for _, nom in ORDRE do
