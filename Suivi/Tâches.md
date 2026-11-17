@@ -10,7 +10,7 @@ Pour cocher : `- [x] T-101 Appel — Code (2026-11-15, P3)`. On ne modifie que l
 
 - [x] T-001 Outils de code dans le projet (`rokit.toml`) et MCP sur le terminal du Poste 1 — Outils (2026-11-15, P2 ; `rokit.toml`, `selene.toml`, `stylua.toml` faits ; MCP du terminal à brancher par P1, voir `Suivi/Demandes/`)
 - [x] T-002 Groupe Roblox, publication, Team Create, place Test — Humain (2026-11-15, P2 ; groupe OGC Studio, ouverture à trois à confirmer, voir `Suivi/Demandes/`)
-- [ ] T-003 Installation du Poste 2 — Outils
+- [x] T-003 Installation du Poste 2 — Outils (2026-11-17, P2 ; Rojo, Selene, StyLua, Wally, MCP Roblox Studio et Blender, place partagée rejointe)
 - [ ] T-003 Installation du Poste 3 — Outils
 - [x] T-004 Migration des scripts vers Rojo — Code (2026-11-15, P2)
 - [x] T-005 Découpage en configuration, services, contrôleurs — Code (2026-11-15, P2)
