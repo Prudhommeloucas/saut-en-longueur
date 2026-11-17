@@ -34,5 +34,7 @@ Rien pour l'instant : la liste de la phase 1 arrive avec la tâche T-101.
 | `chaussures_reaction` (provisoire) | `ReplicatedStorage.Assets.Equipement.chaussures_reaction` | Même `.blend`, export `chaussures_reaction.fbx` | 992 | Fait par nous (P2), planche Gemini | importé |
 | `incubateur` (provisoire) | `ReplicatedStorage.Assets.Decor.incubateur` | `assets/modeles/source/incubateur.blend`, export `assets/modeles/export/incubateur.fbx` | 2 024 | Fait par nous (P2), planche Gemini | importé |
 | `medaille_argent`, `medaille_or` | `ReplicatedStorage.Assets.Versions` | Construites dans Studio (Parts, pas de mesh) | — | Fait par nous (P2) | dans la place |
+| `pantheon` (provisoire) | `ReplicatedStorage.Assets.Decor.pantheon`, posé à `Workspace.Mondes.Monde1.Decor.Pantheon` | `assets/modeles/source/pantheon.blend`, export `assets/modeles/export/pantheon.fbx` | 4 876 | Fait par nous (P2), planche Gemini `pantheon.webp` | importé |
+| `portail_monde2` (provisoire) | `ReplicatedStorage.Assets.Decor.portail_monde2`, posé à `Workspace.Mondes.Monde1.Portails.PortailMonde2` | `assets/modeles/source/portail_monde2.blend`, export `assets/modeles/export/portail_monde2.fbx` | 4 292 | Fait par nous (P2), planche Gemini `portail_monde2.webp` | importé |
 
 États : `en cours`, `importé`, `validé`.

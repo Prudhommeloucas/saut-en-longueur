@@ -41,20 +41,20 @@ La map est rangée dans `Workspace.Mondes.Monde1` depuis T-007 (2026-11-17), voi
 | `Anneau` | Part en forme d'anneau, sans collision | `Pieces` (nombre), `Poussee` (nombre) | code prêt (T-104) : pièces une fois par anneau et par saut, en vol seulement ; défauts 5 pièces et poussée 30 (`Config/Saut`) ; aucun anneau posé (T-106) |
 | `Stand` | Model d'un stand de boutique | `Famille` (Chaussures, Propulseur, Materiel, Ailes, Tenue), `Objet` (identifiant de `Config/Equipement`, lu par la boutique) ; un `ProximityPrompt` quelque part dans le stand | posé (T-007), lu (T-008), sur les deux stands actuels, qui sont encore des Parts (`Famille` = Chaussures, Propulseur) ; un Model quand les vrais stands seront construits (T-207) |
 | `Incubateur` | Model | `Oeuf` (identifiant) | modèle prêt (`Assets.Decor.incubateur`, tag et `Oeuf` = `oeuf_stade` déjà posés ; changer l'attribut pour chaque copie). Attachment `PoseOeuf` dans `Blanc` : là où poser l'œuf |
-| `Portail` | Model | `VersMonde` (nombre) | prévu |
-| `Pantheon` | Model du lieu de changement de catégorie | aucun | prévu |
+| `Portail` | Model | `VersMonde` (nombre) | modèle posé (T-405, `Assets.Decor.portail_monde2`) ; pièces `Tourbillon` (PrimaryPart), `Spirale` (DecorAnime, Rotation), `Cadenas` (à retirer quand le monde est ouvert) ; pas encore lu par le code (T-403) |
+| `Pantheon` | Model du lieu de changement de catégorie | aucun | modèle posé (T-405, `Assets.Decor.pantheon`), entrée face au centre de la place ; pas encore lu (T-401) |
 | `Podium` | Model avec trois Parts `Place1`, `Place2`, `Place3` | aucun | prévu |
 | `PanneauClassement` | Part avec une surface d'affichage | `Classement` (identifiant) | prévu |
 | `Courant` | Part sans collision (colonne d'air, monde 3) | `Force` | prévu |
 | `Rebond` | Part (toit, monde 5) | `Force` | prévu |
 | `PointApparition` | Part où réapparaît le joueur | `Monde` | six `SpawnLocation` en cercle sur la place (T-114) ; pas lu par le code tant qu'il n'y a qu'un monde |
-| `DecorAnime` | Part ou Model de décor animé par le client | `Type` (Rotation, Flottement, Balancement, Pulsation), `Vitesse`, `Amplitude` | prévu |
+| `DecorAnime` | Part ou Model de décor animé par le client | `Type` (Rotation, Flottement, Balancement, Pulsation), `Vitesse` (degrés par seconde pour Rotation), `Amplitude`, `AxeRotation` (Vector3, axe local, pour Rotation) | posé sur la spirale du portail et la vasque (T-405) ; lu par T-117 |
 | `CanonConfettis` | Part d'où partent les confettis, le long de la piste | aucun | prévu |
 | `LanceurFeuArtifice` | Part d'où part une fusée | `Palier` (0 à 5) | prévu |
 | `Projecteur` | Model d'un projecteur de stade orientable | aucun | prévu |
 | `EcranGeant` | Part avec une surface d'affichage | aucun | prévu |
 | `Mascotte` | Model à squelette de la mascotte géante | aucun | prévu |
-| `Vasque` | Model de la vasque, avec une Part `Flamme` | aucun | prévu |
+| `Vasque` | Model de la vasque, avec une Part `Flamme` | aucun | dans le panthéon (T-405) : Model `Vasque` avec `Flamme` (PrimaryPart) et `FlammeCoeur`, en Neon ; tagué aussi `DecorAnime` (Pulsation) |
 | `DrapeauVent` | Model d'un drapeau qui se tend pendant le vent favorable | aucun | prévu |
 | `BandePiste` | Parts lumineuses de la piste (saut doré) | aucun | prévu |
 | `Public` | Model d'un bloc de spectateurs, pour la ola | `Rang` (ordre dans la vague) | prévu |

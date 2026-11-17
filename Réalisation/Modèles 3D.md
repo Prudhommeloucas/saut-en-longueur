@@ -178,3 +178,12 @@ Chaque monde demande : son terrain, sa piste et son appel, ses trois paliers de 
 ## Sources toutes faites
 
 Le Creator Store de Roblox et, selon la version du MCP Blender, des bibliothèques de modèles libres peuvent servir pour le décor secondaire (arbres, rochers). Vérifier la licence, retoucher aux couleurs du jeu, et noter la source dans le registre. Les éléments qui font l'identité du jeu (compagnons, équipement, stade) sont faits par nous.
+
+## Panthéon et portail du monde 1 (T-405, 2026-11-17)
+
+Planches Gemini `pantheon.webp` et `portail_monde2.webp` (prompts dans [[Prompt 6 - Planche d'un objet d'équipement]]), modélisés par script dans Blender (`assets/modeles/source/pantheon.blend`, `portail_monde2.blend`), un mesh par couleur. Aperçus `pantheon_apercu*.png`, `portail_monde2_apercu*.png`, capture `assets/captures/monde1_pantheon_portail.jpg`.
+
+- `pantheon` (4 876 triangles, 32 × 35,6 × 44 studs avec la vasque) : temple ouvert en façade, 14 colonnes, fronton aux rampants dorés, carreaux bleus, deux bannières orange à laurier bleu, statue dorée d'un sauteur en vol sur piédestal avec anneau `Lueur` (Neon). Model `Vasque` (tag `Vasque`) avec `Flamme` et `FlammeCoeur` (Neon), séparés pour être animés. 22 Parts `Collision` (socle, marches, colonnes, toit, piédestal, statue).
+- `portail_monde2` (4 292 triangles, 26 × 24,2 × 16 studs) : arche en blocs de pierre sable, clé de voûte turquoise et plaque vierge, coquillages corail, palmes, trois marches blanches à liseré turquoise, deux lanternes (Neon). Pièces séparées : `Tourbillon` (PrimaryPart), `Spirale` (tag `DecorAnime`, Rotation autour de son Z local), `Cadenas`. 8 Parts `Collision` ; le tourbillon se traverse.
+
+Piège de l'import FBX : chaque MeshPart importé garde un quart de tour dans son `PivotOffset`. Définir la `PrimaryPart` d'un modèle importé fait basculer son pivot ; il faut ensuite remettre `PrimaryPart.PivotOffset = PrimaryPart.CFrame:ToObjectSpace(CFrame.new(pivot voulu))`.

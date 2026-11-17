@@ -17,8 +17,8 @@ Chemins depuis `Workspace.Mondes.Monde1`. La place centrale ronde (T-114, 2026-1
 | Stands | `Boutique.StandChaussures`, `StandPropulseur`, `StandMateriel`, `StandTenue` | `Stand` (`Famille` ; `Objet` = Chaussures, Jetpack sur les deux premiers) | (-127, -52), (-140, -40), (-149, -26), (-154, -11) |
 | Incubateurs | `Oeufs.Incubateur_stade`, `Oeufs.Incubateur_champion` (vrais modèles) | `Incubateur` (`Oeuf`) | (-126, 51), (-141, 36) |
 | Coffre et roue | `Oeufs.Coffre`, `Oeufs.Roue` | à créer (T-605) | (-152, 18), (-120, 72) |
-| Portail | `Portails.PortailMonde2` (Model sur trois marches) | `Portail` (`VersMonde` = 2), pas encore lu | (-172, 0) |
-| Panthéon | `Decor.Pantheon` (Model, vasque sur le toit) | `Pantheon` | (-212, 0) |
+| Portail | `Portails.PortailMonde2` (vrai modèle `portail_monde2`, T-405 : arche, tourbillon, spirale, cadenas) | `Portail` (`VersMonde` = 2), pas encore lu | (-172, 0) |
+| Panthéon | `Decor.Pantheon` (vrai modèle `pantheon`, T-405 : statue dorée, vasque et flamme) | `Pantheon` ; `Vasque` sur sa flamme | (-212, 0) |
 | Classement et podium | `Decor.PanneauClassement`, `Decor.Podium` (`Place1` à `Place3`) | `PanneauClassement` (`Classement` = monde), `Podium` | (-4, -40), (-4, 40) : décalés du relevé, les tribunes occupant X 8 à 112 |
 | Limites cachées | `Decor.Collines` (21), `Decor.ArbresPlace` (17 arbres) | | anneau de rayon 118 à 128, plus loin derrière l'estrade VIP (150) et le panthéon (168), ouvert vers la piste |
 | Arche d'entrée | `Piste.Arche` | | X = 0 (T-105) |
@@ -43,7 +43,7 @@ Le code lit la map par les tags (T-008, module `Shared/Util/Map`) : noms et doss
 
 ## À faire
 
-- Remplacer les blocs par les vrais modèles, une famille à la fois (T-206, T-207, T-303, T-405, T-503, T-605).
+- Remplacer les blocs par les vrais modèles, une famille à la fois (T-206, T-207, T-503, T-605) ; panthéon et portail faits (T-405).
 - Brancher le portail (monde 2), le panthéon, le podium et le classement quand leur code existera.
 - Les mondes suivants sont décrits dans [[Mondes]], les modèles à produire dans [[Modèles 3D]].
 - Si les sauts dépassent 500 m, allonger le sable (une Part est limitée à 2048 studs, il faudra en ajouter une deuxième).

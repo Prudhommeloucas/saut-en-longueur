@@ -85,7 +85,7 @@ Pour cocher : `- [x] T-101 Appel — Code (2026-11-15, P3)`. On ne modifie que l
 - [ ] T-402 Arbre de talents — Code
 - [ ] T-403 Système de mondes — Code
 - [ ] T-404 Monde 2 : rafales, Aéro, vol plané, ailes — Code
-- [ ] T-405 Panthéon, vasque et portail — 3D
+- [x] T-405 Panthéon, vasque et portail — 3D (2026-11-17, P2)
 - [ ] T-406 Plage des Alizés — Monde
 - [ ] T-407 Équipement, compagnons et animations du monde 2 — 3D, animation
 - [ ] T-408 `EcranCategorie`, `EcranTalents`, `EcranMondes` — Interface
