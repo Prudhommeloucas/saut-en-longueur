@@ -42,3 +42,11 @@ Ce qui reste imparfait :
 - Depuis le spawn, on voit l'arche et les zones Débutant ; stands et incubateurs sont dans le dos. **Gardé ainsi** (décision du 2026-11-15) : ne pas surcharger le joueur au spawn.
 - Les collines qui recouvraient l'estrade VIP et le panthéon ont été retirées : l'anneau a donc des trous au nord et à l'ouest, où le bord de la map se voit.
 - Les incubateurs, le coffre et la roue sont des blocs (pas les vrais modèles), sans prompt testé.
+
+## Construction dans la place partagée (2026-11-17)
+
+Reconstruit depuis ce relevé par `assets/plans/construction_t114.luau` (testé d'abord dans la copie personnelle), et non copié de la place Test. Écarts avec le tableau :
+- Podium et panneaux de classement à X = −4 au lieu de 14 : les tribunes occupent X 8 à 112.
+- Les trous de l'anneau de collines sont bouchés : collines à r = 150 derrière l'estrade VIP et à r = 168 derrière le panthéon. L'herbe est prolongée (`HerbeOuest`, `HerbeNord`, `HerbeSud`).
+- Les incubateurs sont les vrais modèles (`Assets.Decor.incubateur`), avec leur prompt.
+- Zones et stands reprennent les panneaux, étincelles et prompts des anciens ; l'arche existante est gardée (T-105).

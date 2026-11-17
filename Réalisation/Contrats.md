@@ -10,7 +10,7 @@ Les noms, tags et attributs sur lesquels toute l'équipe s'accorde. C'est ce qui
 Workspace
   Mondes
     Monde1            (un dossier par monde, tout ce qui est visible et solide)
-      Spawn, Entrainement, Boutique, Piste, Bac, Decor, Anneaux, Portails
+      Spawn, Entrainement, Boutique, Oeufs, Piste, Bac, Decor, Anneaux, Portails
 ReplicatedStorage
   Shared              (code, envoyé par Rojo)
   Assets
@@ -22,7 +22,7 @@ ReplicatedStorage
     Effets            particules et effets prêts à cloner
     Animations        objets Animation avec leur identifiant
 ServerStorage
-  Modeles             modèles en cours ou non utilisés
+  Modeles             modèles en cours ou non utilisés (AncienSpawn : l'ancien spawn carré, rangé par T-114)
 StarterGui            un ScreenGui par écran
 SoundService
   Musique, Ambiance, Effets, Interface   (SoundGroup)
@@ -34,7 +34,7 @@ La map est rangée dans `Workspace.Mondes.Monde1` depuis T-007 (2026-11-17), voi
 
 | Tag | Sur quoi | Attributs | État |
 | --- | --- | --- | --- |
-| `ZoneEntrainement` | Part au sol | `Stat` (Puissance, Vitesse, Aero), `Multiplicateur` (nombre), `RecordRequis` (m), `PasseRequis` (texte, facultatif) | posé (T-007), lu (T-008) : une Part par zone, la stat doit exister sur le joueur (Aero pas encore) |
+| `ZoneEntrainement` | Part au sol | `Stat` (Puissance, Vitesse, Aero), `Multiplicateur` (nombre), `RecordRequis` (m), `PasseRequis` (texte, facultatif) | posé (T-007), lu (T-008) : une Part par zone, la stat doit exister sur le joueur (Aero pas encore). `PasseRequis` = « VIP » : zone fermée sauf si le joueur a l'attribut `PasseVIP` à vrai (T-114 ; à poser par le futur service des passes) |
 | `Piste` | Part de la piste d'élan | `Monde` (nombre) | posé (T-007), lu (T-008) : son début (bord -X) déclenche les bonus et fixe le point de retour après un saut |
 | `PlancheAppel` | Part de la planche | `Monde` | posé (T-007), lu (T-008) : la distance se mesure depuis son bord +X |
 | `Bac` | Parts de la zone d'atterrissage | `Monde` | posé (T-007), lu (T-008) : le premier contact avec une de ces Parts compte comme atterrissage |
@@ -47,7 +47,7 @@ La map est rangée dans `Workspace.Mondes.Monde1` depuis T-007 (2026-11-17), voi
 | `PanneauClassement` | Part avec une surface d'affichage | `Classement` (identifiant) | prévu |
 | `Courant` | Part sans collision (colonne d'air, monde 3) | `Force` | prévu |
 | `Rebond` | Part (toit, monde 5) | `Force` | prévu |
-| `PointApparition` | Part où réapparaît le joueur | `Monde` | posé (T-007) ; pas encore lu (le `SpawnLocation` suffit tant qu'il n'y a qu'un monde) |
+| `PointApparition` | Part où réapparaît le joueur | `Monde` | six `SpawnLocation` en cercle sur la place (T-114) ; pas lu par le code tant qu'il n'y a qu'un monde |
 | `DecorAnime` | Part ou Model de décor animé par le client | `Type` (Rotation, Flottement, Balancement, Pulsation), `Vitesse`, `Amplitude` | prévu |
 | `CanonConfettis` | Part d'où partent les confettis, le long de la piste | aucun | prévu |
 | `LanceurFeuArtifice` | Part d'où part une fusée | `Palier` (0 à 5) | prévu |
