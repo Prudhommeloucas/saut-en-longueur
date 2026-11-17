@@ -50,3 +50,4 @@ Reconstruit depuis ce relevé par `assets/plans/construction_t114.luau` (testé 
 - Les trous de l'anneau de collines sont bouchés : collines à r = 150 derrière l'estrade VIP et à r = 168 derrière le panthéon. L'herbe est prolongée (`HerbeOuest`, `HerbeNord`, `HerbeSud`).
 - Les incubateurs sont les vrais modèles (`Assets.Decor.incubateur`), avec leur prompt.
 - Zones et stands reprennent les panneaux, étincelles et prompts des anciens ; l'arche existante est gardée (T-105).
+- Panthéon (T-405 et correctif du 2026-11-17) : vrai modèle à l'échelle 1,3, posé à (−220, 30) au lieu de (−212, 0), pour qu'il ne soit plus caché par le portail depuis le centre de la place.

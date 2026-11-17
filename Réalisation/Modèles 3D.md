@@ -187,3 +187,5 @@ Planches Gemini `pantheon.webp` et `portail_monde2.webp` (prompts dans [[Prompt 
 - `portail_monde2` (4 292 triangles, 26 × 24,2 × 16 studs) : arche en blocs de pierre sable, clé de voûte turquoise et plaque vierge, coquillages corail, palmes, trois marches blanches à liseré turquoise, deux lanternes (Neon). Pièces séparées : `Tourbillon` (PrimaryPart), `Spirale` (tag `DecorAnime`, Rotation autour de son Z local), `Cadenas`. 8 Parts `Collision` ; le tourbillon se traverse.
 
 Piège de l'import FBX : chaque MeshPart importé garde un quart de tour dans son `PivotOffset`. Définir la `PrimaryPart` d'un modèle importé fait basculer son pivot ; il faut ensuite remettre `PrimaryPart.PivotOffset = PrimaryPart.CFrame:ToObjectSpace(CFrame.new(pivot voulu))`.
+
+Correctif du 2026-11-17 : derrière le portail et dans son axe, le panthéon était caché depuis la place. Le modèle `Assets.Decor.pantheon` est passé à l'échelle 1,3 (`Model:ScaleTo`, 41 × 46 × 57 studs, flamme à 46 studs) et posé à (-220, 30), à gauche du portail vu de la place ; trois collines et un arbre ont été repoussés vers l'extérieur.
