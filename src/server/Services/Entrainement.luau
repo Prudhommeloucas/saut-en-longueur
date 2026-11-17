@@ -16,14 +16,22 @@ local function dansZone(zone: BasePart, pos: Vector3): boolean
 	return math.abs(l.X) <= zone.Size.X / 2 and math.abs(l.Z) <= zone.Size.Z / 2 and l.Y > -1 and l.Y < 12
 end
 
--- Zone où se trouve le joueur, si elle lui est ouverte (record suffisant)
+-- La zone est-elle ouverte à ce joueur ? Record suffisant et, si la zone demande un passe (PasseRequis = "VIP"),
+-- attribut « Passe<nom> » à vrai sur le joueur (posé par le futur service des passes ; fermée sans lui).
+local function ouverte(player: Player, zone: BasePart): boolean
+	local requis = zone:GetAttribute("RecordRequis") or 0
+	if (player:GetAttribute("Record") or 0) < requis then
+		return false
+	end
+	local passe = zone:GetAttribute("PasseRequis")
+	return passe == nil or passe == "" or player:GetAttribute("Passe" .. passe) == true
+end
+
+-- Zone où se trouve le joueur, si elle lui est ouverte
 local function zoneDe(player: Player, pos: Vector3): BasePart?
 	for _, zone in Map.tous("ZoneEntrainement", Map.mondeDe(player)) do
-		if zone:IsA("BasePart") and dansZone(zone, pos) then
-			local requis = zone:GetAttribute("RecordRequis") or 0
-			if (player:GetAttribute("Record") or 0) >= requis then
-				return zone
-			end
+		if zone:IsA("BasePart") and dansZone(zone, pos) and ouverte(player, zone) then
+			return zone
 		end
 	end
 	return nil

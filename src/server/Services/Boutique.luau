@@ -35,7 +35,10 @@ function Boutique.demarrer()
 	-- Chaque stand tagué « Stand » vend l'objet nommé par son attribut Objet (identifiant de Config/Equipement)
 	Map.surChaque("Stand", function(stand)
 		local cle = stand:GetAttribute("Objet")
-		local info = cle and Equipement.OBJETS[cle]
+		if cle == nil then
+			return -- stand posé d'avance, sans objet en vente pour l'instant (Matériel, Tenue)
+		end
+		local info = Equipement.OBJETS[cle]
 		local prompt = stand:FindFirstChildWhichIsA("ProximityPrompt", true)
 		if not (info and prompt) then
 			warn("Stand sans objet connu ou sans ProximityPrompt :", stand:GetFullName())
