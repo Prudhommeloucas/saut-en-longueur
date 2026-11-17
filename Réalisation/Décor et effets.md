@@ -51,3 +51,15 @@ Les listes complètes sont maintenant dans [[Modèles 3D]], [[Animations]] et [[
 - Un vrai son de réacteur pour le jetpack.
 - Musique d'ambiance.
 - Vrais modèles 3D à la place des formes simples (stands, machines de sport).
+
+## Décor animé (2026-11-17)
+
+Animé par le tag `DecorAnime` (T-117, voir [[Animations]] et [[Contrats]]), sans code propre à chaque objet :
+
+| Objet | Type | Réglages |
+| --- | --- | --- |
+| Spirale du portail | Rotation | 20° par seconde, autour de son centre |
+| Flamme de la vasque du panthéon | Pulsation | 1,5 fois par seconde, ± 8 %, depuis sa base |
+| Anneau lumineux sous la statue du panthéon | Pulsation | 0,7 fois par seconde, ± 6 % |
+| Roue des œufs | Rotation | 25° par seconde, autour de l'axe du cylindre |
+| 25 drapeaux le long du bac | Balancement | 0,6 fois par seconde, ± 14°, autour du bord collé au mât (pivot réglé) |
