@@ -34,12 +34,12 @@ La map actuelle (`Workspace.Map`, voir [[Map]]) sera déplacée dans `Workspace.
 
 | Tag | Sur quoi | Attributs | État |
 | --- | --- | --- | --- |
-| `ZoneEntrainement` | Part au sol | `Stat` (Puissance, Vitesse, Aero), `Multiplicateur` (nombre), `RecordRequis` (m), `PasseRequis` (texte, facultatif) | prévu |
-| `Piste` | Part de la piste d'élan | `Monde` (nombre) | prévu |
-| `PlancheAppel` | Part de la planche | `Monde` | prévu |
-| `Bac` | Parts de la zone d'atterrissage | `Monde` | prévu |
+| `ZoneEntrainement` | Part au sol | `Stat` (Puissance, Vitesse, Aero), `Multiplicateur` (nombre), `RecordRequis` (m), `PasseRequis` (texte, facultatif) | posé sur la map actuelle (T-007), pas encore lu par le code (T-008) |
+| `Piste` | Part de la piste d'élan | `Monde` (nombre) | posé sur la map actuelle (T-007), pas encore lu par le code (T-008) |
+| `PlancheAppel` | Part de la planche | `Monde` | posé sur la map actuelle (T-007), pas encore lu par le code (T-008) |
+| `Bac` | Parts de la zone d'atterrissage | `Monde` | posé sur la map actuelle (T-007), pas encore lu par le code (T-008) |
 | `Anneau` | Part en forme d'anneau, sans collision | `Pieces` (nombre), `Poussee` (nombre) | code prêt (T-104) : pièces une fois par anneau et par saut, en vol seulement ; défauts 5 pièces et poussée 30 (`Config/Saut`) ; aucun anneau posé (T-106) |
-| `Stand` | Model d'un stand de boutique | `Famille` (Chaussures, Propulseur, Materiel, Ailes, Tenue) | prévu |
+| `Stand` | Model d'un stand de boutique | `Famille` (Chaussures, Propulseur, Materiel, Ailes, Tenue) | posé (T-007) sur les deux stands actuels, qui sont encore des Parts (`Famille` = Chaussures, Propulseur) ; un Model quand les vrais stands seront construits (T-207) |
 | `Incubateur` | Model | `Oeuf` (identifiant) | modèle prêt (`Assets.Decor.incubateur`, tag et `Oeuf` = `oeuf_stade` déjà posés ; changer l'attribut pour chaque copie). Attachment `PoseOeuf` dans `Blanc` : là où poser l'œuf |
 | `Portail` | Model | `VersMonde` (nombre) | prévu |
 | `Pantheon` | Model du lieu de changement de catégorie | aucun | prévu |
@@ -47,7 +47,7 @@ La map actuelle (`Workspace.Map`, voir [[Map]]) sera déplacée dans `Workspace.
 | `PanneauClassement` | Part avec une surface d'affichage | `Classement` (identifiant) | prévu |
 | `Courant` | Part sans collision (colonne d'air, monde 3) | `Force` | prévu |
 | `Rebond` | Part (toit, monde 5) | `Force` | prévu |
-| `PointApparition` | Part où réapparaît le joueur | `Monde` | prévu |
+| `PointApparition` | Part où réapparaît le joueur | `Monde` | posé sur la map actuelle (T-007), pas encore lu par le code (T-008) |
 | `DecorAnime` | Part ou Model de décor animé par le client | `Type` (Rotation, Flottement, Balancement, Pulsation), `Vitesse`, `Amplitude` | prévu |
 | `CanonConfettis` | Part d'où partent les confettis, le long de la piste | aucun | prévu |
 | `LanceurFeuArtifice` | Part d'où part une fusée | `Palier` (0 à 5) | prévu |
