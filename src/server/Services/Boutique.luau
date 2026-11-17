@@ -31,7 +31,7 @@ local function acheter(player: Player, cle: string, info)
 end
 
 function Boutique.demarrer()
-	local boutique = workspace:WaitForChild("Map"):WaitForChild("Boutique")
+	local boutique = workspace:WaitForChild("Mondes"):WaitForChild("Monde1"):WaitForChild("Boutique")
 	for cle, info in Equipement.OBJETS do
 		local stand = boutique:WaitForChild("Stand" .. cle)
 		local prompt = stand:WaitForChild("Prompt")

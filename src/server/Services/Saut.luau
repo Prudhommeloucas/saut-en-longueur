@@ -195,7 +195,7 @@ local function surContactSable(hit: BasePart)
 end
 
 function Saut.demarrer()
-	local sable = workspace:WaitForChild("Map"):WaitForChild("Sable")
+	local sable = workspace:WaitForChild("Mondes"):WaitForChild("Monde1"):WaitForChild("Bac"):WaitForChild("Sable")
 	sable.Touched:Connect(surContactSable)
 
 	-- Jetpack : le client signale quand il pousse, le serveur montre les flammes à tous

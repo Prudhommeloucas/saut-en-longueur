@@ -15,7 +15,7 @@ local function dansZone(zone: BasePart, pos: Vector3): boolean
 end
 
 function Entrainement.demarrer()
-	local map = workspace:WaitForChild("Map")
+	local map = workspace:WaitForChild("Mondes"):WaitForChild("Monde1")
 	local zoneSquat = map:WaitForChild("Entrainement"):WaitForChild("ZoneSquat")
 	local zoneMollets = map.Entrainement:WaitForChild("ZoneMollets")
 
