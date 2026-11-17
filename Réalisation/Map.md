@@ -1,22 +1,28 @@
 # Map
 
-Voir [[Projet]] pour la vue d'ensemble. Tout est dans `Workspace.Map`. La piste suit l'axe X, le dessus des sols est à Y = 0.
+Voir [[Projet]] pour la vue d'ensemble. Tout est dans `Workspace.Mondes.Monde1` (rangé par T-007 le 2026-11-17, avant dans `Workspace.Map`). La piste suit l'axe X, le dessus des sols est à Y = 0.
 
 ## Ce qui est construit
 
-| Élément | Nom dans Studio | Position |
-| --- | --- | --- |
-| Sol du spawn | `SolSpawn` | X de -120 à 0, 120 de large |
-| Point d'apparition | `Spawn` | X = -100, face à la piste |
-| Zone squat | `Entrainement.ZoneSquat` | (-60, -38) |
-| Zone mollets | `Entrainement.ZoneMollets` | (-60, 38) |
-| Stands de boutique | `Boutique.StandChaussures`, `Boutique.StandJetpack` | (-18, ±30) |
-| Arche d'entrée | `Arche` | X = 0 |
-| Piste d'élan | `Piste` | X de 0 à 120, 16 de large |
-| Planche d'appel | `PlancheAppel` | X = 120, la distance se mesure à partir d'ici |
-| Sable | `Sable` | X de 120 à 2120 (500 m), 40 de large |
-| Marqueurs | `Marqueurs` | une ligne et un panneau tous les 10 m, jusqu'à 500 m |
-| Murs invisibles | `Murs` | autour du sable |
+Chemins depuis `Workspace.Mondes.Monde1`.
+
+| Élément | Nom dans Studio | Tag (attributs) | Position |
+| --- | --- | --- | --- |
+| Sol du spawn | `Spawn.SolSpawn` | | X de -120 à 0, 120 de large |
+| Point d'apparition | `Spawn.Spawn` | `PointApparition` (`Monde` = 1) | X = -100, face à la piste |
+| Zone squat | `Entrainement.ZoneSquat` | `ZoneEntrainement` (`Stat` = Puissance, `Multiplicateur` = 1, `RecordRequis` = 0) | (-60, -38) |
+| Zone mollets | `Entrainement.ZoneMollets` | `ZoneEntrainement` (`Stat` = Vitesse, `Multiplicateur` = 1, `RecordRequis` = 0) | (-60, 38) |
+| Stands de boutique | `Boutique.StandChaussures`, `Boutique.StandJetpack` | `Stand` (`Famille` = Chaussures, Propulseur), posé sur des Parts pour l'instant | (-18, ±30) |
+| Arche d'entrée | `Piste.Arche` | | X = 0 |
+| Piste d'élan | `Piste.Piste`, deux `Piste.LignePiste` | `Piste` (`Monde` = 1) | X de 0 à 120, 16 de large |
+| Planche d'appel | `Piste.PlancheAppel` | `PlancheAppel` (`Monde` = 1) | X = 120, la distance se mesure à partir d'ici |
+| Sable | `Bac.Sable` | `Bac` (`Monde` = 1) | X de 120 à 2120 (500 m), 40 de large |
+| Marqueurs | `Bac.Marqueurs` | | une ligne et un panneau tous les 10 m, jusqu'à 500 m |
+| Murs invisibles | `Bac.Murs` | | autour du sable |
+| Décor | `Decor` (`Sol` avec la grande `Herbe`, `Tribunes`, `Drapeaux`, `Lampadaires`, `Gym`, `Arbres`, `ArbresPiste`) | | voir [[Décor et effets]] |
+| Anneaux, portails | `Anneaux`, `Portails` | | dossiers vides (T-106, monde 2) |
+
+Le code lit encore la map par ses chemins (`Boutique`, `Entrainement`, `Bac.Sable`) ; la lecture par les tags est la tâche T-008. Script du rangement, relançable : `assets/plans/rangement_t007.luau`.
 
 ## Règles
 
@@ -30,8 +36,7 @@ Décidé le 2026-11-12, pas encore construit : le spawn carré devient une place
 
 ## À faire
 
-- Ranger la map dans `Workspace.Mondes.Monde1` et poser les tags et attributs de [[Contrats]] (tâche T-007 du [[Déroulé du développement]]). Mettre le tableau ci-dessus à jour à ce moment-là.
+- Lire la map par les tags (T-008), puis construire la place centrale (T-114).
 - Les mondes suivants sont décrits dans [[Mondes]], les modèles à produire dans [[Modèles 3D]].
-
 - Le décor est en place, voir [[Décor et effets]]. Il reste à remplacer les formes simples par de vrais modèles.
 - Si les sauts dépassent 500 m, allonger le sable (une Part est limitée à 2048 studs, il faudra en ajouter une deuxième).
