@@ -24,12 +24,13 @@ Les valeurs de rebirth et de pets (cubes de couleur) de l'ancien `Config` n'éta
 
 - `SautResultat`, serveur vers joueur : distance, pièces gagnées, record, saut rare (`Dore`, `Legendaire` ou rien), qualité de l'appel (`Parfait`, `Bon`, `Correct`, `Mordu` ou rien).
 - `Appel`, joueur vers serveur : position X au décollage, vérifiée par le serveur (T-101). Réglages dans `Config/Saut` (`APPEL_QUALITES`, `APPEL_MORDU`, `APPEL_MORDU_MAX`, marges, `APPEL_VALIDITE`).
-- `JetpackEtat`, joueur vers serveur : début et fin de la poussée. Depuis T-102, le serveur additionne le temps annoncé et coupe les flammes au-delà de `carburant` + `JETPACK_TOLERANCE` (0,3 s) ; le compte repart au sol. Vol : `ATTERRISSAGE_MARGE`, `BORNE_MARGE`, `BORNE_PLUS` et `porteeMax` dans `Config/Saut`, `Anneaux.pousseeDuSaut(player)` pour la borne.
+- `Reception`, joueur vers serveur : premier nouvel appui sur Saut pendant la descente au-dessus du sable (un seul essai par saut, T-103). Le serveur note l'heure d'arrivée ; la réception est réussie si l'atterrissage arrive dans les 0,3 s (+ 0,08 s de tolérance). Réglages `RECEPTION_*`, `PARFAIT_MULTIPLICATEUR`, `SERIE_*` et `bonusMaitrise` dans `Config/Saut`. `SautResultat` reçoit un 6e argument `maitrise = { reception, parfait, serie, bonus }`.
+- Attribut `Serie` sur le Player : sauts parfaits consécutifs (non sauvegardé ; `Saut.serieDe(player)` côté serveur).
+- `JetpackEtat`, joueur vers serveur : début et fin de la poussée ; le serveur allume les flammes pour que tout le monde les voie. Depuis T-102, le serveur additionne le temps annoncé et coupe les flammes au-delà de `carburant` + `JETPACK_TOLERANCE` (0,3 s) ; le compte repart au sol. Vol : `ATTERRISSAGE_MARGE`, `BORNE_MARGE`, `BORNE_PLUS` et `porteeMax` dans `Config/Saut`, `Anneaux.pousseeDuSaut(player)` pour la borne.
 - `AnneauTraverse`, serveur vers joueur : pièces de l'anneau, nombre d'anneaux de la série. La poussée est appliquée par le contrôleur `Saut` du joueur.
 - Attribut `SautRare` sur le Player : le saut rare tiré pour le saut en cours (vide sinon).
 - Attribut `Appel` sur le Player : qualité de l'appel du saut en cours (vide sinon). Attribut `BonusZoneParfait` (mètres) : élargit la zone Parfait ; à poser par les talents (T-402), lu dès maintenant.
 - `Notif`, serveur vers joueur : message de la boutique.
-- `JetpackEtat`, joueur vers serveur : vrai quand la poussée démarre, faux quand elle s'arrête. Le serveur allume alors les flammes pour que tout le monde les voie.
 - `CompagnonsEtat`, serveur vers joueur : inventaire complet (`liste`, `equipes`, `emplacements`, `inventaireMax`), à chaque changement.
 - `EquiperCompagnon` (uid, oui/non) et `EquiperMeilleurs`, joueur vers serveur : vérifiés et limités à une demande toutes les 0,2 s.
 - `OuvrirOeuf` (oeufId), joueur vers serveur, une demande toutes les 0,5 s ; `ResultatOeuf` ({oeuf, espece, version, uid, nouveau}), serveur vers joueur, pour l'animation d'éclosion (T-305).

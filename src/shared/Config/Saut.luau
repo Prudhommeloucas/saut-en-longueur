@@ -67,6 +67,23 @@ Saut.ANNEAU_POUSSEE = 30 -- vitesse ajoutée : vers le haut, et la moitié vers 
 Saut.ANNEAUX_SERIE = 3 -- anneaux traversés dans un même saut pour le bonus
 Saut.ANNEAUX_BONUS_SERIE = 25 -- pièces en plus à la série
 
+-- Réception et maîtrise (T-103) ---------------------------------------------
+-- Réception : appuyer sur Saut (un nouvel appui, pendant la descente) dans les 0,3 s avant le contact.
+-- Un seul essai par saut : le premier appui de la descente.
+Saut.RECEPTION_FENETRE = 0.3 -- s
+Saut.RECEPTION_TOLERANCE = 0.08 -- s ajoutées pour les écarts d'images entre joueur et serveur
+Saut.RECEPTION_BONUS = 0.10 -- +10 % de pièces
+Saut.PARFAIT_MULTIPLICATEUR = 1.5 -- appel Parfait et réception réussie
+Saut.SERIE_BONUS = 0.10 -- +10 % par saut parfait consécutif…
+Saut.SERIE_BONUS_MAX = 1.0 -- … jusqu'à +100 %
+
+-- Pièces d'un saut : distance × pièces par mètre × multiplicateurs (Trésoriers, saut rare)
+-- × (1 + réception + série) × saut parfait
+function Saut.bonusMaitrise(receptionReussie: boolean, serie: number): number
+	return (if receptionReussie then Saut.RECEPTION_BONUS else 0)
+		+ math.min(serie * Saut.SERIE_BONUS, Saut.SERIE_BONUS_MAX)
+end
+
 -- Vol (T-102) -------------------------------------------------------------
 -- Atterrissage : le serveur regarde sous les pieds du joueur ; le sable touché à moins de cette marge compte
 Saut.ATTERRISSAGE_MARGE = 1 -- studs

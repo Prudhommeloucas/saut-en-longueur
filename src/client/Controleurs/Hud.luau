@@ -23,6 +23,10 @@ local jaugeAppel, curseurAppel, zoneParfait, lblQualite
 local finResultat = 0
 local finNotif = 0
 local finQualite = 0
+local lblSerie
+local indiceReception, traitReception, cibleReception
+local TAILLE_CIBLE = 60 -- px : l'anneau a cette taille au moment du contact
+local REPERE_RECEPTION = 1.2 -- s : l'anneau commence à se refermer à cette durée avant le contact
 
 -- Jauge d'appel : de JAUGE_AVANT mètres avant le bord jusqu'à la fin de la zone Mordu
 local JAUGE_AVANT = 8
@@ -161,6 +165,45 @@ local function construire()
 
 	construireJaugeAppel()
 	lblQualite = texte("TexteQualite", UDim2.fromScale(0.5, 0.62), UDim2.fromScale(0.4, 0.07))
+
+	-- Le détail du résultat tient sur plusieurs lignes : taille fixe plutôt que mise à l'échelle
+	lblDetail.AnchorPoint = Vector2.new(0.5, 0)
+	lblDetail.Position = UDim2.fromScale(0.5, 0.21)
+	lblDetail.Size = UDim2.fromScale(0.6, 0.2)
+	lblDetail.TextScaled = false
+	lblDetail.TextSize = 22
+	lblDetail.TextYAlignment = Enum.TextYAlignment.Top
+
+	lblSerie = texte("TexteSerie", UDim2.new(0, 12, 0.5, 52), UDim2.fromOffset(210, 28), Vector2.new(0, 0))
+	lblSerie.TextColor3 = Color3.fromRGB(255, 205, 50)
+
+	-- Indice de réception : un anneau qui se referme sur une cible ; vert dans la fenêtre de réception
+	indiceReception = Instance.new("Frame")
+	indiceReception.Name = "IndiceReception"
+	indiceReception.AnchorPoint = Vector2.new(0.5, 0.5)
+	indiceReception.Position = UDim2.fromScale(0.5, 0.5)
+	indiceReception.BackgroundTransparency = 1
+	indiceReception.Visible = false
+	indiceReception.Parent = gui
+	Instance.new("UICorner", indiceReception).CornerRadius = UDim.new(0.5, 0)
+	traitReception = Instance.new("UIStroke")
+	traitReception.Thickness = 4
+	traitReception.Parent = indiceReception
+	local cible = Instance.new("Frame")
+	cible.Name = "Cible"
+	cible.AnchorPoint = Vector2.new(0.5, 0.5)
+	cible.Position = UDim2.fromScale(0.5, 0.5)
+	cible.Size = UDim2.fromOffset(TAILLE_CIBLE, TAILLE_CIBLE)
+	cible.BackgroundTransparency = 1
+	cible.Visible = false
+	cible.Parent = gui
+	Instance.new("UICorner", cible).CornerRadius = UDim.new(0.5, 0)
+	local traitCible = Instance.new("UIStroke")
+	traitCible.Thickness = 2
+	traitCible.Color = Color3.new(1, 1, 1)
+	traitCible.Transparency = 0.3
+	traitCible.Parent = cible
+	cibleReception = cible
 end
 
 local function majStats()
@@ -234,6 +277,25 @@ function Hud.majJaugeAppel(avant: number)
 	end
 end
 
+-- Indice de réception : t = secondes estimées avant le contact (nil : caché) ; essaiFait grise l'anneau
+function Hud.majIndiceReception(t: number?, essaiFait: boolean)
+	local visible = t ~= nil and t <= REPERE_RECEPTION
+	indiceReception.Visible = visible
+	cibleReception.Visible = visible
+	if not visible then
+		return
+	end
+	local taille = TAILLE_CIBLE * (1 + 3 * (t :: number) / REPERE_RECEPTION)
+	indiceReception.Size = UDim2.fromOffset(taille, taille)
+	if essaiFait then
+		traitReception.Color = Color3.fromRGB(150, 150, 160)
+	elseif (t :: number) <= SautConfig.RECEPTION_FENETRE then
+		traitReception.Color = Color3.fromRGB(90, 210, 110)
+	else
+		traitReception.Color = Color3.new(1, 1, 1)
+	end
+end
+
 -- « PARFAIT ! », « BON »… au moment de l'appel
 function Hud.afficherAppel(id: string)
 	finQualite = os.clock() + 1.2
@@ -264,7 +326,15 @@ function Hud.demarrer()
 	suivreGain("Puissance", Color3.fromRGB(255, 120, 120))
 	suivreGain("Vitesse", Color3.fromRGB(130, 180, 255))
 
-	Remotes.SautResultat.OnClientEvent:Connect(function(metres, gain, estRecord, rare, idAppel)
+	-- Série de sauts parfaits, à gauche (provisoire, futur `TexteSerie` de HudPrincipal)
+	local function majSerie()
+		local n = player:GetAttribute("Serie") or 0
+		lblSerie.Text = if n > 0 then string.format(Textes.SERIE, tostring(n)) else ""
+	end
+	player:GetAttributeChangedSignal("Serie"):Connect(majSerie)
+	majSerie()
+
+	Remotes.SautResultat.OnClientEvent:Connect(function(metres, gain, estRecord, rare, idAppel, maitrise)
 		finResultat = os.clock() + SautConfig.DELAI_RETOUR + 0.5
 		lblDistance.Text = string.format(Textes.DISTANCE, metres)
 		lblDistance.TextColor3 = estRecord and Color3.fromRGB(255, 220, 80) or Color3.new(1, 1, 1)
@@ -284,7 +354,32 @@ function Hud.demarrer()
 				(string.gsub(string.format("%.2f", qAppel.multiplicateur), "%.", ","))
 			)
 		end
+		-- Maîtrise : réception, saut parfait, série (T-103)
+		local texteMaitrise = ""
+		if maitrise then
+			if maitrise.reception then
+				texteMaitrise ..= string.format(
+					Textes.RESULTAT_RECEPTION,
+					tostring(math.floor(SautConfig.RECEPTION_BONUS * 100 + 0.5))
+				)
+			else
+				texteMaitrise ..= Textes.RESULTAT_RECEPTION_RATEE
+			end
+			if maitrise.parfait then
+				texteMaitrise ..= string.format(
+					Textes.RESULTAT_PARFAIT,
+					(string.gsub(tostring(SautConfig.PARFAIT_MULTIPLICATEUR), "%.", ","))
+				)
+				local bonusSerie = math.min(maitrise.serie * SautConfig.SERIE_BONUS, SautConfig.SERIE_BONUS_MAX)
+				texteMaitrise ..= string.format(
+					Textes.RESULTAT_SERIE,
+					tostring(maitrise.serie),
+					tostring(math.floor(bonusSerie * 100 + 0.5))
+				)
+			end
+		end
 		lblDetail.Text = texteAppel
+			.. texteMaitrise
 			.. texteRare
 			.. (estRecord and Textes.NOUVEAU_RECORD or "")
 			.. string.format(Textes.GAIN_PIECES, tostring(gain))

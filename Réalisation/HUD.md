@@ -32,7 +32,7 @@ Chaque bouton de menu porte une pastille rouge quand quelque chose est à récla
 - `TexteQualite` : « Parfait ! », « Bon », « Mordu » au moment de l'appel.
 - `TexteDistance` : compteur en direct pendant le vol, en grand.
 - `JaugeCarburant`, `BoutonPlaner` (monde 2), `TexteAnneaux`.
-- `IndiceReception` : cercle qui se referme avant le contact.
+- `IndiceReception` : cercle qui se referme avant le contact. Version provisoire créée par le code depuis T-103 (`Hud.luau`) : un anneau se referme pendant les 1,2 dernières secondes de la descente sur une cible `Cible` de 60 px. Il devient vert dans la fenêtre de réception, puis gris une fois l'essai fait. Le texte de série (`TexteSerie`, « Série × 3 ») est aussi provisoire, sous le panneau des stats.
 
 ### `HudEntrainement` (visible dans une zone)
 

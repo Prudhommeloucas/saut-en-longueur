@@ -133,6 +133,38 @@ local function surAppel(player: Player, xJoueur: unknown)
 	end
 end
 
+-- Réception et série -------------------------------------------------------
+local essaiReception = {} -- [player] = os.clock() du premier appui de réception du saut en cours
+local serie = {} -- [player] = sauts parfaits consécutifs
+
+-- Premier appui de réception du saut : gardé s'il arrive pendant le vol, au-dessus du sable
+local function surReception(player: Player)
+	if essaiReception[player] or enAtterrissage[player] or not Donnees.estCharge(player) then
+		return
+	end
+	local char = player.Character
+	local hrp = char and char:FindFirstChild("HumanoidRootPart") :: BasePart?
+	local ligne = Map.ligneX(Map.mondeDe(player))
+	if hrp and ligne and hrp.Position.X > ligne then
+		essaiReception[player] = os.clock()
+	end
+end
+
+-- La réception est réussie si l'appui est arrivé dans la fenêtre avant l'atterrissage
+local function receptionReussie(player: Player): boolean
+	local t = essaiReception[player]
+	if not t then
+		return false
+	end
+	local avance = os.clock() - t
+	return avance >= 0 and avance <= SautConfig.RECEPTION_FENETRE + SautConfig.RECEPTION_TOLERANCE
+end
+
+-- Nombre de sauts parfaits consécutifs du joueur
+function Saut.serieDe(player: Player): number
+	return serie[player] or 0
+end
+
 -- Qualité de l'appel du saut en cours (nil sans appel)
 function Saut.appelDe(player: Player): string?
 	local a = appel[player]
@@ -285,6 +317,7 @@ local function atterrir(player: Player, char: Model, hrp: BasePart, monde: numbe
 		appel[player] = nil
 		player:SetAttribute("Appel", "")
 		jetpack[player] = nil
+		essaiReception[player] = nil
 		Anneaux.finDuSaut(player)
 		Personnage.activerJetpack(char, false)
 		Remotes.Notif:FireClient(player, Textes.SAUT_REFUSE)
@@ -297,7 +330,20 @@ local function atterrir(player: Player, char: Model, hrp: BasePart, monde: numbe
 		end)
 		return
 	end
-	-- Les Trésoriers équipés et le saut rare multiplient les pièces
+	-- Maîtrise : réception, saut parfait (appel Parfait + réception), série de sauts parfaits
+	local idAppel = Saut.appelDe(player)
+	local reception = receptionReussie(player)
+	local parfait = reception and idAppel == SautConfig.APPEL_QUALITES[1].id
+	if parfait then
+		serie[player] = Saut.serieDe(player) + 1
+	elseif not reception or idAppel == SautConfig.APPEL_MORDU.id then
+		serie[player] = 0 -- appel mordu ou réception ratée : la série s'arrête
+	end
+	player:SetAttribute("Serie", Saut.serieDe(player))
+	local bonus = SautConfig.bonusMaitrise(reception, if parfait then Saut.serieDe(player) else 0)
+	local maitrise = { reception = reception, parfait = parfait, serie = Saut.serieDe(player), bonus = bonus }
+
+	-- Les Trésoriers équipés, le saut rare et la maîtrise multiplient les pièces
 	local idRare = rare[player]
 	local infoR = idRare and infoRare(idRare)
 	local gain = math.floor(
@@ -305,10 +351,12 @@ local function atterrir(player: Player, char: Model, hrp: BasePart, monde: numbe
 			* SautConfig.PIECES_PAR_METRE
 			* Compagnons.multiplicateur(player, "Tresorier")
 			* (infoR and infoR.multiplicateur or 1)
+			* (1 + bonus)
+			* (if parfait then SautConfig.PARFAIT_MULTIPLICATEUR else 1)
 	)
 	rare[player] = nil
 	player:SetAttribute("SautRare", "")
-	local idAppel = Saut.appelDe(player)
+	essaiReception[player] = nil
 	appel[player] = nil
 	jetpack[player] = nil
 	player:SetAttribute("Appel", "")
@@ -324,7 +372,7 @@ local function atterrir(player: Player, char: Model, hrp: BasePart, monde: numbe
 		player:SetAttribute("Record", metres)
 		ls["Record (m)"].Value = math.floor(metres)
 	end
-	Remotes.SautResultat:FireClient(player, metres, gain, estRecord, idRare, idAppel)
+	Remotes.SautResultat:FireClient(player, metres, gain, estRecord, idRare, idAppel, maitrise)
 	effetAtterrissage(hrp.Position, estRecord)
 	Personnage.activerJetpack(char, false)
 	Compagnons.gagnerExperience(player)
@@ -368,11 +416,14 @@ function Saut.demarrer()
 	RunService.Heartbeat:Connect(surveillerPlanche)
 	RunService.Heartbeat:Connect(surveillerVol)
 	Remotes.Appel.OnServerEvent:Connect(surAppel)
+	Remotes.Reception.OnServerEvent:Connect(surReception)
 
 	Players.PlayerRemoving:Connect(function(player)
 		enAtterrissage[player] = nil
 		appel[player] = nil
 		jetpack[player] = nil
+		essaiReception[player] = nil
+		serie[player] = nil
 		rare[player] = nil
 		forces[player] = nil
 		dernierX[player] = nil

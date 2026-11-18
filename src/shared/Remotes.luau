@@ -6,7 +6,10 @@ local RunService = game:GetService("RunService")
 local EVENEMENTS = {
 	-- serveur → joueur : (metres: number, gain: number, estRecord: boolean, rare: string?, appel: string?)
 	-- rare = "Dore", "Legendaire" ou nil ; appel = "Parfait", "Bon", "Correct", "Mordu" ou nil (pas d'appel)
+	-- 6e argument (T-103) : maitrise = { reception: boolean, parfait: boolean, serie: number, bonus: number }
 	"SautResultat",
+	-- joueur → serveur : () nouvel appui sur Saut pendant la descente, l'essai de réception
+	"Reception",
 	-- joueur → serveur : (x: number) le joueur vient de décoller, à cette position X ; le serveur la vérifie et juge l'appel
 	"Appel",
 	-- serveur → joueur : (pieces: number, serie: number) un anneau vient d'être traversé

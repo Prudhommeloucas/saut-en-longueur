@@ -26,6 +26,29 @@ local jetActif = false
 local reculNormal = player.CameraMinZoomDistance -- distance minimale réglée dans StarterPlayer
 local recul = reculNormal
 
+-- Réception : un seul essai par saut, le premier nouvel appui pendant la descente au-dessus du sable
+local essaiFait = false
+local enDescente = false
+local filtreBac = RaycastParams.new()
+filtreBac.FilterType = Enum.RaycastFilterType.Include
+
+-- Temps estimé avant que les pieds touchent le sable (nil si on monte ou s'il n'y a pas de sable dessous)
+local function tempsAvantContact(hum: Humanoid, hrp: BasePart, monde: number): number?
+	local vy = hrp.AssemblyLinearVelocity.Y
+	if vy > 0 then
+		return nil
+	end
+	filtreBac.FilterDescendantsInstances = Map.tous("Bac", monde)
+	local res = workspace:Raycast(hrp.Position, Vector3.new(0, -500, 0), filtreBac)
+	if not res then
+		return nil
+	end
+	local h = math.max(0, res.Distance - hum.HipHeight - hrp.Size.Y / 2)
+	local g = workspace.Gravity
+	local descente = -vy
+	return (-descente + math.sqrt(descente * descente + 2 * g * h)) / g
+end
+
 local function chaqueImage(dt: number)
 	local maintenant = os.clock()
 	local char = player.Character
@@ -80,6 +103,13 @@ local function chaqueImage(dt: number)
 			Hud.distanceEnDirect(hrp.Position.X - ligne)
 			Hud.majJaugeAppel((ligne - hrp.Position.X) / SautConfig.STUDS_PAR_METRE)
 		end
+
+		-- Indice de réception : cercle qui se referme à l'approche du sable
+		if not enLAir then
+			essaiFait = false
+		end
+		enDescente = enVol and hrp.AssemblyLinearVelocity.Y < 0
+		Hud.majIndiceReception(if enDescente then tempsAvantContact(hum, hrp, monde) else nil, essaiFait)
 	end
 
 	-- Prévient le serveur quand la poussée démarre ou s'arrête (flammes visibles par tous)
@@ -151,7 +181,13 @@ end
 
 function Saut.demarrer()
 	UserInputService.JumpRequest:Connect(function()
+		-- Garder Saut enfoncé répète la demande à chaque image : seul un nouvel appui compte pour la réception
+		local nouvelAppui = os.clock() - dernierSaut > 0.2
 		dernierSaut = os.clock()
+		if nouvelAppui and enDescente and not essaiFait then
+			essaiFait = true
+			Remotes.Reception:FireServer()
+		end
 	end)
 	player.CharacterAdded:Connect(surPersonnage)
 	if player.Character then
