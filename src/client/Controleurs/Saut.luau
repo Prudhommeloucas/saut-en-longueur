@@ -23,6 +23,8 @@ local Saut = {}
 local carburant = infoJetpack.carburant
 local dernierSaut = 0
 local jetActif = false
+local reculNormal = player.CameraMinZoomDistance -- distance minimale réglée dans StarterPlayer
+local recul = reculNormal
 
 local function chaqueImage(dt: number)
 	local maintenant = os.clock()
@@ -62,6 +64,18 @@ local function chaqueImage(dt: number)
 		end
 
 		local ligne = Map.ligneX(monde)
+
+		-- Caméra qui recule pendant le vol au-dessus du sable, puis revient
+		local enVol = enLAir and ligne ~= nil and hrp.Position.X > ligne
+		local cibleRecul = if enVol then CameraConfig.RECUL_VOL else reculNormal
+		recul += (cibleRecul - recul) * math.min(1, dt * CameraConfig.RECUL_RAPIDITE)
+		if math.abs(recul - reculNormal) < 0.05 then
+			recul = reculNormal
+		end
+		if player.CameraMinZoomDistance ~= recul then
+			player.CameraMinZoomDistance = recul
+		end
+
 		if ligne then
 			Hud.distanceEnDirect(hrp.Position.X - ligne)
 			Hud.majJaugeAppel((ligne - hrp.Position.X) / SautConfig.STUDS_PAR_METRE)

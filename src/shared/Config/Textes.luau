@@ -19,6 +19,7 @@ return {
 	APPEL_Bon = "BON",
 	APPEL_Correct = "CORRECT",
 	APPEL_Mordu = "MORDU !",
+	SAUT_REFUSE = "Saut refusé : distance impossible.",
 	RESULTAT_APPEL = "Appel %s · puissance × %s\n",
 	ANNONCE_LEGENDAIRE = "%s vient de faire un SAUT LÉGENDAIRE !",
 	ANNEAU_GAIN = "+%s",

@@ -16,6 +16,15 @@ local Anneaux = {}
 
 local traverses = {} -- [player] = { [anneau] = true } pendant le saut en cours
 
+-- Poussée totale des anneaux traversés pendant le saut en cours (pour la borne de plausibilité)
+function Anneaux.pousseeDuSaut(player: Player): number
+	local total = 0
+	for anneau in traverses[player] or {} do
+		total += anneau:GetAttribute("Poussee") or SautConfig.ANNEAU_POUSSEE
+	end
+	return total
+end
+
 -- À l'atterrissage : on repart à zéro pour le saut suivant
 function Anneaux.finDuSaut(player: Player)
 	traverses[player] = nil

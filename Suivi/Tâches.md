@@ -29,7 +29,7 @@ Pour cocher : `- [x] T-101 Appel — Code (2026-11-15, P3)`. On ne modifie que l
 
 - [ ] T-100 Contrats et identifiants de la phase — Code
 - [x] T-101 Appel — Code (2026-11-18, P2 ; jauge provisoire dans `Hud.luau` en attendant T-108)
-- [ ] T-102 Vol — Code
+- [x] T-102 Vol — Code (2026-11-18, P2)
 - [ ] T-103 Réception, saut parfait, série — Code
 - [x] T-104 Anneaux et sauts rares — Code (2026-11-15, P2 ; avant T-101 à T-103, tirage au passage de la planche)
 - [ ] T-105 Stade : piste, planche, bac, panneaux, arche, tribunes — Monde

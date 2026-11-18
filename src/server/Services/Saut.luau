@@ -1,4 +1,5 @@
--- Saut : le premier contact avec le sable donne la distance ; effets d'atterrissage ; flammes du jetpack.
+-- Saut : appel, atterrissage détecté par la position, borne de plausibilité, sauts rares,
+-- effets d'atterrissage, flammes du jetpack dans la limite du carburant.
 local Players = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local Debris = game:GetService("Debris")
@@ -7,6 +8,8 @@ local RunService = game:GetService("RunService")
 local Shared = ReplicatedStorage:WaitForChild("Shared")
 local Config = Shared:WaitForChild("Config")
 local SautConfig = require(Config:WaitForChild("Saut"))
+local StatsConfig = require(Config:WaitForChild("Stats"))
+local Equipement = require(Config:WaitForChild("Equipement"))
 local Sons = require(Config:WaitForChild("Sons"))
 local Remotes = require(Shared:WaitForChild("Remotes"))
 local Map = require(Shared:WaitForChild("Util"):WaitForChild("Map"))
@@ -130,14 +133,69 @@ local function surAppel(player: Player, xJoueur: unknown)
 	end
 end
 
--- Qualité de l'appel du saut en cours, si elle est encore valable
-local function appelValable(player: Player): string?
+-- Qualité de l'appel du saut en cours (nil sans appel)
+function Saut.appelDe(player: Player): string?
 	local a = appel[player]
 	return a and a.id
 end
 
-function Saut.appelDe(player: Player): string?
-	return appelValable(player)
+-- Jetpack ----------------------------------------------------------------
+-- Le client pilote la poussée ; le serveur compte le temps annoncé et coupe les flammes au-delà du carburant.
+local jetpack = {} -- [player] = { utilise = secondes, depuis = os.clock() si la poussée est en cours }
+
+local function surJetpack(player: Player, actif: unknown)
+	if type(actif) ~= "boolean" or not player:GetAttribute("Jetpack") then
+		return
+	end
+	local char = player.Character
+	if not char then
+		return
+	end
+	local j = jetpack[player] or { utilise = 0 }
+	jetpack[player] = j
+	if j.depuis then
+		j.utilise += os.clock() - j.depuis
+		j.depuis = nil
+	end
+	local reste = Equipement.OBJETS.Jetpack.carburant + SautConfig.JETPACK_TOLERANCE - j.utilise
+	if actif and reste > 0 then
+		j.depuis = os.clock()
+		Personnage.activerJetpack(char, true)
+	else
+		Personnage.activerJetpack(char, false)
+	end
+end
+
+-- Coupe les flammes quand le carburant compté par le serveur est épuisé ; recharge au sol
+local function surveillerJetpack(player: Player, hum: Humanoid)
+	local j = jetpack[player]
+	if not j then
+		return
+	end
+	if hum.FloorMaterial ~= Enum.Material.Air and not j.depuis then
+		jetpack[player] = nil
+	elseif
+		j.depuis
+		and j.utilise + os.clock() - j.depuis > Equipement.OBJETS.Jetpack.carburant + SautConfig.JETPACK_TOLERANCE
+	then
+		j.utilise += os.clock() - j.depuis
+		j.depuis = nil
+		if player.Character then
+			Personnage.activerJetpack(player.Character, false)
+		end
+	end
+end
+
+-- Borne de plausibilité --------------------------------------------------
+-- Portée maximale du saut en cours, en mètres, d'après ce que le serveur sait du joueur
+local function porteeMax(player: Player): number
+	return SautConfig.porteeMax({
+		vitesse = StatsConfig.vitesseCourse(player:GetAttribute("Vitesse") or 0),
+		saut = StatsConfig.puissanceSaut(player:GetAttribute("Puissance") or 0, player:GetAttribute("Chaussures")),
+		gravite = workspace.Gravity,
+		jetpack = if player:GetAttribute("Jetpack") then Equipement.OBJETS.Jetpack else nil,
+		pousseeAnneaux = Anneaux.pousseeDuSaut(player),
+	})
 end
 
 local function infoRare(id: string)
@@ -198,30 +256,47 @@ local function surveillerPlanche()
 	end
 end
 
-local function surContactSable(hit: BasePart)
-	local char = hit:FindFirstAncestorOfClass("Model")
-	local player = char and Players:GetPlayerFromCharacter(char)
-	if not player or not Donnees.estCharge(player) or enAtterrissage[player] then
-		return
+-- Atterrissage --------------------------------------------------------------
+-- Le joueur a-t-il les pieds sur le sable ? On regarde sous lui (plus fiable que le contact à grande vitesse).
+local filtreBac = RaycastParams.new()
+filtreBac.FilterType = Enum.RaycastFilterType.Include
+
+local function piedsSurLeSable(hum: Humanoid, hrp: BasePart, monde: number): boolean
+	if hrp.AssemblyLinearVelocity.Y > 1 then
+		return false -- encore en train de monter
 	end
-	local hum = char:FindFirstChildOfClass("Humanoid")
-	local hrp = char:FindFirstChild("HumanoidRootPart")
-	if not hum or not hrp or hum.Health <= 0 then
-		return
-	end
-	local monde = Map.mondeDe(player)
-	local ligne = Map.ligneX(monde)
-	if not ligne then
-		return
-	end
-	-- Le premier mètre de sable reste la zone où l'on peut encore mordre : les pas qui y tombent ne comptent pas
-	if hrp.Position.X - ligne < SautConfig.APPEL_MORDU_MAX * SautConfig.STUDS_PAR_METRE then
-		return
-	end
+	filtreBac.FilterDescendantsInstances = Map.tous("Bac", monde)
+	local longueur = hum.HipHeight + hrp.Size.Y / 2 + SautConfig.ATTERRISSAGE_MARGE
+	return workspace:Raycast(hrp.Position, Vector3.new(0, -longueur, 0), filtreBac) ~= nil
+end
+
+local function atterrir(player: Player, char: Model, hrp: BasePart, monde: number, ligne: number)
 	enAtterrissage[player] = true
 
 	local metres = math.max(0, hrp.Position.X - ligne) / SautConfig.STUDS_PAR_METRE
 	metres = math.floor(metres * 10 + 0.5) / 10
+
+	-- Saut impossible pour les stats et l'équipement du joueur : refusé, sans pièces ni record
+	local borne = porteeMax(player)
+	if metres > borne then
+		warn(string.format("[Saut] refusé pour %s : %.1f m pour %.1f m au plus", player.Name, metres, borne))
+		rare[player] = nil
+		player:SetAttribute("SautRare", "")
+		appel[player] = nil
+		player:SetAttribute("Appel", "")
+		jetpack[player] = nil
+		Anneaux.finDuSaut(player)
+		Personnage.activerJetpack(char, false)
+		Remotes.Notif:FireClient(player, Textes.SAUT_REFUSE)
+		task.delay(SautConfig.DELAI_RETOUR, function()
+			local p = Map.retourPiste(monde, SautConfig.RETOUR_AVANCE, SautConfig.RETOUR_HAUTEUR)
+			if p and player.Parent and player.Character == char and char.Parent then
+				char:PivotTo(CFrame.lookAt(p, p + Vector3.xAxis))
+			end
+			enAtterrissage[player] = nil
+		end)
+		return
+	end
 	-- Les Trésoriers équipés et le saut rare multiplient les pièces
 	local idRare = rare[player]
 	local infoR = idRare and infoRare(idRare)
@@ -233,8 +308,9 @@ local function surContactSable(hit: BasePart)
 	)
 	rare[player] = nil
 	player:SetAttribute("SautRare", "")
-	local idAppel = appelValable(player)
+	local idAppel = Saut.appelDe(player)
 	appel[player] = nil
+	jetpack[player] = nil
 	player:SetAttribute("Appel", "")
 	Anneaux.finDuSaut(player)
 	if infoR and infoR.annonce then
@@ -262,31 +338,41 @@ local function surContactSable(hit: BasePart)
 	end)
 end
 
-function Saut.demarrer()
-	-- Chaque Part taguée « Bac » est une zone d'atterrissage
-	Map.surChaque("Bac", function(bac)
-		if bac:IsA("BasePart") then
-			bac.Touched:Connect(surContactSable)
-		end
-	end)
-
-	-- Jetpack : le client signale quand il pousse, le serveur montre les flammes à tous
-	Remotes.JetpackEtat.OnServerEvent:Connect(function(player, actif)
-		if type(actif) ~= "boolean" or not player:GetAttribute("Jetpack") then
-			return
-		end
+-- À chaque image : atterrissage au-delà de la zone où l'on peut mordre, et carburant du jetpack
+local function surveillerVol()
+	for _, player in Players:GetPlayers() do
 		local char = player.Character
-		if char then
-			Personnage.activerJetpack(char, actif)
+		local hum = char and char:FindFirstChildOfClass("Humanoid")
+		local hrp = char and char:FindFirstChild("HumanoidRootPart") :: BasePart?
+		if hum and hrp and hum.Health > 0 and Donnees.estCharge(player) then
+			surveillerJetpack(player, hum)
+			local monde = Map.mondeDe(player)
+			local ligne = Map.ligneX(monde)
+			-- Le premier mètre de sable reste la zone où l'on peut encore mordre : les pas qui y tombent ne comptent pas
+			if
+				ligne
+				and not enAtterrissage[player]
+				and hrp.Position.X - ligne >= SautConfig.APPEL_MORDU_MAX * SautConfig.STUDS_PAR_METRE
+				and piedsSurLeSable(hum, hrp, monde)
+			then
+				atterrir(player, char, hrp, monde, ligne)
+			end
 		end
-	end)
+	end
+end
+
+function Saut.demarrer()
+	-- Jetpack : le client signale quand il pousse, le serveur montre les flammes à tous dans la limite du carburant
+	Remotes.JetpackEtat.OnServerEvent:Connect(surJetpack)
 
 	RunService.Heartbeat:Connect(surveillerPlanche)
+	RunService.Heartbeat:Connect(surveillerVol)
 	Remotes.Appel.OnServerEvent:Connect(surAppel)
 
 	Players.PlayerRemoving:Connect(function(player)
 		enAtterrissage[player] = nil
 		appel[player] = nil
+		jetpack[player] = nil
 		rare[player] = nil
 		forces[player] = nil
 		dernierX[player] = nil
