@@ -189,3 +189,13 @@ Planches Gemini `pantheon.webp` et `portail_monde2.webp` (prompts dans [[Prompt 
 Piège de l'import FBX : chaque MeshPart importé garde un quart de tour dans son `PivotOffset`. Définir la `PrimaryPart` d'un modèle importé fait basculer son pivot ; il faut ensuite remettre `PrimaryPart.PivotOffset = PrimaryPart.CFrame:ToObjectSpace(CFrame.new(pivot voulu))`.
 
 Correctif du 2026-11-17 : derrière le portail et dans son axe, le panthéon était caché depuis la place. Le modèle `Assets.Decor.pantheon` est passé à l'échelle 1,3 (`Model:ScaleTo`, 41 × 46 × 57 studs, flamme à 46 studs) et posé à (-220, 30), à gauche du portail vu de la place ; trois collines et un arbre ont été repoussés vers l'extérieur.
+
+## Stade du monde 1 (T-105, 2026-11-18)
+
+Planches Gemini `stade_arche.png`, `stade_panneaux.png`, `stade_tunnel.webp` (prompts dans [[Prompts IA]], section « Stade du monde 1 »), modélisées par script dans Blender, un mesh par couleur, avant vers -Y. Aperçus `*_apercu.png` dans `assets/modeles/planches/`, captures `assets/captures/monde1_stade_arche.jpg` et `monde1_stade_bac.jpg`.
+
+- `stade_arche` (1 820 triangles, 33,6 × 35 × 6,2) : piliers bleus à bande blanche et trois rayures orange, poutre dorée bordée de blanc, `Plaque` (texte « SAUT ! » sur une Part invisible `TextePlaque`), `Ecran` bleu nuit dans un cadre bleu, prêt pour l'écran géant (T-106). 3 Parts `Collision` (piliers, poutre).
+- `stade_panneau_petit` (860) et `stade_panneau_grand` (832, étoile dorée) : pied gris, cadre blanc, `Face` jaune ou orange. Le chiffre est écrit dans `TexteAvant` et `TexteArriere` ; le script de pose le remplace par la distance.
+- `stade_tunnel` (2 760, 123 × 75 × 43) : tours en pierre `#D9D2C3` à rayures bleues, médaillons et chapeaux dorés, couronne orange et blanche, ouverture de 44 × 60 bordée d'orange, `Plaque` « 100 m ». Collisions sur les deux tours seulement : le haut se traverse en vol.
+
+Préparation dans Studio : structure aplatie, meshes renommés par couleur, `SmoothPlastic`, sans collision ni requête, `WorldPivot` au sol avec l'avant vers -Z local (sans `PrimaryPart`, pour éviter le piège du pivot). Pose par `assets/plans/modeles_t105.luau`, avant tourné vers -X.

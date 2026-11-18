@@ -69,3 +69,5 @@ Relevé de la toile « Plan du stade » (https://claude.ai/artifact/4MmFpmq8zrvW
 Rangés dans `ServerStorage.Modeles.BlocsT105` : 24 Parts des anciennes tribunes, les 3 blocs de l'ancienne arche, les poteaux de 10 à 100 m, 2 arbres (dans les tribunes nord et dans le tunnel).
 
 Ce qui reste imparfait : tout est en blocs sauf les tribunes ; le texte « 50 m » passe sur deux lignes ; la coupe du plan dessinait des gradins jusqu'à Z = 54, le module de T-010 s'arrête à Z ≈ 43 (gardé). Prompts Gemini des vrais modèles dans [[Prompts IA]].
+
+Vrais modèles posés le 2026-11-18 par `assets/plans/modeles_t105.luau` : arche (`stade_arche`, 33,6 de large), 9 panneaux (`stade_panneau_petit`, grand à 50 m), tunnel (`stade_tunnel`, 123 de large). Les blocs sont rangés dans `ServerStorage.Modeles.BlocsT105` (`ArcheBlocs`, `PanneauxBlocs`, `TunnelBlocs`). Restent en Parts, comme prévu pour les sols : piste, planche, bordure.

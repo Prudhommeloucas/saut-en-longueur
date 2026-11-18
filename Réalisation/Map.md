@@ -21,12 +21,12 @@ Chemins depuis `Workspace.Mondes.Monde1`. La place centrale ronde (T-114, 2026-1
 | Panthéon | `Decor.Pantheon` (vrai modèle `pantheon` à l'échelle 1,3, T-405 : statue dorée, vasque et flamme) | `Pantheon` ; `Vasque` sur sa flamme | (-220, 30) : décalé du portail pour ne pas être caché (2026-11-17) |
 | Classement et podium | `Decor.PanneauClassement`, `Decor.Podium` (`Place1` à `Place3`) | `PanneauClassement` (`Classement` = monde), `Podium` | (-4, -40), (-4, 40) : décalés du relevé, les tribunes occupant X 8 à 112 |
 | Limites cachées | `Decor.Collines` (21), `Decor.ArbresPlace` (17 arbres) | | anneau de rayon 118 à 128, plus loin derrière l'estrade VIP (150) et le panthéon (168), ouvert vers la piste |
-| Arche d'entrée | `Piste.Arche` (deux `Poteau` bleus, `Poutre` or « SAUT ! », blocs T-105) | | X = 0, 28 de large, 30 de haut |
+| Arche d'entrée | `Piste.Arche.Arche` (vrai modèle `stade_arche`, T-105) | | X = 0, 33,6 de large, 35 de haut avec l'écran |
 | Piste d'élan | `Piste.Piste` (brique), deux `Piste.LignePiste` | `Piste` (`Monde` = 1) | X de 0 à 120, 16 de large |
 | Planche d'appel | `Piste.PlancheAppel` (blanche) et `Piste.BandePlanche` (rouge, décor sans collision) | `PlancheAppel` (`Monde` = 1) sur la planche seulement | X = 120, la distance se mesure à partir d'ici |
 | Sable | `Bac.Sable`, `Bac.Bordure` (blanche, de 0 à 100 m) | `Bac` (`Monde` = 1) sur le sable | X de 120 à 2120 (500 m), 40 de large |
-| Marqueurs | `Bac.Marqueurs` ; `Bac.Panneaux` de 10 à 90 m (T-105, côté nord, grand à 50 m) | | une ligne tous les 10 m jusqu'à 500 m ; poteaux au-delà de 100 m |
-| Tunnel 100 m | `Bac.Tunnel` (deux `Pilier`, `Linteau` « 100 m » sans collision) | | X de 500 à 540, sortie du stade et arche du premier palier |
+| Marqueurs | `Bac.Marqueurs` ; `Bac.Panneaux` de 10 à 90 m (vrais modèles `stade_panneau_petit` et `_grand` à 50 m, côté nord) | | une ligne tous les 10 m jusqu'à 500 m ; poteaux au-delà de 100 m |
+| Tunnel 100 m | `Bac.Tunnel.Tunnel` (vrai modèle `stade_tunnel`, collisions sur les tours seulement) | | X de 500 à 540, sortie du stade et arche du premier palier |
 | Tribunes | `Decor.Tribunes` : 48 `tribune_module` (T-105) | | X de 10 à 490, des deux côtés, l'avant à Z ±27 |
 | Murs invisibles | `Bac.Murs` | | autour du sable |
 | Décor | `Decor` (`Sol` : `Herbe`, `HerbeOuest`, `HerbeNord`, `HerbeSud` ; `Tribunes`, `Drapeaux`, `Arbres`, `ArbresPiste`) | | voir [[Décor et effets]] |
