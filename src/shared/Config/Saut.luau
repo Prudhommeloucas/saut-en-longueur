@@ -3,7 +3,9 @@ local Saut = {}
 
 Saut.STUDS_PAR_METRE = 4 -- 1 mètre affiché = 4 studs
 -- La planche (tag PlancheAppel) et la piste (tag Piste) sont lues dans la map par Util/Map.
-Saut.RETOUR_AVANCE = 8 -- après un saut, renvoyé à 8 studs du début de la piste…
+-- Après un saut, le joueur réapparaît juste à côté du début de la piste, pas dessus : il choisit d'y retourner.
+Saut.RETOUR_AVANCE = -6 -- 6 studs avant le début de la piste…
+Saut.RETOUR_COTE = 6 -- … 6 studs au-delà de son bord droit (côté +Z) (0 : sur l'axe de la piste)…
 Saut.RETOUR_HAUTEUR = 4 -- … et 4 studs au-dessus de son sol
 Saut.DELAI_RETOUR = 2 -- secondes entre l'atterrissage et le retour
 

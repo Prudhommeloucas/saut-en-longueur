@@ -322,7 +322,8 @@ local function atterrir(player: Player, char: Model, hrp: BasePart, monde: numbe
 		Personnage.activerJetpack(char, false)
 		Remotes.Notif:FireClient(player, Textes.SAUT_REFUSE)
 		task.delay(SautConfig.DELAI_RETOUR, function()
-			local p = Map.retourPiste(monde, SautConfig.RETOUR_AVANCE, SautConfig.RETOUR_HAUTEUR)
+			local p =
+				Map.retourPiste(monde, SautConfig.RETOUR_AVANCE, SautConfig.RETOUR_COTE, SautConfig.RETOUR_HAUTEUR)
 			if p and player.Parent and player.Character == char and char.Parent then
 				char:PivotTo(CFrame.lookAt(p, p + Vector3.xAxis))
 			end
@@ -378,7 +379,7 @@ local function atterrir(player: Player, char: Model, hrp: BasePart, monde: numbe
 	Compagnons.gagnerExperience(player)
 
 	task.delay(SautConfig.DELAI_RETOUR, function()
-		local p = Map.retourPiste(monde, SautConfig.RETOUR_AVANCE, SautConfig.RETOUR_HAUTEUR)
+		local p = Map.retourPiste(monde, SautConfig.RETOUR_AVANCE, SautConfig.RETOUR_COTE, SautConfig.RETOUR_HAUTEUR)
 		if p and player.Parent and player.Character == char and char.Parent then
 			char:PivotTo(CFrame.lookAt(p, p + Vector3.xAxis))
 		end
