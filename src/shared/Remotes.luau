@@ -4,8 +4,11 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local RunService = game:GetService("RunService")
 
 local EVENEMENTS = {
-	-- serveur → joueur : (metres: number, gain: number, estRecord: boolean, rare: string?) rare = "Dore", "Legendaire" ou nil
+	-- serveur → joueur : (metres: number, gain: number, estRecord: boolean, rare: string?, appel: string?)
+	-- rare = "Dore", "Legendaire" ou nil ; appel = "Parfait", "Bon", "Correct", "Mordu" ou nil (pas d'appel)
 	"SautResultat",
+	-- joueur → serveur : (x: number) le joueur vient de décoller, à cette position X ; le serveur la vérifie et juge l'appel
+	"Appel",
 	-- serveur → joueur : (pieces: number, serie: number) un anneau vient d'être traversé
 	"AnneauTraverse",
 	-- serveur → joueur : (message: string)

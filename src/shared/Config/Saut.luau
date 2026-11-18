@@ -11,6 +11,49 @@ Saut.DELAI_RETOUR = 2 -- secondes entre l'atterrissage et le retour
 Saut.PIECES_PAR_METRE = 1
 Saut.PIECES_MIN = 1 -- prévu : minimum si on atteint le sable (pas encore utilisé)
 
+-- Appel : qualité selon la position (centre du personnage) au moment de l'appui, en mètres avant le bord de la planche.
+-- La planche du monde 1 fait 0,5 m : la zone Parfait est la planche elle-même.
+Saut.APPEL_QUALITES = {
+	{ id = "Parfait", avantMax = 0.5, multiplicateur = 1.25 },
+	{ id = "Bon", avantMax = 1.5, multiplicateur = 1.10 },
+	{ id = "Correct", avantMax = 6, multiplicateur = 1.00 }, -- plus tôt que 6 m : simple saut, pas un appel
+}
+Saut.APPEL_MORDU = { id = "Mordu", multiplicateur = 0.80 }
+Saut.APPEL_MORDU_MAX = 1 -- m après le bord où un appel compte encore (Mordu) ; le sable ne compte qu'au-delà
+-- Le serveur accepte la position annoncée par le joueur si elle est à moins de
+-- vitesse × (2 × ping + APPEL_MARGE_TEMPS) + APPEL_MARGE_STUDS de celle qu'il voit (T-102 bornera le reste)
+Saut.APPEL_MARGE_TEMPS = 0.15
+Saut.APPEL_MARGE_STUDS = 2
+Saut.APPEL_VALIDITE = 2 -- s : un appel plus ancien au passage de la planche ne compte plus (appel trop tôt, retombé sur la piste)
+-- Les talents élargiront la zone Parfait par l'attribut « BonusZoneParfait » du joueur (mètres en plus).
+
+-- Qualité d'un appel fait à « avant » mètres du bord (négatif : après le bord) ; nil si ce n'est pas un appel
+function Saut.qualiteAppel(avant: number, bonusParfait: number?)
+	if avant < 0 then
+		return if -avant <= Saut.APPEL_MORDU_MAX then Saut.APPEL_MORDU else nil
+	end
+	for i, q in Saut.APPEL_QUALITES do
+		local borne = if i == 1 then q.avantMax + (bonusParfait or 0) else q.avantMax
+		if avant <= borne then
+			return q
+		end
+	end
+	return nil
+end
+
+-- Qualité d'appel d'après son identifiant (« Parfait »…), nil si inconnu
+function Saut.qualiteAppelParId(id: string)
+	if id == Saut.APPEL_MORDU.id then
+		return Saut.APPEL_MORDU
+	end
+	for _, q in Saut.APPEL_QUALITES do
+		if q.id == id then
+			return q
+		end
+	end
+	return nil
+end
+
 -- Sauts rares : tirés quand le joueur passe la planche d'appel, du plus rare au plus courant.
 -- La chance est multipliée par (1 + bonus des Porte-bonheur équipés).
 Saut.SAUTS_RARES = {

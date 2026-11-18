@@ -92,6 +92,54 @@ local forces = {} -- [player] = saut rare imposé au prochain passage de planche
 local dernierX = {} -- [player] = position X à l'image précédente
 local aleatoire = Random.new()
 
+-- Appel ----------------------------------------------------------------
+local appel = {} -- [player] = { id = qualité, temps = os.clock() } du dernier appel jugé
+
+-- Position retenue pour l'appel : celle du joueur si elle est plausible, sinon celle que voit le serveur.
+-- Le serveur voit le joueur avec un peu de retard (ping, réplication) : la marge en tient compte.
+local function positionAppel(player: Player, hrp: BasePart, xJoueur: unknown): number
+	local xServeur = hrp.Position.X
+	if type(xJoueur) ~= "number" or xJoueur ~= xJoueur then
+		return xServeur
+	end
+	local vitesse = math.abs(hrp.AssemblyLinearVelocity.X)
+	local marge = vitesse * (player:GetNetworkPing() * 2 + SautConfig.APPEL_MARGE_TEMPS) + SautConfig.APPEL_MARGE_STUDS
+	return if math.abs(xJoueur - xServeur) <= marge then xJoueur else xServeur
+end
+
+-- Le joueur annonce qu'il saute et sa position ; le serveur la vérifie avant de juger l'appel
+local function surAppel(player: Player, xJoueur: unknown)
+	if not Donnees.estCharge(player) or enAtterrissage[player] then
+		return
+	end
+	local char = player.Character
+	local hrp = char and char:FindFirstChild("HumanoidRootPart") :: BasePart?
+	local ligne = Map.ligneX(Map.mondeDe(player))
+	if not (hrp and ligne) then
+		return
+	end
+	local precedent = appel[player]
+	if precedent and os.clock() - precedent.temps < 0.3 then
+		return -- un seul appel par saut
+	end
+	local avant = (ligne - positionAppel(player, hrp, xJoueur)) / SautConfig.STUDS_PAR_METRE
+	local q = SautConfig.qualiteAppel(avant, player:GetAttribute("BonusZoneParfait"))
+	if q then
+		appel[player] = { id = q.id, temps = os.clock() }
+		player:SetAttribute("Appel", q.id)
+	end
+end
+
+-- Qualité de l'appel du saut en cours, si elle est encore valable
+local function appelValable(player: Player): string?
+	local a = appel[player]
+	return a and a.id
+end
+
+function Saut.appelDe(player: Player): string?
+	return appelValable(player)
+end
+
 local function infoRare(id: string)
 	for _, r in SautConfig.SAUTS_RARES do
 		if r.id == id then
@@ -133,6 +181,12 @@ local function surveillerPlanche()
 			if avant and avant < ligne and x >= ligne then
 				rare[player] = tirerRare(player)
 				player:SetAttribute("SautRare", rare[player] or "")
+				-- Un appel trop ancien (sauté trop tôt puis retombé sur la piste) ne compte plus
+				local a = appel[player]
+				if a and os.clock() - a.temps > SautConfig.APPEL_VALIDITE then
+					appel[player] = nil
+					player:SetAttribute("Appel", "")
+				end
 			elseif x < ligne - 2 and rare[player] then
 				rare[player] = nil
 				player:SetAttribute("SautRare", "")
@@ -160,6 +214,10 @@ local function surContactSable(hit: BasePart)
 	if not ligne then
 		return
 	end
+	-- Le premier mètre de sable reste la zone où l'on peut encore mordre : les pas qui y tombent ne comptent pas
+	if hrp.Position.X - ligne < SautConfig.APPEL_MORDU_MAX * SautConfig.STUDS_PAR_METRE then
+		return
+	end
 	enAtterrissage[player] = true
 
 	local metres = math.max(0, hrp.Position.X - ligne) / SautConfig.STUDS_PAR_METRE
@@ -175,6 +233,9 @@ local function surContactSable(hit: BasePart)
 	)
 	rare[player] = nil
 	player:SetAttribute("SautRare", "")
+	local idAppel = appelValable(player)
+	appel[player] = nil
+	player:SetAttribute("Appel", "")
 	Anneaux.finDuSaut(player)
 	if infoR and infoR.annonce then
 		Remotes.Notif:FireAllClients(string.format(Textes.ANNONCE_LEGENDAIRE, player.DisplayName))
@@ -187,7 +248,7 @@ local function surContactSable(hit: BasePart)
 		player:SetAttribute("Record", metres)
 		ls["Record (m)"].Value = math.floor(metres)
 	end
-	Remotes.SautResultat:FireClient(player, metres, gain, estRecord, idRare)
+	Remotes.SautResultat:FireClient(player, metres, gain, estRecord, idRare, idAppel)
 	effetAtterrissage(hrp.Position, estRecord)
 	Personnage.activerJetpack(char, false)
 	Compagnons.gagnerExperience(player)
@@ -221,9 +282,11 @@ function Saut.demarrer()
 	end)
 
 	RunService.Heartbeat:Connect(surveillerPlanche)
+	Remotes.Appel.OnServerEvent:Connect(surAppel)
 
 	Players.PlayerRemoving:Connect(function(player)
 		enAtterrissage[player] = nil
+		appel[player] = nil
 		rare[player] = nil
 		forces[player] = nil
 		dernierX[player] = nil

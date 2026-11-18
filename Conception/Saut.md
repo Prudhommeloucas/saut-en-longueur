@@ -4,7 +4,7 @@ Le cœur du jeu : un saut en trois temps. Voir [[Boucles de gameplay]], [[Map]] 
 
 ## État actuel
 
-Le joueur court, saute, et la distance est mesurée au premier contact avec le sable. Le jetpack donne 1,5 seconde de poussée. Il n'y a encore ni jauge d'appel ni réception. Depuis T-104 (2026-11-15) : sauts rares tirés au passage de la planche (doré 1 sur 100, × 10 ; légendaire 1 sur 1 000, × 100 et annonce au serveur ; chance × (1 + bonus des Porte-bonheur)), annoncés par un message à l'écran ; anneaux tagués `Anneau` (5 pièces, poussée de 30 donnée par le client, +25 pièces pour 3 anneaux dans un même saut). La piste dorée et la musique du saut rare viendront avec les effets (T-110, T-111). Détails dans [[Scripts]].
+Le joueur court, saute, et la distance est mesurée au premier contact avec le sable. Le jetpack donne 1,5 seconde de poussée. Depuis T-101 (2026-11-18), l'appel est jugé : au décollage, la qualité (Parfait, Bon, Correct, Mordu ; plus de 6 m avant le bord, ce n'est pas un appel) multiplie la vitesse verticale du saut. Une jauge provisoire montre les zones, la qualité s'affiche au décollage puis dans le résultat. La planche du monde 1 fait 0,5 m, donc la zone Parfait est la planche entière ; le premier mètre de sable est la zone où l'on peut mordre, les pas qui y tombent ne comptent pas comme atterrissage. Pas encore de réception (T-103). Depuis T-104 (2026-11-15) : sauts rares tirés au passage de la planche (doré 1 sur 100, × 10 ; légendaire 1 sur 1 000, × 100 et annonce au serveur ; chance × (1 + bonus des Porte-bonheur)), annoncés par un message à l'écran ; anneaux tagués `Anneau` (5 pièces, poussée de 30 donnée par le client, +25 pièces pour 3 anneaux dans un même saut). La piste dorée et la musique du saut rare viendront avec les effets (T-110, T-111). Détails dans [[Scripts]].
 
 ## Cible : les trois temps
 
@@ -60,7 +60,7 @@ Le détail est affiché ligne par ligne sur l'écran de résultat. Les multiplic
 
 ## Règles techniques à respecter
 
-- Le serveur calcule la distance, la qualité de l'appel et le tirage du saut rare. Le client n'envoie que des intentions (« j'appuie sur Saut »).
+- Le serveur calcule la distance, la qualité de l'appel et le tirage du saut rare. Le client n'envoie que des intentions (« j'appuie sur Saut »). Exception pour l'appel (T-101) : le client envoie sa position au décollage, et le serveur, qui voit le joueur avec un peu de retard, la retient si elle est à moins de vitesse × (2 × ping + 0,15 s) + 2 studs de la sienne ; sinon il garde la sienne. En test, sans cette marge, un appel Bon était jugé Correct.
 - Le serveur refuse une distance impossible pour les stats et l'équipement du joueur (borne de plausibilité), ce qui couvre la faille actuelle du jetpack piloté par le client.
 - L'atterrissage se détecte par la position du personnage, pas par l'événement de contact, qui devient peu fiable à grande vitesse.
 - Avec le passe « Saut automatique », le jeu saute à la place du joueur avec un appel Bon ; il ne fait jamais de saut parfait ([[Monétisation]]).

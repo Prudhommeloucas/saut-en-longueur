@@ -64,6 +64,7 @@ local function chaqueImage(dt: number)
 		local ligne = Map.ligneX(monde)
 		if ligne then
 			Hud.distanceEnDirect(hrp.Position.X - ligne)
+			Hud.majJaugeAppel((ligne - hrp.Position.X) / SautConfig.STUDS_PAR_METRE)
 		end
 	end
 
@@ -101,10 +102,47 @@ local function brancherAnneau(anneau: Instance)
 	end
 end
 
+-- Appel : au décollage près de la planche, la qualité multiplie la vitesse verticale du saut.
+-- Le joueur la calcule pour que l'effet soit immédiat ; le serveur la juge lui-même pour le résultat.
+local function surDecollage(hum: Humanoid, hrp: BasePart)
+	local ligne = Map.ligneX(Map.mondeDe(player))
+	if not ligne or hum.Health <= 0 then
+		return
+	end
+	local avant = (ligne - hrp.Position.X) / SautConfig.STUDS_PAR_METRE
+	local q = SautConfig.qualiteAppel(avant, player:GetAttribute("BonusZoneParfait"))
+	if not q then
+		return
+	end
+	Remotes.Appel:FireServer(hrp.Position.X)
+	Hud.afficherAppel(q.id)
+	-- La vitesse du saut est donnée par le moteur à l'étape physique suivante
+	RunService.Heartbeat:Once(function()
+		local v = hrp.AssemblyLinearVelocity
+		if v.Y > 0 then
+			hrp.AssemblyLinearVelocity = Vector3.new(v.X, v.Y * q.multiplicateur, v.Z)
+		end
+	end)
+end
+
+local function surPersonnage(char: Model)
+	local hum = char:WaitForChild("Humanoid") :: Humanoid
+	local hrp = char:WaitForChild("HumanoidRootPart") :: BasePart
+	hum.StateChanged:Connect(function(_, nouvel)
+		if nouvel == Enum.HumanoidStateType.Jumping then
+			surDecollage(hum, hrp)
+		end
+	end)
+end
+
 function Saut.demarrer()
 	UserInputService.JumpRequest:Connect(function()
 		dernierSaut = os.clock()
 	end)
+	player.CharacterAdded:Connect(surPersonnage)
+	if player.Character then
+		task.spawn(surPersonnage, player.Character)
+	end
 	RunService.Heartbeat:Connect(chaqueImage)
 
 	CollectionService:GetInstanceAddedSignal("Anneau"):Connect(brancherAnneau)

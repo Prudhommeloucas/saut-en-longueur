@@ -19,8 +19,65 @@ local Hud = {}
 local gui: ScreenGui
 local lblPuissance, lblVitesse, lblDistance, lblDetail, lblNotif
 local jauge, jaugePleine
+local jaugeAppel, curseurAppel, zoneParfait, lblQualite
 local finResultat = 0
 local finNotif = 0
+local finQualite = 0
+
+-- Jauge d'appel : de JAUGE_AVANT mètres avant le bord jusqu'à la fin de la zone Mordu
+local JAUGE_AVANT = 8
+local COULEURS_APPEL = {
+	Parfait = Color3.fromRGB(255, 205, 50),
+	Bon = Color3.fromRGB(90, 210, 110),
+	Correct = Color3.fromRGB(200, 200, 210),
+	Mordu = Color3.fromRGB(235, 70, 70),
+}
+
+-- Position dans la jauge (0 à gauche, 1 à droite) de « avant » mètres avant le bord
+local function fractionJauge(avant: number): number
+	local total = JAUGE_AVANT + SautConfig.APPEL_MORDU_MAX
+	return math.clamp((JAUGE_AVANT - avant) / total, 0, 1)
+end
+
+local function construireJaugeAppel()
+	jaugeAppel = Instance.new("Frame")
+	jaugeAppel.Name = "JaugeAppel"
+	jaugeAppel.AnchorPoint = Vector2.new(0.5, 1)
+	jaugeAppel.Position = UDim2.new(0.5, 0, 1, -150)
+	jaugeAppel.Size = UDim2.fromOffset(360, 22)
+	jaugeAppel.BackgroundColor3 = Color3.fromRGB(20, 20, 30)
+	jaugeAppel.BackgroundTransparency = 0.3
+	jaugeAppel.BorderSizePixel = 0
+	jaugeAppel.Visible = false
+	jaugeAppel.Parent = gui
+
+	local function zone(nom: string, debut: number, fin: number, couleur: Color3)
+		local z = Instance.new("Frame")
+		z.Name = nom
+		z.Position = UDim2.fromScale(fractionJauge(debut), 0)
+		z.Size = UDim2.fromScale(fractionJauge(fin) - fractionJauge(debut), 1)
+		z.BackgroundColor3 = couleur
+		z.BackgroundTransparency = 0.25
+		z.BorderSizePixel = 0
+		z.Parent = jaugeAppel
+		return z
+	end
+	local q = SautConfig.APPEL_QUALITES
+	zone("Correct", q[3].avantMax, q[2].avantMax, COULEURS_APPEL.Correct)
+	zone("Bon", q[2].avantMax, q[1].avantMax, COULEURS_APPEL.Bon)
+	zoneParfait = zone("Parfait", q[1].avantMax, 0, COULEURS_APPEL.Parfait)
+	zone("Mordu", 0, -SautConfig.APPEL_MORDU_MAX, COULEURS_APPEL.Mordu)
+
+	curseurAppel = Instance.new("Frame")
+	curseurAppel.Name = "Curseur"
+	curseurAppel.AnchorPoint = Vector2.new(0.5, 0.5)
+	curseurAppel.Position = UDim2.fromScale(0, 0.5)
+	curseurAppel.Size = UDim2.new(0, 4, 1, 10)
+	curseurAppel.BackgroundColor3 = Color3.new(1, 1, 1)
+	curseurAppel.BorderSizePixel = 0
+	curseurAppel.ZIndex = 2
+	curseurAppel.Parent = jaugeAppel
+end
 
 local function texte(nom, pos, taille, ancre)
 	local t = Instance.new("TextLabel")
@@ -101,6 +158,9 @@ local function construire()
 	jaugeTexte.TextStrokeTransparency = 0
 	jaugeTexte.Text = Textes.AIDE_JETPACK
 	jaugeTexte.Parent = jauge
+
+	construireJaugeAppel()
+	lblQualite = texte("TexteQualite", UDim2.fromScale(0.5, 0.62), UDim2.fromScale(0.4, 0.07))
 end
 
 local function majStats()
@@ -158,6 +218,29 @@ function Hud.majCarburant(fraction: number)
 	jaugePleine.Size = UDim2.fromScale(fraction, 1)
 end
 
+-- Jauge d'appel : visible à l'approche de la planche (avant : mètres avant le bord, négatif après)
+function Hud.majJaugeAppel(avant: number)
+	local visible = avant <= JAUGE_AVANT and avant >= -SautConfig.APPEL_MORDU_MAX and os.clock() > finResultat
+	jaugeAppel.Visible = visible
+	if visible then
+		curseurAppel.Position = UDim2.fromScale(fractionJauge(avant), 0.5)
+		-- Zone Parfait élargie par les talents
+		local largeur = SautConfig.APPEL_QUALITES[1].avantMax + (player:GetAttribute("BonusZoneParfait") or 0)
+		zoneParfait.Position = UDim2.fromScale(fractionJauge(largeur), 0)
+		zoneParfait.Size = UDim2.fromScale(fractionJauge(0) - fractionJauge(largeur), 1)
+	end
+	if os.clock() > finQualite then
+		lblQualite.Text = ""
+	end
+end
+
+-- « PARFAIT ! », « BON »… au moment de l'appel
+function Hud.afficherAppel(id: string)
+	finQualite = os.clock() + 1.2
+	lblQualite.Text = Textes["APPEL_" .. id] or ""
+	lblQualite.TextColor3 = COULEURS_APPEL[id] or Color3.new(1, 1, 1)
+end
+
 -- Distance en direct au-dessus du sable (x : studs au-delà de la planche), sauf pendant l'affichage du résultat
 function Hud.distanceEnDirect(x: number)
 	if os.clock() > finResultat then
@@ -181,7 +264,7 @@ function Hud.demarrer()
 	suivreGain("Puissance", Color3.fromRGB(255, 120, 120))
 	suivreGain("Vitesse", Color3.fromRGB(130, 180, 255))
 
-	Remotes.SautResultat.OnClientEvent:Connect(function(metres, gain, estRecord, rare)
+	Remotes.SautResultat.OnClientEvent:Connect(function(metres, gain, estRecord, rare, idAppel)
 		finResultat = os.clock() + SautConfig.DELAI_RETOUR + 0.5
 		lblDistance.Text = string.format(Textes.DISTANCE, metres)
 		lblDistance.TextColor3 = estRecord and Color3.fromRGB(255, 220, 80) or Color3.new(1, 1, 1)
@@ -192,7 +275,17 @@ function Hud.demarrer()
 					string.format(Textes.RESULTAT_RARE, Textes["SAUT_RARE_" .. r.id], tostring(r.multiplicateur))
 			end
 		end
-		lblDetail.Text = texteRare
+		local texteAppel = ""
+		local qAppel = idAppel and SautConfig.qualiteAppelParId(idAppel)
+		if qAppel then
+			texteAppel = string.format(
+				Textes.RESULTAT_APPEL,
+				Textes["APPEL_" .. idAppel],
+				(string.gsub(string.format("%.2f", qAppel.multiplicateur), "%.", ","))
+			)
+		end
+		lblDetail.Text = texteAppel
+			.. texteRare
 			.. (estRecord and Textes.NOUVEAU_RECORD or "")
 			.. string.format(Textes.GAIN_PIECES, tostring(gain))
 		if gain > 0 then

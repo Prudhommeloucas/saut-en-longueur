@@ -28,7 +28,7 @@ Chaque bouton de menu porte une pastille rouge quand quelque chose est à récla
 
 ### `HudSaut` (visible sur la piste et en vol)
 
-- `JaugeAppel` : barre qui se remplit pendant la course, avec les zones Bon et Parfait.
+- `JaugeAppel` : barre qui se remplit pendant la course, avec les zones Bon et Parfait. Version provisoire créée par le code depuis T-101 (`Hud.luau`, dans `HUDSaut`, avec `TexteQualite`) : de 8 m avant le bord à 1 m après, zones `Correct`, `Bon`, `Parfait` (élargie par `BonusZoneParfait`), `Mordu`, et un `Curseur`.
 - `TexteQualite` : « Parfait ! », « Bon », « Mordu » au moment de l'appel.
 - `TexteDistance` : compteur en direct pendant le vol, en grand.
 - `JaugeCarburant`, `BoutonPlaner` (monde 2), `TexteAnneaux`.
