@@ -51,3 +51,21 @@ Reconstruit depuis ce relevé par `assets/plans/construction_t114.luau` (testé 
 - Les incubateurs sont les vrais modèles (`Assets.Decor.incubateur`), avec leur prompt.
 - Zones et stands reprennent les panneaux, étincelles et prompts des anciens ; l'arche existante est gardée (T-105).
 - Panthéon (T-405 et correctif du 2026-11-17) : vrai modèle à l'échelle 1,3, posé à (−220, 30) au lieu de (−212, 0), pour qu'il ne soit plus caché par le portail depuis le centre de la place.
+
+## Stade en blocs (T-105, 2026-11-18)
+
+Relevé de la toile « Plan du stade » (https://claude.ai/artifact/4MmFpmq8zrvW2TiFoDanqz), validée par Loucas le 2026-11-18 (choix gardés tels que dessinés : tribunes continues, tunnel à 100 m servant d'arche au premier palier, arche bleu piste et or). Construit par `assets/plans/construction_t105.luau`, essayé d'abord dans la copie personnelle, puis dans la place partagée. Captures : `monde1_stade_blocs_spawn.jpg`, `monde1_stade_blocs_vol.jpg`.
+
+| Élément | Dossier | Centre (X, Z) | Taille | Notes |
+| --- | --- | --- | --- | --- |
+| Piste | `Piste` | (60, 0) | 120 × 2 × 16 | couleur brique `#C8552D` |
+| Bande de la planche | `Piste` | (119,75, 0) | 0,5 × 0,12 × 16 | rouge, sans collision ni requête (la ligne d'appel reste lue sur `PlancheAppel`) |
+| Arche (2 poteaux + poutre) | `Piste.Arche` | (0, ±13) | poteaux 4 × 30 × 4, poutre 8 × 6 × 30 en haut (Y 24 à 30) | « SAUT ! » sur la poutre ; écran géant au-dessus (T-106) |
+| Bordure | `Bac.Bordure` | (320, ±20,5) | cylindres 400 × 1 × 1 | sans collision |
+| Panneaux 10 à 90 m | `Bac.Panneaux` | X = 120 + 4 × m, Z = −24 | petit 0,5 × 3 × 4 sur pied de 3 ; grand (50 m) 1 × 8 × 5 sur pied de 4 | côté nord seulement : le côté sud a les drapeaux animés (Z = 25) |
+| Tunnel 100 m | `Bac.Tunnel` | (520, 0) | piliers 40 × 60 × 38 à Z ±41 ; linteau 40 × 12 × 120 (Y 60 à 72) | linteau sans collision ni requête : on le traverse en vol |
+| Tribunes | `Decor.Tribunes` | X 20 à 480 tous les 20, avant à Z ±27 | 48 `tribune_module` (24 par côté) | côté nord tourné de 180° |
+
+Rangés dans `ServerStorage.Modeles.BlocsT105` : 24 Parts des anciennes tribunes, les 3 blocs de l'ancienne arche, les poteaux de 10 à 100 m, 2 arbres (dans les tribunes nord et dans le tunnel).
+
+Ce qui reste imparfait : tout est en blocs sauf les tribunes ; le texte « 50 m » passe sur deux lignes ; la coupe du plan dessinait des gradins jusqu'à Z = 54, le module de T-010 s'arrête à Z ≈ 43 (gardé). Prompts Gemini des vrais modèles dans [[Prompts IA]].

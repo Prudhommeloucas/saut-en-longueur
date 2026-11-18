@@ -21,23 +21,26 @@ Chemins depuis `Workspace.Mondes.Monde1`. La place centrale ronde (T-114, 2026-1
 | Panthéon | `Decor.Pantheon` (vrai modèle `pantheon` à l'échelle 1,3, T-405 : statue dorée, vasque et flamme) | `Pantheon` ; `Vasque` sur sa flamme | (-220, 30) : décalé du portail pour ne pas être caché (2026-11-17) |
 | Classement et podium | `Decor.PanneauClassement`, `Decor.Podium` (`Place1` à `Place3`) | `PanneauClassement` (`Classement` = monde), `Podium` | (-4, -40), (-4, 40) : décalés du relevé, les tribunes occupant X 8 à 112 |
 | Limites cachées | `Decor.Collines` (21), `Decor.ArbresPlace` (17 arbres) | | anneau de rayon 118 à 128, plus loin derrière l'estrade VIP (150) et le panthéon (168), ouvert vers la piste |
-| Arche d'entrée | `Piste.Arche` | | X = 0 (T-105) |
-| Piste d'élan | `Piste.Piste`, deux `Piste.LignePiste` | `Piste` (`Monde` = 1) | X de 0 à 120, 16 de large |
-| Planche d'appel | `Piste.PlancheAppel` | `PlancheAppel` (`Monde` = 1) | X = 120, la distance se mesure à partir d'ici |
-| Sable | `Bac.Sable` | `Bac` (`Monde` = 1) | X de 120 à 2120 (500 m), 40 de large |
-| Marqueurs | `Bac.Marqueurs` | | une ligne et un panneau tous les 10 m, jusqu'à 500 m |
+| Arche d'entrée | `Piste.Arche` (deux `Poteau` bleus, `Poutre` or « SAUT ! », blocs T-105) | | X = 0, 28 de large, 30 de haut |
+| Piste d'élan | `Piste.Piste` (brique), deux `Piste.LignePiste` | `Piste` (`Monde` = 1) | X de 0 à 120, 16 de large |
+| Planche d'appel | `Piste.PlancheAppel` (blanche) et `Piste.BandePlanche` (rouge, décor sans collision) | `PlancheAppel` (`Monde` = 1) sur la planche seulement | X = 120, la distance se mesure à partir d'ici |
+| Sable | `Bac.Sable`, `Bac.Bordure` (blanche, de 0 à 100 m) | `Bac` (`Monde` = 1) sur le sable | X de 120 à 2120 (500 m), 40 de large |
+| Marqueurs | `Bac.Marqueurs` ; `Bac.Panneaux` de 10 à 90 m (T-105, côté nord, grand à 50 m) | | une ligne tous les 10 m jusqu'à 500 m ; poteaux au-delà de 100 m |
+| Tunnel 100 m | `Bac.Tunnel` (deux `Pilier`, `Linteau` « 100 m » sans collision) | | X de 500 à 540, sortie du stade et arche du premier palier |
+| Tribunes | `Decor.Tribunes` : 48 `tribune_module` (T-105) | | X de 10 à 490, des deux côtés, l'avant à Z ±27 |
 | Murs invisibles | `Bac.Murs` | | autour du sable |
 | Décor | `Decor` (`Sol` : `Herbe`, `HerbeOuest`, `HerbeNord`, `HerbeSud` ; `Tribunes`, `Drapeaux`, `Arbres`, `ArbresPiste`) | | voir [[Décor et effets]] |
 | Anneaux | `Anneaux` | | dossier vide (T-106) |
 
 L'ancien spawn carré (sol, zones squat et mollets, racks, stands, gym, lampadaires, 9 arbres) est rangé dans `ServerStorage.Modeles.AncienSpawn`, pas supprimé.
 
-Le code lit la map par les tags (T-008, module `Shared/Util/Map`) : noms et dossiers sont libres. On peut déplacer ou ajouter une zone, une planche, un bac ou un stand sans toucher au code, tant que le tag et les attributs sont posés. Scripts relançables : `assets/plans/rangement_t007.luau` (rangement), `assets/plans/construction_t114.luau` (place centrale). Captures : `assets/captures/monde1_place_spawn.jpg`, `monde1_place_dessus.jpg`.
+Le code lit la map par les tags (T-008, module `Shared/Util/Map`) : noms et dossiers sont libres. On peut déplacer ou ajouter une zone, une planche, un bac ou un stand sans toucher au code, tant que le tag et les attributs sont posés. Scripts relançables : `assets/plans/rangement_t007.luau` (rangement), `assets/plans/construction_t114.luau` (place centrale), `assets/plans/construction_t105.luau` (stade en blocs, 2026-11-18 ; ce qu'il remplace est rangé dans `ServerStorage.Modeles.BlocsT105`). Captures : `assets/captures/monde1_place_spawn.jpg`, `monde1_place_dessus.jpg`.
 
 ## Règles
 
 - Les murs invisibles obligent à entrer sur le sable par la piste. Sans eux, on pourrait marcher sur le sable par le côté et gagner des pièces sans sauter.
-- Le premier contact avec `Sable` compte comme l'atterrissage. Marcher sur le sable sans sauter donne environ 0 m.
+- L'atterrissage est détecté par la position (T-102) : le serveur regarde sous les pieds du joueur s'il y a une Part taguée `Bac`. Le premier mètre de sable ne compte pas (zone où l'on peut mordre).
+- Rien ne doit gêner le vol au-dessus du bac : le linteau du tunnel est sans collision, les panneaux et les tribunes restent hors des murs invisibles (Z ±21).
 - Après l'atterrissage, le joueur est renvoyé au bout de 2 secondes sur la place, juste à côté de la bande orange `VersPiste` : 18 studs avant le début de la piste et 5 studs à droite de son axe (côté +Z), tourné vers le bac. Il choisit d'y retourner ou d'aller ailleurs (choisi par Loucas le 2026-11-18, réglages `RETOUR_*` dans `Config/Saut`). Ce point doit rester dégagé quand on pose le décor autour de la piste.
 - Depuis le point d'apparition, on voit l'arche, la piste et les zones Débutant ; stands et œufs sont dans le dos (décision du 2026-11-15 : ne pas surcharger le joueur au spawn).
 
