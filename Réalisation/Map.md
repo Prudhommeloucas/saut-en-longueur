@@ -38,7 +38,7 @@ Le code lit la map par les tags (T-008, module `Shared/Util/Map`) : noms et doss
 
 - Les murs invisibles obligent à entrer sur le sable par la piste. Sans eux, on pourrait marcher sur le sable par le côté et gagner des pièces sans sauter.
 - Le premier contact avec `Sable` compte comme l'atterrissage. Marcher sur le sable sans sauter donne environ 0 m.
-- Après l'atterrissage, le joueur est renvoyé au bout de 2 secondes juste à côté du début de la piste, pas dessus : 6 studs avant son début et 6 studs au-delà de son bord droit (côté +Z), tourné vers le bac. Il choisit d'y retourner ou d'aller ailleurs (correctif du 2026-11-18, réglages `RETOUR_*` dans `Config/Saut`). Ce point doit rester dégagé quand on pose le décor autour de la piste.
+- Après l'atterrissage, le joueur est renvoyé au bout de 2 secondes sur la place, juste à côté de la bande orange `VersPiste` : 18 studs avant le début de la piste et 5 studs à droite de son axe (côté +Z), tourné vers le bac. Il choisit d'y retourner ou d'aller ailleurs (choisi par Loucas le 2026-11-18, réglages `RETOUR_*` dans `Config/Saut`). Ce point doit rester dégagé quand on pose le décor autour de la piste.
 - Depuis le point d'apparition, on voit l'arche, la piste et les zones Débutant ; stands et œufs sont dans le dos (décision du 2026-11-15 : ne pas surcharger le joueur au spawn).
 
 ## À faire

@@ -35,7 +35,7 @@ La map est rangée dans `Workspace.Mondes.Monde1` depuis T-007 (2026-11-17), voi
 | Tag | Sur quoi | Attributs | État |
 | --- | --- | --- | --- |
 | `ZoneEntrainement` | Part au sol | `Stat` (Puissance, Vitesse, Aero), `Multiplicateur` (nombre), `RecordRequis` (m), `PasseRequis` (texte, facultatif) | posé (T-007), lu (T-008) : une Part par zone, la stat doit exister sur le joueur (Aero pas encore). `PasseRequis` = « VIP » : zone fermée sauf si le joueur a l'attribut `PasseVIP` à vrai (T-114 ; à poser par le futur service des passes) |
-| `Piste` | Part de la piste d'élan | `Monde` (nombre) | posé (T-007), lu (T-008) : son début (bord -X) déclenche les bonus et fixe le point de retour après un saut (à côté de la piste, côté +Z, juste avant son début) |
+| `Piste` | Part de la piste d'élan | `Monde` (nombre) | posé (T-007), lu (T-008) : son début (bord -X) déclenche les bonus et fixe le point de retour après un saut (sur la place, 18 studs avant son début, 5 studs côté +Z) |
 | `PlancheAppel` | Part de la planche | `Monde` | posé (T-007), lu (T-008) : la distance se mesure depuis son bord +X |
 | `Bac` | Parts de la zone d'atterrissage | `Monde` | posé (T-007), lu (T-008) : le premier contact avec une de ces Parts compte comme atterrissage |
 | `Anneau` | Part en forme d'anneau, sans collision | `Pieces` (nombre), `Poussee` (nombre) | code prêt (T-104) : pièces une fois par anneau et par saut, en vol seulement ; défauts 5 pièces et poussée 30 (`Config/Saut`) ; aucun anneau posé (T-106) |

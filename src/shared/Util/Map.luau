@@ -71,8 +71,8 @@ function Map.debutPisteX(monde: number?): number?
 	return memoriser("debut" .. monde, piste and piste.Position.X - piste.Size.X / 2)
 end
 
--- Point de retour après un saut : près du début de la piste (avance négative = avant le début),
--- décalé sur le côté de « cote » studs au-delà du bord (0 = sur l'axe), au-dessus du sol de la piste
+-- Point de retour après un saut, repéré depuis le début de la piste : « avance » studs le long de la piste
+-- (négatif = avant son début, sur la place), « cote » studs sur le côté de son axe (+Z), au-dessus de son sol
 function Map.retourPiste(monde: number?, avance: number, cote: number, hauteur: number): Vector3?
 	monde = monde or MONDE_PAR_DEFAUT
 	local piste = Map.premier("Piste", monde) :: BasePart?
@@ -80,8 +80,7 @@ function Map.retourPiste(monde: number?, avance: number, cote: number, hauteur: 
 		return connu["retour" .. monde]
 	end
 	local p = piste.Position
-	local z = if cote > 0 then p.Z + piste.Size.Z / 2 + cote else p.Z
-	local point = Vector3.new(p.X - piste.Size.X / 2 + avance, p.Y + piste.Size.Y / 2 + hauteur, z)
+	local point = Vector3.new(p.X - piste.Size.X / 2 + avance, p.Y + piste.Size.Y / 2 + hauteur, p.Z + cote)
 	return memoriser("retour" .. monde, point)
 end
 
