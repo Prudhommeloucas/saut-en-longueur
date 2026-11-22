@@ -51,13 +51,13 @@ La map est rangée dans `Workspace.Mondes.Monde1` depuis T-007 (2026-11-17), voi
 | `DecorAnime` | Part ou Model de décor animé par le client | `Type` (Rotation, Flottement, Balancement, Pulsation), `Vitesse` (degrés par seconde pour Rotation), `Amplitude`, `AxeRotation` (Vector3, axe local, pour Rotation) | lu par le contrôleur client `DecorAnime` (T-117) : l'objet bouge autour de son pivot, côté joueur seulement, à moins de 300 studs de la caméra (`Config/Decor`) ; Vitesse = allers-retours par seconde hors Rotation ; Amplitude en studs (Flottement), degrés (Balancement) ou part de la taille (Pulsation). Posé sur la spirale du portail et la vasque |
 | `CanonConfettis` | Part d'où partent les confettis, le long de la piste | aucun | prévu |
 | `LanceurFeuArtifice` | Part d'où part une fusée | `Palier` (0 à 5) | prévu |
-| `Projecteur` | Model d'un projecteur de stade orientable | aucun | prévu |
-| `EcranGeant` | Part avec une surface d'affichage | aucun | prévu |
+| `Projecteur` | Model d'un projecteur de stade orientable : `Mat`, `Tete` (la partie à orienter, PrimaryPart), `Lampe` (Neon + SpotLight) | aucun | posé en blocs (T-106, 2026-11-22) : 6 dans `Monde1.Decor.Projecteurs`, X 10 / 250 / 490, Z ±50 |
+| `EcranGeant` | Part avec une surface d'affichage : `Surface` du Model `Piste.EcranGeant`, SurfaceGui `AffichageLeft` (vers la place) et `AffichageRight` (vers la piste), chacun avec `Fond.Titre` et `Fond.Info` | aucun | posé en blocs (T-106, 2026-11-22) au-dessus de l'arche, contenu provisoire |
 | `Mascotte` | Model à squelette de la mascotte géante | aucun | prévu |
 | `Vasque` | Model de la vasque, avec une Part `Flamme` | aucun | dans le panthéon (T-405) : Model `Vasque` avec `Flamme` (PrimaryPart) et `FlammeCoeur`, en Neon ; tagué aussi `DecorAnime` (Pulsation) |
 | `DrapeauVent` | Model d'un drapeau qui se tend pendant le vent favorable | aucun | prévu |
 | `BandePiste` | Parts lumineuses de la piste (saut doré) | aucun | prévu |
-| `Public` | Model d'un bloc de spectateurs, pour la ola | `Rang` (ordre dans la vague) | prévu |
+| `Public` | Model d'un bloc de spectateurs, pour la ola | `Rang` (ordre dans la vague) | posé en blocs (T-106, 2026-11-22) : un Model `Public` dans chacun des 48 modules de `Decor.Tribunes`, `Rang` 1 à 24 d'ouest en est (même rang des deux côtés), 929 silhouettes `Corps` + `Tete` sans collision |
 
 Les dix derniers tags viennent de [[Construction du monde 1]] : ce sont les points d'accroche du décor, que le code déclenchera sur les événements du jeu (record, saut parfait, vent favorable, saut doré, concours).
 
