@@ -125,3 +125,4 @@ Pour cocher : `- [x] T-101 Appel — Code (2026-11-15, P3)`. On ne modifie que l
 
 Correctifs et prototypes d'idées retenues, ajoutés au fil de l'eau : une ligne par travail, sur le même format.
 - [x] Correctif : l'élan des anneaux tient jusqu'au sol — Code (2026-11-22, P2)
+- [x] Réglage : poussée des anneaux 30 → 20, séries recalées — Code, monde (2026-11-22, P2)
