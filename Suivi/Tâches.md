@@ -33,7 +33,7 @@ Pour cocher : `- [x] T-101 Appel — Code (2026-11-15, P3)`. On ne modifie que l
 - [x] T-103 Réception, saut parfait, série — Code (2026-11-18, P2 ; indice de réception et texte de série provisoires)
 - [x] T-104 Anneaux et sauts rares — Code (2026-11-15, P2 ; avant T-101 à T-103, tirage au passage de la planche)
 - [x] T-105 Stade : piste, planche, bac, panneaux, arche, tribunes — Monde (2026-11-18, P2 ; numéros de couloir peints et râteau non faits)
-- [ ] T-106 Anneaux, écran géant, projecteurs, public — Monde
+- [x] T-106 Anneaux, écran géant, projecteurs, public — Monde (2026-11-22, P2 ; série 3 des anneaux à recaler après T-201)
 - [x] T-114 Place centrale ronde — Monde (2026-11-17, P2)
 - [ ] T-115 Mascotte géante et ses animations — 3D, animation
 - [ ] T-116 Dirigeable, canons, lanceurs de feux d'artifice, drapeaux — 3D

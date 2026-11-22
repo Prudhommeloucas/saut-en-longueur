@@ -198,4 +198,13 @@ Planches Gemini `stade_arche.png`, `stade_panneaux.png`, `stade_tunnel.webp` (pr
 - `stade_panneau_petit` (860) et `stade_panneau_grand` (832, étoile dorée) : pied gris, cadre blanc, `Face` jaune ou orange. Le chiffre est écrit dans `TexteAvant` et `TexteArriere` ; le script de pose le remplace par la distance.
 - `stade_tunnel` (2 760, 123 × 75 × 43) : tours en pierre `#D9D2C3` à rayures bleues, médaillons et chapeaux dorés, couronne orange et blanche, ouverture de 44 × 60 bordée d'orange, `Plaque` « 100 m ». Collisions sur les deux tours seulement : le haut se traverse en vol.
 
+## Stade du monde 1, suite (T-106, 2026-11-22)
+
+Planches Gemini `stade_anneau.png`, `stade_ecran.png`, `stade_projecteur.png`, `stade_spectateur.png` (prompts dans [[Prompts IA]], section « Stade du monde 1 (T-106) »). Le MCP Blender n'était pas branché : modèles construits par `assets/modeles/source/t106_modeles.py`, lancé sans fenêtre (`blender-launcher.exe -b --factory-startup --python lanceur_blender.py -- <journal> t106_modeles.py`). Le script nettoie, triangule, exporte les `.fbx` et rend les aperçus `*_apercu.png`. Import par Fichier → Importer (les quatre d'un coup), puis préparation et pose par `assets/plans/modeles_t106.luau`. L'envoi par Open Cloud a été refusé : le dossier `assets/modeles/export` n'est pas autorisé dans les permissions MCP de Studio. Captures : `assets/captures/monde1_stade_anneaux.jpg`, `monde1_stade_ecran.jpg`, `monde1_stade_public.jpg`.
+
+- `stade_anneau` (1 096 triangles, 16,3 × 16,3 × 1,7 avec les flèches) : anneau `Or` lissé (rayons 4,8 à 6,7), liseré et quatre flèches `Blanc`. Mis à l'échelle du rayon de la `Zone` (× 7/6 pour la série 3) et recoloré par série.
+- `stade_ecran` (996, 30 × 22,9 × 2,6) : cadre `Bleu`, écran `Nuit` sur les deux faces, étoile ailée et liseré `Or`, deux pieds `Gris`. La Part `Surface` (SurfaceGui) est recalée sur l'écran : centre à Y 45,9, 27,8 × 13,8.
+- `stade_projecteur` (1 940, mât de 45 et tête de 12 × 7) : tête orientable autour de la charnière (Y 48), lampes en Neon.
+- `stade_spectateur` (100 triangles, 3 × 3,4 × 1,5) : corps et bras levés `Corps`, tête `Tete` lisse. Ni yeux ni pieds, par économie (929 copies, environ 93 000 triangles).
+
 Préparation dans Studio : structure aplatie, meshes renommés par couleur, `SmoothPlastic`, sans collision ni requête, `WorldPivot` au sol avec l'avant vers -Z local (sans `PrimaryPart`, pour éviter le piège du pivot). Pose par `assets/plans/modeles_t105.luau`, avant tourné vers -X.
