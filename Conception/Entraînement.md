@@ -76,7 +76,7 @@ En place depuis T-202 (2026-11-22), dans `Config/Equipement.MATERIEL`, pour le m
 | 7 | Traîneau de poussée | × 128 | 390 625 |
 | 8 | Barre en or | × 256 | 1 953 125 |
 
-Les prix sont ceux de la simulation T-201. Les paliers s'achètent dans l'ordre au stand `StandMateriel` (attribut `Objet` = « Materiel »). Le palier atteint est sauvegardé (`equipement.materiel`, attribut `Materiel`). L'achat n'a pas pu être essayé en test automatique (les invites ne s'affichent pas quand Studio n'a pas la main) : à vérifier à la main.
+Les prix sont ceux de la simulation T-201. Les paliers s'achètent dans l'ordre au stand `StandMateriel` (attribut `Objet` = « Materiel »). Le palier atteint est sauvegardé (`equipement.materiel`, attribut `Materiel`). Achat vérifié dans la place partagée le 2026-11-22 : Haltères achetés pour 25 pièces, palier 1. L'invite du stand n'apparaît qu'à moins de 12 studs de son centre : il faut se tenir contre le stand.
 
 **Gain par battement en place** : `ENTRAINEMENT_GAIN × palier de zone × matériel × Coachs × bonus de débutant`, puis × qualité du rythme pour la seconde jouée.
 
