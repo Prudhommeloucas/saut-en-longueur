@@ -95,3 +95,80 @@ Colors: at most four colors: #E9E4D8, #1E90FF, #FF7A1A, #FFC83D.
 
 Sheet layout: 6 views of the SAME object, same size, evenly spaced on one image in 2 rows: front, back, left side, right side, 3/4 front, top. Keep every part clearly separated and readable (left tower, right tower, blue stripes, top beam, crown blocks, plaque, opening frame, medallions, tower caps) so it can be rebuilt in 3D with few polygons.
 ```
+
+## Stade du monde 1 (T-106)
+
+Prompts remplis le 2026-11-22. Ils remplacent les blocs posés par `assets/plans/construction_t106_anneaux.luau` et `construction_t106_stade.luau` ([[Construction du monde 1]], [[Contrats]]). Joindre la planche de l'arche (`stade_arche`) aide à garder le style. Comme pour T-105, aucun texte dessiné : l'écran reste vide, Studio y met le texte.
+
+### Anneau (`stade_anneau`)
+
+Un seul modèle, recoloré dans Studio par série (or, bleu, orange). Il reste décoratif : la `Zone` invisible taguée `Anneau` garde le contact. Le trou doit être grand (diamètre intérieur ≈ 10 studs), le cercle épais et lisible de loin.
+
+```text
+Create a prop turnaround sheet of an original floating bonus ring for a Roblox long jump game: "Boost Ring", a big ring floating above the sand pit of world 1 ("Beginner Stadium"). Jumpers fly through its hole to get a boost and coins. Same cartoon style as the attached stadium arch.
+
+Style: cartoon 3D game asset, chunky exaggerated proportions, simple shapes with bevelled edges, flat cartoon colors, smooth plastic look, soft studio lighting, pure white background. Low detail, readable from far away and on a phone. Joyful and sporty. No text, no letters, no numbers, no logos, no brand, no olympic rings, no people, no ground, no shadow, no sparkles, no glow effects.
+
+Design: one thick round ring, standing vertically, about 12 units in outer diameter with a big empty hole about 10 units wide in the middle, and about 1.5 units thick.
+Main body: a smooth rounded tube, golden yellow (#FFC83D).
+Special feature: four short white arrow-shaped fins (#FFFFFF) on the outer edge, at top, bottom, left and right, all pointing forward in the same direction (the flight direction), like speed fins.
+Small details: a thin white stripe running all around the front face of the ring.
+Colors: at most two colors: #FFC83D, #FFFFFF.
+
+Sheet layout: 6 views of the SAME object, same size, evenly spaced on one image in 2 rows: front, back, left side, right side, 3/4 front, top. Keep every part clearly separated and readable (ring tube, front stripe, four fins) so it can be rebuilt in 3D with few polygons.
+```
+
+### Écran géant (`stade_ecran`)
+
+Posé sur l'arche (X = 0), visible des deux côtés : de la place et de la piste. L'écran lui-même reste une plaque plate et sombre, séparée du cadre, pour y poser les SurfaceGui (`Surface`, tag `EcranGeant`). Taille visée : 28 × 14 studs d'écran, pieds de 3 studs.
+
+```text
+Create a prop turnaround sheet of an original giant stadium screen for a Roblox long jump game: "Big Screen", a giant double-sided scoreboard screen standing on top of the stadium entrance arch of world 1 ("Beginner Stadium"). Same cartoon style as the attached stadium arch.
+
+Style: cartoon 3D game asset, chunky exaggerated proportions, simple shapes with bevelled edges, flat cartoon colors, smooth plastic look, soft studio lighting, pure white background. Low detail, readable from far away and on a phone. Joyful and sporty. No text, no letters, no numbers, no logos, no brand, no images on the screen, no people, no ground, no shadow, no lights.
+
+Design: a wide flat screen, about 30 units wide, 16 high and 2 deep, the same on both sides.
+Main body: a thick rounded bright blue frame (#1E90FF) all around.
+Screen: on both sides, a flat dark navy panel (#16213E) about 28 wide and 14 high, clearly inset in the frame and completely empty.
+Special feature: a golden crest on top of the frame (#FFC83D): a simple rounded star in the middle, with two short golden wings.
+Small details: a thin golden stripe (#FFC83D) under the frame; two short chunky grey legs (#5B6577) under the frame, with flat round feet, to stand on the arch.
+Colors: at most four colors: #1E90FF, #16213E, #FFC83D, #5B6577.
+
+Sheet layout: 6 views of the SAME object, same size, evenly spaced on one image in 2 rows: front, back, left side, right side, 3/4 front, top. Keep every part clearly separated and readable (frame, front screen panel, back screen panel, crest, stripe, legs, feet) so it can be rebuilt in 3D with few polygons.
+```
+
+### Projecteur (`stade_projecteur`)
+
+Six exemplaires derrière les tribunes. La tête doit être une pièce séparée du mât (`Tete`, orientée par le code), la face des lampes une troisième pièce (`Lampe`, en Neon dans Studio). Mât d'environ 45 studs, tête de 12 × 7.
+
+```text
+Create a prop turnaround sheet of an original stadium floodlight tower for a Roblox long jump game: "Stadium Floodlight", a tall light tower standing behind the grandstands of world 1 ("Beginner Stadium"). Same cartoon style as the attached stadium arch.
+
+Style: cartoon 3D game asset, chunky exaggerated proportions, simple shapes with bevelled edges, flat cartoon colors, smooth plastic look, soft studio lighting, pure white background. Low detail, readable from far away and on a phone. Joyful and sporty. No text, no letters, no numbers, no logos, no brand, no people, no ground, no shadow, no light beams, no glow.
+
+Design: a tall thin tower about 45 units high with a big light head on top.
+Mast: a round grey pole (#5B6577), slightly thicker at the bottom, with a wide flat round foot and two blue rings (#1E90FF) along its height.
+Head: a wide rounded rectangular box about 12 wide, 7 high and 2.5 deep, dark navy (#16213E), mounted on a short golden hinge (#FFC83D) on top of the pole so it can tilt; the head is clearly a separate piece from the pole.
+Lamp face: on the front of the head, a separate flat panel with a grid of 2 rows of 4 big round lamps, pale cream (#FFF8E7), each with a thin golden rim (#FFC83D).
+Small details: a small golden cap on top of the head.
+Colors: at most five colors: #5B6577, #1E90FF, #16213E, #FFC83D, #FFF8E7.
+
+Sheet layout: 6 views of the SAME object, same size, evenly spaced on one image in 2 rows: front, back, left side, right side, 3/4 front, top. Keep every part clearly separated and readable (foot, pole, blue rings, hinge, head box, lamp panel, lamps, cap) so it can be rebuilt in 3D with few polygons.
+```
+
+### Spectateur (`stade_spectateur`)
+
+929 exemplaires assis sur les gradins : il faut un modèle minuscule (viser moins de 60 triangles), recoloré dans Studio (tee-shirt et peau). Un seul morceau, sans bras séparés : la ola soulève le bloc `Public` entier. Hauteur assise ≈ 3,5 studs.
+
+```text
+Create a prop turnaround sheet of an original, extremely simple cartoon stadium spectator for a Roblox long jump game: "Crowd Fan", a tiny sitting fan used hundreds of times in the grandstands of world 1 ("Beginner Stadium"). Same cartoon style as the attached stadium arch.
+
+Style: cartoon 3D game asset, very chunky and toy-like, made of very few simple rounded shapes, flat cartoon colors, smooth plastic look, soft studio lighting, pure white background. Extremely low detail, readable from far away. Joyful. No face details except two dot eyes, no text, no letters, no numbers, no logos, no brand, no clothes details, no seat, no ground, no shadow. Not a real person, not a known character.
+
+Design: a small sitting figure about 3.5 units tall: a rounded box body and a big round head on top, both arms raised up in a happy cheer, all as one simple solid piece with no gaps.
+Body: a plain bright blue rounded torso (#1E90FF) (it will be recolored), with short stubby arms of the same color raised above the head.
+Head: a big smooth round head, light skin tone (#F2C9A0) (it will be recolored), with two small black dot eyes and no other details.
+Colors: at most three colors: #1E90FF, #F2C9A0, black for the eyes.
+
+Sheet layout: 6 views of the SAME object, same size, evenly spaced on one image in 2 rows: front, back, left side, right side, 3/4 front, top. Keep the body, arms and head clearly readable so it can be rebuilt in 3D with very few polygons.
+```
