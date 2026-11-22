@@ -32,6 +32,18 @@ Donnees.MODELE = {
 	},
 	oeufsOuverts = 0,
 	paliers = { reclames = {} }, -- T-204 : [« monde:record »] = true quand la récompense du palier est prise
+	-- T-205 : quêtes, défis, connexion, roue, coffre du groupe, codes, boosts (secondes de jeu restantes)
+	recompenses = {
+		jour = { numero = -1, quetes = {}, coffre = false, remplacee = false },
+		semaine = { numero = -1, quetes = {} },
+		compteurs = {}, -- [compteur] = total depuis toujours (défis)
+		defis = {}, -- ["compteur:palier"] = true quand réclamé
+		connexion = { dernierJour = -1, serie = 0, reclameJour = -1 },
+		roueJour = -1,
+		groupe = 0, -- os.time() du dernier coffre
+		codes = {}, -- [code] = true
+		boosts = { Pieces = 0, Entrainement = 0, Chance = 0 },
+	},
 }
 
 return Donnees

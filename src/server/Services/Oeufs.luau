@@ -16,6 +16,8 @@ local Remotes = require(Shared:WaitForChild("Remotes"))
 local Donnees = require(script.Parent.Donnees)
 local Compagnons = require(script.Parent.Compagnons)
 local Index = require(script.Parent.Index)
+local Recompenses = require(script.Parent.Recompenses)
+local RecompensesConfig = require(Config:WaitForChild("Recompenses"))
 
 local Oeufs = {}
 
@@ -114,10 +116,13 @@ function Oeufs.ouvrir(player: Player, oeufId: string): string?
 	end
 
 	-- Éclosion
-	local espece = Oeufs.tirer(oeufId, Index.chance(player)) :: string
+	-- Le boost de chance (T-205) double le poids des raretés chanceuses, en plus du bonus de l'index
+	local chance = (1 + Index.chance(player)) * RecompensesConfig.boost(player, "Chance") - 1
+	local espece = Oeufs.tirer(oeufId, chance) :: string
 	local uid = Compagnons.ajouter(player, espece, "Normal")
 	local nouveau = Index.enregistrer(player, espece, "Normal")
 	d.oeufsOuverts += 1
+	Recompenses.compter(player, "Oeufs")
 	Remotes.ResultatOeuf:FireClient(player, {
 		oeuf = oeufId,
 		espece = espece,

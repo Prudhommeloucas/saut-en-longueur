@@ -66,6 +66,36 @@ Des codes publiés avec chaque mise à jour donnent pièces, gemmes ou boosts. I
 
 Récompense courante de tous ces systèmes. Un boost dure 15 minutes de jeu et double l'un de ces gains : pièces, entraînement ou chance aux œufs. Les boosts s'empilent en durée, pas en puissance.
 
+## En place (T-205, 2026-11-22)
+
+- **Configuration** dans `Config/Recompenses`.
+- **Service `Recompenses`** :
+  - il compte la progression : sauts, appels parfaits, anneaux, points de stats, œufs, records battus, distance totale, plus longue série ;
+  - les services `Saut`, `Anneaux`, `Entrainement` et `Oeufs` appellent `Recompenses.compter` ;
+  - tout est gardé dans le profil (`recompenses`), sauf les cadeaux de temps de jeu, qui valent pour la session.
+- **Quêtes du jour** : 3 tirées parmi 6 modèles (sauts, appels parfaits, anneaux, stats, œufs, record).
+  - L'objectif de stats vaut un cinquième des stats du joueur, au moins 500.
+  - Récompense : 10 gemmes et des pièces égales à 10 × le record.
+  - Coffre bonus : 20 gemmes, 20 × le record en pièces, et un boost pièces.
+  - Elles s'ouvrent à 10 m. On peut changer une quête par jour.
+- **Quêtes de la semaine** : 5 fixes (300 sauts, 60 parfaits, 200 anneaux, 20 œufs, 10 records), avec des gemmes et des boosts.
+- **Défis de carrière** :
+  - distance totale : 100 m à 1 000 km ;
+  - appels parfaits : 10 à 5 000 ;
+  - série : 3 à 10 ;
+  - œufs : 5 à 500.
+
+  Les paliers donnent 10, 20, 40, 80, puis 150 gemmes.
+- **Connexion** : 100 pièces, 10 gemmes, 500 pièces, boost pièces, 25 gemmes, 2 000 pièces avec un boost entraînement, puis 150 gemmes au jour 7. Simplification : 150 gemmes plutôt qu'un œuf d'or, c'est le prix d'un œuf d'or.
+- **Cadeaux de temps de jeu** : aux 8 moments de la note, de 50 pièces à 14 gemmes avec un boost chance.
+- **Roue** : 8 cases pondérées, de 200 pièces au gros lot de 150 gemmes (1 chance sur 100).
+- **Coffre du groupe** : 15 gemmes et 500 pièces toutes les 24 h, pour les membres d'OGC Studio (`IsInGroup`).
+- **Codes** : écrits dans le service, côté serveur seulement, pour qu'un tricheur ne puisse pas les lire. Pour l'instant `LANCEMENT` (50 gemmes) et `SAUTDORE` (1 000 pièces et un boost pièces), à changer à chaque annonce. Majuscules et espaces ignorés, un seul usage par joueur.
+- **Boosts** : attributs `BoostPieces`, `BoostEntrainement`, `BoostChance` (secondes de jeu restantes). Ils doublent les pièces d'un saut, le gain d'entraînement ou la chance aux œufs.
+- **Écran provisoire** : bouton « Récompenses » et panneau `RecompensesProvisoire`. Les vrais écrans viendront avec T-210.
+- **Événements** : `ActionRecompense` (joueur → serveur), `RecompensesEtat` et `ResultatRoue` (serveur → joueur).
+- **Testé dans la copie** : chaque récompense ne se prend qu'une fois. Code inconnu ou déjà utilisé, roue déjà tournée, quête pas finie, cadeau pas encore atteint, quêtes fermées sous 10 m : tous refusés avec un message. Le boost pièces double bien les pièces (14 → 28).
+
 ## Règle d'équilibrage
 
 Les récompenses gratuites cumulées doivent permettre à un joueur régulier d'ouvrir un œuf d'or tous les deux jours environ. Les sources et les dépenses de gemmes sont suivies dans [[Économie]].

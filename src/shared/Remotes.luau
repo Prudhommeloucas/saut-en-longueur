@@ -50,6 +50,13 @@ local EVENEMENTS = {
 	"PalierFranchi",
 	-- joueur → serveur : (monde: number, record: number) réclamer la récompense d'un palier franchi
 	"ReclamerPalier",
+	-- serveur → joueur : (etat) quêtes, défis, connexion, cadeaux, roue, coffre, boosts (T-205)
+	"RecompensesEtat",
+	-- joueur → serveur : (action: string, a?, b?) Quete(periode, index), Remplacer(index), Coffre, Defi(compteur, palier),
+	-- Connexion, Cadeau(index), Roue, Groupe, Code(texte)
+	"ActionRecompense",
+	-- serveur → joueur : (index: number, nom: string) case de la roue tirée
+	"ResultatRoue",
 }
 
 local Remotes = {} :: { [string]: RemoteEvent }

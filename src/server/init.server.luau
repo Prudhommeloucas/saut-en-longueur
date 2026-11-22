@@ -13,6 +13,7 @@ local ORDRE = {
 	"Saut", -- mesure du saut, sauts rares, effets, jetpack
 	"Boutique", -- stands d'achat
 	"Paliers", -- paliers de record et fonctions qui s'ouvrent
+	"Recompenses", -- quêtes, défis, connexion, cadeaux, roue, codes, boosts
 }
 
 for _, nom in ORDRE do

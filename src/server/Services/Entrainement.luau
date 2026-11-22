@@ -16,6 +16,8 @@ local Remotes = require(Shared:WaitForChild("Remotes"))
 local Map = require(Shared:WaitForChild("Util"):WaitForChild("Map"))
 local Donnees = require(script.Parent.Donnees)
 local Compagnons = require(script.Parent.Compagnons)
+local Recompenses = require(script.Parent.Recompenses)
+local RecompensesConfig = require(Config:WaitForChild("Recompenses"))
 
 local Entrainement = {}
 
@@ -64,6 +66,7 @@ local function gainPassif(player: Player, multiplicateurZone: number): number
 		* Equipement.multiplicateurMateriel(player:GetAttribute("Materiel"))
 		* Compagnons.multiplicateur(player, "Coach")
 		* StatsConfig.bonusDebutant(player:GetAttribute("Record"))
+		* RecompensesConfig.boost(player, "Entrainement")
 end
 
 -- Zone et stat où le joueur s'entraîne en ce moment (nil s'il ne s'entraîne pas)
@@ -88,7 +91,9 @@ local function entrainer(player: Player)
 		player:SetAttribute("Entraine", stat)
 	end
 	if stat then
-		player:SetAttribute(stat, player:GetAttribute(stat) + gainPassif(player, mult))
+		local gain = gainPassif(player, mult)
+		player:SetAttribute(stat, player:GetAttribute(stat) + gain)
+		Recompenses.compter(player, "Stats", gain)
 	end
 end
 
@@ -102,6 +107,7 @@ local function jouer(player: Player, q, battement: number): number
 	local parSeconde = gainPassif(player, mult) * RYTHME.periode / StatsConfig.ENTRAINEMENT_INTERVALLE
 	local bonus = parSeconde * (q.multiplicateur - 1)
 	player:SetAttribute(stat, player:GetAttribute(stat) + bonus)
+	Recompenses.compter(player, "Stats", bonus)
 	return bonus
 end
 

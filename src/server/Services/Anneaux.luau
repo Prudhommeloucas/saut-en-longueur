@@ -11,6 +11,7 @@ local SautConfig = require(Config:WaitForChild("Saut"))
 local Textes = require(Config:WaitForChild("Textes"))
 local Remotes = require(Shared:WaitForChild("Remotes"))
 local Donnees = require(script.Parent.Donnees)
+local Recompenses = require(script.Parent.Recompenses)
 
 local Anneaux = {}
 
@@ -66,6 +67,7 @@ local function surContact(anneau: BasePart, hit: BasePart)
 			)
 		end
 	end
+	Recompenses.compter(player, "Anneaux")
 	Remotes.AnneauTraverse:FireClient(player, pieces, serie)
 end
 

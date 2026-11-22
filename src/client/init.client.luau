@@ -8,6 +8,7 @@ local ORDRE = {
 	"Saut", -- jetpack, caméra, distance en direct
 	"Rythme", -- entraînement actif : cercle et appuis
 	"Paliers", -- prochain palier, fonctions qui s'ouvrent
+	"Recompenses", -- panneau provisoire des quêtes, cadeaux, roue, codes
 	"Compagnons", -- compagnons qui suivent les joueurs
 	"EcranCompagnons", -- inventaire, équipe, index
 	"EcranOeuf", -- chances et achat d'un œuf

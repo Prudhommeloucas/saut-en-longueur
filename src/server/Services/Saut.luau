@@ -18,6 +18,8 @@ local Donnees = require(script.Parent.Donnees)
 local Personnage = require(script.Parent.Personnage)
 local Compagnons = require(script.Parent.Compagnons)
 local Anneaux = require(script.Parent.Anneaux)
+local Recompenses = require(script.Parent.Recompenses)
+local RecompensesConfig = require(Config:WaitForChild("Recompenses"))
 local Textes = require(Config:WaitForChild("Textes"))
 
 local Saut = {}
@@ -360,6 +362,7 @@ local function atterrir(player: Player, char: Model, hrp: BasePart, monde: numbe
 			* Compagnons.multiplicateur(player, "Tresorier")
 			* Equipement.piecesDe(player)
 			* Mondes.get(Map.mondeDe(player)).pieces
+			* RecompensesConfig.boost(player, "Pieces")
 			* (infoR and infoR.multiplicateur or 1)
 			* (1 + bonus)
 			* (if parfait then SautConfig.PARFAIT_MULTIPLICATEUR else 1)
@@ -382,6 +385,16 @@ local function atterrir(player: Player, char: Model, hrp: BasePart, monde: numbe
 		player:SetAttribute("Record", metres)
 		ls["Record (m)"].Value = math.floor(metres)
 	end
+	-- Quêtes et défis (T-205)
+	Recompenses.compter(player, "Sauts")
+	Recompenses.compter(player, "Distance", metres)
+	if idAppel == "Parfait" then
+		Recompenses.compter(player, "Parfaits")
+	end
+	if estRecord then
+		Recompenses.compter(player, "Records")
+	end
+	Recompenses.compter(player, "Serie", Saut.serieDe(player))
 	Remotes.SautResultat:FireClient(player, metres, gain, estRecord, idRare, idAppel, maitrise)
 	effetAtterrissage(hrp.Position, estRecord)
 	Personnage.activerJetpack(char, false)
