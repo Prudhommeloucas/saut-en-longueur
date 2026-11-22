@@ -50,7 +50,7 @@ Pour cocher : `- [x] T-101 Appel — Code (2026-11-15, P3)`. On ne modifie que l
 ## Phase 2 — Progression
 
 - [ ] T-200 Contrats et identifiants de la phase — Code
-- [ ] T-201 Formules, configuration, tableur, simulation — Code
+- [x] T-201 Formules, configuration, tableur, simulation — Code (2026-11-22, P2 ; matériel provisoire en attendant T-203, mondes 2 à 6 estimés)
 - [ ] T-202 Entraînement — Code
 - [ ] T-203 Équipement — Code
 - [ ] T-204 Paliers de record — Code

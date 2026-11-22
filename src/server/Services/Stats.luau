@@ -20,8 +20,10 @@ local function majJoueur(player: Player)
 	local debut = Map.debutPisteX(Map.mondeDe(player))
 	local sp = debut ~= nil and hrp.Position.X > debut
 	if sp then
-		hum.WalkSpeed = StatsConfig.vitesseCourse(player:GetAttribute("Vitesse"))
-		hum.JumpPower = StatsConfig.puissanceSaut(player:GetAttribute("Puissance"), player:GetAttribute("Chaussures"))
+		local monde = Map.mondeDe(player)
+		hum.WalkSpeed = StatsConfig.vitesseCourse(player:GetAttribute("Vitesse"), monde)
+		hum.JumpPower =
+			StatsConfig.puissanceSaut(player:GetAttribute("Puissance"), player:GetAttribute("Chaussures"), monde)
 	else
 		hum.WalkSpeed = StatsConfig.VITESSE_BASE
 		hum.JumpPower = StatsConfig.SAUT_BASE

@@ -15,7 +15,7 @@ Le monde 1 existe et le monde 2 est le prochain. **Les thèmes des mondes 3 à 6
 | 5 | Métropole Néon | Rebonds sur les toits (un geste par rebond), anneaux mobiles | Record de 5 km au monde 4, catégorie National | 15 km | × 1 000 |
 | 6 | Base Lunaire | Faible gravité, propulseur beaucoup plus efficace | Record de 10 km au monde 5 | 40 km | × 8 000 |
 
-Les seuils et multiplicateurs sont des valeurs de départ ([[Économie]]).
+Les seuils et multiplicateurs sont des valeurs de départ ([[Économie]]). Depuis T-201 (2026-11-22), ils vivent dans `src/shared/Config/Mondes.luau` : échelle, multiplicateur de pièces, gravité, plafonds de vitesse et de saut, longueur du bac, accès et paliers de zones de chaque monde. `Mondes.get(n)` donne la configuration du monde `n`. Seul le monde 1 est réglé par la simulation ; les plafonds et les zones des mondes 2 à 6 sont des estimations à reprendre monde par monde.
 
 ## Ce que contient chaque monde
 

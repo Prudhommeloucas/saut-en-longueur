@@ -95,12 +95,14 @@ Saut.JETPACK_TOLERANCE = 0.3 -- s
 Saut.BORNE_MARGE = 1.2
 Saut.BORNE_PLUS = 3 -- m
 
--- Portée maximale d'un saut, en mètres, pour les stats et l'équipement donnés : le meilleur appel,
--- toute la poussée des anneaux traversés, et le jetpack poussé du début à la fin (même règle que le contrôleur Saut).
--- p = { vitesse, saut, gravite, jetpack = { carburant, poussee, vitesseMontee }?, pousseeAnneaux }
-function Saut.porteeMax(p): number
+-- Portée d'un saut, en mètres, sans marge : élan vitesse, vitesse verticale saut × appel, jetpack poussé
+-- du début à la fin s'il est donné, poussée des anneaux comptée d'un coup (même règle que le contrôleur Saut).
+-- p = { vitesse, saut, gravite, appel?, jetpack = { carburant, poussee, vitesseMontee }?, pousseeAnneaux?,
+--       studsParMetre? }
+function Saut.portee(p): number
 	local dt = 1 / 120
-	local vy = p.saut * Saut.APPEL_QUALITES[1].multiplicateur + p.pousseeAnneaux
+	local anneaux = p.pousseeAnneaux or 0
+	local vy = p.saut * (p.appel or Saut.APPEL_QUALITES[1].multiplicateur) + anneaux
 	local y, t = 0, 0
 	local carburant = p.jetpack and p.jetpack.carburant or 0
 	repeat
@@ -112,8 +114,13 @@ function Saut.porteeMax(p): number
 		y += vy * dt
 		t += dt
 	until y < 0 or t > 60
-	local vx = p.vitesse + p.pousseeAnneaux / 2
-	return vx * t / Saut.STUDS_PAR_METRE * Saut.BORNE_MARGE + Saut.BORNE_PLUS
+	return (p.vitesse + anneaux / 2) * t / (p.studsParMetre or Saut.STUDS_PAR_METRE)
+end
+
+-- Portée maximale d'un saut, en mètres, pour les stats et l'équipement donnés : le meilleur appel,
+-- toute la poussée des anneaux traversés, et le jetpack poussé du début à la fin, puis la marge.
+function Saut.porteeMax(p): number
+	return Saut.portee(p) * Saut.BORNE_MARGE + Saut.BORNE_PLUS
 end
 
 return Saut

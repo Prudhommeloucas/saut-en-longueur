@@ -18,6 +18,8 @@ Les décisions prises et les questions à trancher. N'importe qui peut écrire u
 
 | Date | Décision | Détail |
 | --- | --- | --- |
+| 2026-11-22 | Les 20 premières minutes avancent beaucoup plus vite que la suite : bonus de débutant (entraînement × 10 au départ, éteint à 60 m), zones du monde 1 adoucies à × 2 et × 12 (VIP × 20). Jalons : 25 m à 8 min, 60 m à 20 min, 80 m à 45 min, 150 m à 1 h 30 (décision de Loucas, P2) | [[Économie]], [[Boucles de gameplay]] |
+| 2026-11-22 | Anneaux : l'élan vers l'avant tient jusqu'au sol, poussée ramenée de 30 à 20 (P2) | [[Saut]] |
 | 2026-11-15 | Au spawn, le joueur ne voit que l'arche et les zones Débutant ; stands, œufs et portail se découvrent en se retournant, guidés par les marquages au sol (on ne le surcharge pas d'informations) | [[Construction du monde 1]] |
 | 2026-11-11 | Map en longueur, piste et spawn au départ | [[Map]] |
 | 2026-11-11 | Squat = Puissance, mollets = Vitesse ; bonus actifs seulement sur la piste | [[Entraînement]] |

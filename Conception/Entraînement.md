@@ -30,9 +30,11 @@ Chaque monde propose trois paliers de zones pour chaque stat. Une zone est une s
 | Palier (monde 1) | Multiplicateur | Condition |
 | --- | --- | --- |
 | Débutant | × 1 | Aucune |
-| Confirmé | × 5 | Record de 25 m |
-| Élite | × 25 | Record de 80 m |
-| Zone VIP | × 40 | Passe VIP ([[Monétisation]]) |
+| Confirmé | × 2 | Record de 25 m |
+| Élite | × 12 | Record de 80 m |
+| Zone VIP | × 20 | Passe VIP ([[Monétisation]]) |
+
+Valeurs réglées par la simulation de T-201 (2026-11-22, `Config/Mondes`). Elles étaient de × 5, × 25 et × 40 ; avec le bonus de débutant (× 10 au départ, éteint à 60 m), ces paliers rendaient la suite trop rapide. Les attributs `Multiplicateur` des zones de la place ont été mis aux nouvelles valeurs.
 
 Les zones des mondes suivants reprennent le même schéma avec des multiplicateurs plus élevés ([[Mondes]]).
 
@@ -57,7 +59,7 @@ Un talent donne, au retour, une part de l'entraînement passif accumulé pendant
 
 ## Nouvelles formules de stats
 
-Les formules actuelles atteignent leur plafond vers 5 000 points de stat, beaucoup trop tôt pour un jeu long. La cible est une courbe sans plafond dur, de la forme `base + k × stat^p` avec `p` entre 0,25 et 0,3, bornée par un plafond propre à chaque monde. Règle à tenir : doubler une stat doit toujours donner au moins 8 % de distance en plus. Les valeurs se règlent dans la tâche d'équilibrage ([[Économie]]).
+Fait à T-201 (2026-11-22) : voir [[Économie]] pour les valeurs en place et la simulation. Les anciennes formules atteignaient leur plafond vers 5 000 points de stat, beaucoup trop tôt pour un jeu long. La cible est une courbe sans plafond dur, de la forme `base + k × stat^p` avec `p` entre 0,25 et 0,3, bornée par un plafond propre à chaque monde. Règle à tenir : doubler une stat doit toujours donner au moins 8 % de distance en plus. Les valeurs se règlent dans la tâche d'équilibrage ([[Économie]]).
 
 ## À faire
 

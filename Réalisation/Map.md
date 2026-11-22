@@ -11,9 +11,9 @@ Chemins depuis `Workspace.Mondes.Monde1`. La place centrale ronde (T-114, 2026-1
 | Place ronde | `Spawn.SolPlace`, quatre `Spawn.Rosace` | | centre (-90, 0), rayon 85, dalles ; rosace de rayon 18 |
 | Points d'apparition | six `Spawn.PointApparition` (`SpawnLocation`) | `PointApparition` (`Monde` = 1) | cercle de rayon 10 autour du centre, tournés vers la piste |
 | Marquages au sol | `Spawn.Marquages` | | du bord de la rosace vers la piste (orange), la Puissance (rouge), la Vitesse (bleu), les stands (jaune), les œufs (violet), le portail (turquoise) |
-| Zones de Puissance | `Entrainement.PuissanceDebutant`, `…Confirme`, `…Elite` | `ZoneEntrainement` (`Stat` = Puissance ; ×1, ×5 dès 25 m, ×25 dès 80 m) | (-42, -36), (-66, -58), (-96, -64) |
+| Zones de Puissance | `Entrainement.PuissanceDebutant`, `…Confirme`, `…Elite` | `ZoneEntrainement` (`Stat` = Puissance ; ×1, ×2 dès 25 m, ×12 dès 80 m, depuis T-201) | (-42, -36), (-66, -58), (-96, -64) |
 | Zones de Vitesse | `Entrainement.VitesseDebutant`, `…Confirme`, `…Elite` | `ZoneEntrainement` (`Stat` = Vitesse ; mêmes paliers) | (-42, 36), (-66, 58), (-96, 64) |
-| Estrade VIP | `Entrainement.EstradeVIP` | `ZoneEntrainement` (Puissance ×40, `PasseRequis` = VIP : fermée sans passe) | (-90, -108) |
+| Estrade VIP | `Entrainement.EstradeVIP` | `ZoneEntrainement` (Puissance ×20 depuis T-201, `PasseRequis` = VIP : fermée sans passe) | (-90, -108) |
 | Stands | `Boutique.StandChaussures`, `StandPropulseur`, `StandMateriel`, `StandTenue` | `Stand` (`Famille` ; `Objet` = Chaussures, Jetpack sur les deux premiers) | (-127, -52), (-140, -40), (-149, -26), (-154, -11) |
 | Incubateurs | `Oeufs.Incubateur_stade`, `Oeufs.Incubateur_champion` (vrais modèles) | `Incubateur` (`Oeuf`) | (-126, 51), (-141, 36) |
 | Coffre et roue | `Oeufs.Coffre`, `Oeufs.Roue` | à créer (T-605) | (-152, 18), (-120, 72) |

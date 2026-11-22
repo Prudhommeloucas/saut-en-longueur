@@ -10,6 +10,7 @@ local Config = Shared:WaitForChild("Config")
 local SautConfig = require(Config:WaitForChild("Saut"))
 local Textes = require(Config:WaitForChild("Textes"))
 local Remotes = require(Shared:WaitForChild("Remotes"))
+local Nombres = require(Shared:WaitForChild("Util"):WaitForChild("Nombres"))
 local Audio = require(script.Parent.Audio)
 
 local player = Players.LocalPlayer
@@ -208,8 +209,9 @@ end
 
 local function majStats()
 	lblPuissance.Text =
-		string.format(Textes.STAT_PUISSANCE, tostring(math.floor(player:GetAttribute("Puissance") or 0)))
-	lblVitesse.Text = string.format(Textes.STAT_VITESSE, tostring(math.floor(player:GetAttribute("Vitesse") or 0)))
+		string.format(Textes.STAT_PUISSANCE, Nombres.abreger(math.floor(player:GetAttribute("Puissance") or 0)))
+	lblVitesse.Text =
+		string.format(Textes.STAT_VITESSE, Nombres.abreger(math.floor(player:GetAttribute("Vitesse") or 0)))
 	jauge.Visible = player:GetAttribute("Jetpack") == true
 end
 
@@ -250,7 +252,7 @@ local function suivreGain(attr: string, couleur: Color3)
 		-- Pas de « + » pour un saut de valeur (chargement des données)
 		if ancien and nouveau and nouveau > ancien and nouveau - ancien <= 1000 then
 			local gain = math.floor((nouveau - ancien) * 10 + 0.5) / 10
-			popup(string.format(Textes.GAIN_STAT, string.format("%g", gain)), couleur)
+			popup(string.format(Textes.GAIN_STAT, Nombres.abreger(gain)), couleur)
 		end
 		ancien = nouveau
 	end)
@@ -382,7 +384,7 @@ function Hud.demarrer()
 			.. texteMaitrise
 			.. texteRare
 			.. (estRecord and Textes.NOUVEAU_RECORD or "")
-			.. string.format(Textes.GAIN_PIECES, tostring(gain))
+			.. string.format(Textes.GAIN_PIECES, Nombres.abreger(gain))
 		if gain > 0 then
 			Audio.pieces()
 		end
@@ -400,7 +402,7 @@ function Hud.demarrer()
 
 	-- Anneau traversé : « +5 » au-dessus de la tête
 	Remotes.AnneauTraverse.OnClientEvent:Connect(function(pieces)
-		popup(string.format(Textes.ANNEAU_GAIN, tostring(pieces)), Color3.fromRGB(255, 220, 80))
+		popup(string.format(Textes.ANNEAU_GAIN, Nombres.abreger(pieces)), Color3.fromRGB(255, 220, 80))
 		Audio.pieces()
 	end)
 

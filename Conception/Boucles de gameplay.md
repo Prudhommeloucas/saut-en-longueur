@@ -37,17 +37,17 @@ Le jeu ne montre pas tout d'un coup. Chaque fonction s'ouvre à un palier de rec
 | Déblocage | Condition | Temps de jeu visé |
 | --- | --- | --- |
 | Boutique d'équipement | Premier saut | 1 min |
-| Entraînement actif (rythme) | Record de 5 m | 3 min |
-| Quêtes du jour | Record de 10 m | 5 min |
-| Compagnons et premier œuf | Record de 15 m | 8 min |
-| Zone d'entraînement Confirmé | Record de 25 m | 15 min |
-| Concours de serveur | Record de 30 m | 15 min |
-| Changement de catégorie | Record de 60 m | 35 min |
+| Entraînement actif (rythme) | Record de 5 m | 1 min |
+| Quêtes du jour | Record de 10 m | 2 min |
+| Compagnons et premier œuf | Record de 15 m | 4 min |
+| Zone d'entraînement Confirmé | Record de 25 m | 8 min |
+| Concours de serveur | Record de 30 m | 9 min |
+| Changement de catégorie | Record de 60 m | 20 min |
 | Zone d'entraînement Élite | Record de 80 m | 45 min |
-| Arbre de talents | Première médaille | 40 min |
+| Arbre de talents | Première médaille | 25 min |
 | Monde 2 | Record de 150 m | 1 h 30 |
 
-Les temps sont des cibles pour l'équilibrage, à vérifier en test ([[Économie]]).
+Les temps sont des cibles pour l'équilibrage, à vérifier en test ([[Économie]]). Depuis T-201 (2026-11-22, décision de Loucas) : les 20 premières minutes avancent vite grâce au bonus de débutant, la suite plus lentement. La simulation tient ces temps à 2 minutes près (courbe `assets/equilibrage/courbe_record_monde1.svg`).
 
 ## Pourquoi le joueur revient le lendemain
 

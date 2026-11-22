@@ -222,8 +222,12 @@ end
 -- Portée maximale du saut en cours, en mètres, d'après ce que le serveur sait du joueur
 local function porteeMax(player: Player): number
 	return SautConfig.porteeMax({
-		vitesse = StatsConfig.vitesseCourse(player:GetAttribute("Vitesse") or 0),
-		saut = StatsConfig.puissanceSaut(player:GetAttribute("Puissance") or 0, player:GetAttribute("Chaussures")),
+		vitesse = StatsConfig.vitesseCourse(player:GetAttribute("Vitesse") or 0, Map.mondeDe(player)),
+		saut = StatsConfig.puissanceSaut(
+			player:GetAttribute("Puissance") or 0,
+			player:GetAttribute("Chaussures"),
+			Map.mondeDe(player)
+		),
 		gravite = workspace.Gravity,
 		jetpack = if player:GetAttribute("Jetpack") then Equipement.OBJETS.Jetpack else nil,
 		pousseeAnneaux = Anneaux.pousseeDuSaut(player),

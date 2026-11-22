@@ -50,10 +50,11 @@ local function entrainer(player: Player)
 	if type(actuelle) ~= "number" then
 		return -- pas de zone, ou stat que le joueur n'a pas encore (Aero)
 	end
-	-- Le multiplicateur de la zone et les Coachs équipés multiplient le gain
+	-- Le multiplicateur de la zone, les Coachs équipés et le bonus de débutant multiplient le gain
 	local gain = StatsConfig.ENTRAINEMENT_GAIN
 		* (zone:GetAttribute("Multiplicateur") or 1)
 		* Compagnons.multiplicateur(player, "Coach")
+		* StatsConfig.bonusDebutant(player:GetAttribute("Record"))
 	player:SetAttribute(stat, actuelle + gain)
 end
 
