@@ -26,7 +26,12 @@ for cle, valeur in R.stats or {} do -- par exemple { K_SAUT = 6, BONUS_DEBUTANT 
 	Stats[cle] = valeur
 end
 
--- Hypothèses du joueur type (à remplacer par la configuration de T-202 et T-203 quand elle existera)
+-- Réglage des prix du catalogue pour un essai : R.prix = { [id] = prix }
+for id, prix in R.prix or {} do
+	Equipement.CATALOGUE[id].prix = prix
+end
+
+-- Hypothèses du joueur type
 local H = {
 	duree = R.duree or 2 * 3600, -- s simulées
 	monde = 1,
@@ -35,15 +40,8 @@ local H = {
 	rythme = R.rythme or 2.5, -- entraînement actif : × 3 parfait, × 2 bon ; moyenne 2,5
 	partEntrainement = R.partEntrainement or 0.75, -- part du temps passée à s'entraîner, le reste à sauter
 	dureeSaut = 15, -- s pour un saut : élan, vol, retour sur la place
-	-- Matériel d'entraînement (note Entraînement) : 8 paliers, chacun double le gain ; prix provisoire
-	-- (25 pièces, puis × 5 à chaque palier) en attendant le catalogue de T-203
-	materiel = R.materiel or (function()
-		local liste = {}
-		for i = 1, 8 do
-			table.insert(liste, { nom = "Materiel" .. i, multiplicateur = 2 ^ i, prix = math.floor(25 * 5 ^ (i - 1)) })
-		end
-		return liste
-	end)(),
+	-- Matériel d'entraînement : celui de Config/Equipement (T-202), sauf réglage
+	materiel = R.materiel or Equipement.MATERIEL,
 }
 
 local monde = Mondes.get(H.monde)
@@ -58,14 +56,20 @@ local etat = {
 	pieces = 0,
 	record = 0,
 	materiel = 0, -- palier acheté
-	chaussures = false,
-	jetpack = false,
+	possede = {}, -- [id du catalogue] = niveau
+	porte = {}, -- [famille] = id
 	sauts = 0,
 }
 local serie, evenements = {}, {}
 
+local function niveauPorte(famille)
+	local id = etat.porte[famille]
+	return id, id and etat.possede[id]
+end
+
 local function capacites(puissance, vitesse)
-	return Stats.vitesseCourse(vitesse, H.monde), Stats.puissanceSaut(puissance, etat.chaussures, H.monde)
+	return Stats.vitesseCourse(vitesse, H.monde),
+		Stats.puissanceSaut(puissance, Equipement.appel(niveauPorte("Chaussures")), H.monde)
 end
 
 local function distance(puissance, vitesse)
@@ -75,7 +79,7 @@ local function distance(puissance, vitesse)
 		saut = vy,
 		gravite = monde.gravite,
 		appel = H.appel,
-		jetpack = if etat.jetpack then Equipement.OBJETS.Jetpack else nil,
+		jetpack = Equipement.propulseur(niveauPorte("Propulseur")),
 		studsParMetre = monde.studsParMetre,
 	})
 end
@@ -94,21 +98,48 @@ local function noter(quoi)
 	table.insert(evenements, { t = etat.t, quoi = quoi, record = etat.record })
 end
 
--- Achat du meilleur objet abordable, un par un (chaussures, jetpack, puis le palier de matériel suivant)
+-- Achats d'un joueur type : toujours le moins cher de ce qui fait progresser (palier de matériel suivant,
+-- objet suivant de chaque famille, niveau suivant de l'objet porté), tant qu'il peut payer
 local function acheter()
 	local achete = true
 	while achete do
 		achete = false
 		local choix = {}
-		if not etat.chaussures then
-			table.insert(choix, { prix = Equipement.OBJETS.Chaussures.prix, nom = "Chaussures" })
-		end
-		if not etat.jetpack then
-			table.insert(choix, { prix = Equipement.OBJETS.Jetpack.prix, nom = "Jetpack" })
-		end
 		local suivant = H.materiel[etat.materiel + 1]
 		if suivant then
-			table.insert(choix, { prix = suivant.prix, nom = suivant.nom })
+			table.insert(choix, {
+				prix = suivant.prix,
+				nom = suivant.nom or ("Materiel" .. (etat.materiel + 1)),
+				faire = function()
+					etat.materiel += 1
+				end,
+			})
+		end
+		for _, famille in Equipement.FAMILLES do
+			for _, id in Equipement.objetsDe(famille, H.monde) do
+				if not etat.possede[id] then
+					table.insert(choix, {
+						prix = Equipement.CATALOGUE[id].prix,
+						nom = id,
+						faire = function()
+							etat.possede[id] = 1
+							etat.porte[famille] = id
+						end,
+					})
+					break
+				end
+			end
+			local id, niveau = niveauPorte(famille)
+			local prix = id and Equipement.prixNiveau(id, niveau + 1)
+			if prix then
+				table.insert(choix, {
+					prix = prix,
+					nom = id .. " niveau " .. (niveau + 1),
+					faire = function()
+						etat.possede[id] = niveau + 1
+					end,
+				})
+			end
 		end
 		table.sort(choix, function(a, b)
 			return a.prix < b.prix
@@ -116,13 +147,7 @@ local function acheter()
 		local c = choix[1]
 		if c and c.prix <= etat.pieces then
 			etat.pieces -= c.prix
-			if c.nom == "Chaussures" then
-				etat.chaussures = true
-			elseif c.nom == "Jetpack" then
-				etat.jetpack = true
-			else
-				etat.materiel += 1
-			end
+			c.faire()
 			noter("achat " .. c.nom .. " (" .. c.prix .. ")")
 			achete = true
 		end
@@ -137,7 +162,12 @@ while etat.t < H.duree do
 	if etat.t >= prochainSaut then
 		-- un saut
 		local d = distance(etat.puissance, etat.vitesse)
-		local gain = math.floor(d * monde.pieces * (1 + (if H.reception then Saut.RECEPTION_BONUS else 0)))
+		local gain = math.floor(
+			d
+				* monde.pieces
+				* Equipement.pieces(niveauPorte("Tenue"))
+				* (1 + (if H.reception then Saut.RECEPTION_BONUS else 0))
+		)
 		etat.pieces += gain
 		etat.sauts += 1
 		if d > etat.record then

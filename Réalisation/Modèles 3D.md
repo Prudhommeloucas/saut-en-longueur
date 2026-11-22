@@ -208,3 +208,7 @@ Planches Gemini `stade_anneau.png`, `stade_ecran.png`, `stade_projecteur.png`, `
 - `stade_spectateur` (100 triangles, 3 × 3,4 × 1,5) : corps et bras levés `Corps`, tête `Tete` lisse. Ni yeux ni pieds, par économie (929 copies, environ 93 000 triangles).
 
 Préparation dans Studio : structure aplatie, meshes renommés par couleur, `SmoothPlastic`, sans collision ni requête, `WorldPivot` au sol avec l'avant vers -Z local (sans `PrimaryPart`, pour éviter le piège du pivot). Pose par `assets/plans/modeles_t105.luau`, avant tourné vers -X.
+
+## Propulseurs remontés (T-203, 2026-11-22)
+
+Dans `Assets.Equipement`, les trois propulseurs étaient démontés : sangles à leur place, mais bouteilles, cuves et réacteurs à environ 122 studs de la `Poignee`. Ils ont été remis en place d'après `propulseurs_monde1.blend` (Blender x, y, z → Roblox x, z, y depuis la plaque contre le dos), dans la place partagée et dans la copie. Tailles : soda 2,8 × 2,9 × 2,5 ; extincteur 2,0 × 2,9 × 2,6 ; réacteur 3,8 × 2,8 × 3,0. Le personnage les porte depuis T-203 ([[Équipement]]).

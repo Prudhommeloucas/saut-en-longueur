@@ -23,7 +23,18 @@ def constante(nom):
 
 EXPOSANT, K_V, K_S = constante("EXPOSANT"), constante("K_VITESSE"), constante("K_SAUT")
 V0, S0 = constante("VITESSE_PISTE_BASE"), constante("SAUT_PISTE_BASE")
-chaussures = float(re.search(r"bonusSaut\s*=\s*([\d.]+)", lire("Equipement")).group(1))
+equipement_src = lire("Equipement")
+catalogue_src = equipement_src.split("Equipement.CATALOGUE = {", 1)[1].split("} :: {", 1)[0]
+catalogue = []
+for m in re.finditer(r"\n\t(\w+) = \{(.*?)\}(?=,)", catalogue_src, re.S):
+    champs = dict(re.findall(r"(\w+) = (\"[^\"]*\"|[\d.]+)", m.group(2)))
+    champs = {k: (v.strip('"') if v.startswith('"') else float(v)) for k, v in champs.items()}
+    champs["id"] = m.group(1)
+    catalogue.append(champs)
+catalogue.sort(key=lambda o: (o["famille"], o["prix"]))
+chaussures = next(o["appel"] for o in catalogue if o["id"] == "chaussures_ressorts")
+NIVEAU_MAX = int(re.search(r"NIVEAU_MAX = (\d+)", equipement_src).group(1))
+BONUS_NIVEAU = float(re.search(r"BONUS_NIVEAU = ([\d.]+)", equipement_src).group(1))
 bonus_debutant = re.search(r"BONUS_DEBUTANT = \{ multiplicateur = ([\d.]+), recordFin = ([\d.]+) \}", stats_src)
 
 mondes_src = lire("Mondes")
@@ -143,7 +154,7 @@ lignes_formules = [
     ["base saut (piste)", S0, "Stats.SAUT_PISTE_BASE"],
     ["k saut", K_S, "Stats.K_SAUT"],
     ["exposant p", EXPOSANT, "Stats.EXPOSANT"],
-    ["bonus des chaussures", chaussures, "Equipement.Chaussures.bonusSaut"],
+    ["appel des semelles à ressorts (niveau 1)", chaussures, "Equipement.CATALOGUE.chaussures_ressorts.appel"],
     ["bonus de débutant (entraînement) au record 0", float(bonus_debutant.group(1)), "Stats.BONUS_DEBUTANT.multiplicateur"],
     ["record où le bonus de débutant s'éteint (m)", float(bonus_debutant.group(2)), "Stats.BONUS_DEBUTANT.recordFin"],
     [],
@@ -173,8 +184,22 @@ lignes_hyp = [["Hypothèse du joueur type", "Valeur"],
     ["Part du temps à s'entraîner", h["partEntrainement"]],
     ["Durée d'un saut avec retour (s)", h["dureeSaut"]],
     ["Anneaux, sauts rares, compagnons, catégories", "non comptés"],
-    [], ["Matériel (provisoire, T-203)", "Multiplicateur", "Prix"]]
+    [], ["Matériel d'entraînement (Config/Equipement.MATERIEL)", "Multiplicateur", "Prix"]]
 lignes_hyp += [[m["nom"], m["multiplicateur"], m["prix"]] for m in h["materiel"]]
+
+lignes_catalogue = [["Famille", "Identifiant", "Nom", "Monde", "Prix"]
+                    + [f"Niveau {n}" for n in range(2, NIVEAU_MAX + 1)]
+                    + ["Effet au niveau 1", f"Effet au niveau {NIVEAU_MAX}"]]
+for o in catalogue:
+    niveaux = [round(o["prix"] / 2 * 2 ** (n - 2)) for n in range(2, NIVEAU_MAX + 1)]
+    facteur = 1 + BONUS_NIVEAU * (NIVEAU_MAX - 1)
+    if "appel" in o:
+        effets = [f"appel × {o['appel']:g}", f"appel × {1 + (o['appel'] - 1) * facteur:.2f}"]
+    elif "pieces" in o:
+        effets = [f"pièces × {o['pieces']:g}", f"pièces × {1 + (o['pieces'] - 1) * facteur:.2f}"]
+    else:
+        effets = [f"{o['carburant']:g} s de poussée", f"{o['carburant'] * facteur:.2f} s de poussée"]
+    lignes_catalogue.append([o["famille"], o["id"], o["nom"], o["monde"], o["prix"]] + niveaux + effets)
 
 lignes_jalons = [["Record (m)", "Temps visé (min)", "Temps simulé (min)", "Écart (min)"]]
 for j in sim["jalons"]:
@@ -200,6 +225,7 @@ classeur(os.path.join(SORTIE, "equilibrage.xlsx"), {
     "Jalons": lignes_jalons,
     "Simulation": lignes_serie,
     "Achats": lignes_achats,
+    "Catalogue": lignes_catalogue,
     "Formules": lignes_formules,
     "Mondes": lignes_mondes,
     "Hypothèses": lignes_hyp,

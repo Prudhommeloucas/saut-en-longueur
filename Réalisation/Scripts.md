@@ -45,7 +45,7 @@ Les effets visuels et les sons sont décrits dans [[Décor et effets]].
 ## Données d'un joueur
 
 - `leaderstats` : `Pièces` et `Record (m)`.
-- Attributs sur le Player : `Puissance`, `Vitesse`, `Record`, `Chaussures`, `Jetpack`.
+- Attributs sur le Player : `Puissance`, `Vitesse`, `Record` ; depuis T-203 (2026-11-22), `Chaussures`, `Propulseur`, `Tenue` (identifiant de l'objet porté) et `<Famille>Niveau` remplacent les anciens booléens `Chaussures` et `Jetpack` ([[Équipement]]).
 - **Sauvegarde (T-006)** : bibliothèque **ProfileStore** (Wally, `lm-loleris/profilestore@1.0.3`, dans `ServerStorage.ServerPackages`). Magasin `SautEnLongueur_Profils`, clé `joueur_<UserId>`, verrou de session et sauvegarde automatique. Forme des données et numéro de version dans `Config/Donnees` : `version`, `repriseV1`, `pieces`, `record`, `stats {Puissance, Vitesse}`, `equipement.possede {id = niveau}`. Les autres services ne touchent pas au profil : ils changent les leaderstats et les attributs, et `Donnees` les recopie dans le profil à chaque changement.
 - Changer la forme des données : ajouter la clé dans `Config/Donnees.MODELE` (remplie seule chez les anciens joueurs) ; si une donnée change de sens, monter `VERSION` et écrire la migration dans `MIGRATIONS` du service.
 - Si le profil ne se charge pas (autre serveur, Roblox injoignable), le joueur est renvoyé avec un message plutôt que de jouer sans sauvegarde.

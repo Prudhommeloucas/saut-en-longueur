@@ -17,7 +17,21 @@ local magasin = ProfileStore.New(DonneesConfig.MAGASIN, DonneesConfig.MODELE)
 local profils = {} -- [player] = profil actif
 
 -- Migrations numérotées : MIGRATIONS[n] fait passer les données de la version n à n + 1.
-local MIGRATIONS: { [number]: (data: any) -> () } = {}
+local MIGRATIONS: { [number]: (data: any) -> () } = {
+	-- 1 → 2 (T-203) : « Chaussures » et « Jetpack » deviennent les premiers objets du catalogue, portés
+	[1] = function(data)
+		local eq = data.equipement
+		eq.porte = eq.porte or {}
+		for ancien, nouveau in Equipement.ANCIENS do
+			if eq.possede[ancien] then
+				eq.possede[nouveau] = math.max(eq.possede[nouveau] or 1, 1)
+				eq.possede[ancien] = nil
+				local famille = Equipement.CATALOGUE[nouveau].famille
+				eq.porte[famille] = eq.porte[famille] or nouveau
+			end
+		end
+	end,
+}
 
 local auChargement = {} -- fonctions appelées quand un joueur est chargé
 
@@ -63,9 +77,11 @@ local function reprendreV1(player: Player, data)
 		data.record = math.max(data.record, tonumber(ancien.Record) or 0)
 		data.stats.Puissance = math.max(data.stats.Puissance, tonumber(ancien.Puissance) or 0)
 		data.stats.Vitesse = math.max(data.stats.Vitesse, tonumber(ancien.Vitesse) or 0)
-		for id in Equipement.OBJETS do
+		for id, nouveau in Equipement.ANCIENS do
 			if ancien[id] == true then
-				data.equipement.possede[id] = data.equipement.possede[id] or 1
+				data.equipement.possede[nouveau] = data.equipement.possede[nouveau] or 1
+				local famille = Equipement.CATALOGUE[nouveau].famille
+				data.equipement.porte[famille] = data.equipement.porte[famille] or nouveau
 			end
 		end
 	end
@@ -87,11 +103,7 @@ local function ecrire(player: Player)
 	data.stats.Vitesse = player:GetAttribute("Vitesse") or data.stats.Vitesse
 	data.gemmes = player:GetAttribute("Gemmes") or data.gemmes
 	data.equipement.materiel = player:GetAttribute("Materiel") or data.equipement.materiel
-	for id in Equipement.OBJETS do
-		if player:GetAttribute(id) == true then
-			data.equipement.possede[id] = data.equipement.possede[id] or 1
-		end
-	end
+	-- Les objets possédés et leurs niveaux sont écrits directement dans le profil par la boutique
 end
 
 local function afficher(player: Player, data)
@@ -112,8 +124,11 @@ local function afficher(player: Player, data)
 	player:SetAttribute("Vitesse", data.stats.Vitesse)
 	player:SetAttribute("Gemmes", data.gemmes)
 	player:SetAttribute("Materiel", data.equipement.materiel or 0)
-	for id in Equipement.OBJETS do
-		player:SetAttribute(id, data.equipement.possede[id] ~= nil)
+	for _, famille in Equipement.FAMILLES do
+		local id = data.equipement.porte[famille]
+		local niveau = id and data.equipement.possede[id]
+		player:SetAttribute(famille, if niveau then id else nil)
+		player:SetAttribute(famille .. "Niveau", niveau)
 	end
 
 	pieces.Changed:Connect(function()

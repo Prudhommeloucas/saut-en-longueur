@@ -16,11 +16,12 @@ local Map = require(Shared:WaitForChild("Util"):WaitForChild("Map"))
 local Hud = require(script.Parent.Hud)
 
 local player = Players.LocalPlayer
-local infoJetpack = Equipement.OBJETS.Jetpack
+-- Propulseur porté : réglages relus à chaque image (le joueur peut changer d'objet ou de niveau)
+local SANS_PROPULSEUR = { carburant = 1, poussee = 0, vitesseMontee = 0 }
 
 local Saut = {}
 
-local carburant = infoJetpack.carburant
+local carburant = 0
 local dernierSaut = 0
 local jetActif = false
 local reculNormal = player.CameraMinZoomDistance -- distance minimale réglée dans StarterPlayer
@@ -63,9 +64,11 @@ local function chaqueImage(dt: number)
 		local monde = Map.mondeDe(player)
 		local debut = Map.debutPisteX(monde)
 		local enLAir = hum.FloorMaterial == Enum.Material.Air
+		local prop = Equipement.propulseurDe(player)
+		local infoJetpack = prop or SANS_PROPULSEUR
 		if not enLAir then
 			carburant = infoJetpack.carburant
-		elseif player:GetAttribute("Jetpack") and carburant > 0 and hrp.Position.X > (debut or math.huge) then
+		elseif prop and carburant > 0 and hrp.Position.X > (debut or math.huge) then
 			local maintenu = (maintenant - dernierSaut) < 0.15 or UserInputService:IsKeyDown(Enum.KeyCode.Space)
 			if maintenu then
 				pousse = true
@@ -75,7 +78,7 @@ local function chaqueImage(dt: number)
 				hrp.AssemblyLinearVelocity = Vector3.new(v.X, vy, v.Z)
 			end
 		end
-		Hud.majCarburant(carburant / infoJetpack.carburant)
+		Hud.majCarburant(math.min(carburant / infoJetpack.carburant, 1))
 
 		if not enLAir then
 			elanAnneaux = 0

@@ -1,4 +1,5 @@
--- Personnage : réglage à l'apparition et objets portés (jetpack, semelles), flammes et traînées.
+-- Personnage : réglage à l'apparition et objets portés (T-203 : vrais modèles d'Assets.Equipement, propulseur
+-- dans le dos, chaussures aux deux pieds), flammes et traînées.
 local Players = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
@@ -6,38 +7,14 @@ local Config = ReplicatedStorage:WaitForChild("Shared"):WaitForChild("Config")
 local Sons = require(Config:WaitForChild("Sons"))
 local Donnees = require(script.Parent.Donnees)
 
+local dossierModeles = ReplicatedStorage:WaitForChild("Assets"):WaitForChild("Equipement")
+
 local Personnage = {}
 
 local surPiste = {} -- [player] = dernier état connu, pour n'activer la traînée qu'au changement
 
-local function decor(nom: string, taille: Vector3, couleur: Color3, materiau: Enum.Material): Part
-	local p = Instance.new("Part")
-	p.Name = nom
-	p.Size = taille
-	-- Style blocs à studs : plastique classique, studs dessus, couleur BrickColor la plus proche.
-	-- Le néon reste pour ce qui doit briller (tuyères, semelles).
-	p.BrickColor = BrickColor.new(couleur)
-	p.Material = if materiau == Enum.Material.Neon then Enum.Material.Neon else Enum.Material.Plastic
-	p.TopSurface = Enum.SurfaceType.Studs
-	p.BottomSurface = Enum.SurfaceType.Inlet
-	p.CanCollide = false
-	p.CanTouch = false
-	p.CanQuery = false
-	p.Massless = true
-	return p
-end
-
-local function souder(p: Part, cible: BasePart, decalage: CFrame, parent: Instance)
-	p.CFrame = cible.CFrame * decalage
-	local w = Instance.new("WeldConstraint")
-	w.Part0 = cible
-	w.Part1 = p
-	w.Parent = p
-	p.Parent = parent
-end
-
 -- Flamme, lueur et son dans une tuyère de jetpack (éteints par défaut)
-local function ajouterFlamme(tuyere: Part, avecSon: boolean)
+local function ajouterFlamme(tuyere: BasePart, avecSon: boolean)
 	local f = Instance.new("ParticleEmitter")
 	f.Name = "Flamme"
 	f.Enabled = false
@@ -71,13 +48,13 @@ local function ajouterFlamme(tuyere: Part, avecSon: boolean)
 	end
 end
 
--- Traînée lumineuse derrière une semelle (éteinte par défaut)
-local function ajouterTrainee(semelle: Part)
+-- Traînée lumineuse derrière une semelle (éteinte par défaut), de `largeur` studs
+local function ajouterTrainee(semelle: BasePart, largeur: number)
 	local a0 = Instance.new("Attachment")
-	a0.Position = Vector3.new(-semelle.Size.X / 2, 0, 0)
+	a0.Position = Vector3.new(-largeur / 2, 0, 0)
 	a0.Parent = semelle
 	local a1 = Instance.new("Attachment")
-	a1.Position = Vector3.new(semelle.Size.X / 2, 0, 0)
+	a1.Position = Vector3.new(largeur / 2, 0, 0)
 	a1.Parent = semelle
 	local t = Instance.new("Trail")
 	t.Name = "Trainee"
@@ -129,6 +106,64 @@ function Personnage.majTrainees(player: Player, char: Model, sp: boolean)
 	end
 end
 
+-- Copie prête à porter d'un modèle d'Assets.Equipement : pièces libres, sans masse ni collision, soudées à la Poignee
+local function copieModele(id: string): Model?
+	local modele = dossierModeles:FindFirstChild(id)
+	if not (modele and modele:IsA("Model") and modele.PrimaryPart) then
+		warn("Modèle d'équipement introuvable :", id)
+		return nil
+	end
+	local m = modele:Clone()
+	local poignee = m.PrimaryPart :: BasePart
+	for _, d in m:GetDescendants() do
+		if d:IsA("BasePart") then
+			d.Anchored = false
+			d.CanCollide = false
+			d.CanTouch = false
+			d.CanQuery = false
+			d.Massless = true
+			if d ~= poignee then
+				local w = Instance.new("WeldConstraint")
+				w.Part0 = poignee
+				w.Part1 = d
+				w.Parent = d
+			end
+		end
+	end
+	return m
+end
+
+-- Pose une copie : sa Poignee à `cf`, soudée à `cible`
+local function poser(m: Model, cible: BasePart, cf: CFrame, parent: Instance)
+	m:PivotTo(cf)
+	local w = Instance.new("WeldConstraint")
+	w.Part0 = cible
+	w.Part1 = m.PrimaryPart
+	w.Parent = m.PrimaryPart
+	m.Parent = parent
+end
+
+-- Tuyère invisible sous le propulseur : les flammes et le son du jetpack y sont accrochés
+local function ajouterTuyere(m: Model, parent: Instance)
+	local cf, taille = m:GetBoundingBox()
+	local t = Instance.new("Part")
+	t.Name = "Tuyere"
+	t.Size = Vector3.new(0.4, 0.2, 0.4)
+	t.Transparency = 1
+	t.CanCollide = false
+	t.CanTouch = false
+	t.CanQuery = false
+	t.Massless = true
+	t.CFrame = cf * CFrame.new(0, -taille.Y / 2, 0)
+	local w = Instance.new("WeldConstraint")
+	w.Part0 = m.PrimaryPart
+	w.Part1 = t
+	w.Parent = t
+	t.Parent = parent
+	ajouterFlamme(t, true)
+end
+
+-- Porte les objets du joueur (attributs « Chaussures », « Propulseur » ; la tenue n'a pas encore de modèle, T-207)
 function Personnage.equiperVisuels(player: Player)
 	local char = player.Character
 	if not char then
@@ -142,42 +177,28 @@ function Personnage.equiperVisuels(player: Player)
 	dossier.Name = "ObjetsSaut"
 	dossier.Parent = char
 
-	if player:GetAttribute("Jetpack") then
-		local torse = char:FindFirstChild("UpperTorso") or char:FindFirstChild("Torso")
-		if torse then
-			local gris = Color3.fromRGB(90, 90, 100)
-			souder(
-				decor("JetpackG", Vector3.new(0.7, 1.6, 0.7), gris, Enum.Material.Metal),
-				torse,
-				CFrame.new(-0.45, 0, 0.85),
-				dossier
-			)
-			souder(
-				decor("JetpackD", Vector3.new(0.7, 1.6, 0.7), gris, Enum.Material.Metal),
-				torse,
-				CFrame.new(0.45, 0, 0.85),
-				dossier
-			)
-			local feu = Color3.fromRGB(255, 140, 30)
-			local tuyereG = decor("TuyereG", Vector3.new(0.5, 0.3, 0.5), feu, Enum.Material.Neon)
-			souder(tuyereG, torse, CFrame.new(-0.45, -0.95, 0.85), dossier)
-			ajouterFlamme(tuyereG, true)
-			local tuyereD = decor("TuyereD", Vector3.new(0.5, 0.3, 0.5), feu, Enum.Material.Neon)
-			souder(tuyereD, torse, CFrame.new(0.45, -0.95, 0.85), dossier)
-			ajouterFlamme(tuyereD, false)
+	local propulseur = player:GetAttribute("Propulseur")
+	local torse = char:FindFirstChild("UpperTorso") or char:FindFirstChild("Torso")
+	if propulseur and torse and torse:IsA("BasePart") then
+		local m = copieModele(propulseur)
+		if m then
+			-- La plaque du propulseur contre le dos : l'arrière du torse est son +Z
+			poser(m, torse, torse.CFrame * CFrame.new(0, 0, torse.Size.Z / 2), dossier)
+			ajouterTuyere(m, dossier)
 		end
 	end
 
-	if player:GetAttribute("Chaussures") then
-		local orange = Color3.fromRGB(255, 150, 40)
+	local chaussures = player:GetAttribute("Chaussures")
+	if chaussures then
 		for _, nom in { "LeftFoot", "RightFoot", "Left Leg", "Right Leg" } do
 			local pied = char:FindFirstChild(nom)
 			if pied and pied:IsA("BasePart") then
-				local bas = -pied.Size.Y / 2
-				local semelle =
-					decor("Semelle", Vector3.new(pied.Size.X + 0.2, 0.3, pied.Size.Z + 0.3), orange, Enum.Material.Neon)
-				souder(semelle, pied, CFrame.new(0, bas, 0), dossier)
-				ajouterTrainee(semelle)
+				local m = copieModele(chaussures)
+				if m then
+					-- La Poignee est au centre du dessus de la semelle : sous le pied, pointe vers l'avant (-Z)
+					poser(m, pied, pied.CFrame * CFrame.new(0, -pied.Size.Y / 2, 0), dossier)
+					ajouterTrainee(m.PrimaryPart, 1.2)
+				end
 			end
 		end
 	end

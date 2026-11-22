@@ -4,6 +4,7 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 local Config = ReplicatedStorage:WaitForChild("Shared"):WaitForChild("Config")
 local StatsConfig = require(Config:WaitForChild("Stats"))
+local Equipement = require(Config:WaitForChild("Equipement"))
 local Map = require(ReplicatedStorage:WaitForChild("Shared"):WaitForChild("Util"):WaitForChild("Map"))
 local Donnees = require(script.Parent.Donnees)
 local Personnage = require(script.Parent.Personnage)
@@ -22,8 +23,7 @@ local function majJoueur(player: Player)
 	if sp then
 		local monde = Map.mondeDe(player)
 		hum.WalkSpeed = StatsConfig.vitesseCourse(player:GetAttribute("Vitesse"), monde)
-		hum.JumpPower =
-			StatsConfig.puissanceSaut(player:GetAttribute("Puissance"), player:GetAttribute("Chaussures"), monde)
+		hum.JumpPower = StatsConfig.puissanceSaut(player:GetAttribute("Puissance"), Equipement.appelDe(player), monde)
 	else
 		hum.WalkSpeed = StatsConfig.VITESSE_BASE
 		hum.JumpPower = StatsConfig.SAUT_BASE

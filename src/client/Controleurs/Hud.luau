@@ -212,7 +212,7 @@ local function majStats()
 		string.format(Textes.STAT_PUISSANCE, Nombres.abreger(math.floor(player:GetAttribute("Puissance") or 0)))
 	lblVitesse.Text =
 		string.format(Textes.STAT_VITESSE, Nombres.abreger(math.floor(player:GetAttribute("Vitesse") or 0)))
-	jauge.Visible = player:GetAttribute("Jetpack") == true
+	jauge.Visible = (player:GetAttribute("Propulseur") or "") ~= ""
 end
 
 -- Petit "+1" qui s'envole au-dessus de la tête pendant l'entraînement
@@ -321,7 +321,7 @@ end
 function Hud.demarrer()
 	construire()
 
-	for _, attr in { "Puissance", "Vitesse", "Jetpack" } do
+	for _, attr in { "Puissance", "Vitesse", "Propulseur" } do
 		player:GetAttributeChangedSignal(attr):Connect(majStats)
 	end
 	majStats()

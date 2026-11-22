@@ -10,6 +10,7 @@ local Config = Shared:WaitForChild("Config")
 local SautConfig = require(Config:WaitForChild("Saut"))
 local StatsConfig = require(Config:WaitForChild("Stats"))
 local Equipement = require(Config:WaitForChild("Equipement"))
+local Mondes = require(Config:WaitForChild("Mondes"))
 local Sons = require(Config:WaitForChild("Sons"))
 local Remotes = require(Shared:WaitForChild("Remotes"))
 local Map = require(Shared:WaitForChild("Util"):WaitForChild("Map"))
@@ -176,7 +177,8 @@ end
 local jetpack = {} -- [player] = { utilise = secondes, depuis = os.clock() si la poussée est en cours }
 
 local function surJetpack(player: Player, actif: unknown)
-	if type(actif) ~= "boolean" or not player:GetAttribute("Jetpack") then
+	local prop = Equipement.propulseurDe(player)
+	if type(actif) ~= "boolean" or not prop then
 		return
 	end
 	local char = player.Character
@@ -189,7 +191,7 @@ local function surJetpack(player: Player, actif: unknown)
 		j.utilise += os.clock() - j.depuis
 		j.depuis = nil
 	end
-	local reste = Equipement.OBJETS.Jetpack.carburant + SautConfig.JETPACK_TOLERANCE - j.utilise
+	local reste = prop.carburant + SautConfig.JETPACK_TOLERANCE - j.utilise
 	if actif and reste > 0 then
 		j.depuis = os.clock()
 		Personnage.activerJetpack(char, true)
@@ -208,7 +210,8 @@ local function surveillerJetpack(player: Player, hum: Humanoid)
 		jetpack[player] = nil
 	elseif
 		j.depuis
-		and j.utilise + os.clock() - j.depuis > Equipement.OBJETS.Jetpack.carburant + SautConfig.JETPACK_TOLERANCE
+		and j.utilise + os.clock() - j.depuis
+			> (Equipement.propulseurDe(player) or { carburant = 0 }).carburant + SautConfig.JETPACK_TOLERANCE
 	then
 		j.utilise += os.clock() - j.depuis
 		j.depuis = nil
@@ -225,11 +228,11 @@ local function porteeMax(player: Player): number
 		vitesse = StatsConfig.vitesseCourse(player:GetAttribute("Vitesse") or 0, Map.mondeDe(player)),
 		saut = StatsConfig.puissanceSaut(
 			player:GetAttribute("Puissance") or 0,
-			player:GetAttribute("Chaussures"),
+			Equipement.appelDe(player),
 			Map.mondeDe(player)
 		),
 		gravite = workspace.Gravity,
-		jetpack = if player:GetAttribute("Jetpack") then Equipement.OBJETS.Jetpack else nil,
+		jetpack = Equipement.propulseurDe(player),
 		pousseeAnneaux = Anneaux.pousseeDuSaut(player),
 	})
 end
@@ -355,6 +358,8 @@ local function atterrir(player: Player, char: Model, hrp: BasePart, monde: numbe
 		metres
 			* SautConfig.PIECES_PAR_METRE
 			* Compagnons.multiplicateur(player, "Tresorier")
+			* Equipement.piecesDe(player)
+			* Mondes.get(Map.mondeDe(player)).pieces
 			* (infoR and infoR.multiplicateur or 1)
 			* (1 + bonus)
 			* (if parfait then SautConfig.PARFAIT_MULTIPLICATEUR else 1)

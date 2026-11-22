@@ -36,6 +36,14 @@ local EVENEMENTS = {
 	"Rythme",
 	-- serveur → joueur : (qualite: string?, gain: number) résultat de l'appui (nil : raté)
 	"RythmeResultat",
+	-- joueur → serveur : (id: string) acheter un objet du catalogue d'équipement (T-203)
+	"AcheterObjet",
+	-- joueur → serveur : (id: string) monter d'un niveau un objet possédé
+	"AmeliorerObjet",
+	-- joueur → serveur : (id: string) porter un objet possédé
+	"PorterObjet",
+	-- serveur → joueur : (etat: { possede = { [id] = niveau }, porte = { [famille] = id } })
+	"EquipementEtat",
 }
 
 local Remotes = {} :: { [string]: RemoteEvent }

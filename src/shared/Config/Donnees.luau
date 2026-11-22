@@ -8,7 +8,7 @@ Donnees.MAGASIN = "SautEnLongueur_Profils"
 Donnees.MAGASIN_V1 = "SautEnLongueur_v1"
 
 -- Version de la forme des données. À chaque changement de forme : +1 et une migration dans le service Donnees.
-Donnees.VERSION = 1
+Donnees.VERSION = 2 -- 2 : catalogue d'équipement (T-203), objets portés par famille
 
 -- Forme d'un profil neuf. Une clé ajoutée ici est remplie toute seule chez les anciens joueurs (Reconcile).
 Donnees.MODELE = {
@@ -17,7 +17,8 @@ Donnees.MODELE = {
 	pieces = 0,
 	record = 0, -- en mètres
 	stats = { Puissance = 0, Vitesse = 0 },
-	equipement = { possede = {}, materiel = 0 }, -- possede : [identifiant] = niveau ; materiel : palier atteint (T-202)
+	-- possede : [identifiant du catalogue] = niveau ; porte : [famille] = identifiant ; materiel : palier (T-202)
+	equipement = { possede = {}, porte = {}, materiel = 0 },
 	compagnons = {
 		liste = {}, -- [uid] = { espece, version, niveau, xp }
 		equipes = {}, -- liste d'uid, dans l'ordre d'affichage

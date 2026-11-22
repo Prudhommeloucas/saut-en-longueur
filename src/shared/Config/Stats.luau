@@ -2,7 +2,6 @@
 -- Formules (T-201) : capacité = base + k × stat^EXPOSANT, plafonnée par monde (Config/Mondes).
 -- Rendement décroissant sans plafond dur : doubler une stat déjà forte donne au moins 8 % de distance.
 -- Coefficients réglés par la simulation (outils/equilibrage, note Économie).
-local Equipement = require(script.Parent.Equipement)
 local Mondes = require(script.Parent.Mondes)
 
 local Stats = {}
@@ -71,11 +70,9 @@ function Stats.vitesseCourse(vitesse: number, monde: number?): number
 end
 
 -- Puissance de saut sur la piste selon la stat Puissance (squat) et les chaussures
-function Stats.puissanceSaut(puissance: number, chaussures: boolean?, monde: number?): number
-	local p = Stats.SAUT_PISTE_BASE + Stats.K_SAUT * math.max(puissance or 0, 0) ^ Stats.EXPOSANT
-	if chaussures then
-		p *= Equipement.OBJETS.Chaussures.bonusSaut
-	end
+-- `appel` : multiplicateur des chaussures portées (Equipement.appelDe), 1 sans chaussures
+function Stats.puissanceSaut(puissance: number, appel: number?, monde: number?): number
+	local p = (Stats.SAUT_PISTE_BASE + Stats.K_SAUT * math.max(puissance or 0, 0) ^ Stats.EXPOSANT) * (appel or 1)
 	return math.min(p, Mondes.get(monde).plafondSaut)
 end
 

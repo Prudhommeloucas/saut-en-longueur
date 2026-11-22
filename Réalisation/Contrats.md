@@ -39,7 +39,7 @@ La map est rangée dans `Workspace.Mondes.Monde1` depuis T-007 (2026-11-17), voi
 | `PlancheAppel` | Part de la planche | `Monde` | posé (T-007), lu (T-008) : la distance se mesure depuis son bord +X |
 | `Bac` | Parts de la zone d'atterrissage | `Monde` | posé (T-007), lu (T-008) : le premier contact avec une de ces Parts compte comme atterrissage |
 | `Anneau` | Part de contact sans collision. Monde 1 : disque invisible `Zone` (cylindre, axe X, PrimaryPart) d'un Model `AnneauN` ; le modèle `stade_anneau` autour (`Or` à la couleur de la série, `Blanc`) est décoratif, sans contact | `Pieces` (nombre), `Poussee` (nombre) | posé (T-106, 2026-11-22) : 9 anneaux en blocs dans `Monde1.Anneaux.Serie1` à `Serie3` ; pièces une fois par anneau et par saut, en vol seulement ; défauts 5 pièces et poussée 20 (`Config/Saut`, 30 jusqu'au 2026-11-22) |
-| `Stand` | Model d'un stand de boutique | `Famille` (Chaussures, Propulseur, Materiel, Ailes, Tenue), `Objet` (identifiant de `Config/Equipement`, lu par la boutique) ; un `ProximityPrompt` quelque part dans le stand | posé (T-007), lu (T-008), sur les deux stands actuels, qui sont encore des Parts (`Famille` = Chaussures, Propulseur) ; un Model quand les vrais stands seront construits (T-207) |
+| `Stand` | Model d'un stand de boutique | `Famille` (Chaussures, Propulseur, Materiel, Ailes, Tenue) ; `Objet` = « Materiel » pour le stand de matériel (sinon ignoré depuis T-203) ; une invite `Prompt` (Acheter, E) et, créée par le code si absente, `PromptAmeliorer` (Améliorer, R) | posé (T-007), lu (T-008) ; depuis T-203 (2026-11-22), un stand de famille vend l'objet suivant de sa famille et améliore l'objet porté ; les stands Chaussures, Propulseur, Tenue et Materiel sont des Parts, un Model quand les vrais stands seront construits (T-207) |
 | `Incubateur` | Model | `Oeuf` (identifiant) | modèle prêt (`Assets.Decor.incubateur`, tag et `Oeuf` = `oeuf_stade` déjà posés ; changer l'attribut pour chaque copie). Attachment `PoseOeuf` dans `Blanc` : là où poser l'œuf |
 | `Portail` | Model | `VersMonde` (nombre) | modèle posé (T-405, `Assets.Decor.portail_monde2`) ; pièces `Tourbillon` (PrimaryPart), `Spirale` (DecorAnime, Rotation), `Cadenas` (à retirer quand le monde est ouvert) ; pas encore lu par le code (T-403) |
 | `Pantheon` | Model du lieu de changement de catégorie | aucun | modèle posé (T-405, `Assets.Decor.pantheon`), entrée face au centre de la place ; pas encore lu (T-401) |
@@ -72,13 +72,15 @@ Règles : l'axe de la piste est X, le dessus des sols est à Y = 0, la planche d
 - **Versions Argent et Or** (`Assets.Versions`) : aucun modèle en plus, le code transforme le compagnon cloné. Deux `Configuration` `Argent` et `Or` portent la recette : `Couleur` (Color3), `Melange` (0,6 : part de la couleur mêlée à celle de chaque mesh), `Matiere` (`Metal`), `Medaille` (nom du modèle de médaille), `Garder` (noms des meshes à laisser tels quels : yeux, pupilles, iris, verres, étoiles, bouche ; les meshes en `Neon` ou `Glass` sont aussi gardés). Médailles `medaille_argent` (ruban bleu) et `medaille_or` (ruban rouge, particules `Eclat`) : `PrimaryPart` = `Ruban`, attachment `Accroche` en haut du ruban, à poser sur l'attachment `Cou` du compagnon puis souder à sa `PrimaryPart`.
 - Les identifiants sont ceux des modules de configuration. La tâche de contrats de la phase en publie la liste dans [[Registre des modèles]] avant les tâches de modélisation.
 
-## Attributs du joueur liés à l'entraînement (posés par le code, T-202)
+## Attributs du joueur liés à l'entraînement et à l'équipement (posés par le code, T-202, T-203)
 
 | Attribut | Type | Posé par | Sens |
 | --- | --- | --- | --- |
 | `Entraine` | texte ou rien | service `Entrainement` | stat que le joueur entraîne en ce moment (absent hors zone) ; le contrôleur `Rythme` affiche le cercle quand il est posé |
 | `Materiel` | nombre | profil (`equipement.materiel`), boutique | palier de matériel d'entraînement atteint (0 à 8, `Config/Equipement.MATERIEL`) |
 | `PasseEntrainementAuto` | booléen | futur service des passes (T-602) | joue le rythme à la qualité Bon à la place du joueur |
+| `Chaussures`, `Propulseur`, `Tenue` | texte ou rien | boutique, d'après le profil (T-203) | identifiant de l'objet porté dans la famille (`Config/Equipement.CATALOGUE`) |
+| `ChaussuresNiveau`, `PropulseurNiveau`, `TenueNiveau` | nombre | boutique (T-203) | niveau de l'objet porté, de 1 à 5 |
 
 Un stand `Stand` avec `Objet` = « Materiel » vend le palier de matériel suivant (`StandMateriel`, invite ajoutée le 2026-11-22).
 
