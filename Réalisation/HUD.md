@@ -81,6 +81,11 @@ Distance, détail des pièces ligne par ligne, mention « Nouveau record », bou
 
 - T-305 (2026-11-15) : `EcranCompagnons`, `EcranOeuf`, `EcranEclosion`, téléphone en paysage 844 × 390, sur la toile Claude Design « Écrans compagnons et œufs » : https://claude.ai/artifact/CFbWGuXQHbfNhZMj2WS4JH (privée tant que Loucas ne l'a pas partagée). Noms des éléments lus par le code notés sur la toile. Validées par Loucas le 2026-11-15.
 
+- T-009 (2026-11-22) : `HudPrincipal`, `HudSaut`, `PanneauResultat` et `EcranBoutique`, téléphone en paysage 844 × 390, sur la toile Claude Design « Écrans du saut et de la boutique » : https://claude.ai/artifact/7nUpN2bvo55dk2sCZyGHth (privée tant que Loucas ne l'a pas partagée). Les noms lus par le code sont notés à droite de chaque écran.
+  - Ajouts par rapport aux listes de cette note : `ListeDetail` (lignes `TexteNom` et `TexteValeur`) et `TexteTotal` dans `PanneauResultat`. Dans `EcranBoutique` : un onglet par famille (`OngletChaussures`, `OngletPropulseur`, `OngletTenue`, `OngletMateriel`), des lignes `ListeObjets.ModeleLigne` (`Pastille`, `TexteNom`, `TexteEffet`, `Niveau`, `TextePrix`, `BoutonAction`), et `VueObjet`, `TexteDetail`, `BoutonPrincipal`.
+  - Le bouton d'une ligne de la boutique prend l'état Acheter, Améliorer, Porter, Porté ou Trop cher (événements `AcheterObjet`, `AmeliorerObjet`, `PorterObjet`, état par `EquipementEtat`).
+  - En attente de validation par Loucas, puis par P1 et P3 (condition de fin de T-009).
+
 ## Écrans construits
 
 - **T-305 (2026-11-15)** : `EcranCompagnons`, `EcranOeuf`, `EcranEclosion` dans `StarterGui`, construits d'après les maquettes, branchés par `src/client/Controleurs/EcranCompagnons|EcranOeuf|EcranEclosion.luau` et `src/client/Interface.luau`.
