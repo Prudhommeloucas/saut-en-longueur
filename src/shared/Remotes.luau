@@ -44,6 +44,12 @@ local EVENEMENTS = {
 	"PorterObjet",
 	-- serveur → joueur : (etat: { possede = { [id] = niveau }, porte = { [famille] = id } })
 	"EquipementEtat",
+	-- serveur → joueur : (id: string, nom: string) une fonction du jeu vient de s'ouvrir (T-204)
+	"Deblocage",
+	-- serveur → joueur : (monde: number, record: number, gemmes: number, pieces: number, recu: boolean) palier franchi
+	"PalierFranchi",
+	-- joueur → serveur : (monde: number, record: number) réclamer la récompense d'un palier franchi
+	"ReclamerPalier",
 }
 
 local Remotes = {} :: { [string]: RemoteEvent }

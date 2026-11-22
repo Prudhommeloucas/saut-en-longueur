@@ -22,6 +22,26 @@ Succès à paliers, sans limite de temps : distance totale sautée, nombre de sa
 
 Une échelle par monde : 10 m, 25 m, 50 m, 100 m, 150 m, etc. Chaque palier franchi donne une récompense à réclamer et, pour certains, ouvre une fonction ([[Boucles de gameplay]]). L'échelle est affichée en permanence avec le prochain palier et sa récompense : c'est l'objectif à court terme le plus visible du jeu.
 
+En place depuis T-204 (2026-11-22), dans `Config/Paliers.ECHELLE`, pour le monde 1 :
+
+| Palier | Gemmes | Pièces |
+| --- | --- | --- |
+| 10 m | 5 | 20 |
+| 25 m | 10 | 50 |
+| 50 m | 15 | 150 |
+| 75 m | 20 | 300 |
+| 100 m | 30 | 600 |
+| 150 m | 50 | 1 500 |
+| 200 m | 60 | 3 000 |
+| 300 m | 80 | 8 000 |
+| 400 m | 100 | 20 000 |
+| 500 m | 150 | 50 000 |
+
+- **Récompense** : elle se prend une seule fois (profil : `paliers.reclames`, clé « monde:record »).
+- **Réclamation** : tant que `Paliers.RECLAMATION_AUTO` est vrai, la récompense est donnée tout de suite, avec une bannière. Quand `EcranPaliers` existera (T-209), on passera ce réglage à faux et le joueur réclamera par l'événement `ReclamerPalier`.
+- **Rattrapage** : les paliers déjà dépassés sont donnés au chargement.
+- **Affichage provisoire** (`PaliersProvisoire`) : « Prochain palier : 25 m (+10 gemmes) » en haut de l'écran, avec une barre de progression. `TextePalier` et `BarrePalier` iront dans `HudPrincipal` (T-109).
+
 ## Récompense de connexion
 
 Calendrier de 7 jours qui se répète. La récompense grandit chaque jour ; le jour 7 donne un œuf d'or. Une série interrompue reprend au jour 1.

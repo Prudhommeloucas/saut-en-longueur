@@ -31,6 +31,7 @@ Donnees.MODELE = {
 		chance = 0, -- bonus permanent de chance aux œufs (0,05 = +5 %)
 	},
 	oeufsOuverts = 0,
+	paliers = { reclames = {} }, -- T-204 : [« monde:record »] = true quand la récompense du palier est prise
 }
 
 return Donnees

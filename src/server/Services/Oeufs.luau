@@ -10,6 +10,8 @@ local Config = Shared:WaitForChild("Config")
 local OeufsConfig = require(Config:WaitForChild("Oeufs"))
 local CompagnonsConfig = require(Config:WaitForChild("Compagnons"))
 local Textes = require(Config:WaitForChild("Textes"))
+local PaliersConfig = require(Config:WaitForChild("Paliers"))
+local Nombres = require(ReplicatedStorage:WaitForChild("Shared"):WaitForChild("Util"):WaitForChild("Nombres"))
 local Remotes = require(Shared:WaitForChild("Remotes"))
 local Donnees = require(script.Parent.Donnees)
 local Compagnons = require(script.Parent.Compagnons)
@@ -73,6 +75,13 @@ function Oeufs.ouvrir(player: Player, oeufId: string): string?
 	local d = Donnees.donnees(player)
 	local oeuf = OeufsConfig.LISTE[oeufId]
 	if not (d and oeuf) then
+		return nil
+	end
+	if not PaliersConfig.estOuvert(player, "Compagnons") then
+		notifier(
+			player,
+			string.format(Textes.FERME_COMPAGNONS, Nombres.distance(PaliersConfig.deblocage("Compagnons").record))
+		)
 		return nil
 	end
 	if oeuf.payant and tiragesInterdits[player] ~= false then

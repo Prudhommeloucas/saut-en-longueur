@@ -12,6 +12,7 @@ local ORDRE = {
 	"Anneaux", -- pièces des anneaux traversés
 	"Saut", -- mesure du saut, sauts rares, effets, jetpack
 	"Boutique", -- stands d'achat
+	"Paliers", -- paliers de record et fonctions qui s'ouvrent
 }
 
 for _, nom in ORDRE do

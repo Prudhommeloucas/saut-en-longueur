@@ -17,6 +17,7 @@ local Map = require(Shared:WaitForChild("Util"):WaitForChild("Map"))
 local Nombres = require(Shared:WaitForChild("Util"):WaitForChild("Nombres"))
 local Donnees = require(script.Parent.Donnees)
 local Personnage = require(script.Parent.Personnage)
+local PaliersConfig = require(Config:WaitForChild("Paliers"))
 
 local Boutique = {}
 
@@ -42,6 +43,10 @@ local function appliquer(player: Player)
 end
 
 local function payer(player: Player, prix: number, nom: string): boolean
+	if not PaliersConfig.estOuvert(player, "Boutique") then
+		notif(player, Textes.FERME_BOUTIQUE)
+		return false
+	end
 	local pieces = player.leaderstats["Pièces"]
 	if pieces.Value < prix then
 		notif(player, string.format(Textes.OBJET_MANQUE, Nombres.abreger(prix - pieces.Value), nom))

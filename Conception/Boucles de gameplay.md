@@ -47,6 +47,16 @@ Le jeu ne montre pas tout d'un coup. Chaque fonction s'ouvre à un palier de rec
 | Arbre de talents | Première médaille | 25 min |
 | Monde 2 | Record de 150 m | 1 h 30 |
 
+En place depuis T-204 (2026-11-22) :
+- **Configuration** : `Config/Paliers.DEBLOCAGES`. Les seuils des zones, du rythme et du monde 2 sont relus dans leur propre configuration.
+- **Annonce** : le service `Paliers` prévient le joueur au saut qui ouvre une fonction (événement `Deblocage`). Une bannière « Nouveau : … ! » s'affiche alors, avec la fanfare du record.
+- **Fonctions verrouillées** :
+  - la boutique refuse les achats avant le premier saut ;
+  - les œufs refusent avant 15 m ;
+  - le bouton des compagnons est caché avant 15 m.
+- **Fonctions pas encore construites** (quêtes, concours, catégorie, monde 2) : elles sont déjà listées, et leur tâche appellera `Paliers.estOuvert(player, id)`.
+- **Arbre de talents** : il dépend de la première médaille, il sera branché avec T-402.
+
 Les temps sont des cibles pour l'équilibrage, à vérifier en test ([[Économie]]). Depuis T-201 (2026-11-22, décision de Loucas) : les 20 premières minutes avancent vite grâce au bonus de débutant, la suite plus lentement. La simulation tient ces temps à 2 minutes près (courbe `assets/equilibrage/courbe_record_monde1.svg`).
 
 ## Pourquoi le joueur revient le lendemain
