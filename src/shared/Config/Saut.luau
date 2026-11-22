@@ -65,7 +65,7 @@ Saut.SAUTS_RARES = {
 
 -- Anneaux (tag « Anneau ») : valeurs par défaut si l'anneau n'a pas d'attribut Pieces ou Poussee
 Saut.ANNEAU_PIECES = 5
-Saut.ANNEAU_POUSSEE = 30 -- vitesse ajoutée : vers le haut, et la moitié vers l'avant
+Saut.ANNEAU_POUSSEE = 20 -- vitesse ajoutée : vers le haut, et la moitié vers l'avant (tenue jusqu'au sol)
 Saut.ANNEAUX_SERIE = 3 -- anneaux traversés dans un même saut pour le bonus
 Saut.ANNEAUX_BONUS_SERIE = 25 -- pièces en plus à la série
 
