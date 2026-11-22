@@ -25,6 +25,9 @@ local dernierSaut = 0
 local jetActif = false
 local reculNormal = player.CameraMinZoomDistance -- distance minimale réglée dans StarterPlayer
 local recul = reculNormal
+-- Élan vers l'avant gagné aux anneaux pendant le saut en cours (studs/s). Le Humanoid ramène la vitesse
+-- horizontale à WalkSpeed en l'air : on la maintient donc à WalkSpeed + élan à chaque image, jusqu'au sol.
+local elanAnneaux = 0
 
 -- Réception : un seul essai par saut, le premier nouvel appui pendant la descente au-dessus du sable
 local essaiFait = false
@@ -73,6 +76,16 @@ local function chaqueImage(dt: number)
 			end
 		end
 		Hud.majCarburant(carburant / infoJetpack.carburant)
+
+		if not enLAir then
+			elanAnneaux = 0
+		elseif elanAnneaux > 0 then
+			local v = hrp.AssemblyLinearVelocity
+			local vx = hum.WalkSpeed + elanAnneaux
+			if v.X < vx then
+				hrp.AssemblyLinearVelocity = Vector3.new(vx, v.Y, v.Z)
+			end
+		end
 
 		-- Champ de vision plus large quand on va vite
 		local cam = workspace.CurrentCamera
@@ -134,8 +147,10 @@ local function surAnneau(anneau: BasePart, hit: BasePart)
 	end
 	anneauxPris[anneau] = true
 	local poussee = anneau:GetAttribute("Poussee") or SautConfig.ANNEAU_POUSSEE
+	elanAnneaux += poussee / 2
 	local v = hrp.AssemblyLinearVelocity
-	hrp.AssemblyLinearVelocity = Vector3.new(v.X + poussee / 2, math.max(v.Y, 0) + poussee, v.Z)
+	hrp.AssemblyLinearVelocity =
+		Vector3.new(math.max(v.X, hum.WalkSpeed) + poussee / 2, math.max(v.Y, 0) + poussee, v.Z)
 end
 
 local function brancherAnneau(anneau: Instance)

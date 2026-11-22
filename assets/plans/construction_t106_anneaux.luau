@@ -35,12 +35,11 @@ local SERIES = {
 		couleur = OR,
 		rayon = 6,
 		anneaux = {
-			-- Mesuré dans la copie : appel Parfait ou Bon → les 3 anneaux, 10 à 11 m, +50 pièces environ ;
-			-- appel loin de la planche → 1 anneau, moins de 3 m. La poussée vers l'avant est annulée par le
-			-- Humanoid (vitesse ramenée à WalkSpeed), d'où des anneaux serrés.
+			-- Mesuré dans la copie (avec l'élan des anneaux maintenu jusqu'au sol, correctif du 2026-11-22) :
+			-- appel Parfait → 3 anneaux, 21,3 m, +61 pièces ; Bon → 3 anneaux, 19,1 m ; loin de la planche → 2, 11 m.
 			{ x = 128, y = 17 }, -- 2 m
 			{ x = 143, y = 15 }, -- 5,75 m
-			{ x = 150, y = 15 }, -- 7,5 m
+			{ x = 165, y = 19 }, -- 11,25 m
 		},
 	},
 	{
