@@ -26,7 +26,7 @@ Le joueur court et saute. Depuis T-102 (2026-11-18), le serveur détecte l'atter
 ### 2. Le vol
 
 - **Propulseur** : maintenir Saut en l'air brûle le carburant et pousse vers le haut et l'avant. Le meilleur moment est le sommet de la trajectoire. Carburant et force dépendent du propulseur ([[Équipement]]).
-- **Anneaux** : des anneaux flottent au-dessus du bac. En traverser un donne une petite poussée et des pièces. Trois anneaux d'affilée donnent un bonus. Constaté au réglage (T-106, 2026-11-22) : seule la poussée vers le haut compte, la poussée vers l'avant est effacée par le Humanoid ; un anneau pris en descente relance donc le joueur, comme un petit rebond. Placement des trois séries dans [[Construction du monde 1]].
+- **Anneaux** : des anneaux flottent au-dessus du bac. En traverser un donne une petite poussée et des pièces. Trois anneaux d'affilée donnent un bonus. Un anneau pris en descente relance le joueur comme un rebond (vitesse vers le haut d'au moins 30). La poussée vers l'avant était effacée par le Humanoid ; depuis le correctif du 2026-11-22, l'élan de chaque anneau (+15 studs/s) tient jusqu'au sol, comme le prévoyait déjà la borne `porteeMax`. Effet mesuré : débutant 5 → 21 m, joueur entraîné 36 → 108 m. Si c'est trop, il faut baisser `ANNEAU_POUSSEE` dans `Config/Saut`. Placement des trois séries dans [[Construction du monde 1]].
 - **Vol plané** (à partir du monde 2) : avec des ailes, maintenir le bouton Planer réduit la chute. La stat Aéro règle l'efficacité ([[Entraînement]]).
 - **Effets du monde** : rafales, courants ascendants, rebonds, faible gravité ([[Mondes]]).
 - Un compteur de distance défile en direct, la caméra recule et le champ de vision s'élargit avec la vitesse.

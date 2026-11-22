@@ -47,12 +47,12 @@ local SERIES = {
 		couleur = BLEU,
 		rayon = 6,
 		anneaux = {
-			-- Recalée dans la place partagée sur un joueur entraîné (WalkSpeed 69, JumpPower 151) : il frôle
-			-- l'anneau or 1, culmine à 108 studs vers X 191 et redescend vite ; chaque anneau le relance
-			-- vers 57 studs. Mesuré : 4 anneaux, 57,9 m au lieu de 35,7 m, +102 pièces.
-			{ x = 245, y = 52 }, -- 31 m
-			{ x = 268, y = 50 }, -- 37 m
-			{ x = 291, y = 50 }, -- 43 m
+			-- Recalée dans la place partagée sur un joueur entraîné (WalkSpeed 69, JumpPower 151), avec l'élan
+			-- maintenu : il frôle l'anneau or 1, culmine vers 108 studs et redescend vite ; chaque anneau le relance
+			-- vers 57 studs et 15 studs/s plus vite. Mesuré : 6 anneaux (dont 2 orange), 108 m au lieu de 35,7 m.
+			{ x = 265, y = 55 }, -- 36 m
+			{ x = 290, y = 57 }, -- 42,5 m
+			{ x = 322, y = 57 }, -- 50,5 m
 		},
 	},
 	{
