@@ -71,7 +71,7 @@ Multiplicateurs et conditions des zones : [[Entraînement]]. Chaque zone fait en
   - `Serie1` (or, rayon 6) : X 128 / 143 / 150, Y 17 / 15 / 15. Pour un débutant : appel Parfait → 3 anneaux, 14,2 m au lieu de 5, +54 pièces ; appel Bon → 3 anneaux, 12 m ; appel loin de la planche → 1 anneau, 4,9 m. Choix gardé : la série commence dès 2 m, pour que le premier saut montre les anneaux.
   - `Serie2` (bleu, rayon 6) : X 246 / 268 / 294, Y 54 / 54 / 51. Pour un joueur entraîné (WalkSpeed 69, JumpPower 151) : anneau or 1 + 3 bleus, 65,8 m au lieu de 37,8 m, +110 pièces.
   - Réglages du 2026-11-22 : élan maintenu jusqu'au sol, puis `ANNEAU_POUSSEE` passé de 30 à 20 (avec 30, un joueur entraîné atteignait 108 m et sautait le palier des 100 m).
-  - `Serie3` (orange, rayon 7) : X 380 / 410 / 442, Y 34 / 36 / 30. Provisoire, non essayée : à recaler quand [[Déroulé du développement|T-201]] aura fixé la courbe des stats.
+  - `Serie3` (orange, rayon 9) : X 458 / 484 / 512, Y 57 / 57 / 55, juste devant le tunnel des 100 m. Recalée le 2026-11-22 après T-201 sur le joueur simulé vers 52 min (WalkSpeed 125, JumpPower 216) : appel Bon ou lointain → 3 anneaux, 133 m au lieu de 92. Un appel Parfait ou un profil plus faible ou plus fort passe à côté : c'est un défi pour ce niveau.
   - Un anneau relance le joueur : la vitesse vers le haut devient au moins 20, et l'élan vers l'avant (+10 par anneau, la moitié de la poussée) tient jusqu'au sol depuis le correctif du 2026-11-22 (le contrôleur `Saut` maintient la vitesse à WalkSpeed + élan). Chaque anneau d'une série est donc à environ (vitesse du moment) × 0,3 studs du précédent, à la hauteur où le joueur rebondit.
 - Un emplacement prévu pour le drapeau du record du serveur ([[Social et compétition]]).
 

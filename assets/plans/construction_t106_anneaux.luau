@@ -58,11 +58,14 @@ local SERIES = {
 	{
 		nom = "Serie3",
 		couleur = ORANGE,
-		rayon = 7,
+		rayon = 9,
 		anneaux = {
-			{ x = 380, y = 34 }, -- 65 m
-			{ x = 410, y = 36 }, -- 72,5 m
-			{ x = 442, y = 30 }, -- 80,5 m
+			-- Recalée le 2026-11-22 (après T-201) sur le joueur simulé vers 52 min (WalkSpeed 125, JumpPower 216) :
+			-- appel Bon → 3 anneaux, 133 m au lieu de 92. Juste devant le tunnel des 100 m. Un appel Parfait ou un
+			-- profil plus faible ou plus fort passe à côté : c'est un défi pour ce niveau.
+			{ x = 458, y = 57 }, -- 84,5 m
+			{ x = 484, y = 57 }, -- 91 m
+			{ x = 512, y = 55 }, -- 98 m
 		},
 	},
 }
