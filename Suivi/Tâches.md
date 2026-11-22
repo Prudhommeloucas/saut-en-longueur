@@ -52,7 +52,7 @@ Pour cocher : `- [x] T-101 Appel — Code (2026-11-15, P3)`. On ne modifie que l
 - [ ] T-200 Contrats et identifiants de la phase — Code
 - [x] T-201 Formules, configuration, tableur, simulation — Code (2026-11-22, P2 ; matériel provisoire en attendant T-203, mondes 2 à 6 estimés)
 - [x] T-202 Entraînement — Code (2026-11-22, P2 ; écran du rythme provisoire en attendant T-209)
-- [ ] T-203 Équipement — Code
+- [x] T-203 Équipement — Code (2026-11-22, P2 ; stands provisoires en attendant T-209, tenues sans modèle (T-207), invite R et poussée en vol à essayer à la main)
 - [ ] T-204 Paliers de record — Code
 - [ ] T-205 Quêtes et récompenses — Code
 - [ ] T-206 Salle d'entraînement — Monde
