@@ -17,7 +17,7 @@ Donnees.MODELE = {
 	pieces = 0,
 	record = 0, -- en mètres
 	stats = { Puissance = 0, Vitesse = 0 },
-	equipement = { possede = {} }, -- [identifiant] = niveau
+	equipement = { possede = {}, materiel = 0 }, -- possede : [identifiant] = niveau ; materiel : palier atteint (T-202)
 	compagnons = {
 		liste = {}, -- [uid] = { espece, version, niveau, xp }
 		equipes = {}, -- liste d'uid, dans l'ordre d'affichage

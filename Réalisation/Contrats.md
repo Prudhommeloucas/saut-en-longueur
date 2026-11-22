@@ -34,7 +34,7 @@ La map est rangée dans `Workspace.Mondes.Monde1` depuis T-007 (2026-11-17), voi
 
 | Tag | Sur quoi | Attributs | État |
 | --- | --- | --- | --- |
-| `ZoneEntrainement` | Part au sol | `Stat` (Puissance, Vitesse, Aero), `Multiplicateur` (nombre), `RecordRequis` (m), `PasseRequis` (texte, facultatif) | posé (T-007), lu (T-008) : une Part par zone, la stat doit exister sur le joueur (Aero pas encore). `PasseRequis` = « VIP » : zone fermée sauf si le joueur a l'attribut `PasseVIP` à vrai (T-114 ; à poser par le futur service des passes) |
+| `ZoneEntrainement` | Part au sol | `Stat` (Puissance, Vitesse, Aero), `Palier` (1, 2, 3, 4 : rang dans `Config/Mondes.zones` du monde) ; en secours, sans `Palier` : `Multiplicateur` (nombre), `RecordRequis` (m), `PasseRequis` (texte, facultatif) | posé (T-007), lu (T-008) : une Part par zone, la stat doit exister sur le joueur (Aero pas encore). Depuis T-202 (2026-11-22), le `Palier` donne multiplicateur, record requis et passe depuis la configuration (monde 1 : 1 Débutant × 1, 2 Confirmé × 2 dès 25 m, 3 Élite × 12 dès 80 m, 4 VIP × 20 avec l'attribut `PasseVIP`) ; les sept zones de la place l'ont. Les anciens attributs restent posés mais ne servent plus |
 | `Piste` | Part de la piste d'élan | `Monde` (nombre) | posé (T-007), lu (T-008) : son début (bord -X) déclenche les bonus et fixe le point de retour après un saut (sur la place, 18 studs avant son début, 5 studs côté +Z) |
 | `PlancheAppel` | Part de la planche | `Monde` | posé (T-007), lu (T-008) : la distance se mesure depuis son bord +X |
 | `Bac` | Parts de la zone d'atterrissage | `Monde` | posé (T-007), lu (T-008) : le premier contact avec une de ces Parts compte comme atterrissage |
@@ -71,6 +71,16 @@ Règles : l'axe de la piste est X, le dessus des sols est à Y = 0, la planche d
 - **Œuf** (`Assets.Oeufs`) : un Model nommé par l'identifiant de l'œuf (`oeuf_stade`, `oeuf_champion`, `oeuf_or`), pivot au sol, 2,5 studs de haut. Coquille en deux MeshParts : `Bas` (`PrimaryPart`) et `Haut`, séparées par une fêlure en zigzag à 1,2 stud : l'éclosion soulève `Haut`. Chaque décor est coupé le long de la fêlure en deux meshes nommés `<Décor>_Bas` et `<Décor>_Haut` (`Orange_Haut`, `Lauriers_Bas`…), soudés chacun à sa moitié de coquille (`WeldConstraint`, `Part0` = `Bas` ou `Haut`). `Haut` est soudé à `Bas` : pour l'éclosion, le code détruit cette soudure puis déplace `Haut`, qui emporte ses décors (et l'`Etoile` de l'œuf du champion). T-304, 2026-11-15.
 - **Versions Argent et Or** (`Assets.Versions`) : aucun modèle en plus, le code transforme le compagnon cloné. Deux `Configuration` `Argent` et `Or` portent la recette : `Couleur` (Color3), `Melange` (0,6 : part de la couleur mêlée à celle de chaque mesh), `Matiere` (`Metal`), `Medaille` (nom du modèle de médaille), `Garder` (noms des meshes à laisser tels quels : yeux, pupilles, iris, verres, étoiles, bouche ; les meshes en `Neon` ou `Glass` sont aussi gardés). Médailles `medaille_argent` (ruban bleu) et `medaille_or` (ruban rouge, particules `Eclat`) : `PrimaryPart` = `Ruban`, attachment `Accroche` en haut du ruban, à poser sur l'attachment `Cou` du compagnon puis souder à sa `PrimaryPart`.
 - Les identifiants sont ceux des modules de configuration. La tâche de contrats de la phase en publie la liste dans [[Registre des modèles]] avant les tâches de modélisation.
+
+## Attributs du joueur liés à l'entraînement (posés par le code, T-202)
+
+| Attribut | Type | Posé par | Sens |
+| --- | --- | --- | --- |
+| `Entraine` | texte ou rien | service `Entrainement` | stat que le joueur entraîne en ce moment (absent hors zone) ; le contrôleur `Rythme` affiche le cercle quand il est posé |
+| `Materiel` | nombre | profil (`equipement.materiel`), boutique | palier de matériel d'entraînement atteint (0 à 8, `Config/Equipement.MATERIEL`) |
+| `PasseEntrainementAuto` | booléen | futur service des passes (T-602) | joue le rythme à la qualité Bon à la place du joueur |
+
+Un stand `Stand` avec `Objet` = « Materiel » vend le palier de matériel suivant (`StandMateriel`, invite ajoutée le 2026-11-22).
 
 ## Interface (construite dans Studio, branchée par le code)
 

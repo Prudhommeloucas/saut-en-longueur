@@ -21,6 +21,39 @@ Stats.K_SAUT = 6.6
 Stats.ENTRAINEMENT_INTERVALLE = 0.5
 Stats.ENTRAINEMENT_GAIN = 1
 
+-- Entraînement actif (T-202) : un battement par seconde, calé sur l'heure du serveur (secondes entières de
+-- workspace:GetServerTimeNow()). Appuyer près du battement multiplie le gain de cette seconde ; ne rien faire
+-- laisse le gain passif. Le passe « Entraînement automatique » (attribut PasseEntrainementAuto) joue `auto`.
+Stats.RYTHME = {
+	periode = 1, -- s entre deux battements
+	recordRequis = 5, -- m : le rythme s'ouvre à ce record (note Boucles de gameplay)
+	qualites = {
+		{ id = "Parfait", ecart = 0.08, multiplicateur = 3 }, -- écart au battement, en secondes
+		{ id = "Bon", ecart = 0.2, multiplicateur = 2 },
+	},
+	auto = "Bon",
+	retardMax = 1, -- s : un appui annoncé plus vieux que ça est ignoré
+}
+
+-- Qualité d'un appui fait à `ecart` secondes du battement le plus proche (nil : raté)
+function Stats.qualiteRythme(ecart: number)
+	for _, q in Stats.RYTHME.qualites do
+		if math.abs(ecart) <= q.ecart then
+			return q
+		end
+	end
+	return nil
+end
+
+function Stats.qualiteRythmeParId(id: string)
+	for _, q in Stats.RYTHME.qualites do
+		if q.id == id then
+			return q
+		end
+	end
+	return nil
+end
+
 -- Bonus de débutant : les premières minutes avancent vite. Le gain d'entraînement est multiplié par
 -- `multiplicateur` avec un record nul, puis le bonus baisse en ligne droite jusqu'à × 1 au record `recordFin` (m).
 Stats.BONUS_DEBUTANT = { multiplicateur = 10, recordFin = 60 }

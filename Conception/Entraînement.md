@@ -45,9 +45,40 @@ Les zones des mondes suivants reprennent le même schéma avec des multiplicateu
 - Le joueur présent gagne donc trois fois plus que le joueur absent, sans que l'absence soit punie.
 - Le passe « Entraînement automatique » joue le rythme à la place du joueur avec la qualité Bon.
 
+En place depuis T-202 (2026-11-22) :
+- Le battement tombe à chaque seconde entière de l'heure du serveur, et le cercle du joueur est calé dessus.
+- On appuie avec le bouton « Pousser ! » au centre du cercle, la touche E ou le bouton X de la manette.
+- Le joueur envoie l'heure de son appui, le serveur la vérifie (ni dans le futur, ni plus vieille d'une seconde) et la juge :
+  - Parfait à 0,08 s près, × 3 ;
+  - Bon à 0,2 s près, × 2 ;
+  - au-delà, l'appui est raté.
+- Un seul appui compte par battement. Il ajoute le gain passif de la seconde × (multiplicateur − 1) : la seconde Parfaite vaut donc exactement trois fois le passif.
+- Le rythme s'ouvre au record de 5 m.
+- Réglages dans `Config/Stats.RYTHME`.
+- L'écran est provisoire, construit par le contrôleur `Rythme` (`RythmeProvisoire`). Il montre aussi le bonus de débutant ; le vrai `HudEntrainement` viendra avec T-209.
+- Mesuré dans la copie : passif 2/s, Parfait +4 par seconde jouée (× 3), Bon +2 (× 2), passe automatique × 2,1.
+- Limite connue : c'est le joueur qui annonce l'heure de son appui. Un tricheur pourrait jouer Parfait à chaque battement, mais jamais plus de × 3.
+
 ### Matériel d'entraînement
 
 Acheté en pièces, il multiplie le gain de toutes les zones : haltères, gilet lesté, chevilles lestées, etc. Huit paliers par monde, chacun doublant le précédent ([[Équipement]]).
+
+En place depuis T-202 (2026-11-22), dans `Config/Equipement.MATERIEL`, pour le monde 1 :
+
+| Palier | Objet | Multiplicateur | Prix (pièces) |
+| --- | --- | --- | --- |
+| 1 | Haltères | × 2 | 25 |
+| 2 | Élastiques | × 4 | 125 |
+| 3 | Kettlebell | × 8 | 625 |
+| 4 | Gilet lesté | × 16 | 3 125 |
+| 5 | Chevilles lestées | × 32 | 15 625 |
+| 6 | Medecine-ball | × 64 | 78 125 |
+| 7 | Traîneau de poussée | × 128 | 390 625 |
+| 8 | Barre en or | × 256 | 1 953 125 |
+
+Les prix sont ceux de la simulation T-201. Les paliers s'achètent dans l'ordre au stand `StandMateriel` (attribut `Objet` = « Materiel »). Le palier atteint est sauvegardé (`equipement.materiel`, attribut `Materiel`). L'achat n'a pas pu être essayé en test automatique (les invites ne s'affichent pas quand Studio n'a pas la main) : à vérifier à la main.
+
+**Gain par battement en place** : `ENTRAINEMENT_GAIN × palier de zone × matériel × Coachs × bonus de débutant`, puis × qualité du rythme pour la seconde jouée.
 
 ### Formule du gain
 

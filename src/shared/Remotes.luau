@@ -32,6 +32,10 @@ local EVENEMENTS = {
 	"Fusionner",
 	-- serveur → joueur : (index: { trouves, pages, chance })
 	"IndexEtat",
+	-- joueur → serveur : (tempsServeur: number) appui du rythme d'entraînement, à cette heure du serveur (T-202)
+	"Rythme",
+	-- serveur → joueur : (qualite: string?, gain: number) résultat de l'appui (nil : raté)
+	"RythmeResultat",
 }
 
 local Remotes = {} :: { [string]: RemoteEvent }

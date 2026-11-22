@@ -6,6 +6,7 @@ local ORDRE = {
 	"Audio", -- sons d'interface
 	"Hud", -- affichage : stats, distance, messages
 	"Saut", -- jetpack, caméra, distance en direct
+	"Rythme", -- entraînement actif : cercle et appuis
 	"Compagnons", -- compagnons qui suivent les joueurs
 	"EcranCompagnons", -- inventaire, équipe, index
 	"EcranOeuf", -- chances et achat d'un œuf

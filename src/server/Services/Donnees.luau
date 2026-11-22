@@ -86,6 +86,7 @@ local function ecrire(player: Player)
 	data.stats.Puissance = player:GetAttribute("Puissance") or data.stats.Puissance
 	data.stats.Vitesse = player:GetAttribute("Vitesse") or data.stats.Vitesse
 	data.gemmes = player:GetAttribute("Gemmes") or data.gemmes
+	data.equipement.materiel = player:GetAttribute("Materiel") or data.equipement.materiel
 	for id in Equipement.OBJETS do
 		if player:GetAttribute(id) == true then
 			data.equipement.possede[id] = data.equipement.possede[id] or 1
@@ -110,6 +111,7 @@ local function afficher(player: Player, data)
 	player:SetAttribute("Puissance", data.stats.Puissance)
 	player:SetAttribute("Vitesse", data.stats.Vitesse)
 	player:SetAttribute("Gemmes", data.gemmes)
+	player:SetAttribute("Materiel", data.equipement.materiel or 0)
 	for id in Equipement.OBJETS do
 		player:SetAttribute(id, data.equipement.possede[id] ~= nil)
 	end
