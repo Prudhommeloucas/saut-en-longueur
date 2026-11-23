@@ -20,11 +20,18 @@ Tous les écrans du jeu. Ils se construisent dans `StarterGui` et le code s'y br
 | Sous les monnaies | Stats et leur effet | `TextePuissance`, `TexteVitesse`, `TexteAero` |
 | Haut centre | Record du monde en cours, prochain palier et sa barre | `TexteRecord`, `BarrePalier`, `TextePalier` |
 | Gauche | Boosts actifs avec leur durée, série de sauts parfaits | `ListeBoosts`, `TexteSerie` |
-| Droite | Boutons de menu : Boutique, Compagnons, Catégorie, Quêtes, Classements, Mondes, Robux, Réglages | `BoutonBoutique`, etc. |
-| Bas gauche | Cadeau de temps de jeu (compte à rebours), récompense du jour, invitation | `BoutonCadeau`, `BoutonJour`, `BoutonInviter` |
+| Droite | Boutons de menu : Compagnons, Réglages | `BoutonCompagnons`, `BoutonReglages` |
+| Bas gauche | Récompense du jour, invitation | `BoutonJour`, `BoutonInviter` |
 | Haut, sous le record | Bandeau d'annonce (concours, vent favorable, saut légendaire) | `Bandeau` |
 
 Chaque bouton de menu porte une pastille rouge quand quelque chose est à réclamer.
+
+**Décision du 2026-11-23 (Loucas, T-009)** : le HUD reste léger, le reste se fait sur la place centrale ([[Construction du monde 1]]).
+- Boutique : un magasin physique sur la place, qui ouvre `EcranBoutique` (les stands par famille existent déjà).
+- Quêtes : un tableau physique sur la place (SurfaceGui), à la place d'un bouton ; `EcranQuetes` devient ce tableau ou s'ouvre depuis lui.
+- Classements : les tableaux de la place suffisent. Mondes : le portail suffit.
+- Cadeau de temps de jeu : un cadeau physique sur la place.
+- Robux et Catégorie : pas de bouton dans le HUD. Leurs écrans (`EcranRobux`, `EcranCategorie`) s'ouvriront depuis un objet ou un PNJ de la place, à décider dans leurs tâches.
 
 ### `HudSaut` (visible sur la piste et en vol)
 
@@ -84,6 +91,7 @@ Distance, détail des pièces ligne par ligne, mention « Nouveau record », bou
 - T-009 (2026-11-22) : `HudPrincipal`, `HudSaut`, `PanneauResultat` et `EcranBoutique`, téléphone en paysage 844 × 390, sur la toile Claude Design « Écrans du saut et de la boutique » : https://claude.ai/artifact/7nUpN2bvo55dk2sCZyGHth (privée tant que Loucas ne l'a pas partagée). Les noms lus par le code sont notés à droite de chaque écran.
   - Ajouts par rapport aux listes de cette note : `ListeDetail` (lignes `TexteNom` et `TexteValeur`) et `TexteTotal` dans `PanneauResultat`. Dans `EcranBoutique` : un onglet par famille (`OngletChaussures`, `OngletPropulseur`, `OngletTenue`, `OngletMateriel`), des lignes `ListeObjets.ModeleLigne` (`Pastille`, `TexteNom`, `TexteEffet`, `Niveau`, `TextePrix`, `BoutonAction`), et `VueObjet`, `TexteDetail`, `BoutonPrincipal`.
   - Le bouton d'une ligne de la boutique prend l'état Acheter, Améliorer, Porter, Porté ou Trop cher (événements `AcheterObjet`, `AmeliorerObjet`, `PorterObjet`, état par `EquipementEtat`).
+  - 2026-11-23 : `HudPrincipal` réduit à `BoutonCompagnons`, `BoutonReglages`, `BoutonJour`, `BoutonInviter` (décision ci-dessus).
   - En attente de validation par Loucas, puis par P1 et P3 (condition de fin de T-009).
 
 ## Écrans construits

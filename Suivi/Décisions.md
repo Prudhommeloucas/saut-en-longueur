@@ -42,6 +42,7 @@ Les décisions prises et les questions à trancher. N'importe qui peut écrire u
 | 2026-11-15 | Le jeu est publié sous le groupe existant **OGC Studio** (D-04) | [[Lancement]] |
 | 2026-11-15 | Revenus du groupe répartis en parts égales entre les trois (D-03) | [[Monétisation]] |
 | 2026-11-12 | La mascotte géante a un squelette et des animations Blender ; le reste du décor reste animé par le code | [[Animations]] |
+| 2026-11-23 | HUD réduit à Compagnons et Réglages (plus Jour et Inviter) : la boutique, le tableau des quêtes, les classements, le portail des mondes et un cadeau se trouvent sur la place centrale ; pas de bouton Robux ni Catégorie dans le HUD (Loucas, T-009) | [[HUD]], [[Construction du monde 1]] |
 
 Les décisions du 2026-11-12 ont été prises par un seul poste, dans la liberté laissée à celui qui construit le monde ([[Liberté de création]]). Les deux autres peuvent les rediscuter.
 
