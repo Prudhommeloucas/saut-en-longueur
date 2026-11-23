@@ -2,9 +2,12 @@
 -- 73209698561012 du compte de Loucas), le range dans ReplicatedStorage.Assets.Decor, puis pose une copie
 -- « Magasin » taguée dans Workspace.Mondes.Monde1.Boutique, au point POSE, ouverte vers CIBLE.
 -- Relançable : l'ancien magasin posé est remplacé. Annulable par Ctrl+Z.
+-- Dans la place partagée (2026-11-23) : le Model du compte de Loucas ne se charge pas (place du groupe), le FBX a été
+-- réimporté sous OGC Studio (Model 77419986787196). Les quatre stands ont ensuite été posés devant le magasin, à 26 studs
+-- de son pivot vers l'avant et à x = -27, -13, 13, 27 (repère du magasin), et un arbre de ArbresPlace reculé.
 local CHS = game:GetService("ChangeHistoryService")
 local CS = game:GetService("CollectionService")
-local POSE = _G.MAGASIN_POSE or Vector3.new(-172, 0, -60) -- au sol, derrière les stands (nord-ouest)
+local POSE = _G.MAGASIN_POSE or Vector3.new(-162.6, -0.2, -42.2) -- au sol, au nord-ouest, à 84 studs du centre
 local CIBLE = _G.MAGASIN_CIBLE or Vector3.new(-90, 0, 0) -- centre de la place
 
 local COUL = {

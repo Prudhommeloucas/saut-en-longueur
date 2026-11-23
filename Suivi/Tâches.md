@@ -58,7 +58,7 @@ Pour cocher : `- [x] T-101 Appel — Code (2026-11-15, P3)`. On ne modifie que l
 - [ ] T-206 Salle d'entraînement — Monde
 - [ ] T-215 Paliers du parc et du lac — Monde, 3D
 - [ ] T-216 Paliers de la ville et des collines — Monde, 3D
-- [ ] T-217 Magasin de la place centrale — Monde, 3D, code
+- [x] T-217 Magasin de la place centrale — Monde, 3D, code (2026-11-23, P2 ; le comptoir ouvre une boutique provisoire en attendant `EcranBoutique` (T-209) ; stands posés devant le magasin)
 - [ ] T-218 Tableau des quêtes de la place centrale — Monde, interface, code
 - [ ] T-219 Cadeau de la place centrale — 3D, code
 - [ ] T-207 Équipement du monde 1 et stands — 3D (propulseurs et trois paires de chaussures faits par P2 les 14 et 15 novembre ; restent matériel, tenues, stands)
