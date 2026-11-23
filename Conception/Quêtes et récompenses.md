@@ -96,6 +96,8 @@ Récompense courante de tous ces systèmes. Un boost dure 15 minutes de jeu et d
 - **Événements** : `ActionRecompense` (joueur → serveur), `RecompensesEtat` et `ResultatRoue` (serveur → joueur).
 - **Testé dans la copie** : chaque récompense ne se prend qu'une fois. Code inconnu ou déjà utilisé, roue déjà tournée, quête pas finie, cadeau pas encore atteint, quêtes fermées sous 10 m : tous refusés avec un message. Le boost pièces double bien les pièces (14 → 28).
 
+- **Sur la place centrale (T-218, T-219, 2026-11-23)** : les quêtes du jour et le coffre du jour, les quêtes de la semaine et les défis s'affichent et se réclament sur le **tableau des quêtes** (contrôleur `TableauQuetes`, une SurfaceGui par joueur sur l'écran du tableau, pastille rouge au-dessus quand quelque chose est à réclamer). Le coffre du jour n'est ouvrable qu'une fois les quêtes du jour prises. Les cadeaux de temps de jeu se prennent au **cadeau** de la place : compte à rebours au-dessus, invite Ouvrir (E) qui donne le premier cadeau prêt de la session, couvercle qui saute (événement `CadeauOuvert`). Le panneau provisoire « Récompenses » ne garde que les boosts, la connexion, la roue, le coffre du groupe et les codes (T-210).
+
 ## Règle d'équilibrage
 
 Les récompenses gratuites cumulées doivent permettre à un joueur régulier d'ouvrir un œuf d'or tous les deux jours environ. Les sources et les dépenses de gemmes sont suivies dans [[Économie]].

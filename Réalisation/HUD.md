@@ -28,9 +28,9 @@ Chaque bouton de menu porte une pastille rouge quand quelque chose est à récla
 
 **Décision du 2026-11-23 (Loucas, T-009)** : le HUD reste léger, le reste se fait sur la place centrale ([[Construction du monde 1]]).
 - Boutique : un magasin physique sur la place, qui ouvre `EcranBoutique` (les stands par famille existent déjà). Fait le 2026-11-23 (T-217) : l'invite du comptoir ouvre pour l'instant un panneau provisoire créé par le code, `BoutiqueProvisoire` (`src/client/Controleurs/BoutiqueProvisoire.luau` : onglets Chaussures, Propulseurs, Tenues, Matériel ; Acheter, Améliorer, Porter, Porté, Trop cher, Plus tard). T-209 le remplace par `EcranBoutique` en écoutant le même événement `OuvrirBoutique`.
-- Quêtes : un tableau physique sur la place (SurfaceGui), à la place d'un bouton ; `EcranQuetes` devient ce tableau ou s'ouvre depuis lui.
+- Quêtes : un tableau physique sur la place (SurfaceGui), à la place d'un bouton ; `EcranQuetes` devient ce tableau ou s'ouvre depuis lui. Fait le 2026-11-23 (T-218) : `TableauQuetes` affiche quêtes, coffre du jour et défis ; `EcranQuetes` n'est plus nécessaire.
 - Classements : les tableaux de la place suffisent. Mondes : le portail suffit.
-- Cadeau de temps de jeu : un cadeau physique sur la place.
+- Cadeau de temps de jeu : un cadeau physique sur la place. Fait le 2026-11-23 (T-219) : `Decor.Cadeau`, compte à rebours au-dessus.
 - Robux et Catégorie : pas de bouton dans le HUD. Leurs écrans (`EcranRobux`, `EcranCategorie`) s'ouvriront depuis un objet ou un PNJ de la place, à décider dans leurs tâches.
 
 ### `HudSaut` (visible sur la piste et en vol)

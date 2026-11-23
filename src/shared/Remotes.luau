@@ -59,6 +59,8 @@ local EVENEMENTS = {
 	"ActionRecompense",
 	-- serveur → joueur : (index: number, nom: string) case de la roue tirée
 	"ResultatRoue",
+	-- serveur → joueur : (index: number) le cadeau de la place centrale vient de s'ouvrir (T-219), pour l'animer
+	"CadeauOuvert",
 }
 
 local Remotes = {} :: { [string]: RemoteEvent }

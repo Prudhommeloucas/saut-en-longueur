@@ -1,6 +1,7 @@
--- Récompenses (joueur, T-205) : panneau provisoire qui liste les quêtes du jour et de la semaine, le coffre du
--- jour, les défis, la connexion, les cadeaux de temps de jeu, la roue, le coffre du groupe, les boosts et la saisie
--- d'un code, avec un bouton par récompense. Il suit l'état envoyé par le serveur (RecompensesEtat) et agit par
+-- Récompenses (joueur, T-205) : panneau provisoire qui liste les boosts, la connexion, la roue, le coffre du groupe et
+-- la saisie d'un code, avec un bouton par récompense. Les quêtes, le coffre du jour et les défis sont sur le tableau
+-- des quêtes de la place centrale (T-218, contrôleur TableauQuetes), les cadeaux de temps de jeu sur le cadeau de la
+-- place (T-219, contrôleur Cadeau). Il suit l'état envoyé par le serveur (RecompensesEtat) et agit par
 -- ActionRecompense. Provisoire : les vrais écrans (EcranQuetes, EcranJour, EcranRoue, EcranReglages) viendront
 -- avec T-210.
 local Players = game:GetService("Players")
@@ -9,7 +10,6 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local Shared = ReplicatedStorage:WaitForChild("Shared")
 local Textes = require(Shared:WaitForChild("Config"):WaitForChild("Textes"))
 local Remotes = require(Shared:WaitForChild("Remotes"))
-local Nombres = require(Shared:WaitForChild("Util"):WaitForChild("Nombres"))
 
 local player = Players.LocalPlayer
 
@@ -116,87 +116,6 @@ local function reconstruire()
 		not etat.connexion.pris,
 		"Connexion"
 	)
-
-	titre("Quêtes du jour")
-	if not etat.quetesOuvertes then
-		ligne("S'ouvrent à 10 m de record")
-	else
-		for i, q in etat.jour do
-			local fini = q.progres >= q.cible
-			local t = string.format(
-				"%s (%s / %s) : %s",
-				q.texte,
-				Nombres.abreger(q.progres),
-				Nombres.abreger(q.cible),
-				q.recompense
-			)
-			if q.reclamee then
-				ligne(t, "Pris", false)
-			elseif fini then
-				ligne(t, "Réclamer", true, "Quete", "Jour", i)
-			elseif not etat.remplacee then
-				ligne(t, "Changer", true, "Remplacer", i)
-			else
-				ligne(t, "En cours", false)
-			end
-		end
-		ligne(
-			"Coffre du jour : " .. etat.coffreRecompense,
-			if etat.coffre then "Pris" else "Ouvrir",
-			not etat.coffre,
-			"Coffre"
-		)
-		titre("Quêtes de la semaine")
-		for i, q in etat.semaine do
-			local t = string.format(
-				"%s (%s / %s) : %s",
-				q.texte,
-				Nombres.abreger(q.progres),
-				Nombres.abreger(q.cible),
-				q.recompense
-			)
-			ligne(
-				t,
-				if q.reclamee then "Pris" else "Réclamer",
-				not q.reclamee and q.progres >= q.cible,
-				"Quete",
-				"Semaine",
-				i
-			)
-		end
-	end
-
-	titre("Défis de carrière")
-	for _, d in etat.defis do
-		local fini = d.progres >= d.palier
-		ligne(
-			string.format("%s (%s) : %s", d.texte, Nombres.abreger(d.progres), d.recompense),
-			"Réclamer",
-			fini,
-			"Defi",
-			d.compteur,
-			d.palier
-		)
-	end
-
-	titre("Cadeaux de temps de jeu")
-	for i, c in etat.cadeaux do
-		if not c.pris then
-			local pret = c.reste <= 0
-			ligne(
-				string.format(
-					"%d min : %s%s",
-					c.minutes,
-					c.recompense,
-					if pret then "" else " (dans " .. minutes(c.reste) .. ")"
-				),
-				"Prendre",
-				pret,
-				"Cadeau",
-				i
-			)
-		end
-	end
 
 	titre("Roue et coffre du groupe")
 	ligne("Roue du jour : un tour gratuit", if etat.roue then "Tourner" else "Demain", etat.roue, "Roue")

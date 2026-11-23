@@ -195,3 +195,43 @@ Colors: at most five colors: #FFFFFF, #1E90FF, #FF7A1A, #FFC83D, #16213E.
 
 Sheet layout: 6 views of the SAME object, same size, evenly spaced on one image in 2 rows: front, back, left side, right side, 3/4 front, top. Keep every part clearly separated and readable (walls, base band, roof, awning, sign, counter, four shelf niches and their items, front pillars, step) so it can be rebuilt in 3D with few polygons.
 ```
+
+## Tableau des quêtes et cadeau de la place centrale (T-218, T-219)
+
+Prompts remplis le 2026-11-23. Ils remplacent le bouton Quêtes et le bouton Cadeau du HUD ([[HUD]], [[Décisions]]). Joindre la planche du magasin (`place_magasin`) aide à garder le style. Aucun texte dessiné : le tableau reste vide, Studio y affiche les quêtes.
+
+### Tableau des quêtes (`place_tableau`)
+
+```text
+Create a prop turnaround sheet of an original quest board for a Roblox long jump game: "Challenge Board", a big notice board on the round spawn plaza of world 1 where players read their daily and weekly challenges and claim rewards. The quests are shown later on the empty board surface by the game.
+
+Style: cartoon 3D game asset, chunky exaggerated proportions, simple shapes with bevelled edges, flat cartoon colors, smooth plastic look, soft studio lighting, pure white background. Low detail, readable from far away and on a phone. Joyful and sporty. No text, no letters, no numbers, no logos, no brand, no people, no ground, no shadow, no lights, no paper notes, no pictures on the board.
+
+Design: a large freestanding board, about 22 units wide, 16 high and 3 deep, facing forward.
+Main body: two thick square posts in bright blue (#1E90FF) with rounded edges and golden caps (#FFC83D), planted on two small blue feet.
+Board: between the posts, a big flat rectangular board, dark blue (#16213E), perfectly flat and empty on the front, about 18 wide and 10 high, framed by a thick white rounded frame (#FFFFFF).
+Header: above the board, a wide golden arched plaque (#FFC83D) with a white edge, left blank.
+Special feature: on top of the header, centered, a chunky orange star (#FF7A1A) with a white outline.
+Small details: a short orange roof edge above the header; two small round golden bolts on each post.
+Colors: at most five colors: #1E90FF, #16213E, #FFFFFF, #FFC83D, #FF7A1A.
+
+Sheet layout: 6 views of the SAME object, same size, evenly spaced on one image in 2 rows: front, back, left side, right side, 3/4 front, top. Keep every part clearly separated and readable (posts, feet, post caps, board, board frame, header plaque, star, roof edge, bolts) so it can be rebuilt in 3D with few polygons.
+```
+
+### Cadeau (`place_cadeau`)
+
+```text
+Create a prop turnaround sheet of an original giant gift box for a Roblox long jump game: "Play Gift", a big present on the round spawn plaza of world 1 that players open every few minutes to get a reward. The lid flies off when it opens, so the lid must be a clearly separate part.
+
+Style: cartoon 3D game asset, chunky exaggerated proportions, simple shapes with bevelled edges, flat cartoon colors, smooth plastic look, soft studio lighting, pure white background. Low detail, readable from far away and on a phone. Joyful and festive. No text, no letters, no numbers, no logos, no brand, no people, no ground, no shadow, no lights.
+
+Design: a cube-shaped gift about 7 units wide, 7 deep and 6 high, plus a bow on top, sitting on a low round pedestal.
+Box: bright purple (#9B5CFF) with rounded edges, crossed by a wide golden ribbon (#FFC83D) on all four sides.
+Lid: a separate slightly wider lid in purple (#9B5CFF), with the golden ribbon continuing on it.
+Bow: a big chunky golden bow (#FFC83D) on top of the lid, two loops and two short tails.
+Pedestal: a low round platform, white (#FFFFFF) with a bright blue edge (#1E90FF), slightly wider than the box.
+Small details: a thin white line along the bottom edge of the lid.
+Colors: at most four colors: #9B5CFF, #FFC83D, #FFFFFF, #1E90FF.
+
+Sheet layout: 6 views of the SAME object, same size, evenly spaced on one image in 2 rows: front, back, left side, right side, 3/4 front, top. Keep every part clearly separated and readable (box, lid, ribbons, bow loops, bow tails, pedestal, pedestal edge) so it can be rebuilt in 3D with few polygons.
+```

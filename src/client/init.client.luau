@@ -10,6 +10,8 @@ local ORDRE = {
 	"Paliers", -- prochain palier, fonctions qui s'ouvrent
 	"Recompenses", -- panneau provisoire des quêtes, cadeaux, roue, codes
 	"BoutiqueProvisoire", -- boutique ouverte par le comptoir du magasin
+	"TableauQuetes", -- quêtes et défis sur le tableau de la place centrale
+	"Cadeau", -- cadeau de temps de jeu sur la place centrale
 	"Compagnons", -- compagnons qui suivent les joueurs
 	"EcranCompagnons", -- inventaire, équipe, index
 	"EcranOeuf", -- chances et achat d'un œuf

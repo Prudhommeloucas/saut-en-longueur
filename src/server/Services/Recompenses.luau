@@ -15,6 +15,7 @@ local Textes = require(Config:WaitForChild("Textes"))
 local Remotes = require(Shared:WaitForChild("Remotes"))
 local Nombres = require(Shared:WaitForChild("Util"):WaitForChild("Nombres"))
 local Donnees = require(script.Parent.Donnees)
+local Map = require(Shared:WaitForChild("Util"):WaitForChild("Map"))
 
 local Recompenses = {}
 
@@ -415,7 +416,51 @@ local function userBoosts()
 	end
 end
 
+-- Cadeau de la place centrale (T-219) : ouvre le premier cadeau de temps de jeu prêt et pas encore pris
+local function ouvrirCadeau(player: Player)
+	local pris = cadeauxPris[player]
+	if not (pris and debutSession[player] and rec(player)) then
+		return
+	end
+	local session = os.clock() - debutSession[player]
+	for i, c in RC.CADEAUX do
+		if not pris[i] then
+			local reste = c.minutes * 60 - session
+			if reste > 0 then
+				return notif(
+					player,
+					string.format(Textes.CADEAU_PROCHAIN, string.format("%d:%02d", reste // 60, math.floor(reste % 60)))
+				)
+			end
+			ACTIONS.Cadeau(player, i)
+			Remotes.CadeauOuvert:FireClient(player, i)
+			envoyer(player)
+			return
+		end
+	end
+	notif(player, Textes.CADEAU_FINI)
+end
+
+local function brancherCadeau(cadeau: Instance)
+	local hote = cadeau:FindFirstChild("Socle", true) or cadeau:FindFirstChildWhichIsA("BasePart", true)
+	if not hote then
+		warn("Cadeau sans pièce pour poser une invite :", cadeau:GetFullName())
+		return
+	end
+	local p = Instance.new("ProximityPrompt")
+	p.Name = "PromptCadeau"
+	p.ActionText = Textes.CADEAU_OUVRIR
+	p.ObjectText = Textes.CADEAU_NOM
+	p.KeyboardKeyCode = Enum.KeyCode.E
+	p.HoldDuration = 0
+	p.MaxActivationDistance = 12
+	p.RequiresLineOfSight = false
+	p.Parent = hote
+	p.Triggered:Connect(ouvrirCadeau)
+end
+
 function Recompenses.demarrer()
+	Map.surChaque("Cadeau", brancherCadeau)
 	Donnees.auChargement(function(player)
 		debutSession[player] = os.clock()
 		cadeauxPris[player] = {}
