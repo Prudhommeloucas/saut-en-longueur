@@ -219,9 +219,38 @@ local function brancherStand(stand: Instance)
 	end
 end
 
+-- Magasin de la place centrale (T-217) : l'invite du comptoir ouvre la boutique du joueur
+local function brancherMagasin(magasin: Instance)
+	-- L'invite se pose sur la pièce « Comptoir » du magasin s'il en a une
+	local prompt = invite(magasin:FindFirstChild("Comptoir", true) or magasin, "PromptBoutique", nil)
+	if not prompt then
+		warn("Magasin sans pièce pour poser une invite :", magasin:GetFullName())
+		return
+	end
+	prompt.ActionText = Textes.MAGASIN_OUVRIR
+	prompt.ObjectText = Textes.MAGASIN_NOM
+	prompt.KeyboardKeyCode = Enum.KeyCode.E
+	prompt.HoldDuration = 0
+	prompt.MaxActivationDistance = 14
+	prompt.Triggered:Connect(function(player)
+		if not PaliersConfig.estOuvert(player, "Boutique") then
+			notif(player, Textes.FERME_BOUTIQUE)
+			return
+		end
+		Remotes.OuvrirBoutique:FireClient(player)
+	end)
+end
+
 function Boutique.demarrer()
 	Map.surChaque("Stand", brancherStand)
-	Remotes.AcheterObjet.OnServerEvent:Connect(Boutique.acheter)
+	Map.surChaque("Magasin", brancherMagasin)
+	Remotes.AcheterObjet.OnServerEvent:Connect(function(player, id)
+		if id == "Materiel" then
+			acheterMateriel(player)
+		else
+			Boutique.acheter(player, id)
+		end
+	end)
 	Remotes.AmeliorerObjet.OnServerEvent:Connect(Boutique.ameliorer)
 	Remotes.PorterObjet.OnServerEvent:Connect(Boutique.porter)
 	Donnees.auChargement(function(player)

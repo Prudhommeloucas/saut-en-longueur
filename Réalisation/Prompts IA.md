@@ -172,3 +172,26 @@ Colors: at most three colors: #1E90FF, #F2C9A0, black for the eyes.
 
 Sheet layout: 6 views of the SAME object, same size, evenly spaced on one image in 2 rows: front, back, left side, right side, 3/4 front, top. Keep the body, arms and head clearly readable so it can be rebuilt in 3D with very few polygons.
 ```
+
+## Magasin de la place centrale (T-217)
+
+Prompt rempli le 2026-11-23. Le magasin remplace le bouton Boutique du HUD ([[HUD]], [[Décisions]]) : il se pose au nord-ouest de la place, derrière les quatre stands, ouvert vers le centre. Joindre la planche de l'arche (`stade_arche`) aide à garder le style. Aucun texte dessiné : l'enseigne reste vide, Studio y met le nom.
+
+### Magasin (`place_magasin`)
+
+```text
+Create a prop turnaround sheet of an original small sports shop building for a Roblox long jump game: "Jumper Shop", the shop on the round spawn plaza of world 1 where players buy jump shoes, jetpacks, training gear and outfits. Players walk up to its open front counter.
+
+Style: cartoon 3D game asset, chunky exaggerated proportions, simple shapes with bevelled edges, flat cartoon colors, smooth plastic look, soft studio lighting, pure white background. Low detail, readable from far away and on a phone. Joyful and sporty. No text, no letters, no numbers, no logos, no brand, no people, no ground, no shadow, no lights.
+
+Design: a compact one-storey shop, about 32 units wide, 22 high and 18 deep. The whole front is open, like a market stall, with a wide counter.
+Main body: three walls (back, left, right) in white (#FFFFFF) with a thick bright blue base band (#1E90FF), and a flat roof with a rounded edge.
+Awning: above the open front, a big striped awning sloping forward, alternating orange (#FF7A1A) and white (#FFFFFF) stripes, with a scalloped bottom edge.
+Sign: on top of the roof, centered, a big blank golden sign board (#FFC83D) with a thick dark blue frame (#16213E), slightly tilted forward, left blank.
+Counter: a long low counter across the front, blue (#1E90FF) with a golden top (#FFC83D).
+Shelves: on the back wall, four separate display niches side by side, each with one simple oversized item: a pair of chunky sneakers, a small backpack jetpack with two nozzles, a dumbbell, a sports jersey on a hanger. Items are simple shapes in the same palette.
+Small details: two short rounded pillars at the front corners holding the awning, golden caps on top; a simple step in front of the counter.
+Colors: at most five colors: #FFFFFF, #1E90FF, #FF7A1A, #FFC83D, #16213E.
+
+Sheet layout: 6 views of the SAME object, same size, evenly spaced on one image in 2 rows: front, back, left side, right side, 3/4 front, top. Keep every part clearly separated and readable (walls, base band, roof, awning, sign, counter, four shelf niches and their items, front pillars, step) so it can be rebuilt in 3D with few polygons.
+```

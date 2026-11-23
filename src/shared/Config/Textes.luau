@@ -38,6 +38,8 @@ return {
 	PALIER_PROCHAIN = "Prochain palier : %s",
 	PALIER_SOMMET = "Tous les paliers de ce monde sont franchis",
 	FERME_BOUTIQUE = "Fais un premier saut pour ouvrir la boutique",
+	MAGASIN_OUVRIR = "Ouvrir",
+	MAGASIN_NOM = "Boutique",
 	FERME_COMPAGNONS = "Les compagnons s'ouvrent à %s de record",
 	RECOMPENSE = "%s : %s",
 	RECOMPENSE_DEJA = "Déjà réclamé",

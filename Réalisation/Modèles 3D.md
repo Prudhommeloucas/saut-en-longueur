@@ -212,3 +212,7 @@ Préparation dans Studio : structure aplatie, meshes renommés par couleur, `Smo
 ## Propulseurs remontés (T-203, 2026-11-22)
 
 Dans `Assets.Equipement`, les trois propulseurs étaient démontés : sangles à leur place, mais bouteilles, cuves et réacteurs à environ 122 studs de la `Poignee`. Ils ont été remis en place d'après `propulseurs_monde1.blend` (Blender x, y, z → Roblox x, z, y depuis la plaque contre le dos), dans la place partagée et dans la copie. Tailles : soda 2,8 × 2,9 × 2,5 ; extincteur 2,0 × 2,9 × 2,6 ; réacteur 3,8 × 2,8 × 3,0. Le personnage les porte depuis T-203 ([[Équipement]]).
+
+## Magasin de la place centrale (T-217, 2026-11-23)
+
+Planche Gemini `place_magasin.webp` (prompt dans [[Prompts IA]]). Modèle construit par `assets/modeles/source/t217_magasin.py` (même chaîne que T-106, lancé sans fenêtre), 2 172 triangles, 35 × 25 × 22, six meshes par couleur. Aperçus `place_magasin_apercu.png` et `_face.png`. Importé par Fichier → Importer dans la copie ; le Model publié (73209698561012) se recharge dans une autre place par `InsertService:LoadAsset`, ce qui évite un second import. Préparation et pose par `assets/plans/construction_t217.luau` : collisions portées par des Parts invisibles `Collision` (socle, murs, toit) et `Comptoir`.

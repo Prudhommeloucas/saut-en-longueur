@@ -52,7 +52,7 @@ Place ronde, centre vers (-90, 0, 0), rayon d'environ 85 studs. Ce sont des vale
 | Est | Grande arche d'entrée, écran géant au-dessus, départ de la piste | `Piste` |
 | Nord-est à nord | Trois zones Puissance : Débutant près de l'arche, puis Confirmé, puis Élite | `ZoneEntrainement` |
 | Sud-est à sud | Trois zones Vitesse, en miroir | `ZoneEntrainement` |
-| Nord-ouest | Quatre stands : Chaussures, Propulseur, Matériel, Tenue | `Stand` |
+| Nord-ouest | Quatre stands : Chaussures, Propulseur, Matériel, Tenue, et derrière eux le magasin (T-217, décision du 2026-11-23 : il remplace le bouton Boutique du HUD) | `Stand`, `Magasin` |
 | Sud-ouest | Deux incubateurs (œuf du stade, œuf du champion), coffre du groupe, roue | `Incubateur` |
 | Ouest, surélevé | Portail vers le monde 2, sur des marches, visible de partout | `Portail` |
 | À côté du portail | Panthéon, avec la grande vasque et sa flamme sur le toit | `Pantheon` |

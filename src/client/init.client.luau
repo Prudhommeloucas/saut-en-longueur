@@ -9,6 +9,7 @@ local ORDRE = {
 	"Rythme", -- entraînement actif : cercle et appuis
 	"Paliers", -- prochain palier, fonctions qui s'ouvrent
 	"Recompenses", -- panneau provisoire des quêtes, cadeaux, roue, codes
+	"BoutiqueProvisoire", -- boutique ouverte par le comptoir du magasin
 	"Compagnons", -- compagnons qui suivent les joueurs
 	"EcranCompagnons", -- inventaire, équipe, index
 	"EcranOeuf", -- chances et achat d'un œuf

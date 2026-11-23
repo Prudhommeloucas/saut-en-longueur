@@ -27,7 +27,7 @@ Tous les écrans du jeu. Ils se construisent dans `StarterGui` et le code s'y br
 Chaque bouton de menu porte une pastille rouge quand quelque chose est à réclamer.
 
 **Décision du 2026-11-23 (Loucas, T-009)** : le HUD reste léger, le reste se fait sur la place centrale ([[Construction du monde 1]]).
-- Boutique : un magasin physique sur la place, qui ouvre `EcranBoutique` (les stands par famille existent déjà).
+- Boutique : un magasin physique sur la place, qui ouvre `EcranBoutique` (les stands par famille existent déjà). Fait le 2026-11-23 (T-217) : l'invite du comptoir ouvre pour l'instant un panneau provisoire créé par le code, `BoutiqueProvisoire` (`src/client/Controleurs/BoutiqueProvisoire.luau` : onglets Chaussures, Propulseurs, Tenues, Matériel ; Acheter, Améliorer, Porter, Porté, Trop cher, Plus tard). T-209 le remplace par `EcranBoutique` en écoutant le même événement `OuvrirBoutique`.
 - Quêtes : un tableau physique sur la place (SurfaceGui), à la place d'un bouton ; `EcranQuetes` devient ce tableau ou s'ouvre depuis lui.
 - Classements : les tableaux de la place suffisent. Mondes : le portail suffit.
 - Cadeau de temps de jeu : un cadeau physique sur la place.

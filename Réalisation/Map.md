@@ -15,6 +15,7 @@ Chemins depuis `Workspace.Mondes.Monde1`. La place centrale ronde (T-114, 2026-1
 | Zones de Vitesse | `Entrainement.VitesseDebutant`, `…Confirme`, `…Elite` | `ZoneEntrainement` (`Stat` = Vitesse ; mêmes paliers) | (-42, 36), (-66, 58), (-96, 64) |
 | Estrade VIP | `Entrainement.EstradeVIP` | `ZoneEntrainement` (Puissance ×20 depuis T-201, `PasseRequis` = VIP : fermée sans passe) | (-90, -108) |
 | Stands | `Boutique.StandChaussures`, `StandPropulseur`, `StandMateriel`, `StandTenue` | `Stand` (`Famille` ; `Objet` = Chaussures, Jetpack sur les deux premiers) | (-127, -52), (-140, -40), (-149, -26), (-154, -11) |
+| Magasin | `Boutique.Magasin` (vrai modèle `place_magasin`, T-217 : auvent rayé, enseigne vide, comptoir, quatre niches) | `Magasin` ; invite `PromptBoutique` sur la Part invisible `Comptoir` | (-172, -48), derrière les stands, ouvert vers le centre de la place ; 35 × 22 × 25 |
 | Incubateurs | `Oeufs.Incubateur_stade`, `Oeufs.Incubateur_champion` (vrais modèles) | `Incubateur` (`Oeuf`) | (-126, 51), (-141, 36) |
 | Coffre et roue | `Oeufs.Coffre`, `Oeufs.Roue` | à créer (T-605) | (-152, 18), (-120, 72) |
 | Portail | `Portails.PortailMonde2` (vrai modèle `portail_monde2`, T-405 : arche, tourbillon, spirale, cadenas) | `Portail` (`VersMonde` = 2), pas encore lu | (-172, 0) |
