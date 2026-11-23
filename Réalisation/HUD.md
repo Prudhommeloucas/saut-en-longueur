@@ -92,7 +92,7 @@ Distance, détail des pièces ligne par ligne, mention « Nouveau record », bou
   - Ajouts par rapport aux listes de cette note : `ListeDetail` (lignes `TexteNom` et `TexteValeur`) et `TexteTotal` dans `PanneauResultat`. Dans `EcranBoutique` : un onglet par famille (`OngletChaussures`, `OngletPropulseur`, `OngletTenue`, `OngletMateriel`), des lignes `ListeObjets.ModeleLigne` (`Pastille`, `TexteNom`, `TexteEffet`, `Niveau`, `TextePrix`, `BoutonAction`), et `VueObjet`, `TexteDetail`, `BoutonPrincipal`.
   - Le bouton d'une ligne de la boutique prend l'état Acheter, Améliorer, Porter, Porté ou Trop cher (événements `AcheterObjet`, `AmeliorerObjet`, `PorterObjet`, état par `EquipementEtat`).
   - 2026-11-23 : `HudPrincipal` réduit à `BoutonCompagnons`, `BoutonReglages`, `BoutonJour`, `BoutonInviter` (décision ci-dessus).
-  - En attente de validation par Loucas, puis par P1 et P3 (condition de fin de T-009).
+  - Validées par Loucas le 2026-11-23 ; avis de P1 et P3 demandé (`Suivi/Demandes/2026-11-23 de P2 à tous - maquettes du HUD.md`).
 
 ## Écrans construits
 
