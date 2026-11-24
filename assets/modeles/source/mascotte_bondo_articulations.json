@@ -1,0 +1,173 @@
+{
+ "centres": {
+  "Head": [
+   -0.0,
+   5.23,
+   0.0
+  ],
+  "UpperTorso": [
+   0.0,
+   3.4052,
+   0.0
+  ],
+  "LowerTorso": [
+   0.0,
+   1.6274,
+   0.881
+  ],
+  "LeftUpperArm": [
+   -1.125,
+   3.4469,
+   0.0
+  ],
+  "LeftLowerArm": [
+   -1.435,
+   2.91,
+   0.0
+  ],
+  "LeftHand": [
+   -1.73,
+   2.399,
+   0.0
+  ],
+  "RightUpperArm": [
+   1.125,
+   3.4469,
+   0.0
+  ],
+  "RightLowerArm": [
+   1.435,
+   2.91,
+   0.0
+  ],
+  "RightHand": [
+   1.73,
+   2.399,
+   0.0
+  ],
+  "LeftUpperLeg": [
+   -0.46,
+   1.85,
+   0.05
+  ],
+  "LeftLowerLeg": [
+   -0.45,
+   0.96,
+   0.025
+  ],
+  "LeftFoot": [
+   -0.45,
+   0.29,
+   -0.22
+  ],
+  "RightUpperLeg": [
+   0.46,
+   1.85,
+   0.05
+  ],
+  "RightLowerLeg": [
+   0.45,
+   0.96,
+   0.025
+  ],
+  "RightFoot": [
+   0.45,
+   0.29,
+   -0.22
+  ]
+ },
+ "articulations": {
+  "Neck": [
+   0,
+   4.0,
+   0
+  ],
+  "Waist": [
+   0,
+   2.85,
+   0
+  ],
+  "Root": [
+   0,
+   2.55,
+   0
+  ],
+  "LeftShoulder": [
+   -0.95,
+   3.75,
+   0
+  ],
+  "RightShoulder": [
+   0.95,
+   3.75,
+   0
+  ],
+  "LeftHip": [
+   -0.42,
+   2.3,
+   0
+  ],
+  "RightHip": [
+   0.42,
+   2.3,
+   0
+  ],
+  "LeftKnee": [
+   -0.45,
+   1.35,
+   0.05
+  ],
+  "RightKnee": [
+   0.45,
+   1.35,
+   0.05
+  ],
+  "LeftAnkle": [
+   -0.45,
+   0.45,
+   0
+  ],
+  "RightAnkle": [
+   0.45,
+   0.45,
+   0
+  ],
+  "LeftElbow": [
+   -1.3,
+   3.1438,
+   0.0
+  ],
+  "LeftWrist": [
+   -1.61,
+   2.6069,
+   0.0
+  ],
+  "RightElbow": [
+   1.3,
+   3.1438,
+   0.0
+  ],
+  "RightWrist": [
+   1.61,
+   2.6069,
+   0.0
+  ]
+ },
+ "principales": {
+  "Head": "Fourrure",
+  "UpperTorso": "Bleu",
+  "LowerTorso": "Fourrure",
+  "LeftUpperArm": "Fourrure",
+  "LeftLowerArm": "Fourrure",
+  "LeftHand": "Fourrure",
+  "RightUpperArm": "Fourrure",
+  "RightLowerArm": "Fourrure",
+  "RightHand": "Fourrure",
+  "LeftUpperLeg": "Fourrure",
+  "LeftLowerLeg": "Fourrure",
+  "LeftFoot": "Blanc",
+  "RightUpperLeg": "Fourrure",
+  "RightLowerLeg": "Fourrure",
+  "RightFoot": "Blanc"
+ }
+}
