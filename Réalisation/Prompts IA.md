@@ -297,3 +297,64 @@ Colors: at most six colors: #C7CFD8, #1F2229, #FFFFFF, #16213E, #3BE0FF, #FF7A1A
 
 Sheet layout: 6 views of the SAME object, same size, evenly spaced on one image in 2 rows: front, back, left side, right side, 3/4 front, top. Keep every part clearly separated and readable (deck, side rails, running belt, posts, console, screen, handlebars, feet) so it can be rebuilt in 3D with few polygons.
 ```
+
+## Décor animé du stade (T-116)
+
+Prompts remplis le 2026-11-24. Joindre la planche de l'arche (`stade_arche`) pour garder le style. Aucun texte dessiné : la banderole du dirigeable reste vide, Studio y met le nom du jeu. Les pièces qui bougent (hélices, drapeau) doivent être séparées.
+
+### Dirigeable (`stade_dirigeable`)
+
+Il tourne lentement au-dessus du stade, à environ 120 studs de haut ; il doit se lire de loin.
+
+```text
+Create a prop turnaround sheet of an original cartoon blimp for a Roblox long jump game: "Stadium Blimp", a friendly airship that slowly circles above the stadium of world 1 ("Beginner Stadium"). Same cartoon style as the attached stadium arch.
+
+Style: cartoon 3D game asset, chunky exaggerated proportions, simple rounded shapes, flat cartoon colors, smooth plastic look, soft studio lighting, pure white background. Low detail, readable from very far away. Joyful and sporty. No text, no letters, no numbers, no logos, no brand, no people, no ground, no shadow, no clouds.
+
+Design: a plump blimp about 60 units long and 20 units in diameter, slightly fatter at the front.
+Main body: a smooth balloon in bright orange (#FF7A1A) with three wide white stripes (#FFFFFF) wrapping around it.
+Banner: a long flat blank rectangular banner along each side of the balloon, white with a thin blue border (#1E90FF), left blank.
+Gondola: a small rounded cabin under the middle, blue (#1E90FF) with a row of round light-blue windows (#BEE6FF).
+Propellers: two propellers at the back of the gondola, each with three chunky golden blades (#FFC83D) on a small grey hub (#5B6577), clearly separate so they can spin.
+Tail: four rounded tail fins in a cross shape, blue (#1E90FF) with white tips.
+Small details: a small golden cone on the nose; a thin golden line along the bottom of the balloon.
+Colors: at most six colors: #FF7A1A, #FFFFFF, #1E90FF, #BEE6FF, #FFC83D, #5B6577.
+
+Sheet layout: 6 views of the SAME object, same size, evenly spaced on one image in 2 rows: front, back, left side, right side, 3/4 front, top. Keep every part clearly separated and readable (balloon, stripes, banners, gondola, windows, two propellers, four fins, nose cone) so it can be rebuilt in 3D with few polygons.
+```
+
+### Canon à confettis, lanceur de feux d'artifice, drapeau du vent (`stade_canon`, `stade_lanceur`, `stade_drapeau_vent`)
+
+Une seule planche pour les trois, à la même échelle. Le canon est posé par paires le long de la piste (2 à 3 studs de haut), le lanceur derrière les tribunes (discret), le drapeau sur un mât de 12 studs le long du bac (il se tend pendant le vent favorable).
+
+```text
+Create a prop sheet of three original stadium props for a Roblox long jump game, placed around the run-up track of world 1 ("Beginner Stadium"), at the same scale, side by side. Same cartoon style as the attached stadium arch.
+
+Style: cartoon 3D game asset, chunky exaggerated proportions, simple rounded shapes with bevelled edges, flat cartoon colors, smooth plastic look, soft studio lighting, pure white background. Low detail, readable from far away and on a phone. Joyful and sporty. No text, no letters, no numbers, no logos, no brand, no people, no ground, no shadow, no confetti, no fire, no smoke.
+
+1. "Confetti Cannon": a small party cannon about 3 units long on a round squat base. The barrel is a short wide tube pointing up at 45 degrees, bright blue (#1E90FF) with two golden rings (#FFC83D) and a wide flared white mouth (#FFFFFF). The base is a chunky orange cylinder (#FF7A1A) with a golden rim. The barrel is a separate part on a small pivot.
+2. "Firework Launcher": a discreet launcher about 3 units tall: a cluster of three short dark grey tubes (#5B6577) on a square dark navy base (#16213E), each tube with a thin orange ring (#FF7A1A) at the top. Simple and low.
+3. "Wind Flag": a tall thin grey pole (#5B6577) about 12 units tall with a golden ball on top (#FFC83D), holding a rectangular flag about 5 wide and 3 high, half orange (#FF7A1A) and half white (#FFFFFF) split diagonally, shown flying straight out as if in strong wind. The flag is a separate part attached along the pole.
+
+Sheet layout: the three props side by side, each shown three times: front, side and 3/4 view (9 images in total, 3 rows: row 1 = cannon, row 2 = launcher, row 3 = flag). Keep every part clearly separated and readable (cannon base, barrel, rings, mouth; launcher base, three tubes, rings; pole, top ball, flag) so they can be rebuilt in 3D with few polygons.
+```
+
+## Mascotte géante (T-115)
+
+Prompt rempli le 2026-11-24 (proposition de Claude, à changer librement : espèce, couleurs, tenue). Environ 60 studs de haut, à côté de l'arche ; elle aura un squelette, donc pose neutre en A, membres bien séparés. Elle doit rester différente du compagnon kangourou (adulte, en tenue de club, plus de détails).
+
+```text
+Create a character turnaround sheet of an original giant mascot for a Roblox long jump game: "Bondo", the official mascot of world 1 ("Beginner Stadium"), a huge friendly kangaroo athlete standing next to the stadium entrance arch. It cheers, claps and jumps for joy when players beat records. Same cartoon style as the attached stadium arch.
+
+Style: cartoon 3D game asset, chunky stylized proportions, simple rounded shapes, big head, big expressive eyes, flat cartoon colors, soft studio lighting, pure white background. Like a cheerful stadium mascot costume, joyful, sporty and friendly, nothing scary. No text, no letters, no numbers, no logos, no brand, no ground, no base, no shadow.
+
+Design: an adult kangaroo standing upright on its big back legs, big round head, long ears, strong legs made for jumping, short arms, a thick tail touching the ground for balance.
+Body: warm orange-brown fur (#E08A3C), cream belly and muzzle (#FFE7C2), inside of the ears pink (#FFB3A7).
+Head: big round friendly eyes, dark brown (#3A2A22) with a white highlight, small black nose, a very wide happy smile, a blue sport headband (#1E90FF) across the forehead.
+Special feature: a sleeveless club jersey in bright blue (#1E90FF) with a wide orange diagonal stripe (#FF7A1A) and a blank white circle on the chest (no number, no text).
+Arms / legs: short arms with white wristbands (#FFFFFF), big round hands with four fingers; long back legs with big white running shoes with orange soles (#FF7A1A).
+Back / tail: the jersey covers the back; long thick tail, same fur color, lighter tip.
+Small details: a golden medal on a blue ribbon around the neck (#FFC83D); a small tuft of fur on top of the head.
+
+Sheet layout: 6 views of the SAME model, same size, evenly spaced on one image in 2 rows: front, back, left side, right side, 3/4 front, top. Neutral A-pose for rigging: arms down at about 45 degrees away from the body, legs straight and slightly apart, head straight. Keep every part clearly separated and readable (head, ears, eyes, muzzle, headband, torso, jersey, medal, upper arms, forearms, hands, wristbands, thighs, shins, feet, shoes, tail) so it can be rebuilt in 3D with few polygons.
+```
