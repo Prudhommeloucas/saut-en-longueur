@@ -35,8 +35,8 @@ Pour cocher : `- [x] T-101 Appel — Code (2026-11-15, P3)`. On ne modifie que l
 - [x] T-105 Stade : piste, planche, bac, panneaux, arche, tribunes — Monde (2026-11-18, P2 ; numéros de couloir peints et râteau non faits)
 - [x] T-106 Anneaux, écran géant, projecteurs, public — Monde (2026-11-22, P2 ; série 3 recalée le même jour après T-201)
 - [x] T-114 Place centrale ronde — Monde (2026-11-17, P2)
-- [ ] T-115 Mascotte géante et ses animations — 3D, animation
-- [ ] T-116 Dirigeable, canons, lanceurs de feux d'artifice, drapeaux — 3D
+- [x] T-115 Mascotte géante et ses animations — 3D, animation (2026-11-24, P2 ; Bondo le kangourou, rig R15, quatre animations publiées sous le groupe)
+- [x] T-116 Dirigeable, canons, lanceurs de feux d'artifice, drapeaux — 3D (2026-11-24, P2 ; dirigeable qui tourne, 12 canons, 8 lanceurs, 25 drapeaux du vent)
 - [x] T-117 Module d'animation du décor (`DecorAnime`) — Code (2026-11-17, P2)
 - [x] T-107 Animations du saut — Animation (2026-11-24, P2 ; sept animations générées dans la place partagée, publiées sous le groupe, `Assets.Animations`)
 - [ ] T-108 `HudSaut` et `PanneauResultat` — Interface

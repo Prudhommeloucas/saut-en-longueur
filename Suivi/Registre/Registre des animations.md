@@ -11,6 +11,7 @@ Une animation par ligne, dès qu'elle est publiée sous le groupe. Celui qui pub
 | `reception_reussie` | 109700021669266 | 1,97 s | Non (publiée en boucle) | `SourcesAnimations.reception_reussie` | publiée |
 | `reception_ratee` | 81028353359857 | 1,97 s | Non (publiée en boucle) | `SourcesAnimations.reception_ratee` | publiée |
 | `celebration_record` | 76391129202083 | 1,97 s | Non (publiée en boucle) | `SourcesAnimations.celebration_record` | publiée |
+| `mascotte_attente` | 107941930620027 | 4 s | Oui | `SourcesAnimations.mascotte_attente` (place partagée), rig `Assets.Decor.mascotte_bondo` | publiée || `mascotte_applaudit` | 124492385469869 | 2 s | Non | `SourcesAnimations.mascotte_applaudit` | publiée || `mascotte_record` | 84802607737215 | 2 s | Non | `SourcesAnimations.mascotte_record` | publiée || `mascotte_salut` | 130311698699156 | 2 s | Non | `SourcesAnimations.mascotte_salut` | publiée |
 
 États : `en cours`, `publiée`, `validée`.
 

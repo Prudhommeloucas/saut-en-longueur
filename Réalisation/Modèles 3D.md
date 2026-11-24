@@ -228,3 +228,18 @@ Planches Gemini `salle_cage.webp`, `salle_presse.webp`, `salle_tapis.webp` (prom
 ## Parc et lac (T-215, 2026-11-24)
 
 Planches Gemini `palier_arche.webp`, `parc_kiosque.png`, `parc_arbre.png`, `parc_montgolfiere.png`, `parc_cerf_volant.png`, `lac_voilier.png`, `lac_canard.png`, `lac_bouee.png`, `lac_roseaux.png` (prompts dans [[Prompts IA]], section « Parc et lac (T-215) »). Neuf modèles construits par `assets/modeles/source/t215_modeles.py` (même chaîne que T-106, sans fenêtre), de 236 triangles (cerf-volant) à 1 972 (arche). Pièces mobiles séparées : `Toit` du kiosque (tourne), `Nacelle` de la montgolfière, `Voile` du voilier, `Drapeau` de l'arche. Importés tous les neuf d'un coup dans la place partagée sous OGC Studio, préparés et posés par `assets/plans/modeles_t215.luau` à la place des blocs de `construction_t215.luau` (blocs rangés dans `ServerStorage.Modeles.BlocsT215`). Collisions portées par des Parts invisibles `Collision` (piliers des arches, troncs, socle du kiosque).
+
+## Décor animé du stade (T-116, 2026-11-24)
+
+Planches Gemini `stade_dirigeable.webp` et `stade_canon_lanceur_drapeau.webp` (prompts dans [[Prompts IA]]). Quatre modèles construits par `assets/modeles/source/t116_modeles.py` : dirigeable 2 620 triangles (hélices `HeliceG`, `HeliceD` séparées), canon 1 020 (fût `Fut` séparé, à 45°), lanceur 552, drapeau du vent 212 (`Drapeau` séparé). Importés sous OGC Studio, posés par `assets/plans/modeles_t116.luau` : dirigeable × 1,3 qui tourne autour du stade (centre (260, 120, 0), rayon 140, 4° par seconde, hélices à 360° par seconde), banderole « SAUT EN LONGUEUR » écrite dans Studio sur les deux flancs ; 12 canons par paires le long de la piste (tag `CanonConfettis` sur la Part invisible `Bouche`) ; 8 lanceurs derrière les tribunes (`LanceurFeuArtifice`, `Palier` = 0) ; les 25 drapeaux du bac remplacés (tag `DrapeauVent`, drapeau qui se balance). Anciens drapeaux en blocs rangés dans `ServerStorage.Modeles.BlocsT116`.
+
+## Mascotte Bondo (T-115, 2026-11-24)
+
+Planche Gemini `mascotte_bondo.webp` (kangourou athlète, prompt dans [[Prompts IA]]). Modèle construit par `assets/modeles/source/t115_mascotte.py` en pièces rigides R15 (un mesh par couleur et par membre, 30 meshes, 4 366 triangles, 6,5 studs de haut) ; le script écrit aussi `mascotte_bondo_articulations.json` (articulations dans le repère de Studio). Monté en rig par `assets/plans/mascotte_t115.luau` : 15 « os » invisibles nommés comme les membres R15 (Head, UpperTorso…) qui portent les Motor6D et les RigAttachments, meshes soudés à leur os, HumanoidRootPart ancrée dont le `PivotOffset` met le pivot au sol, Humanoid et Animator. Posé × 10 à (−15, −62), entre l'estrade VIP et l'arche, tourné vers la place (tag `Mascotte`, streaming atomique, colonne invisible `Collision`).
+
+Pièges rencontrés :
+- L'import FBX de Studio inverse l'axe X : ce qui est à +X dans Blender arrive à −X. La gauche du personnage (qui regarde −Z) doit donc être à +X dans Blender.
+- Une MeshPart visible nommée comme un membre R15 dans un Model à Humanoid est recolorée en gris par l'Humanoid : d'où les os invisibles.
+- Le pivot d'un Model qui a une PrimaryPart est celui de la PrimaryPart : `PivotOffset` de la HumanoidRootPart pour le mettre au sol.
+
+Quatre animations générées par `generate_animation` sur le rig à l'échelle 1, dans la place partagée (publiées sous OGC Studio) ; elles jouent sur la mascotte agrandie (essai du saut de joie en jeu). Voir [[Registre des animations]].

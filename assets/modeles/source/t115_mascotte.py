@@ -244,12 +244,12 @@ def ajoute(piece, couleur, morceaux):
 # Articulations (Blender)
 J = {
     "Neck": (0, 0, 4.0), "Waist": (0, 0, 2.85), "Root": (0, 0, 2.55),
-    "LeftShoulder": (-0.95, 0, 3.75), "RightShoulder": (0.95, 0, 3.75),
-    "LeftHip": (-0.42, 0, 2.3), "RightHip": (0.42, 0, 2.3),
-    "LeftKnee": (-0.45, 0.05, 1.35), "RightKnee": (0.45, 0.05, 1.35),
-    "LeftAnkle": (-0.45, 0, 0.45), "RightAnkle": (0.45, 0, 0.45),
+    "LeftShoulder": (0.95, 0, 3.75), "RightShoulder": (-0.95, 0, 3.75),
+    "LeftHip": (0.42, 0, 2.3), "RightHip": (-0.42, 0, 2.3),
+    "LeftKnee": (0.45, 0.05, 1.35), "RightKnee": (-0.45, 0.05, 1.35),
+    "LeftAnkle": (0.45, 0, 0.45), "RightAnkle": (-0.45, 0, 0.45),
 }
-for cote, s in (("Left", -1), ("Right", 1)):  # le personnage regarde -Z dans Roblox : sa gauche est -X
+for cote, s in (("Left", 1), ("Right", -1)):  # l'import FBX de Studio inverse X : la gauche (+X ici) arrive en -X, côté gauche du personnage qui regarde -Z
     d = Vector((s * 0.5, 0, -0.866))
     epaule = Vector(J[cote + "Shoulder"])
     coude = epaule + d * 0.7
@@ -315,8 +315,8 @@ PRINCIPALES = {
     "LeftUpperLeg": "Fourrure", "LeftLowerLeg": "Fourrure", "LeftFoot": "Blanc",
     "RightUpperLeg": "Fourrure", "RightLowerLeg": "Fourrure", "RightFoot": "Blanc",
 }
-def roblox(v):
-    return [round(v[0], 4), round(v[2], 4), round(v[1], 4)]
+def roblox(v):  # repère de Studio après import : X inversé
+    return [round(-v[0], 4), round(v[2], 4), round(v[1], 4)]
 centres = {}
 for piece, couleur in PRINCIPALES.items():
     ob = bpy.data.objects[ID + "_" + piece + "_" + couleur]
