@@ -55,7 +55,7 @@ Pour cocher : `- [x] T-101 Appel — Code (2026-11-15, P3)`. On ne modifie que l
 - [x] T-203 Équipement — Code (2026-11-22, P2 ; stands provisoires en attendant T-209, tenues sans modèle (T-207), invite R et poussée en vol à essayer à la main)
 - [x] T-204 Paliers de record — Code (2026-11-22, P2 ; récompenses données tout de suite en attendant EcranPaliers, T-209)
 - [x] T-205 Quêtes et récompenses — Code (2026-11-22, P2 ; panneau provisoire en attendant T-210)
-- [ ] T-206 Salle d'entraînement — Monde
+- [x] T-206 Salle d'entraînement — Monde (2026-11-24, P2 ; machines des trois paliers et estrade VIP en deux zones, Puissance et Vitesse)
 - [ ] T-215 Paliers du parc et du lac — Monde, 3D
 - [ ] T-216 Paliers de la ville et des collines — Monde, 3D
 - [x] T-217 Magasin de la place centrale — Monde, 3D, code (2026-11-23, P2 ; le comptoir ouvre une boutique provisoire en attendant `EcranBoutique` (T-209) ; stands posés devant le magasin)

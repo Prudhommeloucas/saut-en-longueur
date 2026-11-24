@@ -183,6 +183,11 @@ local function estrade()
 		if ancienneEtincelle and not zp:FindFirstChild("Etincelles") then
 			ancienneEtincelle:Clone().Parent = zp
 		end
+		-- zones voisines à 20 studs : panneau plus étroit pour que les deux ne se chevauchent pas
+		local pan = zp:FindFirstChild("Panneau")
+		if pan then
+			pan.Size = UDim2.fromScale(17, 4.5)
+		end
 	end
 	if ancienPanneau then
 		ancienPanneau:Destroy()
@@ -312,8 +317,8 @@ local FINITIONS = {
 
 -- Une machine par entrée : modèle, nombre, échelle, écart entre centres, finition
 local MACHINES = {
-	PuissanceDebutant = { modele = "salle_cage", n = 3, echelle = 0.85, ecart = 8.2, finition = "peint" },
-	PuissanceConfirme = { modele = "salle_cage", n = 3, echelle = 0.85, ecart = 8.2, finition = "chrome" },
+	PuissanceDebutant = { modele = "salle_cage", n = 3, echelle = 0.8, ecart = 8.4, finition = "peint" },
+	PuissanceConfirme = { modele = "salle_cage", n = 3, echelle = 0.8, ecart = 8.4, finition = "chrome" },
 	PuissanceElite = { modele = "salle_cage", n = 2, echelle = 1.15, ecart = 12, finition = "or_", socle = true },
 	VitesseDebutant = { modele = "salle_presse", n = 3, echelle = 1, ecart = 7.5, finition = "peint" },
 	VitesseConfirme = { modele = "salle_tapis", n = 3, echelle = 1, ecart = 7, finition = "chrome" },

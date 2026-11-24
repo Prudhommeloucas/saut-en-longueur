@@ -57,7 +57,7 @@ Place ronde, centre vers (-90, 0, 0), rayon d'environ 85 studs. Ce sont des vale
 | Ouest, surélevé | Portail vers le monde 2, sur des marches, visible de partout | `Portail` |
 | À côté du portail | Panthéon, avec la grande vasque et sa flamme sur le toit | `Pantheon` |
 | Entre la place et la piste | Podium, panneaux de classement | `Podium`, `PanneauClassement` |
-| Estrade dorée | Zone VIP | `ZoneEntrainement` avec `PasseRequis` |
+| Estrade dorée | Deux zones VIP (Puissance, Vitesse) depuis T-206 | `ZoneEntrainement` avec `Palier` = 4 |
 
 Multiplicateurs et conditions des zones : [[Entraînement]]. Chaque zone fait environ 24 × 24 studs. Le palier se lit à la taille et à la matière de la machine : simple, puis chromée, puis dorée et lumineuse.
 

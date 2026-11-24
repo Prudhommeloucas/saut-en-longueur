@@ -13,7 +13,8 @@ Chemins depuis `Workspace.Mondes.Monde1`. La place centrale ronde (T-114, 2026-1
 | Marquages au sol | `Spawn.Marquages` | | du bord de la rosace vers la piste (orange), la Puissance (rouge), la Vitesse (bleu), les stands (jaune), les œufs (violet), le portail (turquoise) |
 | Zones de Puissance | `Entrainement.PuissanceDebutant`, `…Confirme`, `…Elite` | `ZoneEntrainement` (`Stat` = Puissance ; ×1, ×2 dès 25 m, ×12 dès 80 m, depuis T-201) | (-42, -36), (-66, -58), (-96, -64) |
 | Zones de Vitesse | `Entrainement.VitesseDebutant`, `…Confirme`, `…Elite` | `ZoneEntrainement` (`Stat` = Vitesse ; mêmes paliers) | (-42, 36), (-66, 58), (-96, 64) |
-| Estrade VIP | `Entrainement.EstradeVIP` | `ZoneEntrainement` (Puissance ×20 depuis T-201, `PasseRequis` = VIP : fermée sans passe) | (-90, -108) |
+| Estrade VIP | `Entrainement.EstradeVIP` (décor, 40 × 2 × 20, violette ; marches, tapis rouge, cordons et panneau « VIP ×20 » dans `Entrainement.DecorVIP`) ; zones `Entrainement.VIPPuissance` et `Entrainement.VIPVitesse` dessus (T-206, 2026-11-24) | `ZoneEntrainement` (`Palier` = 4 : ×20, attribut `PasseVIP` requis, fermées sans passe) | estrade (-90, -108) ; zones (-100, -107) et (-80, -107), 16 × 14 |
+| Machines d'entraînement | `Entrainement.Machines` (18 Models `NomDeZone_N`) | aucun (décor) | sur le bord extérieur de chaque zone (côté nord pour la Puissance et l'estrade, côté sud pour la Vitesse) : 3 cages peintes, 3 chromées, 2 dorées ; 3 presses, 3 tapis chromés, 2 dorés ; une cage et un tapis dorés sur l'estrade. Élite et VIP sur un socle Neon doré. Collision par une Part invisible `Collision` (le tapis : seulement le plateau) |
 | Stands | `Boutique.StandChaussures`, `StandPropulseur`, `StandMateriel`, `StandTenue` | `Stand` (`Famille` ; `Objet` = Chaussures, Jetpack sur les deux premiers) | devant le magasin depuis T-217 (2026-11-23), deux de chaque côté d'un passage de 14 studs vers le comptoir : Tenue (-127, -53), Matériel (-134, -40), Propulseur (-147, -18), Chaussures (-154, -6) |
 | Magasin | `Boutique.Magasin` (vrai modèle `place_magasin`, T-217 : auvent rayé, enseigne vide, comptoir, quatre niches) | `Magasin` ; invite `PromptBoutique` sur la Part invisible `Comptoir` | (-163, -42), à 84 studs du centre, ouvert vers le centre de la place ; 35 × 22 × 25 ; un arbre de `ArbresPlace` reculé pour ne pas traverser le toit |
 | Tableau des quêtes | `Decor.TableauQuetes` (vrai modèle `place_tableau`, T-218) | `TableauQuetes` ; Part invisible `Ecran` | (-130, -80), au bord de la place entre la zone Élite Puissance et le magasin, tourné vers le centre ; 26,6 × 21,3 × 3,4 |
@@ -49,7 +50,7 @@ Le code lit la map par les tags (T-008, module `Shared/Util/Map`) : noms et doss
 
 ## À faire
 
-- Remplacer les blocs par les vrais modèles, une famille à la fois (T-206, T-207, T-503, T-605) ; panthéon et portail faits (T-405).
+- Remplacer les blocs par les vrais modèles, une famille à la fois (T-207, T-503, T-605) ; panthéon et portail faits (T-405), machines d'entraînement faites (T-206).
 - Brancher le portail (monde 2), le panthéon, le podium et le classement quand leur code existera.
 - Les mondes suivants sont décrits dans [[Mondes]], les modèles à produire dans [[Modèles 3D]].
 - Si les sauts dépassent 500 m, allonger le sable (une Part est limitée à 2048 studs, il faudra en ajouter une deuxième).

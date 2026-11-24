@@ -32,7 +32,7 @@ Chaque monde propose trois paliers de zones pour chaque stat. Une zone est une s
 | Débutant | × 1 | Aucune |
 | Confirmé | × 2 | Record de 25 m |
 | Élite | × 12 | Record de 80 m |
-| Zone VIP | × 20 | Passe VIP ([[Monétisation]]) |
+| Zone VIP | × 20 | Passe VIP ([[Monétisation]]) ; deux zones sur l'estrade, Puissance et Vitesse (T-206) |
 
 Valeurs réglées par la simulation de T-201 (2026-11-22, `Config/Mondes`). Elles étaient de × 5, × 25 et × 40 ; avec le bonus de débutant (× 10 au départ, éteint à 60 m), ces paliers rendaient la suite trop rapide. Les attributs `Multiplicateur` des zones de la place ont été mis aux nouvelles valeurs.
 
@@ -95,4 +95,4 @@ Fait à T-201 (2026-11-22) : voir [[Économie]] pour les valeurs en place et la 
 ## À faire
 
 - Animations de squat et de mollets ([[Animations]]).
-- Machines de sport à la place des zones plates ([[Modèles 3D]]).
+- Machines de sport posées le 2026-11-24 (T-206) : cages à squat, presses à mollets, tapis de course, sur le bord extérieur de chaque zone ([[Map]]). Le joueur s'entraîne toujours debout dans la zone ; animations du joueur sur la machine à faire (T-208).
