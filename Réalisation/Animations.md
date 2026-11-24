@@ -59,3 +59,7 @@ Exception décidée le 2026-11-12 : la **mascotte géante** du stade, et tout pe
 | `mascotte_applaudit` | Applaudissement après un saut parfait | Non |
 | `mascotte_record` | Saut de joie, bras levés | Non |
 | `mascotte_salut` | Signe de la main à l'arrivée d'un joueur | Non |
+
+## Animations du saut (T-107, 2026-11-24)
+
+Les sept animations du saut sont publiées sous le groupe et inscrites au [[Registre des animations]]. Elles ont été générées par l'outil `generate_animation` du MCP Roblox Studio, à partir des descriptions du tableau ci-dessus, **dans la place partagée** (il publie sous le propriétaire de la place). Les clips modifiables (KeyframeSequence) sont dans `ServerStorage.SourcesAnimations` de la place partagée ; pour corriger une animation, l'ouvrir dans l'éditeur d'animation, la republier sous le groupe et mettre l'identifiant à jour. Toutes sont publiées en boucle : le code (T-112) met `Looped = false` pour `appel`, les réceptions et la célébration. Durées arrondies par l'outil à 1 ou 2 s (l'appel fait 1 s au lieu de 0,3 : le jouer en accéléré). Vérifiées à l'œil sur un personnage : course penchée, genou levé à l'appel, chute à plat ventre, bras levé au record.
