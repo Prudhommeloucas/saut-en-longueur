@@ -358,3 +358,60 @@ Small details: a golden medal on a blue ribbon around the neck (#FFC83D); a smal
 
 Sheet layout: 6 views of the SAME model, same size, evenly spaced on one image in 2 rows: front, back, left side, right side, 3/4 front, top. Neutral A-pose for rigging: arms down at about 45 degrees away from the body, legs straight and slightly apart, head straight. Keep every part clearly separated and readable (head, ears, eyes, muzzle, headband, torso, jersey, medal, upper arms, forearms, hands, wristbands, thighs, shins, feet, shoes, tail) so it can be rebuilt in 3D with few polygons.
 ```
+
+## Parc et lac (T-215)
+
+Prompts remplis le 2026-11-24, d'après la toile « Plan du parc et du lac » (https://claude.ai/artifact/UCm6JugdAtRVrCMso3wYqU), validée par Loucas. Les blocs sont posés (`assets/plans/construction_t215.luau`). Joindre la planche du tunnel (`stade_tunnel`) ou de l'arche pour garder le style. Aucun texte dessiné : la distance des arches et le panneau du monde 2 sont écrits dans Studio.
+
+### Arche de palier (`palier_arche`)
+
+Un seul modèle pour 200 m et 300 m (puis 400 et 500 m), 72 de large et 42 de haut ; le haut est traversé en vol, sans collision.
+
+```text
+Create a prop turnaround sheet of an original milestone arch for a Roblox long jump game: "Milestone Gate", a tall arch standing over the long sand landing strip of world 1 ("Beginner Stadium") every 100 meters. Jumpers fly through it; the distance is shown in big on a plaque. Same cartoon style as the attached stadium arch.
+
+Style: cartoon 3D game asset, chunky exaggerated proportions, simple shapes with bevelled edges, flat cartoon colors, smooth plastic look, soft studio lighting, pure white background. Low detail, readable from very far away and on a phone. Joyful and sporty. No text, no letters, no numbers, no logos, no brand, no people, no ground, no shadow, no flags.
+
+Design: a wide gate about 72 units wide, 42 high and 9 deep, with a big opening 56 wide and 32 high.
+Main body: two thick square pillars with rounded edges, bright blue (#1E90FF), each topped with a chunky golden cap (#FFC83D) and decorated with three short white horizontal stripes (#FFFFFF) near the bottom.
+Top beam: a thick orange beam (#FF7A1A) joining the pillars, slightly arched upward in the middle, with a white edge.
+Plaque: a very big blank golden plaque (#FFC83D) in the middle of the beam, on both faces, left blank.
+Small details: two small golden stars on the beam, one on each side of the plaque; a rounded white base at the foot of each pillar.
+Colors: at most four colors: #1E90FF, #FF7A1A, #FFC83D, #FFFFFF.
+
+Sheet layout: 6 views of the SAME object, same size, evenly spaced on one image in 2 rows: front, back, left side, right side, 3/4 front, top. Keep every part clearly separated and readable (two pillars, caps, stripes, bases, beam, plaque, stars) so it can be rebuilt in 3D with few polygons.
+```
+
+### Parc (`parc_arbre`, `parc_kiosque`, `parc_montgolfiere`, `parc_cerf_volant`)
+
+Une planche pour les quatre objets, à la même échelle : arbre rond (12 à 20 de haut), kiosque à musique (24 de large, 15 de haut, toit séparé qui tourne), montgolfière (ballon de 20, nacelle séparée), cerf-volant (6 de large).
+
+```text
+Create a prop sheet of four original park props for a Roblox long jump game, placed in a sunny park along the sand landing strip of world 1, between 100 and 200 meters, at the same scale, side by side. Same cartoon style as the attached stadium arch.
+
+Style: cartoon 3D game asset, chunky exaggerated proportions, simple rounded shapes with bevelled edges, flat cartoon colors, smooth plastic look, soft studio lighting, pure white background. Low detail, readable from far away and on a phone. Joyful and sunny. No text, no letters, no numbers, no logos, no brand, no people, no ground, no shadow.
+
+1. "Round Tree": a cartoon tree about 16 units tall: a short thick brown trunk (#7A4E26) and one big round puffy crown made of three overlapping balls, bright green (#2F8A45) with lighter green highlights (#4CC96B).
+2. "Bandstand": a round open music kiosk about 24 units wide and 15 high: a white round base with two steps (#FFFFFF), eight thin white columns, and a cone-shaped roof in orange and white segments (#FF7A1A, #FFFFFF) with a small golden ball on top (#FFC83D). The roof is a separate part.
+3. "Hot Air Balloon": a round balloon about 20 units wide with vertical orange and golden stripes (#FF7A1A, #FFC83D) and a white band around the middle, four thin ropes, and a small brown wicker basket (#8B5A2B) underneath. The basket is a separate part.
+4. "Kite": a diamond-shaped kite about 6 units wide, purple and white in four triangles (#9B5CFF, #FFFFFF), with a short tail of three small bows.
+
+Sheet layout: the four props side by side, each shown three times: front, side and 3/4 view (12 images in total, 4 rows). Keep every part clearly separated and readable (trunk, crown; base, steps, columns, roof, top ball; balloon, band, ropes, basket; kite panels, tail) so they can be rebuilt in 3D with few polygons.
+```
+
+### Lac (`lac_voilier`, `lac_canard`, `lac_bouee`, `lac_roseaux`)
+
+Une planche pour les quatre objets, à la même échelle : voilier (16 de long, voile séparée), canard (2 de long), bouée (3 de haut), touffe de roseaux (5 de haut).
+
+```text
+Create a prop sheet of four original lake props for a Roblox long jump game, placed on a sunny lake on both sides of a sand pier, between 200 and 300 meters, at the same scale, side by side. Same cartoon style as the attached stadium arch.
+
+Style: cartoon 3D game asset, chunky exaggerated proportions, simple rounded shapes with bevelled edges, flat cartoon colors, smooth plastic look, soft studio lighting, pure white background. Low detail, readable from far away and on a phone. Joyful and sunny. No text, no letters, no numbers, no logos, no brand, no people, no water, no ground, no shadow.
+
+1. "Sailboat": a small cartoon sailboat about 16 units long: a rounded white hull (#FFFFFF) with a blue stripe (#1E90FF) along the waterline, a brown wooden mast (#7A4E26) and one big triangular cream sail (#FFF3D6) with an orange stripe (#FF7A1A). The sail is a separate part.
+2. "Duck": a cute rubber-duck-like duck about 2 units long, bright yellow (#FFD84A) with an orange beak (#FF7A1A) and two black dot eyes.
+3. "Buoy": a round floating buoy about 3 units tall, red and white bands (#E5484D, #FFFFFF) with a small golden light on top (#FFC83D).
+4. "Reeds": a clump of tall green reeds about 5 units tall (#5E9E3A) with three brown cattail tips (#7A4E26).
+
+Sheet layout: the four props side by side, each shown three times: front, side and 3/4 view (12 images in total, 4 rows). Keep every part clearly separated and readable (hull, stripe, mast, sail; duck body, head, beak; buoy body, bands, light; reed leaves, cattails) so they can be rebuilt in 3D with few polygons.
+```

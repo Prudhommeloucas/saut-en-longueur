@@ -75,3 +75,13 @@ Vrais modèles posés le 2026-11-18 par `assets/plans/modeles_t105.luau` : arche
 ## Salle d'entraînement (T-206, 2026-11-24)
 
 Relevé de la toile « Plan de la salle d'entraînement » (https://claude.ai/artifact/M7u49Lk7QE5FZzxFdgSVi6), validée par Loucas. Les six zones au sol gardent leur place et leur taille ; l'estrade VIP passe à 40 × 2 × 20 en (−90, −108) et porte deux zones 16 × 14, `VIPPuissance` (−100, −107) et `VIPVitesse` (−80, −107). Machines sur le bord extérieur de chaque zone, l'avant vers le centre de la zone (le tapis : console au bord, écran tourné vers la place). Posé directement dans la place partagée par `assets/plans/construction_t206.luau` (la copie n'a pas la place centrale). Écart avec la toile : les cages Débutant et Confirmé sont à l'échelle 0,8, écartées de 8,4, sinon leurs barres se touchent.
+
+## Parc et lac (T-215, 2026-11-24)
+
+Relevé de la toile « Plan du parc et du lac » (https://claude.ai/artifact/UCm6JugdAtRVrCMso3wYqU), validée par Loucas. Posé en blocs dans la place partagée par `assets/plans/construction_t215.luau` (224 Parts dans `Workspace.Mondes.Monde1.Paliers`) :
+
+- `Arches.Arche200` et `Arche300` (X 920 et 1320) : piliers à Z ±32, poutre de Y 32 à 40 sans collision, plaque « 200 m » / « 300 m », tag `ArchePalier` avec `Distance` et `Monde`, deux `LanceurFeuArtifice` à Z ±40.
+- `Parc` : 17 arbres, allée à Z −45, 4 bancs, kiosque à (700, −75) au toit qui tourne, panneau du monde 2 à X 720, 3 montgolfières à Y 70 / 95 / 110, 2 cerfs-volants, vol d'oiseaux à Y 70, collines à Z ±185 de X 560 à 1320.
+- `Lac` : eau de Z ±22 à ±140 de X 920 à 1320 (dessus à Y −0,1), pilotis tous les 20 studs à Z ±21,8, roseaux, 3 voiliers, 7 canards, 4 jets d'eau.
+
+Les 22 arbres de `Decor.ArbresPiste` entre X 520 et 1340 sont rangés dans `ServerStorage.Modeles.BlocsT215`. Rendu vérifié par captures dans Studio (parc et lac).
