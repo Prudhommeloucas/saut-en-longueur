@@ -24,6 +24,7 @@ Chemins depuis `Workspace.Mondes.Monde1`. La place centrale ronde (T-114, 2026-1
 | Portail | `Portails.PortailMonde2` (vrai modèle `portail_monde2`, T-405 : arche, tourbillon, spirale, cadenas) | `Portail` (`VersMonde` = 2), pas encore lu | (-172, 0) |
 | Panthéon | `Decor.Pantheon` (vrai modèle `pantheon` à l'échelle 1,3, T-405 : statue dorée, vasque et flamme) | `Pantheon` ; `Vasque` sur sa flamme | (-220, 30) : décalé du portail pour ne pas être caché (2026-11-17) |
 | Classement et podium | `Decor.PanneauClassement`, `Decor.Podium` (`Place1` à `Place3`) | `PanneauClassement` (`Classement` = monde), `Podium` | (-4, -40), (-4, 40) : décalés du relevé, les tribunes occupant X 8 à 112 |
+| Voyage par paliers | `Paliers.Arches` (arches de 200 et 300 m), `Paliers.Parc` (100 à 200 m), `Paliers.Lac` (200 à 300 m) | `ArchePalier`, `LanceurFeuArtifice`, `DecorAnime` | X de 520 à 1320, voir [[Construction du monde 1]] et le relevé `assets/plans/monde1.md` (T-215) |
 | Limites cachées | `Decor.Collines` (21), `Decor.ArbresPlace` (17 arbres) | | anneau de rayon 118 à 128, plus loin derrière l'estrade VIP (150) et le panthéon (168), ouvert vers la piste |
 | Arche d'entrée | `Piste.Arche.Arche` (vrai modèle `stade_arche`, T-105) | | X = 0, 33,6 de large, 35 de haut avec l'écran |
 | Piste d'élan | `Piste.Piste` (brique), deux `Piste.LignePiste` | `Piste` (`Monde` = 1) | X de 0 à 120, 16 de large |

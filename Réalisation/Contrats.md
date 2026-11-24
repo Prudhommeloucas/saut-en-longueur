@@ -59,6 +59,7 @@ La map est rangée dans `Workspace.Mondes.Monde1` depuis T-007 (2026-11-17), voi
 | `Mascotte` | Model à squelette de la mascotte géante | aucun | prévu |
 | `Vasque` | Model de la vasque, avec une Part `Flamme` | aucun | dans le panthéon (T-405) : Model `Vasque` avec `Flamme` (PrimaryPart) et `FlammeCoeur`, en Neon ; tagué aussi `DecorAnime` (Pulsation) |
 | `DrapeauVent` | Model d'un drapeau qui se tend pendant le vent favorable | aucun | prévu |
+| `ArchePalier` | Model d'une arche de palier du voyage (modèle `palier_arche`), plaque `Plaque` invisible avec la distance en SurfaceGui sur ses deux faces | `Distance` (m), `Monde` | posé (T-215, 2026-11-24) à 200 et 300 m dans `Monde1.Paliers.Arches`, chacune avec deux `LanceurFeuArtifice` (`Palier` = 1 et 2) ; pas encore lu par le code (T-118) |
 | `BandePiste` | Parts lumineuses de la piste (saut doré) | aucun | prévu |
 | `Public` | Model d'un bloc de spectateurs, pour la ola | `Rang` (ordre dans la vague) | posé (T-106, 2026-11-22) : un Model `Public` dans chacun des 48 modules de `Decor.Tribunes`, `Rang` 1 à 24 d'ouest en est (même rang des deux côtés), 929 spectateurs `stade_spectateur` (MeshParts `Corps` et `Tete`, couleurs variées) sans collision |
 
