@@ -6,6 +6,7 @@ local ORDRE = {
 	"Audio", -- sons d'interface
 	"Hud", -- affichage : stats, distance, messages
 	"Saut", -- jetpack, caméra, distance en direct
+	"Effets", -- effets du saut annoncés par le serveur : sable, confettis, appel parfait
 	"Rythme", -- entraînement actif : cercle et appuis
 	"Paliers", -- prochain palier, fonctions qui s'ouvrent
 	"Recompenses", -- panneau provisoire des quêtes, cadeaux, roue, codes

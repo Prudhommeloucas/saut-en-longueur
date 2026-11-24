@@ -42,7 +42,7 @@ Pour cocher : `- [x] T-101 Appel — Code (2026-11-15, P3)`. On ne modifie que l
 - [ ] T-108 `HudSaut` et `PanneauResultat` — Interface
 - [ ] T-109 `HudPrincipal` — Interface
 - [ ] T-110 Sons du saut, ambiance et musique du stade — Son
-- [ ] T-111 Effets visuels du saut — Effets
+- [x] T-111 Effets visuels du saut — Effets (2026-11-24, P2 ; sable, confettis, appel parfait, aura du saut rare, traînée du corps dans `Assets.Effets`)
 - [ ] T-112 Branchement — Code
 - [ ] T-118 Branchement du décor sur le saut — Code
 - [ ] T-113 Séance de jeu — Tous

@@ -25,8 +25,8 @@ Ambiance (service `Lighting`) : fin d'après-midi (16 h 12), brume légère, blo
 | « +1 » au-dessus de la tête | Gain de Puissance ou de Vitesse | `ClientSaut`, fonction `popup` |
 | Traînée orange aux pieds | Chaussures possédées, joueur sur la piste | `JeuSaut`, `ajouterTrainee` et `activerTrainees` |
 | Flammes, lueur et son du jetpack | Pendant la poussée | `JeuSaut`, `ajouterFlamme` et `activerJetpack` |
-| Gerbe de sable et bruit d'impact | Atterrissage | `JeuSaut`, `effetAtterrissage` |
-| Confettis et fanfare | Nouveau record | `JeuSaut`, `effetAtterrissage` |
+| Gerbe de sable et bruit d'impact | Atterrissage | effet `Sable` (T-111, voir plus bas) |
+| Confettis et fanfare | Nouveau record | effet `Confettis` (T-111) |
 | Son de pièces | Saut qui rapporte des pièces | `ClientSaut` |
 | Champ de vision élargi | Vitesse élevée (de 70 à 100 maximum) | `ClientSaut`, valeurs `FOV_BASE` et `FOV_MAX` dans `Config` |
 
@@ -63,3 +63,17 @@ Animé par le tag `DecorAnime` (T-117, voir [[Animations]] et [[Contrats]]), san
 | Anneau lumineux sous la statue du panthéon | Pulsation | 0,7 fois par seconde, ± 6 % |
 | Roue des œufs | Rotation | 25° par seconde, autour de l'axe du cylindre |
 | 25 drapeaux le long du bac | Balancement | 0,6 fois par seconde, ± 14°, autour du bord collé au mât (pivot réglé) |
+
+## Effets du saut (T-111, 2026-11-24)
+
+Ils remplacent la gerbe et les confettis que le service `Saut` fabriquait lui-même, qui ne se voyaient pas : `ParticleEmitter:Emit` appelé sur le serveur n'est pas transmis aux joueurs. Les effets sont construits dans Studio (`ReplicatedStorage.Assets.Effets`, script `assets/plans/effets_t111.luau`, textures intégrées à Roblox) et joués par `Shared/Util/Effets` ; le serveur envoie l'événement `Effet` et le contrôleur `Effets` les joue chez chaque joueur. Réglages dans `Config/Effets`.
+
+| Effet | Déclencheur | Contenu |
+| --- | --- | --- |
+| `Sable` | Atterrissage (service `Saut`) | Grains, nuage de poussière, onde au sol ; échelle = vitesse d'arrivée / 60, entre 0,6 et 2,5 |
+| `Confettis` | Nouveau record | Confettis carrés aux cinq couleurs du jeu qui tournoient, étoiles dorées ; avec la fanfare |
+| `AppelParfait` | Appel jugé Parfait (échelle 1) ou Bon (0,4) | Anneau doré au sol, éclat d'étoiles, étincelles |
+| `AuraDoree` | Saut rare en cours (attribut `SautRare`) | Paillettes dorées autour du joueur et lueur ; la traînée du corps passe à l'or (doré) ou au violet (légendaire) |
+| `Trainee` | Sur la piste et en vol (avec les traînées des chaussures) | Traînée blanche à orange, de la tête aux hanches, pour tous les joueurs |
+
+Testé dans la copie : saut réel (sable et confettis reçus), appel Parfait (éclat reçu), aura et traînée vues en course. Restent pour T-118 : piste dorée et ovation au saut rare, canons à confettis au saut parfait.

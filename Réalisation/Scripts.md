@@ -40,6 +40,8 @@ Attributs du Player ajoutés : `Gemmes` (recopié dans la sauvegarde), `TiragesP
 
 Attribut `Equipe` sur chaque Player (« espece:version,… ») : les compagnons équipés, lus par tous les clients pour les afficher.
 
+- `Effet`, serveur vers tous les joueurs (T-111) : nom d'un effet d'`Assets.Effets`, position, échelle ; le contrôleur `Effets` le joue chez chacun (`ParticleEmitter:Emit` appelé sur le serveur ne se voit pas chez les joueurs).
+
 Les effets visuels et les sons sont décrits dans [[Décor et effets]].
 
 ## Données d'un joueur

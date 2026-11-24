@@ -61,6 +61,9 @@ local EVENEMENTS = {
 	"ResultatRoue",
 	-- serveur → joueur : (index: number) le cadeau de la place centrale vient de s'ouvrir (T-219), pour l'animer
 	"CadeauOuvert",
+	-- serveur → joueurs : (nom: string, position: Vector3, echelle: number?) effet ponctuel d'Assets.Effets à jouer
+	-- chez chaque joueur (T-111 : ParticleEmitter:Emit sur le serveur ne se voit pas chez les joueurs)
+	"Effet",
 }
 
 local Remotes = {} :: { [string]: RemoteEvent }

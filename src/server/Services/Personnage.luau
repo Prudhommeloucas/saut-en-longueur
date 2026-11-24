@@ -5,6 +5,8 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 local Config = ReplicatedStorage:WaitForChild("Shared"):WaitForChild("Config")
 local Sons = require(Config:WaitForChild("Sons"))
+local EffetsConfig = require(Config:WaitForChild("Effets"))
+local Effets = require(ReplicatedStorage:WaitForChild("Shared"):WaitForChild("Util"):WaitForChild("Effets"))
 local Donnees = require(script.Parent.Donnees)
 
 local dossierModeles = ReplicatedStorage:WaitForChild("Assets"):WaitForChild("Equipement")
@@ -163,6 +165,30 @@ local function ajouterTuyere(m: Model, parent: Instance)
 	ajouterFlamme(t, true)
 end
 
+-- Saut rare en cours (attribut « SautRare », posé par le service Saut au passage de la planche) :
+-- aura dorée autour du joueur et traînée du corps à la couleur du saut rare (T-111)
+function Personnage.majSautRare(player: Player)
+	local char = player.Character
+	local hrp = char and char:FindFirstChild("HumanoidRootPart")
+	if not (hrp and hrp:IsA("BasePart")) then
+		return
+	end
+	local id = player:GetAttribute("SautRare")
+	local actif = type(id) == "string" and id ~= ""
+	local aura = hrp:FindFirstChild("AuraDoree")
+	if actif and not aura then
+		Effets.attacher("AuraDoree", hrp)
+	elseif not actif and aura then
+		aura:Destroy()
+	end
+	local trainee = char:FindFirstChild("ObjetsSaut") and char.ObjetsSaut:FindFirstChild("Trainee")
+	if trainee and trainee:IsA("Trail") then
+		trainee.Color = if actif
+			then EffetsConfig.TRAINEE_RARE[id] or EffetsConfig.TRAINEE_RARE.Dore
+			else EffetsConfig.TRAINEE_NORMALE
+	end
+end
+
 -- Porte les objets du joueur (attributs « Chaussures », « Propulseur » ; la tenue n'a pas encore de modèle, T-207)
 function Personnage.equiperVisuels(player: Player)
 	local char = player.Character
@@ -176,6 +202,13 @@ function Personnage.equiperVisuels(player: Player)
 	local dossier = Instance.new("Model")
 	dossier.Name = "ObjetsSaut"
 	dossier.Parent = char
+
+	-- Traînée du corps (T-111) : dans ObjetsSaut, elle s'allume et s'éteint avec les autres traînées (sur la piste)
+	local hrp = char:FindFirstChild("HumanoidRootPart")
+	if hrp and hrp:IsA("BasePart") then
+		Effets.trainee("Trainee", hrp, EffetsConfig.TRAINEE_HAUTEUR, dossier)
+		Personnage.majSautRare(player)
+	end
 
 	local propulseur = player:GetAttribute("Propulseur")
 	local torse = char:FindFirstChild("UpperTorso") or char:FindFirstChild("Torso")
@@ -222,6 +255,9 @@ local function surPersonnage(player: Player, char: Model)
 end
 
 local function surJoueur(player: Player)
+	player:GetAttributeChangedSignal("SautRare"):Connect(function()
+		Personnage.majSautRare(player)
+	end)
 	player.CharacterAdded:Connect(function(char)
 		surPersonnage(player, char)
 	end)

@@ -2,7 +2,6 @@
 -- effets d'atterrissage, flammes du jetpack dans la limite du carburant.
 local Players = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local Debris = game:GetService("Debris")
 local RunService = game:GetService("RunService")
 
 local Shared = ReplicatedStorage:WaitForChild("Shared")
@@ -14,6 +13,8 @@ local Mondes = require(Config:WaitForChild("Mondes"))
 local Sons = require(Config:WaitForChild("Sons"))
 local Remotes = require(Shared:WaitForChild("Remotes"))
 local Map = require(Shared:WaitForChild("Util"):WaitForChild("Map"))
+local Effets = require(Shared:WaitForChild("Util"):WaitForChild("Effets"))
+local EffetsConfig = require(Config:WaitForChild("Effets"))
 local Donnees = require(script.Parent.Donnees)
 local Personnage = require(script.Parent.Personnage)
 local Compagnons = require(script.Parent.Compagnons)
@@ -26,70 +27,29 @@ local Saut = {}
 
 local enAtterrissage = {} -- [player] = true entre l'atterrissage et le retour piste
 
--- Gerbe de sable à l'atterrissage, confettis et fanfare en cas de record
-local function effetAtterrissage(position: Vector3, estRecord: boolean)
-	local p = Instance.new("Part")
-	p.Name = "EffetAtterrissage"
-	p.Anchored = true
-	p.CanCollide = false
-	p.CanTouch = false
-	p.CanQuery = false
-	p.Transparency = 1
-	p.Size = Vector3.new(3, 0.2, 3)
-	p.Position = Vector3.new(position.X, 0.2, position.Z)
-
-	local s = Instance.new("ParticleEmitter")
-	s.Texture = "rbxasset://textures/particles/smoke_main.dds"
-	s.Enabled = false
-	s.EmissionDirection = Enum.NormalId.Top
-	s.Color = ColorSequence.new(Color3.fromRGB(232, 205, 140))
-	s.Lifetime = NumberRange.new(0.6, 1.1)
-	s.Speed = NumberRange.new(12, 26)
-	s.SpreadAngle = Vector2.new(55, 55)
-	s.Acceleration = Vector3.new(0, -50, 0)
-	s.Size = NumberSequence.new({ NumberSequenceKeypoint.new(0, 1.5), NumberSequenceKeypoint.new(1, 3.5) })
-	s.Transparency = NumberSequence.new({ NumberSequenceKeypoint.new(0, 0.2), NumberSequenceKeypoint.new(1, 1) })
-	s.Parent = p
-
+-- Son joué depuis le support d'un effet (entendu par les joueurs proches)
+local function jouerSon(support: BasePart, id: string, volume: number)
 	local son = Instance.new("Sound")
-	son.SoundId = Sons.Atterrissage
-	son.Volume = 1.5
+	son.SoundId = id
+	son.Volume = volume
 	son.RollOffMaxDistance = 200
-	son.Parent = p
-
-	local confettis, fanfare
-	if estRecord then
-		confettis = Instance.new("ParticleEmitter")
-		confettis.Texture = "rbxasset://textures/particles/sparkles_main.dds"
-		confettis.Enabled = false
-		confettis.EmissionDirection = Enum.NormalId.Top
-		confettis.Color = ColorSequence.new({
-			ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 220, 80)),
-			ColorSequenceKeypoint.new(0.5, Color3.fromRGB(255, 90, 120)),
-			ColorSequenceKeypoint.new(1, Color3.fromRGB(90, 170, 255)),
-		})
-		confettis.LightEmission = 0.7
-		confettis.Lifetime = NumberRange.new(1.5, 2.5)
-		confettis.Speed = NumberRange.new(25, 45)
-		confettis.SpreadAngle = Vector2.new(35, 35)
-		confettis.Acceleration = Vector3.new(0, -40, 0)
-		confettis.Size = NumberSequence.new(1.2)
-		confettis.Parent = p
-		fanfare = Instance.new("Sound")
-		fanfare.SoundId = Sons.Record
-		fanfare.Volume = 0.8
-		fanfare.RollOffMaxDistance = 200
-		fanfare.Parent = p
-	end
-
-	p.Parent = workspace
-	s:Emit(35)
+	son.Parent = support
 	son:Play()
-	if confettis then
-		confettis:Emit(70)
-		fanfare:Play()
+end
+
+-- Gerbe de sable à l'atterrissage (plus grosse si l'on arrive vite), confettis et fanfare en cas de record.
+-- Les effets sont ceux d'Assets.Effets (T-111) : Sable et Confettis.
+local function effetAtterrissage(position: Vector3, estRecord: boolean, vitesse: number)
+	local pieds = position - Vector3.new(0, EffetsConfig.PIEDS, 0)
+	local echelle = math.clamp(
+		vitesse / EffetsConfig.SABLE_VITESSE_REF,
+		EffetsConfig.SABLE_ECHELLE_MIN,
+		EffetsConfig.SABLE_ECHELLE_MAX
+	)
+	jouerSon(Effets.jouer("Sable", pieds, echelle), Sons.Atterrissage, 1.5)
+	if estRecord then
+		jouerSon(Effets.jouer("Confettis", pieds), Sons.Record, 0.8)
 	end
-	Debris:AddItem(p, 6)
 end
 
 -- Sauts rares ---------------------------------------------------------
@@ -133,6 +93,11 @@ local function surAppel(player: Player, xJoueur: unknown)
 	if q then
 		appel[player] = { id = q.id, temps = os.clock() }
 		player:SetAttribute("Appel", q.id)
+		-- Éclat doré sous les pieds pour un appel Parfait (plus discret pour un appel Bon)
+		local echelle = EffetsConfig.APPEL[q.id]
+		if echelle then
+			Effets.jouer("AppelParfait", hrp.Position - Vector3.new(0, EffetsConfig.PIEDS, 0), echelle)
+		end
 	end
 end
 
@@ -396,7 +361,7 @@ local function atterrir(player: Player, char: Model, hrp: BasePart, monde: numbe
 	end
 	Recompenses.compter(player, "Serie", Saut.serieDe(player))
 	Remotes.SautResultat:FireClient(player, metres, gain, estRecord, idRare, idAppel, maitrise)
-	effetAtterrissage(hrp.Position, estRecord)
+	effetAtterrissage(hrp.Position, estRecord, hrp.AssemblyLinearVelocity.Magnitude)
 	Personnage.activerJetpack(char, false)
 	Compagnons.gagnerExperience(player)
 
