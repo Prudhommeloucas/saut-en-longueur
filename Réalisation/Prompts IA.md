@@ -235,3 +235,65 @@ Colors: at most four colors: #9B5CFF, #FFC83D, #FFFFFF, #1E90FF.
 
 Sheet layout: 6 views of the SAME object, same size, evenly spaced on one image in 2 rows: front, back, left side, right side, 3/4 front, top. Keep every part clearly separated and readable (box, lid, ribbons, bow loops, bow tails, pedestal, pedestal edge) so it can be rebuilt in 3D with few polygons.
 ```
+
+## Machines d'entraînement (T-206)
+
+Prompts remplis le 2026-11-24, d'après la toile « Plan de la salle d'entraînement » (https://claude.ai/artifact/M7u49Lk7QE5FZzxFdgSVi6), validée par Loucas. Trois modèles seulement : la finition (peint, chromé, doré) et la taille (× 1,25 à 1,3 pour l'Élite et le VIP) se règlent dans Studio. Le cadre doit donc rester une pièce séparée d'une seule couleur, facile à recolorer. Les pièces qui bougent (barre, plateau, bande) sont séparées et nommées pour `DecorAnime`. Joindre la planche du magasin (`place_magasin`) aide à garder le style.
+
+### Cage à squat (`salle_cage`)
+
+Zones Puissance. Emprise 7 × 5 studs, hauteur 9. Le joueur s'entraîne debout devant : la cage est un décor animé.
+
+```text
+Create a prop turnaround sheet of an original squat rack for a Roblox long jump game: "Power Rack", a training machine on the spawn plaza of world 1 ("Beginner Stadium"), where players train their jump power. Same cartoon style as the attached shop.
+
+Style: cartoon 3D game asset, chunky exaggerated proportions, simple shapes with bevelled edges, flat cartoon colors, smooth plastic look, soft studio lighting, pure white background. Low detail, readable from far away and on a phone. Joyful and sporty. No text, no letters, no numbers, no logos, no brand, no people, no ground, no shadow.
+
+Design: an open squat rack about 7 units wide, 5 deep and 9 high, seen as a frame with nothing inside, so a player can stand under the bar.
+Main body: two thick square uprights with rounded edges joined at the top by a crossbar and at the bottom by two floor rails, all one single color, bright red (#E5484D).
+Barbell: a long dark grey bar (#2B2F38) resting across the uprights at chest height, wider than the rack, with two big round black weight plates (#1F2229) on each end and a thin white rim on each plate (#FFFFFF).
+Base: a flat rounded rubber floor mat, dark grey (#3A3F48), slightly larger than the rack.
+Small details: two chunky golden J-hooks (#FFC83D) holding the bar; two short safety arms sticking out at knee height, same red as the frame; a rounded cap on top of each upright.
+Colors: at most five colors: #E5484D, #2B2F38, #1F2229, #FFFFFF, #FFC83D.
+
+Sheet layout: 6 views of the SAME object, same size, evenly spaced on one image in 2 rows: front, back, left side, right side, 3/4 front, top. Keep every part clearly separated and readable (frame, crossbar, floor rails, safety arms, J-hooks, barbell, weight plates, floor mat) so it can be rebuilt in 3D with few polygons. The barbell with its plates must be one separate part that can move up and down.
+```
+
+### Presse à mollets (`salle_presse`)
+
+Zone Vitesse Débutant. Emprise 5 × 7 studs, hauteur 6. Le plateau incliné bascule.
+
+```text
+Create a prop turnaround sheet of an original standing calf raise machine for a Roblox long jump game: "Calf Press", a training machine on the spawn plaza of world 1 ("Beginner Stadium"), where players train their running speed. Same cartoon style as the attached shop.
+
+Style: cartoon 3D game asset, chunky exaggerated proportions, simple shapes with bevelled edges, flat cartoon colors, smooth plastic look, soft studio lighting, pure white background. Low detail, readable from far away and on a phone. Joyful and sporty. No text, no letters, no numbers, no logos, no brand, no people, no ground, no shadow.
+
+Design: a compact gym machine about 5 units wide, 7 deep and 6 high.
+Main body: a chunky L-shaped frame with rounded edges: a flat base on the floor and a thick vertical column at the back, all one single color, bright blue (#1E90FF).
+Foot platform: a wide flat platform near the floor, tilted upward toward the front like a ramp, dark grey (#2B2F38) with a white edge (#FFFFFF). It is a separate part that tilts.
+Shoulder pads: two big round padded cushions at shoulder height, attached to a horizontal arm coming from the column, golden yellow (#FFC83D).
+Weight stack: a short stack of black rectangular weight plates (#1F2229) inside the column, visible from the side.
+Small details: two short handles on the sides, dark grey; a rounded cap on top of the column.
+Colors: at most five colors: #1E90FF, #2B2F38, #FFFFFF, #FFC83D, #1F2229.
+
+Sheet layout: 6 views of the SAME object, same size, evenly spaced on one image in 2 rows: front, back, left side, right side, 3/4 front, top. Keep every part clearly separated and readable (frame, foot platform, shoulder arm, shoulder pads, weight stack, handles) so it can be rebuilt in 3D with few polygons.
+```
+
+### Tapis de course (`salle_tapis`)
+
+Zones Vitesse Confirmé et Élite, VIP Vitesse. Emprise 5 × 10 studs, hauteur 6. La bande défile, la console clignote.
+
+```text
+Create a prop turnaround sheet of an original treadmill for a Roblox long jump game: "Sprint Treadmill", a training machine on the spawn plaza of world 1 ("Beginner Stadium"), where advanced players train their running speed. Same cartoon style as the attached shop.
+
+Style: cartoon 3D game asset, chunky exaggerated proportions, simple shapes with bevelled edges, flat cartoon colors, smooth plastic look, soft studio lighting, pure white background. Low detail, readable from far away and on a phone. Joyful and sporty. No text, no letters, no numbers, no logos, no brand, no people, no ground, no shadow.
+
+Design: a wide, low treadmill about 5 units wide, 10 long and 6 high.
+Main body: a long rounded deck close to the floor with thick side rails, and two upright posts at the front holding the console, frame in one single color, light grey (#C7CFD8).
+Running belt: a wide flat black belt (#1F2229) on top of the deck, with a few thin white cross lines (#FFFFFF) so its movement can be seen. It is a separate part.
+Console: a chunky rounded console box at the top of the posts, dark navy (#16213E), with a big blank glowing cyan screen (#3BE0FF), left blank. Two handlebars come back from the console on each side, dark grey (#2B2F38).
+Small details: two orange speed stripes on each side rail (#FF7A1A); small rounded feet under the deck.
+Colors: at most six colors: #C7CFD8, #1F2229, #FFFFFF, #16213E, #3BE0FF, #FF7A1A.
+
+Sheet layout: 6 views of the SAME object, same size, evenly spaced on one image in 2 rows: front, back, left side, right side, 3/4 front, top. Keep every part clearly separated and readable (deck, side rails, running belt, posts, console, screen, handlebars, feet) so it can be rebuilt in 3D with few polygons.
+```
